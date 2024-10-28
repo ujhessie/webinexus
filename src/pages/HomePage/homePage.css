@@ -1,0 +1,35 @@
+.div-imgs {
+    .row-image {
+        width: 100%;
+
+        &.left {
+            animation: scroll-left 50s linear infinite;
+        }
+
+        &.right {
+            animation: scroll-right 50s linear infinite;
+        }
+    }
+}
+
+
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes scroll-right {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+

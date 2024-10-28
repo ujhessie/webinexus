@@ -1,0 +1,5 @@
+export * from "./Desc"
+export * from "./ImgCapa"
+export * from "./Tecnologias"
+export * from "./Titulo"
+export * from "./VerMais"

@@ -1,0 +1,14 @@
+.botao {
+    /* background: none; */
+    text-decoration: inherit;
+    font-family: system-ui;
+    font-size: 1rem;
+    padding: 1rem 2rem;
+    border: 10px solid;
+    border-image-slice: 1;
+    border-width: 5px;
+    border-radius: 20px;
+
+    border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
+    border-image: 20px;
+}

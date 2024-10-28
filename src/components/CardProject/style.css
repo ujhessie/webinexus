@@ -1,0 +1,30 @@
+.card-projeto {
+    &:hover {
+        .titulo-card-projeto {
+            color: transparent;
+        }
+
+        .imagem-capa {
+            transform: scale(1.2    ) rotate(-10deg);
+        }
+    }
+}
+
+.titulo-card-projeto {
+    background: linear-gradient(90deg, #ff4949, #bf36ff);
+    -webkit-background-clip: text;
+}
+
+.desc {
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Número de linhas desejadas */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.imagem-capa {
+    &:hover {
+
+    }
+}
