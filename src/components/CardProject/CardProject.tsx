@@ -8,7 +8,6 @@ import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/pagination";
 
-
 const CardProject = ({ id, ClassName }: { id: number; ClassName?: string }) => {
     const { projetos } = useProjetos();
 
@@ -26,7 +25,7 @@ const CardProject = ({ id, ClassName }: { id: number; ClassName?: string }) => {
             <div className='div-img bg-blue-300 absolute left-0 top-0 w-full h-full'>
                 <img
                     src={projeto.imagens?.imgCapa}
-                    className='absolute top-0 left-0 object-cover w-full h-full'
+                    className='absolute imagem-capa my-transition top-0 left-0 object-cover w-full h-full'
                     alt=''
                 />
             </div>

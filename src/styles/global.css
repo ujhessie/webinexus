@@ -19,6 +19,7 @@ body {
 
 .my-transition {
     transition: all 200ms ease-in-out;
+    
 }
 
 h1,
