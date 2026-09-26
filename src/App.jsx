@@ -1,6 +1,11 @@
-import React from "react";
-import { getSiteAtual } from "./config/sites";
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import { getSiteAtual } from './config/sites';
 
 export default function App() {
-    return getSiteAtual();
+  return (
+    <BrowserRouter>
+      {getSiteAtual()}
+    </BrowserRouter>
+  );
 }

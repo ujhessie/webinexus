@@ -1,19 +1,43 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import Botao from '../ui/Botao';
 
 /**
  * Componente de Cabeçalho flutuante responsivo (Cabecalho).
- * Possui navegação em pílula com efeito glassmorphism no Desktop e menu hambúrguer com drawer no Mobile.
+ * Reutilizável entre múltiplos sites (Web iNexus, Ujhessie, etc.).
+ * Suporta logo personalizada, lista dinâmica de links, botão CTA configurável e drawer mobile.
  */
-export default function Cabecalho() {
-  const [menuAberto, setMenuAberto] = useState(false);
-  const [itemAtivo, setItemAtivo] = useState('Página Inicial');
-
-  const linksNavegacao = [
-    { nome: 'Página Inicial', href: '#' },
+export default function Cabecalho({
+  logo,
+  links = [
+    { nome: 'Página Inicial', href: '/' },
     { nome: 'Serviços', href: '#servicos' },
     { nome: 'Nossos projetos', href: '#projetos' },
-  ];
+  ],
+  itemAtivoInicial,
+  ctaTexto = 'FALE CONOSCO',
+  ctaHref = '#',
+  className = '',
+}) {
+  const location = useLocation();
+  const [menuAberto, setMenuAberto] = useState(false);
+
+  // Define item ativo inicial com base na rota atual ou na prop
+  const getAtivoAtual = () => {
+    if (itemAtivoInicial) return itemAtivoInicial;
+    const linkCorrespondente = links.find((l) => l.href === location.pathname);
+    return linkCorrespondente ? linkCorrespondente.nome : links[0]?.nome || '';
+  };
+
+  const [itemAtivo, setItemAtivo] = useState(getAtivoAtual);
+
+  // Sincroniza com a mudança de rota
+  useEffect(() => {
+    const linkCorrespondente = links.find((l) => l.href === location.pathname);
+    if (linkCorrespondente) {
+      setItemAtivo(linkCorrespondente.nome);
+    }
+  }, [location.pathname, links]);
 
   // Fecha o menu mobile quando a tela for redimensionada para desktop
   useEffect(() => {
@@ -36,18 +60,31 @@ export default function Cabecalho() {
   };
 
   return (
-    <header className="relative w-full z-[1000] py-[18px] lg:py-6 transition-all duration-300">
+    <header className={`relative w-full z-[1000] py-[18px] lg:py-6 transition-all duration-300 ${className}`}>
       <div className="max-w-conteiner w-full mx-auto px-5 sm:px-[30px] lg:px-[70px] flex items-center justify-between">
         
         {/* Brand Logo */}
-        <a href="#" className="flex items-center no-underline transition-opacity duration-300 hover:opacity-90">
-          <img src="/logo.png" alt="Web iNexus Logo" className="h-[28px] sm:h-[34px] w-auto object-contain" />
-        </a>
+        {logo ? (
+          typeof logo === 'string' ? (
+            <Link
+              to="/"
+              className="font-titulo text-2xl sm:text-[26px] font-extrabold tracking-wider text-white no-underline hover:opacity-90 transition-opacity"
+            >
+              {logo}
+            </Link>
+          ) : (
+            logo
+          )
+        ) : (
+          <Link to="/" className="flex items-center no-underline transition-opacity duration-300 hover:opacity-90">
+            <img src="/logo.png" alt="Logo" className="h-[28px] sm:h-[34px] w-auto object-contain" />
+          </Link>
+        )}
 
         {/* Desktop Navbar (Pílula Glassmorphism) */}
-        <nav className="hidden lg:flex items-center bg-white/[0.05] border border-white/5 rounded-full p-2 backdrop-blur-xl shadow-[0_10px_30px_rgba(0,0,0,0.3)]">
+        <nav className="hidden lg:flex items-center bg-white/[0.05] border border-white/5 rounded-full p-1.5 backdrop-blur-xl shadow-[0_10px_30px_rgba(0,0,0,0.3)]">
           <ul className="flex items-center list-none gap-1 m-0 p-0">
-            {linksNavegacao.map((link) => (
+            {links.map((link) => (
               <li key={link.nome}>
                 <Botao
                   variante="navegacao"
@@ -64,7 +101,9 @@ export default function Cabecalho() {
 
         {/* Desktop Header CTA Button */}
         <div className="hidden lg:block">
-          <Botao variante="cabecalho" href="#" />
+          <Botao variante="cabecalho" href={ctaHref}>
+            {ctaTexto}
+          </Botao>
         </div>
 
         {/* Hamburger Button (Mobile Toggle) */}
@@ -98,7 +137,7 @@ export default function Cabecalho() {
           `}
         >
           <ul className="flex flex-col list-none gap-3 m-0 p-0">
-            {linksNavegacao.map((link) => (
+            {links.map((link) => (
               <li key={link.nome}>
                 <Botao
                   variante="navegacao"
@@ -117,10 +156,12 @@ export default function Cabecalho() {
           <div className="mt-6">
             <Botao
               variante="cabecalho"
-              href="#"
+              href={ctaHref}
               onClick={() => setMenuAberto(false)}
               className="w-full text-center justify-center py-3.5"
-            />
+            >
+              {ctaTexto}
+            </Botao>
           </div>
         </div>
 
