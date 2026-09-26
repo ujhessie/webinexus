@@ -1,0 +1,664 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   CSS Design System & Variables
+   ========================================================================== */
+:root {
+  /* Layout Constraints & Responsive Padding */
+  --max-width: 1400px;
+  --container-padding: 70px;
+
+  /* Typography */
+  --font-title: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Brand Palette (#7B1FE1 & #B62DFE) */
+  --color-purple-primary: #7B1FE1;
+  --color-purple-secondary: #B62DFE;
+  
+  /* Gradients */
+  --gradient-brand: linear-gradient(135deg, #7B1FE1 0%, #B62DFE 100%);
+  --gradient-button: linear-gradient(90deg, #7B1FE1 0%, #B62DFE 100%);
+  --gradient-button-hover: linear-gradient(90deg, #8B2CF5 0%, #C446FE 100%);
+  --gradient-badge: rgba(123, 31, 225, 0.16);
+
+  /* Solid Colors & Surfaces */
+  --color-bg: #06010d;
+  --color-white: #ffffff;
+  --color-body-text: #cbd5e1;
+  --color-muted-text: #94a3b8;
+  --color-badge-text: #d8b4fe;
+  --color-border-badge: rgba(182, 45, 254, 0.45);
+
+  /* Shadows & Glows */
+  --glow-badge: 0 0 20px rgba(182, 45, 254, 0.25);
+  --glow-badge-hover: 0 0 28px rgba(182, 45, 254, 0.45);
+  --glow-button: 0 10px 32px -4px rgba(123, 31, 225, 0.7), 0 0 24px rgba(182, 45, 254, 0.45);
+  --glow-button-hover: 0 16px 40px -4px rgba(123, 31, 225, 0.85), 0 0 32px rgba(182, 45, 254, 0.65);
+}
+
+/* ==========================================================================
+   Tailwind Base Layer & Headings
+   ========================================================================== */
+@layer base {
+  html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+    background-color: #06010d;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Estilos centralizados dos títulos com Tailwind CSS via @apply */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-titulo font-bold tracking-tight text-white;
+  }
+
+  @media (min-width: 1024px) {
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.2;
+    }
+  }
+
+  h1 {
+    @apply text-4xl sm:text-5xl lg:text-6xl leading-[1.08];
+  }
+
+  h2 {
+    @apply text-[34px] sm:text-[44px] lg:text-[54px] leading-[1.12];
+  }
+
+  h3 {
+    @apply text-2xl sm:text-3xl lg:text-4xl leading-snug;
+  }
+
+  h4 {
+    @apply text-xl sm:text-2xl lg:text-3xl leading-normal;
+  }
+
+  h5 {
+    @apply text-base sm:text-lg lg:text-xl leading-normal;
+  }
+
+  h6 {
+    @apply text-sm sm:text-base lg:text-lg leading-normal;
+  }
+
+  /* Estilos centralizados para parágrafos e textos comuns */
+  p, .texto-comum {
+    @apply font-corpo text-[16px] sm:text-[17.5px] lg:text-[18.5px] leading-[1.45];
+  }
+}
+
+/* ==========================================================================
+   Tailwind Utilities Layer
+   ========================================================================== */
+@layer utilities {
+  .hero-overlay-dark::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #06010d 0%, #06010d 38%, rgba(6, 1, 13, 0.94) 40%, rgba(6, 1, 13, 0.7) 70%, rgba(6, 1, 13, 0.2) 95%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  @media (max-width: 992px) {
+    .hero-overlay-dark::before {
+      background: linear-gradient(180deg, #06010d 0%, rgba(6, 1, 13, 0.96) 45%, rgba(6, 1, 13, 0.88) 100%);
+    }
+  }
+
+  .cta-shine::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+    transition: left 0.6s ease;
+  }
+
+  .cta-shine:hover::before {
+    left: 100%;
+  }
+
+  .texto-gradiente {
+    background: linear-gradient(135deg, #7B1FE1 0%, #B62DFE 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 25px rgba(182, 45, 254, 0.35));
+  }
+}
+
+/* ==========================================================================
+   Animações Marquee
+   ========================================================================== */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-reverso {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.animate-marquee-reverso {
+  display: flex;
+  width: max-content;
+  animation: marquee-reverso 30s linear infinite;
+}
+
+.animate-marquee-reverso:hover {
+  animation-play-state: paused;
+}
+
+/* ==========================================================================
+   Reset & Componentes Complementares
+   ========================================================================== */
+img, svg, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Container Rule */
+.container,
+.header-container {
+  max-width: var(--max-width);
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+/* Header Navbar */
+.header {
+  position: relative;
+  width: 100%;
+  z-index: 1000;
+  padding: 24px 0;
+  transition: all 0.3s ease;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.logo:hover {
+  opacity: 0.9;
+}
+
+.logo-img {
+  height: 34px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Nav Menu (Pill Navigation Container) */
+.nav-menu {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+  padding: 16px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 4px;
+}
+
+.nav-link {
+  font-family: var(--font-title);
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  padding: 9px 22px;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  color: var(--color-white);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.nav-link.active {
+  background: var(--gradient-button);
+  color: var(--color-white);
+  font-weight: 600;
+  box-shadow: 0 4px 18px rgba(123, 31, 225, 0.5);
+}
+
+/* Header Action CTA Button */
+.header-btn {
+  font-family: var(--font-title);
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 24px;
+  background: var(--gradient-button);
+  border-radius: 12px;
+  color: var(--color-white);
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  box-shadow: var(--glow-button);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+}
+
+.header-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--glow-button-hover);
+  background: var(--gradient-button-hover);
+}
+
+.header-wsp-icon {
+  width: 18px;
+  height: 18px;
+  fill: var(--color-white);
+}
+
+.mobile-cta {
+  display: none;
+}
+
+/* Hamburger Button (Mobile Menu Icon) */
+.hamburger-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 19px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+  padding: 0;
+}
+
+.hamburger-btn .bar {
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-white);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger-btn.active .bar:nth-child(1) {
+  transform: translateY(8.5px) rotate(45deg);
+}
+
+.hamburger-btn.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-btn.active .bar:nth-child(3) {
+  transform: translateY(-8.5px) rotate(-45deg);
+}
+
+/* Hero Section Layout */
+.hero-section {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-bg);
+  background-image: url('/bg.png');
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  padding: 80px 0;
+  overflow: hidden;
+}
+
+.content-wrapper {
+  max-width: 590px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Badge */
+.badge {
+  font-family: var(--font-title);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 20px;
+  background: var(--gradient-badge);
+  border: 1.5px solid var(--color-border-badge);
+  border-radius: 9999px;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--color-badge-text);
+  backdrop-filter: blur(12px);
+  margin-bottom: 28px;
+  box-shadow: var(--glow-badge);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.badge:hover {
+  background: rgba(182, 45, 254, 0.25);
+  border-color: var(--color-purple-secondary);
+  box-shadow: var(--glow-badge-hover);
+  transform: translateY(-1px);
+}
+
+.badge-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--color-purple-secondary);
+  flex-shrink: 0;
+}
+
+/* Headings Highlight */
+.main-title .highlight {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline;
+  filter: drop-shadow(0 0 25px rgba(182, 45, 254, 0.35));
+}
+
+/* Descriptions */
+.description {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--color-muted-text);
+  margin-bottom: 32px;
+  font-weight: 400;
+}
+
+.description strong {
+  color: var(--color-white);
+  font-weight: 600;
+}
+
+/* Checklist */
+.checklist {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.check-item {
+  font-family: var(--font-body);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-body-text);
+}
+
+.check-icon {
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-purple-secondary);
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 10px rgba(182, 45, 254, 0.5));
+}
+
+.check-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* CTA Button */
+.cta-wrapper {
+  width: 100%;
+  max-width: 480px;
+  margin-bottom: 20px;
+}
+
+.cta-button {
+  font-family: var(--font-title);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 18px 14px 22px;
+  background: var(--gradient-button);
+  border-radius: 16px;
+  color: var(--color-white);
+  text-decoration: none;
+  font-size: 15.5px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  box-shadow: var(--glow-button);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+  transition: left 0.6s ease;
+}
+
+.cta-button:hover::before {
+  left: 100%;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: var(--glow-button-hover);
+  background: var(--gradient-button-hover);
+}
+
+.wsp-icon {
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.wsp-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--color-white);
+}
+
+.cta-text {
+  flex: 1;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.arrow-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.cta-button:hover .arrow-circle {
+  transform: translateX(4px);
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.arrow-circle svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--color-white);
+}
+
+/* Sub-caption */
+.sub-caption {
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--color-muted-text);
+  max-width: 440px;
+}
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+@media (max-width: 992px) {
+  :root {
+    --container-padding: 30px;
+  }
+
+  .header {
+    padding: 18px 0;
+  }
+
+  .header-action {
+    display: none;
+  }
+
+  .hamburger-btn {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 82%;
+    max-width: 340px;
+    height: 100vh;
+    background: rgba(6, 1, 13, 0.96);
+    border: none;
+    border-left: 1px solid rgba(182, 45, 254, 0.25);
+    border-radius: 0;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    padding: 95px 28px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: -15px 0 40px rgba(0, 0, 0, 0.7);
+  }
+
+  .nav-menu.active {
+    right: 0;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .nav-link {
+    display: block;
+    text-align: center;
+    padding: 14px 20px;
+    font-size: 15.5px;
+  }
+
+  .mobile-cta {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 24px;
+    padding: 14px 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --container-padding: 20px;
+  }
+
+  .logo-img {
+    height: 28px;
+  }
+
+  .badge {
+    font-size: 13px;
+    padding: 7px 16px;
+  }
+
+  .description {
+    font-size: 14.5px;
+  }
+
+  .cta-wrapper {
+    max-width: 100%;
+  }
+
+  .cta-button {
+    padding: 12px 14px;
+    font-size: 13.5px;
+  }
+
+  .cta-text {
+    font-size: 13px;
+    white-space: normal;
+  }
+
+  .arrow-circle {
+    width: 32px;
+    height: 32px;
+  }
+}
