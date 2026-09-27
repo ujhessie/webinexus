@@ -1,11 +1,5 @@
-import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import { getSiteAtual } from './config/sites';
+export const App = () => {
+    return <h1>Página Inicial</h1>;
+};
 
-export default function App() {
-  return (
-    <BrowserRouter>
-      {getSiteAtual()}
-    </BrowserRouter>
-  );
-}
+export default App;

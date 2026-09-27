@@ -1,10 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App.jsx';
-import '../style.css';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { buscarSiteAtual } from "./Rotas/Router.jsx";
+import { RouterProvider } from "react-router-dom";
+import "../style.css";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+
+const router = buscarSiteAtual()
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+    <React.StrictMode>
+        <RouterProvider router={router} />
+    </React.StrictMode>,
 );

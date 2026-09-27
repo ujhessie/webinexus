@@ -1,5 +1,5 @@
 import React from 'react';
-import Selo from '../ui/Selo';
+// import Selo from '../ui/Selo.';
 import ListaDiferenciais from '../ui/ListaDiferenciais';
 import Botao from '../ui/Botao';
 

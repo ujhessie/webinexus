@@ -1,15 +1,17 @@
 import React from "react";
-import WebiNexusSite from "../sites/WebiNexusSite";
-import UjhessieSite from "../sites/UjhessieSite";
+import { WebiNexusSite } from "../sites/WebiNexusSite";
+import { UjhessieSite } from "../sites/UjhessieSite";
 
 /**
  * Mapeamento central de domínios para os respectivos sites.
  * Um mesmo site pode ser associado a múltiplos domínios.
  */
 export const sites = {
+    localhost: <UjhessieSite />,
+    "127.0.0.1": <UjhessieSite />,
     "webinexus.vercel.app": <WebiNexusSite />,
     "ujhessie.vercel.app": <UjhessieSite />,
-    fallback: <UjhessieSite />, // Para caso nenhum dos dois aparecer ou estiver em ambiente local
+    fallback: <UjhessieSite />, // Para caso nenhum coincida ou em ambiente local
 };
 
 /**
@@ -18,7 +20,7 @@ export const sites = {
  * Permite também testar localmente passando o parâmetro ?domain= ou ?site= na URL:
  * Exemplo: http://localhost:5173/?domain=webinexus.vercel.app
  */
-export function getSiteAtual() {
+export const getSiteAtual = () => {
     if (typeof window === "undefined") {
         return sites["fallback"];
     }
@@ -43,4 +45,6 @@ export function getSiteAtual() {
     }
 
     return site;
-}
+};
+
+export default getSiteAtual;
