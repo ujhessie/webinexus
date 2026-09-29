@@ -1,22 +1,19 @@
 import { RouterProvider } from "react-router-dom";
-
 import { rotasUjhessie } from "./sites/ujhessie/routes.jsx";
 
-const rotasAtual = () => {
-    const hostname = window.location.hostname;
+// import { rotasWebinexus } from "./sites/webinexus/routes.jsx";
 
-    console.log(`Domínio: ${hostname}`);
+const rotas = {
+    "ujhessie.vercel.app": rotasUjhessie,
+    localhost: rotasUjhessie,
 
-    if (hostname === "ujhessie.vercel.app") {
-        console.log("Rotas ujhessie carregadas");
-        return rotasUjhessie;
-    }
-
-    return rotasUjhessie;
+    // "webinexus.vercel.app": rotasWebinexus,
 };
 
 export const App = () => {
-    return <RouterProvider router={rotasAtual()} />;
+    const router = rotas[window.location.hostname];
+
+    return <RouterProvider router={router} />;
 };
 
 export default App;

@@ -1,163 +1,126 @@
-import { Link, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
-import {Botao} from "../ui/Botao/Botao";
+import { useState } from "react";
+import { FaWhatsapp } from "react-icons/fa";
+import { Menu, X } from "lucide-react";
 
 export const Header = ({
-    logo,
-    links = [
-        { nome: "Página Inicial", href: "/" },
-        { nome: "Serviços", href: "#servicos" },
-        { nome: "Nossos projetos", href: "#projetos" },
-    ],
-    itemAtivoInicial,
-    ctaTexto = "FALE CONOSCO",
-    ctaHref = "#",
-    className = "",
+    logo = "/ujhessie-logo.svg",
+    links = {},
+    configCTA = {},
 }) => {
-    const location = useLocation();
-    const [menuAberto, setMenuAberto] = useState(false);
-
-    // Sincroniza item ativo com a rota atual
-    const getAtivoAtual = () => {
-        if (itemAtivoInicial) return itemAtivoInicial;
-        const linkCorrespondente = links.find(
-            (l) => l.href === location.pathname,
-        );
-        return linkCorrespondente
-            ? linkCorrespondente.nome
-            : links[0]?.nome || "";
-    };
-
-    const [itemAtivo, setItemAtivo] = useState(getAtivoAtual);
-
-    useEffect(() => {
-        const linkCorrespondente = links.find(
-            (l) => l.href === location.pathname,
-        );
-        if (linkCorrespondente) {
-            setItemAtivo(linkCorrespondente.nome);
-        }
-    }, [location.pathname, links]);
-
-    // Fecha o menu mobile quando a tela for redimensionada para desktop
-    useEffect(() => {
-        const handleResize = () => {
-            if (window.innerWidth >= 992) {
-                setMenuAberto(false);
-            }
-        };
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
-    }, []);
-
-    const toggleMenu = () => {
-        setMenuAberto((prev) => !prev);
-    };
-
-    const fecharMenu = (nomeItem) => {
-        setItemAtivo(nomeItem);
-        setMenuAberto(false);
-    };
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [activeLink, setActiveLink] = useState(
+        Object.keys(links)[0] || "Início",
+    );
 
     return (
-        <header
-            className={`relative w-full z-[1000] py-4 sm:py-5 lg:py-6 transition-all duration-300 ${className}`}
-        >
-            <div className='max-w-conteiner w-full mx-auto px-5 sm:px-[30px] lg:px-[70px] flex items-center justify-between'>
-                <Logo logo={logo} />
+        <header className='relative w-full bg-[#0a0a0c] z-50'>
+            <div className='max-w-7xl mx-auto px-6 sm:px-10 py-5 sm:py-6 flex items-center justify-between'>
+                {/* Logo */}
+                <a
+                    href='/'
+                    className='flex items-center hover:opacity-90 transition-opacity'
+                >
+                    <img
+                        src={logo}
+                        alt='UJHESSIE'
+                        className='h-6 sm:h-7 w-auto object-contain'
+                    />
+                </a>
 
-                {/* Desktop Navbar (Pílula Glassmorphism) */}
-                <nav className='hidden lg:flex items-center bg-white/[0.05] border border-white/5 rounded-full p-1.5 backdrop-blur-xl shadow-[0_10px_30px_rgba(0,0,0,0.3)]'>
-                    <ul className='flex items-center list-none gap-1 m-0 p-0'>
-                        {links.map((link) => (
-                            <li key={link.nome}>
-                                <Botao
-                                    variante='navegacao'
-                                    href={link.href}
-                                    ativo={itemAtivo === link.nome}
-                                    onClick={() => setItemAtivo(link.nome)}
-                                >
-                                    {link.nome}
-                                </Botao>
-                            </li>
-                        ))}
+                {/* Menu Central (Desktop) */}
+                <nav className='hidden md:flex items-center bg-white/[0.06] border border-white/10 rounded-full p-1.5 backdrop-blur-md shadow-lg shadow-black/20'>
+                    <ul className='flex items-center gap-1 list-none m-0 p-0'>
+                        {Object.entries(links).map(([texto, url]) => {
+                            const isActive = activeLink === texto;
+                            return (
+                                <li key={texto}>
+                                    <a
+                                        href={url}
+                                        onClick={() => setActiveLink(texto)}
+                                        className={`font-titulo text-sm px-5 py-2 rounded-full transition-all duration-200 whitespace-nowrap block ${
+                                            isActive
+                                                ? "bg-gradient-to-r from-[#7B1FE1] to-[#B62DFE] text-white font-semibold shadow-[0_4px_18px_rgba(123,31,225,0.5)]"
+                                                : "text-white/75 hover:text-white hover:bg-white/5 font-medium"
+                                        }`}
+                                    >
+                                        {texto}
+                                    </a>
+                                </li>
+                            );
+                        })}
                     </ul>
                 </nav>
 
-                {/* Desktop Header CTA Button */}
-                <div className='hidden lg:block'>
-                    <Botao variante='cabecalho' href={ctaHref}>
-                        {ctaTexto}
-                    </Botao>
-                </div>
-
-                {/* Hamburger Button (Mobile Toggle) */}
-                <button
-                    onClick={toggleMenu}
-                    className='lg:hidden relative z-[1001] flex flex-col justify-between w-[26px] h-[19px] bg-transparent border-none cursor-pointer p-0'
-                    aria-label={menuAberto ? "Fechar Menu" : "Abrir Menu"}
-                >
-                    <span
-                        className={`w-full h-[2px] bg-white rounded-sm transition-all duration-300 ${
-                            menuAberto ? "translate-y-[8.5px] rotate-45" : ""
-                        }`}
-                    />
-                    <span
-                        className={`w-full h-[2px] bg-white rounded-sm transition-all duration-300 ${
-                            menuAberto ? "opacity-0" : ""
-                        }`}
-                    />
-                    <span
-                        className={`w-full h-[2px] bg-white rounded-sm transition-all duration-300 ${
-                            menuAberto ? "-translate-y-[8.5px] -rotate-45" : ""
-                        }`}
-                    />
-                </button>
-
-                {/* Mobile Drawer Sidebar */}
-                <div
-                    className={`
-            fixed top-0 right-0 h-screen w-[82%] max-w-[340px] bg-[#06010d]/98 border-l border-roxo-secundario/25 backdrop-blur-2xl p-[95px_28px_40px] flex flex-col justify-between transition-transform duration-400 ease-in-out shadow-[-15px_0_40px_rgba(0,0,0,0.7)] z-[1000] lg:hidden
-            ${menuAberto ? "translate-x-0" : "translate-x-full"}
-          `}
-                >
-                    <ul className='flex flex-col list-none gap-3 m-0 p-0'>
-                        {links.map((link) => (
-                            <li key={link.nome}>
-                                <Botao
-                                    variante='navegacao'
-                                    href={link.href}
-                                    ativo={itemAtivo === link.nome}
-                                    onClick={() => fecharMenu(link.nome)}
-                                    className='w-full text-center py-3.5'
-                                >
-                                    {link.nome}
-                                </Botao>
-                            </li>
-                        ))}
-                    </ul>
-
-                    {/* Mobile CTA inside Drawer */}
-                    <div className='mt-6'>
-                        <Botao
-                            variante='cabecalho'
-                            href={ctaHref}
-                            onClick={() => setMenuAberto(false)}
-                            className='w-full text-center justify-center py-3.5'
+                {/* CTA Direito (Desktop) */}
+                <div className='hidden md:flex items-center'>
+                    {configCTA?.textoCTA && (
+                        <a
+                            href={configCTA.urlCTA || "#"}
+                            target='_blank'
+                            rel='noopener noreferrer'
+                            className='inline-flex items-center gap-2.5 px-5 py-2.5 bg-gradient-to-r from-[#7B1FE1] to-[#B62DFE] hover:from-[#8B2CF5] hover:to-[#C446FE] text-white font-titulo font-bold text-xs tracking-wider uppercase rounded-xl shadow-[0_8px_25px_-4px_rgba(123,31,225,0.65)] hover:-translate-y-0.5 transition-all'
                         >
-                            {ctaTexto}
-                        </Botao>
-                    </div>
+                            <FaWhatsapp />
+                            <span>{configCTA.textoCTA}</span>
+                        </a>
+                    )}
                 </div>
-            </div>
-        </header>
-    );
-};
 
-const Logo = ({logo}) => {
-    return (
-        <div className='flex items-center'>
-            {logo ? <img src={logo} alt='' /> : null}
-        </div>
+                {/* Botão Hamburguer (Mobile) */}
+                <button
+                    type='button'
+                    onClick={() => setIsMenuOpen(!isMenuOpen)}
+                    className='md:hidden text-white p-2 rounded-lg hover:bg-white/10 transition-colors focus:outline-none'
+                    aria-label='Alternar menu'
+                >
+                    {isMenuOpen ? (
+                        <X className='w-6 h-6' />
+                    ) : (
+                        <Menu className='w-6 h-6' />
+                    )}
+                </button>
+            </div>
+
+            {/* Menu Dropdown Mobile */}
+            {isMenuOpen && (
+                <div className='md:hidden absolute top-full left-0 w-full bg-[#0a0a0c]/98 border-b border-white/10 px-6 py-6 flex flex-col gap-4 shadow-2xl backdrop-blur-xl z-50'>
+                    <nav className='flex flex-col gap-1.5'>
+                        {Object.entries(links).map(([texto, url]) => {
+                            const isActive = activeLink === texto;
+                            return (
+                                <a
+                                    key={texto}
+                                    href={url}
+                                    onClick={() => {
+                                        setActiveLink(texto);
+                                        setIsMenuOpen(false);
+                                    }}
+                                    className={`px-4 py-3 rounded-xl font-titulo text-sm transition-all ${
+                                        isActive
+                                            ? "bg-gradient-to-r from-[#7B1FE1] to-[#B62DFE] text-white font-semibold shadow-md"
+                                            : "text-white/80 hover:text-white hover:bg-white/5 font-medium"
+                                    }`}
+                                >
+                                    {texto}
+                                </a>
+                            );
+                        })}
+                    </nav>
+
+                    {configCTA?.textoCTA && (
+                        <a
+                            href={configCTA.urlCTA || "#"}
+                            target='_blank'
+                            rel='noopener noreferrer'
+                            onClick={() => setIsMenuOpen(false)}
+                            className='flex items-center justify-center gap-2.5 px-5 py-3.5 bg-gradient-to-r from-[#7B1FE1] to-[#B62DFE] text-white font-titulo font-bold text-xs tracking-wider uppercase rounded-xl shadow-lg mt-2'
+                        >
+                            <FaWhatsapp />
+                            <span>{configCTA.textoCTA}</span>
+                        </a>
+                    )}
+                </div>
+            )}
+        </header>
     );
 };
