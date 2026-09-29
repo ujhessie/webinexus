@@ -1,18 +1,41 @@
-# Regras e Diretrizes do Projeto
+# Regras do Projeto
 
-Este arquivo define os contextos e regras que devem ser seguidos durante o desenvolvimento do projeto.
+Este projeto é uma aplicação React com vários sites.
 
-## 🎨 Estilização (CSS)
-- **Reutilização:** priorize reutilizar o CSS existente, não crie novos arquivos de estilo a menos que seja realmente necessário.
-- **Arquivo css global** o arquivo style.css na raiz do projeto deve conter todos os estilos globais do projeto. Não crie outros arquivos sem antes me perguntar onde vai colocar o arquivo e qual será o objetivo do mesmo
+O objetivo é manter o código simples, organizado, reutilizável e fácil de entender.
 
-## 🛠️ Build e Execução
-- **Ambiente:** O projeto ainda está em desenvolvimento.
-- **Build:** Não precisa rodar `npm run build` a cada nova alteração ou teste.
+Não precisa rodar sempre o npm run build, ainda estamos em desenvolvimento.
 
-## 🧠 Evolução e Contexto
-- **Auto-correção:** Quando o usuário fizer uma correção ou solicitar uma mudança de comportamento recorrente, pergunte se ele deseja adicionar essa nova regra a este arquivo (`AGENTS.md`) para evitar que a instrução seja esquecida no futuro.
+---
 
-## Reutilização de componente
-- **Componentes** Sempre reutilize componentes já existentes e evite criar novos componentes sem antes verificar se já existe um componente que pode ser reutilizado.
-- **Botao personalizado** o componente Botao.jsx na pasta componentes/ui deve ser usado para criar todos os botoes do projeto. Não crie outros botoes sem antes me perguntar onde vai colocar o arquivo e qual será o objetivo do mesmo
+## 1. Simplicidade
+
+- Prefira sempre a solução mais simples.
+- Evite abstrações, arquivos, componentes e funções desnecessárias.
+- Não crie uma estrutura complexa antes de existir uma necessidade real.
+- Antes de criar algo novo, verifique se algo existente pode ser reutilizado.
+- Não faça refatorações que não sejam necessárias para a tarefa solicitada.
+
+---
+
+## 2. Estrutura do projeto
+
+A estrutura principal é:
+
+```text
+src/
+├── components/
+│   ├── layout/
+│   └── ui/
+│
+├── config/
+├── sites/
+│   ├── ujhessie/
+│   ├── webinexus/
+│   └── manutencao/
+│
+├── utils/
+│
+├── App.jsx
+├── main.jsx
+└── style.css

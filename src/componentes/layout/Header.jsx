@@ -1,13 +1,8 @@
-import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Botao } from "../ui/Botao";
+import { useEffect, useState } from "react";
+import {Botao} from "../ui/Botao/Botao";
 
-/**
- * Componente de Cabeçalho responsivo (Cabecalho).
- * Reutilizável entre múltiplos sites (Web iNexus, Ujhessie, etc.).
- * Suporta logo em texto ou imagem, links customizados com sincronização de rota e drawer mobile.
- */
-export const Cabecalho = ({
+export const Header = ({
     logo,
     links = [
         { nome: "Página Inicial", href: "/" },
@@ -69,32 +64,7 @@ export const Cabecalho = ({
             className={`relative w-full z-[1000] py-4 sm:py-5 lg:py-6 transition-all duration-300 ${className}`}
         >
             <div className='max-w-conteiner w-full mx-auto px-5 sm:px-[30px] lg:px-[70px] flex items-center justify-between'>
-                {/* Brand Logo */}
-                <div className='flex items-center'>
-                    {logo ? (
-                        typeof logo === "string" ? (
-                            <Link
-                                to='/'
-                                className='font-titulo text-2xl sm:text-[28px] font-extrabold tracking-wider text-white no-underline hover:opacity-90 transition-opacity'
-                            >
-                                {logo}
-                            </Link>
-                        ) : (
-                            logo
-                        )
-                    ) : (
-                        <Link
-                            to='/'
-                            className='flex items-center no-underline transition-opacity duration-300 hover:opacity-90'
-                        >
-                            <img
-                                src='/logo.png'
-                                alt='Logo'
-                                className='h-[28px] sm:h-[34px] w-auto object-contain'
-                            />
-                        </Link>
-                    )}
-                </div>
+                <Logo logo={logo} />
 
                 {/* Desktop Navbar (Pílula Glassmorphism) */}
                 <nav className='hidden lg:flex items-center bg-white/[0.05] border border-white/5 rounded-full p-1.5 backdrop-blur-xl shadow-[0_10px_30px_rgba(0,0,0,0.3)]'>
@@ -184,4 +154,10 @@ export const Cabecalho = ({
     );
 };
 
-export default Cabecalho;
+const Logo = ({logo}) => {
+    return (
+        <div className='flex items-center'>
+            {logo ? <img src={logo} alt='' /> : null}
+        </div>
+    );
+};
