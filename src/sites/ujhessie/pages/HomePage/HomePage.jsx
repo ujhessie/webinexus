@@ -40,14 +40,14 @@ const HeroSection = () => {
                     </div>
 
                     {/* Título Principal */}
-                    <h1 className='text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight uppercase leading-[1.08] font-titulo'>
+                    <h1 className='text-4xl sm:text-5xl lg:text-7xl font-black text-white tracking-tight uppercase leading-[1.08] font-titulo'>
                         JESSE RODRIGUES
                     </h1>
 
                     {/* Subtítulo Destaque */}
                     <div className='text-2xl sm:text-3xl lg:text-[38px] font-black tracking-tight uppercase leading-tight font-titulo mt-2 sm:mt-3'>
                         <span className='text-[#8423f5]'>DEV, DESIGNER </span>
-                        <span className='text-white font-medium'>
+                        <span className='text-white font-thin'>
                             & UM POUCO MAIS
                         </span>
                     </div>
@@ -61,7 +61,7 @@ const HeroSection = () => {
 
                     {/* Botões de Ação */}
                     <div className='flex flex-wrap items-center gap-4 sm:gap-5 w-full sm:w-auto'>
-                        <a
+                        {/* <a
                             href='#sobre-mim'
                             className='flex-1 sm:flex-initial inline-flex items-center justify-center gap-3 px-6 py-3.5 bg-[#8722ee] hover:bg-[#9732fa] text-white font-titulo font-bold text-xs sm:text-sm tracking-wider uppercase rounded-2xl transition-all shadow-[0_8px_25px_rgba(135,34,238,0.45)] hover:shadow-[0_12px_32px_rgba(135,34,238,0.65)] hover:-translate-y-0.5'
                         >
@@ -69,7 +69,14 @@ const HeroSection = () => {
                             <span className='w-7 h-7 rounded-full border border-white/40 bg-white/10 flex items-center justify-center flex-shrink-0'>
                                 <ArrowRight className='w-4 h-4 text-white' />
                             </span>
-                        </a>
+                        </a> */}
+
+                        <Botao>
+                            <span>Fale comigo</span>
+                            <span className='w-7 h-7 rounded-full border border-white/40 bg-white/10 flex items-center justify-center flex-shrink-0'>
+                                <ArrowRight className='w-4 h-4 text-white' />
+                            </span>
+                        </Botao>
 
                         <a
                             href='#trabalhos'
@@ -93,5 +100,32 @@ const HeroSection = () => {
                 </div>
             </div>
         </section>
+    );
+};
+
+const Botao = ({
+    // urlExterna = false,
+    tipoBotao = "primario",
+    children = "Texto do botao",
+    id,
+    className,
+}) => {
+    const classeGlobal =
+        "flex-1 sm:flex-initial inline-flex items-center justify-center gap-3 px-6 py-3.5";
+    const classeTipoBotao =
+        tipoBotao == "primario"
+            ? " bg-[#8722ee] hover:bg-[#9732fa] text-white font-titulo font-bold text-xs sm:text-sm tracking-wider uppercase rounded-2xl transition-all shadow-[0_8px_25px_rgba(135,34,238,0.45)] hover:shadow-[0_12px_32px_rgba(135,34,238,0.65)] hover:-translate-y-0.5"
+            : "";
+
+    return (
+        <>
+            <a
+                href='#sobre-mim'
+                id={id}
+                className={`${classeGlobal} ${classeTipoBotao} ${className}`}
+            >
+                {children}
+            </a>
+        </>
     );
 };
