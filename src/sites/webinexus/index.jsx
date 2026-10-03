@@ -10,6 +10,7 @@ export const WebInexusSite = () => {
                 links={{
                     "Página Inicial": "/",
                     "Quem Somos": "/quem-somos",
+                    "Nossos Trabalhos": "/portfolio"
                 }}
             />
             <Outlet />

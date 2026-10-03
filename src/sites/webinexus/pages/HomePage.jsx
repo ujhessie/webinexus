@@ -8,6 +8,7 @@ export const HomePage = () => {
         <>
             <HeroSection />
             <MarqueeSection />
+            <PortfolioSection />
         </>
     );
 };
@@ -102,4 +103,8 @@ const MarqueeSection = ({ reverse = false }) => {
             </Marquee>
         </section>
     );
+};
+
+const PortfolioSection = () => {
+    return <>Portfolio Section</>;
 };
