@@ -30,7 +30,8 @@ h5 {
 }
 
 h1 {
-    @apply text-4xl sm:text-5xl lg:text-7xl;
+    /* @apply text-4xl sm:text-5xl lg:text-7xl; */
+    @apply font-titulo;
 }
 
 h2 {

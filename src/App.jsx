@@ -9,7 +9,7 @@ const rotas = {
     // localhost: rotasUjhessie,
 };
 
-export const App = () => {
+export const App = () => { 
     const router = rotas[window.location.hostname]
         ? rotas[window.location.hostname]
         : rotas.localhost;

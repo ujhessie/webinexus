@@ -36,7 +36,7 @@ export const HomePage = () => {
 const HeroSection = () => {
     return (
         <section className='relative w-full overflow-hidden '>
-            <div className='content-section  pb-0 flex flex-col-reverse lg:flex-row items-center lg:items-center justify-between min-h-140 lg:min-h-160'>
+            <div className='content-section flex flex-col-reverse lg:flex-row items-center lg:items-center justify-between min-h-140 lg:min-h-160'>
                 {/* Lado Esquerdo - Conteúdo Textual e CTAs */}
                 <div className='div-content-texto  w-full lg:w-1/2 flex flex-col items-start py-12 sm:py-16 lg:py-20 z-10'>
                     {/* Badge */}
