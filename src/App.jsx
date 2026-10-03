@@ -10,7 +10,9 @@ const rotas = {
 };
 
 export const App = () => {
-    const router = rotas[window.location.hostname];
+    const router = rotas[window.location.hostname]
+        ? rotas[window.location.hostname]
+        : rotas.localhost;
     return <RouterProvider router={router} />;
 };
 
