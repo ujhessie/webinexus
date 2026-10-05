@@ -1,4 +1,5 @@
 import { Badge } from "../../../componentes/ui/Badge/Badge";
+import { GaleriaProjetos } from "../../../componentes/layout/GaleriaProjetos/GaleriaProjetos";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import { Botao } from "../../../componentes/ui/Botao/Botao";
 import { Marquee } from "../../../componentes/ui/Marquee/Marquee";
@@ -106,5 +107,24 @@ const MarqueeSection = ({ reverse = false }) => {
 };
 
 const PortfolioSection = () => {
-    return <>Portfolio Section</>;
+    return (
+        <section>
+            <div className='content-section py-20'>
+                <div className='text-center'>
+                    <Badge textoBadge='Portfólio' />
+                    <h2>Alguns dos nossos trabalhos</h2>
+                    <p className='mb-8'>
+                        Alguns dos projetos que mostram o que somos capazes de
+                        fazer.
+                    </p>
+                    <div className='mobile lg:hidden'>
+                        <GaleriaProjetos limite={4} />
+                    </div>
+                    <div className='desktop hidden lg:block'>
+                        <GaleriaProjetos limite={6} />
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
 };

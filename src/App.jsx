@@ -1,4 +1,5 @@
 import { RouterProvider } from "react-router-dom";
+import { ProjetosProvider } from "./contexts/ProjetosContext.jsx";
 import { rotasUjhessie } from "./sites/ujhessie/routes.jsx";
 import { rotasWebInexus } from "./sites/webinexus/routes.jsx";
 
@@ -9,11 +10,15 @@ const rotas = {
     // localhost: rotasUjhessie,
 };
 
-export const App = () => { 
+export const App = () => {
     const router = rotas[window.location.hostname]
         ? rotas[window.location.hostname]
         : rotas.localhost;
-    return <RouterProvider router={router} />;
+    return (
+        <ProjetosProvider>
+            <RouterProvider router={router} />{" "}
+        </ProjetosProvider>
+    );
 };
 
 export default App;

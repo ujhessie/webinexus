@@ -37,3 +37,15 @@ h1 {
 h2 {
     @apply text-3xl md:text-3xl lg:text-4xl;
 }
+
+/* Animação do GaleriaProjetos */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
