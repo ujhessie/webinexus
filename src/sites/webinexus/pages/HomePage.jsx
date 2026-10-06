@@ -31,7 +31,7 @@ export const HeroSection = () => {
                         className='flex items-center gap-3 text-gray-200'
                     >
                         <CheckCircle2 className='w-5 h-5 text-purple-500 shrink-0' />
-                        <span className='text-base'>{item}</span>
+                        <span className='text-[14px]'>{item}</span>
                     </li>
                 ))}
             </ul>
@@ -43,19 +43,19 @@ export const HeroSection = () => {
             {/* Gradiente de fundo */}
             <div className='gradiente-bg bg-linear-to-r from-preto-escuro via-preto-escuro/90 to-preto-escuro/40 absolute w-full h-full inset-0 z-0'></div>
 
-            <div className='content-section relative py-20 lg:py-24 z-10 container mx-auto px-4 sm:px-6 lg:px-8'>
+            <div className='content-section relative py-20 lg:py-24 z-10 container mx-auto '>
                 <div className='grid lg:w-1/2 gap-12 items-center  '>
                     <div className='div-text flex flex-col items-start'>
                         <Badge />
 
-                        <h1 className='text-4xl sm:text-4xl lg:text-5xl font-bold '>
+                        <h1 className='text-[42px] sm:text-[48px] lg:text-5xl font-bold '>
                             MOSTRE PARA O MUNDO O QUE{" "}
                             <span className='text-transparent bg-clip-text bg-linear-to-r from-purple-400 to-purple-600'>
                                 VOCÊ CONSTRUIU.
                             </span>
                         </h1>
 
-                        <p className='text-gray-300 mt-4  lg:text-[20px] leading-snug'>
+                        <p className='text-gray-300 mt-4  lg:text-[20px] leading-snug font-medium'>
                             Sua empresa merece ser vista, lembrada e escolhida.
                             Criamos experiências digitais, marcas e soluções que
                             valorizam o que você construiu e ajudam seu negócio

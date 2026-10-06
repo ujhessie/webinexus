@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useProjetos } from "../../../contexts/ProjetosContext.jsx";
-import { CardProjeto } from "../../layout/CardProjeto";
+import { CardProjeto } from "../../layout/CardProjeto/CardProjeto.jsx";
 
 export const GaleriaProjetos = ({ limite }) => {
     const { filtros, getProjetosPorGrupo } = useProjetos();
@@ -16,7 +16,7 @@ export const GaleriaProjetos = ({ limite }) => {
             <ul
                 className='
                 filtro
-                flex gap-1
+                flex gap-1 lg:inline-flex
                 overflow-x-auto whitespace-nowrap
                 sm:flex-wrap sm:justify-center sm:overflow-visible
                 bg-white py-2 px-3 sm:px-4
@@ -24,7 +24,7 @@ export const GaleriaProjetos = ({ limite }) => {
                 w-full sm:w-auto
                 text-preto-escuro font-titulo
                 text-sm sm:text-base lg:text-lg
-                mb-4
+                mb-6
                 scrollbar-none [&::-webkit-scrollbar]:hidden
             '
             >
@@ -37,10 +37,12 @@ export const GaleriaProjetos = ({ limite }) => {
                                 onClick={() => setFiltroAtivo(filtro.id)}
                                 aria-pressed={isAtivo}
                                 className={[
-                                    "p-2 rounded-full transition-colors cursor-pointer shrink-0",
+                                    "p-2 rounded-full",
+                                    "transition-all duration-200",
+                                    "cursor-pointer shrink-0",
                                     isAtivo
                                         ? "bg-linear-to-r from-roxo-escuro to-roxo-principal text-white"
-                                        : "hover:bg-black/5",
+                                        : " hover:-translate-y-px",
                                 ].join(" ")}
                             >
                                 {filtro.label}
@@ -52,14 +54,18 @@ export const GaleriaProjetos = ({ limite }) => {
 
             <div
                 key={filtroAtivo}
-                className='grid grid-cols-2 lg:grid-cols-3 gap-2'
+                className='grid grid-cols-2 lg:grid-cols-3 gap-4'
             >
                 {projetosExibidos.map((projeto, index) => (
-                    <CardProjeto
+                    <div
                         key={projeto.id}
-                        id={projeto.id}
-                        index={index}
-                    />
+                        className='card-entrada'
+                        style={{
+                            animationDelay: `${index * 70}ms`,
+                        }}
+                    >
+                        <CardProjeto id={projeto.id} />
+                    </div>
                 ))}
             </div>
         </div>

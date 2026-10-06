@@ -22,7 +22,7 @@ h2,
 h3,
 h4,
 h5 {
-    @apply font-titulo uppercase;
+    @apply font-titulo leading-[100%];
 
     strong {
         @apply bg-linear-to-r from-roxo-escuro to-roxo-principal bg-clip-text text-transparent;
@@ -35,17 +35,28 @@ h1 {
 }
 
 h2 {
-    @apply text-3xl md:text-3xl lg:text-4xl;
+    @apply text-4xl md:text-4xl lg:text-4xl;
 }
 
 /* Animação do GaleriaProjetos */
-@keyframes fadeIn {
+@keyframes entradaCard {
     from {
         opacity: 0;
-        transform: translateY(8px);
+        transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+.card-entrada {
+    animation: entradaCard 400ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .card-entrada {
+        animation: none;
     }
 }

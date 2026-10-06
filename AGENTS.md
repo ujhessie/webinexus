@@ -15,7 +15,8 @@ Não precisa rodar sempre o npm run build, ainda estamos em desenvolvimento.
 - Não crie uma estrutura complexa antes de existir uma necessidade real.
 - Antes de criar algo novo, verifique se algo existente pode ser reutilizado.
 - Não faça refatorações que não sejam necessárias para a tarefa solicitada.
-
+- Antes de criar um componente, veja se já existe algum que já faça a mesma função
+- Se precisar criar novos componentes, mantenha-os junto ao componente principal.
 ---
 
 ## 2. Estrutura do projeto

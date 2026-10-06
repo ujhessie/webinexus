@@ -1,32 +1,41 @@
-import { createContext, useContext } from "react";
-import { projetos } from "../data/projetos";
-
-/* ------------------------------------------------------------------ */
-/* Mocks                                                               */
-/* ------------------------------------------------------------------ */
-
-const categorias = {
-    sites: { label: "Sites", grupo: "sites-sistemas" },
-    sistemas: { label: "Sistemas", grupo: "sites-sistemas" },
-
-    automacoes: { label: "Automações", grupo: "automacoes" },
-    apis: { label: "APIs", grupo: "automacoes" },
-
-    uiux: { label: "UI/UX", grupo: "design" },
-    identidade: { label: "Identidade Visual", grupo: "design" },
-    artes: { label: "Artes Digitais", grupo: "design" },
-    social: { label: "Social Media", grupo: "design" },
+export const Admin_local = () => {
+    return (
+        <div>
+            Site para gerenciar os projetos
+            <div className='div'></div>
+        </div>
+    );
 };
 
-const filtros = [
-    { id: "todos", label: "Todos" },
-    { id: "sites-sistemas", label: "Sites & Sistemas" },
-    { id: "automacoes", label: "Automações" },
-    { id: "design", label: "Design & UI UX" },
-];
 
-// const projetos = [
+// Essa será uma página para gerenciar os projetos dos nossos portfólios
+// Os projetos estão em "../../data/projetos.js"
+// Essa parte do projeto irá manipular esses arquivos, salvando os mesmos em tempo real (mas funcionará somente em localhost)
+// Essa página / Site funcionará somente em localhost
+// Aqui eu vou poder editar, excluir, mover pra lixeira, editar a url das imagens e monitorar a pasta "/imagens_projetos" listando todos os arquivos e imagens em um grid e mostrando quais delas não estão sendo utilizadas
+// O projeto será um dashboard bem simples, que funcionará em localhost, manipulando os arquivos sem a necessidade de criar um backend pra isso
+// export const projetos = [
 //     {
+//         id: "loja-virtual-multitech",
+//         titulo: "Loja Virtual Multitech - Eletrônicos",
+//         categorias: ["sites", "uiux"],
+//         imagens: {
+//             capa: "/imagens_projetos/loja-virtual-multitech/capa.png",
+//         },
+//         status: "visivel" // Poderá ser "lixeira"
+//     },
+//     {
+//         id: "landingpage-barbearia",
+//         titulo: "Landingpage Barbearia",
+//         categorias: ["sites", "uiux", ],
+//          imagens: {
+//             capa: "/imagens_projetos/",
+//         },
+//     }
+// ];
+
+// Preciso que o projeto seja simples, mas com uma interface intuitiva
+// {
 //         id: "landing-inexus",
 //         titulo: "Landing Inexus",
 //         breveDescricao: "Página institucional com foco em conversão.",
@@ -153,49 +162,62 @@ const filtros = [
 //             },
 //         ],
 //     },
-// ];
+// ]
 
-/* ------------------------------------------------------------------ */
-/* Context                                                             */
-/* ------------------------------------------------------------------ */
 
-const ProjetosContext = createContext(null);
 
-export const ProjetosProvider = ({ children }) => {
-    // helpers opcionais — economizam lógica nos componentes
-    const getProjetoPorId = (id) => projetos.find((p) => p.id === id);
 
-    const getCategoria = (chave) => categorias[chave];
+// Assim as imagens poderao ser
+// /imagens_projetos/
 
-    const getProjetosPorGrupo = (grupo) => {
-        if (grupo === "todos") return projetos;
-        return projetos.filter((p) =>
-            p.categorias.some((cat) => categorias[cat]?.grupo === grupo),
-        );
-    };
+// ├── loja-virtual-multitech/
+// │   ├── capa.png
+// │   ├── banner.png
+// │   └── produto-01.png
+// │
+// ├── landing-inexus/
+// │   ├── capa.png
+// │   └── banner.png
+// │
+// └── imagem-solta.png
 
-    const value = {
-        projetos,
-        categorias,
-        filtros,
-        getProjetoPorId,
-        getCategoria,
-        getProjetosPorGrupo,
-    };
+// O dashboard poderia identificar:
+// ✓ utilizada
+// ✓ utilizada
+// ✓ utilizada
 
-    return (
-        <ProjetosContext.Provider value={value}>
-            {children}
-        </ProjetosContext.Provider>
-    );
-};
+// ⚠ não utilizada
+// ⚠ não utilizada
 
-export const useProjetos = () => {
-    const ctx = useContext(ProjetosContext);
-    if (!ctx) {
-        throw new Error(
-            "useProjetos deve ser usado dentro de <ProjetosProvider>",
-        );
-    }
-    return ctx;
-};
+
+
+
+// ┌──────────────────────────────────────────────┐
+// │ Projetos                         [+ Novo]    │
+// ├──────────────────────────────────────────────┤
+// │ 🔎 Buscar...     Categoria ▼    Status ▼    │
+// ├──────────────────────────────────────────────┤
+// │                                              │
+// │ ┌─────────────┐ ┌─────────────┐             │
+// │ │   imagem    │ │   imagem    │             │
+// │ │             │ │             │             │
+// │ │ Multitech   │ │ Landing     │             │
+// │ │ Sites       │ │ Sites       │             │
+// │ │             │ │             │             │
+// │ │ Editar      │ │ Editar      │             │
+// │ └─────────────┘ └─────────────┘             │
+// └──────────────────────────────────────────────┘
+
+
+
+// React
+//   ↓
+// Dashboard
+//   ↓
+// Vite / Node local
+//   ↓
+// Sistema de arquivos
+
+
+
+// 
