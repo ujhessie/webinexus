@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { WebInexusSite } from "./index";
 import { HomePage } from "./pages/HomePage";
 import { PortfolioPage } from "./pages/PortfolioPage/PortfolioPage";
+import { PaginaProjeto } from "../../componentes/layout/PaginaProjeto/PaginaProjeto";
 
 export const rotasWebInexus = createBrowserRouter([
     {
@@ -16,9 +17,13 @@ export const rotasWebInexus = createBrowserRouter([
                 path: "/quem-somos",
                 element: <h3>Rota quem somos (Em desenvolvimento )</h3>,
             },
-             {
+            {
                 path: "/portfolio",
-                element: <PortfolioPage/>,
+                element: <PortfolioPage />,
+            },
+            {
+                path: "/projetos/:id",
+                element: <PaginaProjeto basePath="/portfolio" />,
             },
             {
                 path: "*",

@@ -59,7 +59,7 @@ export const SeletorSiteLocal = ({ siteAtivo, aoTrocarSite }) => {
         <aside
             ref={containerRef}
             aria-label="Alternador de sites local"
-            className="fixed bottom-5 right-5 z-[99999] font-sans antialiased"
+            className="fixed bottom-5 right-5 z-99999 font-sans antialiased"
         >
             {/* Menu Flutuante Aberto */}
             {aberto && (
