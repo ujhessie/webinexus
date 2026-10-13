@@ -103,6 +103,94 @@ function pluginAdminLocal() {
                     return;
                 }
 
+                // Rota POST para upload de imagem do computador para a pasta do projeto
+                if (req.url === '/api/admin/upload' && req.method === 'POST') {
+                    try {
+                        const chunks = [];
+                        req.on('data', (chunk) => chunks.push(chunk));
+                        req.on('end', () => {
+                            try {
+                                const buffer = Buffer.concat(chunks);
+                                const contentType = req.headers['content-type'] || '';
+
+                                // Extrair boundary do multipart
+                                const boundaryMatch = contentType.match(/boundary=(.+)/);
+                                if (!boundaryMatch) {
+                                    throw new Error('Content-Type multipart/form-data com boundary é obrigatório.');
+                                }
+                                const boundary = boundaryMatch[1];
+                                const rawBody = buffer.toString('binary');
+                                const partes = rawBody.split('--' + boundary).filter(
+                                    (p) => p.trim() && p.trim() !== '--'
+                                );
+
+                                let idProjeto = '';
+                                let nomeArquivo = '';
+                                let arquivoBuffer = null;
+
+                                for (const parte of partes) {
+                                    const cabecalhoRaw = parte.substring(0, parte.indexOf('\r\n\r\n'));
+                                    const posCorpo = parte.indexOf('\r\n\r\n') + 4;
+                                    let corpoBinario = parte.substring(posCorpo);
+                                    // Remover trailing \r\n
+                                    if (corpoBinario.endsWith('\r\n')) {
+                                        corpoBinario = corpoBinario.slice(0, -2);
+                                    }
+
+                                    if (cabecalhoRaw.includes('name="idProjeto"')) {
+                                        idProjeto = corpoBinario.trim();
+                                    } else if (cabecalhoRaw.includes('name="arquivo"')) {
+                                        const filenameMatch = cabecalhoRaw.match(/filename="(.+?)"/);
+                                        if (filenameMatch) {
+                                            nomeArquivo = filenameMatch[1];
+                                        }
+                                        arquivoBuffer = Buffer.from(corpoBinario, 'binary');
+                                    }
+                                }
+
+                                if (!idProjeto || !nomeArquivo || !arquivoBuffer) {
+                                    throw new Error('Campos obrigatórios: idProjeto e arquivo.');
+                                }
+
+                                // Sanitizar nome do arquivo
+                                nomeArquivo = nomeArquivo.replace(/[^a-zA-Z0-9._-]/g, '_');
+
+                                const pastaProjeto = path.resolve(
+                                    process.cwd(),
+                                    'public/imagens_projetos',
+                                    idProjeto
+                                );
+                                if (!fs.existsSync(pastaProjeto)) {
+                                    fs.mkdirSync(pastaProjeto, { recursive: true });
+                                }
+
+                                const caminhoFinal = path.join(pastaProjeto, nomeArquivo);
+                                fs.writeFileSync(caminhoFinal, arquivoBuffer);
+
+                                const urlRelativa = `/imagens_projetos/${idProjeto}/${nomeArquivo}`;
+
+                                res.setHeader('Content-Type', 'application/json');
+                                res.end(JSON.stringify({
+                                    sucesso: true,
+                                    url: urlRelativa,
+                                    nome: nomeArquivo,
+                                    tamanho: arquivoBuffer.length,
+                                    mensagem: `Imagem salva em public${urlRelativa}`,
+                                }));
+                            } catch (erroInterno) {
+                                res.statusCode = 400;
+                                res.setHeader('Content-Type', 'application/json');
+                                res.end(JSON.stringify({ sucesso: false, erro: erroInterno.message }));
+                            }
+                        });
+                    } catch (erro) {
+                        res.statusCode = 500;
+                        res.setHeader('Content-Type', 'application/json');
+                        res.end(JSON.stringify({ sucesso: false, erro: erro.message }));
+                    }
+                    return;
+                }
+
                 next();
             });
         },

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { X, Check, Image as IconeImagem, Plus, Trash2, Star, Link as IconeLink } from "lucide-react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
+import { X, Check, Image as IconeImagem, Plus, Trash2, Star, Link as IconeLink, Upload, Loader2 } from "lucide-react";
 
 // Categorias disponíveis no sistema
 const LISTA_CATEGORIAS = [
@@ -50,6 +50,92 @@ export const ModalProjeto = ({
     const [novaTag, setNovaTag] = useState("");
     const [seletorImagemAberto, setSeletorImagemAberto] = useState(null); // 'capa' | 'banner' | 'galeria'
     const [erro, setErro] = useState("");
+    const [enviandoImagem, setEnviandoImagem] = useState(false);
+    const [arrastandoSobre, setArrastandoSobre] = useState(null); // 'capa' | 'banner' | 'galeria' | null
+
+    const inputArquivoCapa = useRef(null);
+    const inputArquivoBanner = useRef(null);
+    const inputArquivoGaleria = useRef(null);
+
+    // Envia arquivo para o endpoint local do Vite
+    const enviarImagem = useCallback(async (arquivo, destino) => {
+        const idProjeto = dados.id.trim();
+        if (!idProjeto) {
+            setErro("Preencha o ID/Slug do projeto antes de enviar imagens.");
+            return;
+        }
+
+        if (!arquivo || !arquivo.type.startsWith("image/")) {
+            setErro("Selecione apenas arquivos de imagem (png, jpg, webp, svg...).");
+            return;
+        }
+
+        setEnviandoImagem(true);
+        setErro("");
+
+        try {
+            const formData = new FormData();
+            formData.append("idProjeto", idProjeto);
+            formData.append("arquivo", arquivo);
+
+            const resposta = await fetch("/api/admin/upload", {
+                method: "POST",
+                body: formData,
+            });
+
+            const resultado = await resposta.json();
+            if (!resultado.sucesso) {
+                throw new Error(resultado.erro || "Falha no upload.");
+            }
+
+            // Atualizar o campo correto com a URL retornada
+            if (destino === "capa") {
+                atualizarImagem("capa", resultado.url);
+            } else if (destino === "banner") {
+                atualizarImagem("banner", resultado.url);
+            } else if (destino === "galeria") {
+                adicionarImagemGaleria(resultado.url);
+            }
+        } catch (erroUpload) {
+            setErro(`Erro no upload: ${erroUpload.message}`);
+        } finally {
+            setEnviandoImagem(false);
+        }
+    }, [dados.id]);
+
+    // Processar arquivos vindos do input ou do drop
+    const tratarArquivos = useCallback((arquivos, destino) => {
+        if (!arquivos || arquivos.length === 0) return;
+
+        if (destino === "galeria") {
+            // Galeria aceita múltiplos
+            Array.from(arquivos).forEach((arq) => enviarImagem(arq, "galeria"));
+        } else {
+            // Capa e Banner aceitam apenas 1
+            enviarImagem(arquivos[0], destino);
+        }
+    }, [enviarImagem]);
+
+    // Handlers de drag-and-drop
+    const tratarDragOver = useCallback((e, destino) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setArrastandoSobre(destino);
+    }, []);
+
+    const tratarDragLeave = useCallback((e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setArrastandoSobre(null);
+    }, []);
+
+    const tratarDrop = useCallback((e, destino) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setArrastandoSobre(null);
+        const arquivos = e.dataTransfer?.files;
+        tratarArquivos(arquivos, destino);
+    }, [tratarArquivos]);
 
     useEffect(() => {
         if (projetoParaEditar) {
@@ -425,30 +511,89 @@ export const ModalProjeto = ({
 
                     {/* Imagens */}
                     <div className="space-y-4 pt-2 border-t border-white/10">
-                        <h3 className="text-xs font-bold uppercase tracking-wider text-purple-400 flex items-center gap-2">
-                            <IconeImagem className="w-4 h-4" /> Imagens do Projeto
-                        </h3>
+                        <div className="flex items-center justify-between">
+                            <h3 className="text-xs font-bold uppercase tracking-wider text-purple-400 flex items-center gap-2">
+                                <IconeImagem className="w-4 h-4" /> Imagens do Projeto
+                            </h3>
+                            {enviandoImagem && (
+                                <span className="flex items-center gap-1.5 text-[11px] text-purple-400 animate-pulse">
+                                    <Loader2 className="w-3.5 h-3.5 animate-spin" /> Enviando...
+                                </span>
+                            )}
+                        </div>
+
+                        {/* Inputs de arquivo ocultos */}
+                        <input
+                            ref={inputArquivoCapa}
+                            type="file"
+                            accept="image/*"
+                            className="hidden"
+                            onChange={(e) => {
+                                tratarArquivos(e.target.files, "capa");
+                                e.target.value = "";
+                            }}
+                        />
+                        <input
+                            ref={inputArquivoBanner}
+                            type="file"
+                            accept="image/*"
+                            className="hidden"
+                            onChange={(e) => {
+                                tratarArquivos(e.target.files, "banner");
+                                e.target.value = "";
+                            }}
+                        />
+                        <input
+                            ref={inputArquivoGaleria}
+                            type="file"
+                            accept="image/*"
+                            multiple
+                            className="hidden"
+                            onChange={(e) => {
+                                tratarArquivos(e.target.files, "galeria");
+                                e.target.value = "";
+                            }}
+                        />
 
                         {/* Imagem de Capa */}
                         <div>
                             <div className="flex items-center justify-between mb-1">
                                 <label className="text-xs font-semibold text-slate-300">
-                                    Imagem de Capa (Caminho ou URL)
+                                    Imagem de Capa
                                 </label>
-                                <button
-                                    type="button"
-                                    onClick={() => setSeletorImagemAberto("capa")}
-                                    className="text-xs text-purple-400 hover:text-purple-300 underline"
-                                >
-                                    Escolher da pasta de imagens
-                                </button>
+                                <div className="flex items-center gap-3">
+                                    <button
+                                        type="button"
+                                        onClick={() => inputArquivoCapa.current?.click()}
+                                        disabled={enviandoImagem}
+                                        className="flex items-center gap-1 text-xs text-emerald-400 hover:text-emerald-300"
+                                    >
+                                        <Upload className="w-3 h-3" /> Enviar do PC
+                                    </button>
+                                    <button
+                                        type="button"
+                                        onClick={() => setSeletorImagemAberto("capa")}
+                                        className="text-xs text-purple-400 hover:text-purple-300 underline"
+                                    >
+                                        Escolher da pasta
+                                    </button>
+                                </div>
                             </div>
-                            <div className="flex gap-3 items-center">
+                            <div
+                                onDragOver={(e) => tratarDragOver(e, "capa")}
+                                onDragLeave={tratarDragLeave}
+                                onDrop={(e) => tratarDrop(e, "capa")}
+                                className={`flex gap-3 items-center p-2 rounded-xl border-2 border-dashed transition ${
+                                    arrastandoSobre === "capa"
+                                        ? "border-purple-500 bg-purple-500/10"
+                                        : "border-white/10 bg-transparent"
+                                }`}
+                            >
                                 <input
                                     type="text"
                                     value={dados.imagens.capa}
                                     onChange={(e) => atualizarImagem("capa", e.target.value)}
-                                    placeholder="/imagens_projetos/nome-do-projeto/capa.png"
+                                    placeholder="Arraste uma imagem aqui ou cole o caminho"
                                     className="flex-1 px-3 py-2 bg-[#0d0e1a] border border-white/15 rounded-lg text-xs text-white focus:outline-none focus:border-purple-500"
                                 />
                                 {dados.imagens.capa && (
@@ -472,20 +617,39 @@ export const ModalProjeto = ({
                                 <label className="text-xs font-semibold text-slate-300">
                                     Banner (Opcional)
                                 </label>
-                                <button
-                                    type="button"
-                                    onClick={() => setSeletorImagemAberto("banner")}
-                                    className="text-xs text-purple-400 hover:text-purple-300 underline"
-                                >
-                                    Escolher da pasta de imagens
-                                </button>
+                                <div className="flex items-center gap-3">
+                                    <button
+                                        type="button"
+                                        onClick={() => inputArquivoBanner.current?.click()}
+                                        disabled={enviandoImagem}
+                                        className="flex items-center gap-1 text-xs text-emerald-400 hover:text-emerald-300"
+                                    >
+                                        <Upload className="w-3 h-3" /> Enviar do PC
+                                    </button>
+                                    <button
+                                        type="button"
+                                        onClick={() => setSeletorImagemAberto("banner")}
+                                        className="text-xs text-purple-400 hover:text-purple-300 underline"
+                                    >
+                                        Escolher da pasta
+                                    </button>
+                                </div>
                             </div>
-                            <div className="flex gap-3 items-center">
+                            <div
+                                onDragOver={(e) => tratarDragOver(e, "banner")}
+                                onDragLeave={tratarDragLeave}
+                                onDrop={(e) => tratarDrop(e, "banner")}
+                                className={`flex gap-3 items-center p-2 rounded-xl border-2 border-dashed transition ${
+                                    arrastandoSobre === "banner"
+                                        ? "border-purple-500 bg-purple-500/10"
+                                        : "border-white/10 bg-transparent"
+                                }`}
+                            >
                                 <input
                                     type="text"
                                     value={dados.imagens.banner}
                                     onChange={(e) => atualizarImagem("banner", e.target.value)}
-                                    placeholder="/imagens_projetos/nome-do-projeto/banner.png"
+                                    placeholder="Arraste uma imagem aqui ou cole o caminho"
                                     className="flex-1 px-3 py-2 bg-[#0d0e1a] border border-white/15 rounded-lg text-xs text-white focus:outline-none focus:border-purple-500"
                                 />
                                 {dados.imagens.banner && (
@@ -509,13 +673,21 @@ export const ModalProjeto = ({
                                 <label className="text-xs font-semibold text-slate-300">
                                     Galeria de Fotos ({dados.imagens.galeria.length})
                                 </label>
-                                <div className="flex gap-2">
+                                <div className="flex gap-3">
+                                    <button
+                                        type="button"
+                                        onClick={() => inputArquivoGaleria.current?.click()}
+                                        disabled={enviandoImagem}
+                                        className="flex items-center gap-1 text-xs text-emerald-400 hover:text-emerald-300"
+                                    >
+                                        <Upload className="w-3 h-3" /> Enviar do PC
+                                    </button>
                                     <button
                                         type="button"
                                         onClick={() => setSeletorImagemAberto("galeria")}
                                         className="text-xs text-purple-400 hover:text-purple-300 underline"
                                     >
-                                        + Escolher da pasta
+                                        Escolher da pasta
                                     </button>
                                     <button
                                         type="button"
@@ -527,7 +699,22 @@ export const ModalProjeto = ({
                                 </div>
                             </div>
 
-                            <div className="space-y-2">
+                            {/* Zona de Drop para Galeria */}
+                            <div
+                                onDragOver={(e) => tratarDragOver(e, "galeria")}
+                                onDragLeave={tratarDragLeave}
+                                onDrop={(e) => tratarDrop(e, "galeria")}
+                                className={`p-3 rounded-xl border-2 border-dashed transition space-y-2 ${
+                                    arrastandoSobre === "galeria"
+                                        ? "border-purple-500 bg-purple-500/10"
+                                        : "border-white/10 bg-transparent"
+                                }`}
+                            >
+                                {dados.imagens.galeria.length === 0 && (
+                                    <p className="text-center text-[11px] text-slate-500 py-3">
+                                        Arraste imagens aqui, clique em &quot;Enviar do PC&quot; ou adicione um campo manual.
+                                    </p>
+                                )}
                                 {dados.imagens.galeria.map((urlGaleria, idx) => (
                                     <div key={idx} className="flex gap-2 items-center">
                                         <input
