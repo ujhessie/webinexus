@@ -76,7 +76,7 @@ export const Footer = ({
                         <h4 className='font-titulo font-bold text-white text-base sm:text-lg mb-4 tracking-tight'>
                             Navegação
                         </h4>
-                        <ul className='flex flex-col gap-1'>
+                        <ul className='flex lg:flex-col gap-4 lg:gap-1'>
                             {linksNavegacao.map((item, index) => (
                                 <li key={index}>
                                     <LinkFooter href={item.href}>
@@ -92,7 +92,7 @@ export const Footer = ({
                         <h4 className='font-titulo font-bold text-white text-base sm:text-lg mb-4 tracking-tight'>
                             Soluções
                         </h4>
-                        <ul className='flex flex-col gap-1'>
+                        <ul className='flex lg:flex-col gap-4 lg:gap-1 flex-wrap'>
                             {solucoes.map((item, index) => (
                                 <li key={index}>
                                     <LinkFooter href={item.href}>
@@ -108,7 +108,7 @@ export const Footer = ({
                         <h4 className='font-titulo font-bold text-white text-base sm:text-lg mb-4 tracking-tight'>
                             Legal
                         </h4>
-                        <ul className='flex flex-col gap-1'>
+                        <ul className='flex lg:flex-col gap-4 lg:gap-1 flex-wrap'>
                             {linksLegais.map((item, index) => (
                                 <li key={index}>
                                     <LinkFooter href={item.href}>
@@ -166,4 +166,3 @@ const LinkFooter = ({ href, children }) => {
         </a>
     );
 };
-

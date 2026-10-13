@@ -1,9 +1,9 @@
-import { Badge } from "../../../componentes/ui/Badge/Badge";
-import { GaleriaProjetos } from "../../../componentes/layout/GaleriaProjetos/GaleriaProjetos";
+import { Badge } from "../../../../componentes/ui/Badge/Badge";
+import { GaleriaProjetos } from "../../../../componentes/layout/GaleriaProjetos/GaleriaProjetos";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
-import { Botao } from "../../../componentes/ui/Botao/Botao";
-import { Marquee } from "../../../componentes/ui/Marquee/Marquee";
+import { Botao } from "../../../../componentes/ui/Botao/Botao";
+import { Marquee } from "../../../../componentes/ui/Marquee/Marquee";
 
 export const HomePage = () => {
     return (
@@ -27,14 +27,16 @@ export const HeroSection = () => {
 
     const Lista = ({ lista }) => {
         return (
-            <ul className='flex flex-col gap-1 my-6'>
+            <ul className='my-6 grid grid-cols-2 items-start gap-2'>
                 {lista.map((item, index) => (
                     <li
                         key={index}
-                        className='flex items-center gap-3 text-gray-200'
+                        className='flex items-start gap-3 text-gray-200'
                     >
                         <CheckCircle2 className='w-5 h-5 text-purple-500 shrink-0' />
-                        <span className='text-[14px]'>{item}</span>
+                        <span className='text-[12px] lg:text-[16px] font-titulo'>
+                            {item}
+                        </span>
                     </li>
                 ))}
             </ul>
@@ -46,23 +48,26 @@ export const HeroSection = () => {
             {/* Gradiente de fundo */}
             <div className='gradiente-bg bg-linear-to-r from-preto-escuro via-preto-escuro/90 to-preto-escuro/40 absolute w-full h-full inset-0 z-0'></div>
 
-            <div className='content-section relative py-20 lg:py-24 z-10 container mx-auto '>
+            <div className='content-section relative py-20 pt-32 lg:py-24 z-10 container mx-auto '>
                 <div className='grid lg:w-1/2 gap-12 items-center  '>
                     <div className='div-text flex flex-col items-start'>
                         <Badge />
 
-                        <h1 className='text-[42px] sm:text-[48px] lg:text-6xl font-bold '>
+                        <h1 className='text-[38px] sm:text-[48px] lg:text-6xl font-bold '>
                             MOSTRE PARA O MUNDO O QUE{" "}
-                            <span className='text-transparent bg-clip-text bg-linear-to-r from-purple-400 to-purple-600'>
+                            <span className='text-transparent bg-clip-text bg-linear-to-r from-roxo-escuro to-roxo-principal '>
                                 VOCÊ CONSTRUIU.
                             </span>
                         </h1>
 
-                        <p className='text-gray-300 mt-4  lg:text-[20px] leading-snug font-medium'>
-                            Sua empresa merece ser vista, lembrada e escolhida.
-                            Criamos experiências digitais, marcas e soluções que
-                            valorizam o que você construiu e ajudam seu negócio
-                            a ocupar o espaço que merece no mercado.
+                        <p className='text-gray-300 mt-4 text-[14px] lg:text-[20px] leading-snug font-regular'>
+                            Sua empresa merece ser vista, lembrada e escolhida.{" "}
+                            <strong className='text-roxo-claro'>
+                                Criamos experiências digitais, marcas e soluções
+                                que valorizam o que você construiu{" "}
+                            </strong>
+                            e ajudam seu negócio a ocupar o espaço que merece no
+                            mercado.
                         </p>
 
                         <Lista lista={itensHero} />
@@ -78,7 +83,7 @@ export const HeroSection = () => {
                             </Botao>
                         </div>
 
-                        <p className='text-xs sm:text-sm text-gray-400 mt-4 max-w-md'>
+                        <p className='text-xs sm:text-sm text-gray-400 mt-4 max-w-md font-medium'>
                             Sites, sistemas, identidades visuais e peças
                             digitais pensados para transformar sua presença e
                             fortalecer seu negócio.
@@ -214,18 +219,20 @@ export const PorQueEscolherSection = () => {
                         {CARDS_DIFERENCIAIS.map((card, index) => (
                             <div
                                 key={card.id}
-                                className='sticky card-stack-item bg-white rounded-xl sm:rounded-2xl p-7 sm:p-9 lg:p-10 shadow-xl shadow-black/20  border border-white/80 transition-all duration-300'
+                                className='sticky card-stack-item bg-white rounded-xl sm:rounded-2xl p-7 sm:p-9 lg:p-10 shadow-xl shadow-black/20  border border-white/80 transition-all duration-300   '
                                 style={{
                                     "--card-index": index,
                                     zIndex: 10 + index,
                                 }}
                             >
-                                <h3 className='font-titulo font-bold text-2xl sm:text-[26px] lg:text-[28px] text-roxo-escuro mb-3 sm:mb-4 leading-tight'>
-                                    {card.titulo}
-                                </h3>
-                                <p className='font-corpo text-neutral-600 text-sm sm:text-base leading-relaxed'>
-                                    {card.conteudo}
-                                </p>
+                                <div className='textos '>
+                                    <h3 className='font-titulo  font-bold text-xl sm:text-2xl lg:text-2xl text-roxo-principal mb-3 sm:mb-4 leading-snug uppercase'>
+                                        {card.titulo}
+                                    </h3>
+                                    <p className='font-corpo text-neutral-600 text-sm sm:text-base leading-relaxed'>
+                                        {card.conteudo}
+                                    </p>
+                                </div>
                             </div>
                         ))}
                     </div>
