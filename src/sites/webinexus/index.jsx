@@ -1,9 +1,16 @@
 import { Header } from "../../componentes/layout/Header";
 import { Footer } from "../../componentes/layout/Footer";
 import { SmoothScroll } from "../../componentes/layout/SmoothScroll";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 export const WebInexusSite = () => {
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
+
     return (
         <div className='min-h-screen flex flex-col justify-between bg-preto-escuro text-white'>
             <SmoothScroll />
