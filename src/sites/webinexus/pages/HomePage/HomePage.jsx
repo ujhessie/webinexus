@@ -1,6 +1,6 @@
 import { Badge } from "../../../../componentes/ui/Badge/Badge";
 import { GaleriaProjetos } from "../../../../componentes/layout/GaleriaProjetos/GaleriaProjetos";
-import { CheckCircle2, ArrowRight } from "lucide-react";
+import { CheckCircle2, ArrowRight, Users, Target, Rocket } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { Botao } from "../../../../componentes/ui/Botao/Botao";
 import { Marquee } from "../../../../componentes/ui/Marquee/Marquee";
@@ -10,6 +10,7 @@ export const HomePage = () => {
         <>
             <HeroSection />
             <MarqueeSection />
+            <QuemSomosSection />
             <PorQueEscolherSection />
             <MarqueeSection />
             <PortfolioSection />
@@ -110,6 +111,112 @@ const MarqueeSection = ({ reverse = false }) => {
                 <li>Full-stack</li>
                 <li>Otimização de performance</li>
             </Marquee>
+        </section>
+    );
+};
+
+const QuemSomosSection = () => {
+    const diferenciais = [
+        "Estratégia de negócio antes de qualquer linha de código",
+        "Cada projeto construído sob medida, sem soluções prontas",
+        "Design e tecnologia focados em conversão e autoridade",
+    ];
+
+    const metricas = [
+        { valor: "+50", rotulo: "Projetos entregues" },
+        { valor: "5+", rotulo: "Anos de experiência" },
+        { valor: "100%", rotulo: "Soluções personalizadas" },
+        { valor: "99%", rotulo: "Clientes satisfeitos" },
+    ];
+
+    const pilares = [
+        { icone: Users, texto: "Atendimento próximo" },
+        { icone: Target, texto: "Foco em resultado" },
+        { icone: Rocket, texto: "Entrega ágil" },
+    ];
+
+    return (
+        <section className='relative overflow-hidden bg-preto-fosco py-20 lg:py-28'>
+            {/* Brilho decorativo de fundo */}
+            <div className='absolute -top-24 -right-24 w-96 h-96 bg-roxo-principal/10 rounded-full blur-3xl pointer-events-none' />
+
+            <div className='content-section relative z-10'>
+                <div className='grid lg:grid-cols-2 gap-12 lg:gap-16 items-center'>
+                    {/* Coluna Texto */}
+                    <div className='flex flex-col items-start'>
+                        <Badge textoBadge='QUEM SOMOS' />
+
+                        <h2 className='font-bold text-white leading-[1.15] mb-6'>
+                            Mais que um estúdio digital,{" "}
+                            <strong>um parceiro do seu crescimento.</strong>
+                        </h2>
+
+                        <p className='font-corpo text-gray-300 text-sm sm:text-base leading-relaxed mb-6'>
+                            A Web iNexus une estratégia, design e tecnologia
+                            para transformar ideias em soluções digitais que
+                            geram resultado. Não entregamos templates: criamos
+                            projetos únicos, pensados para valorizar o que você
+                            construiu e colocar sua marca no espaço que ela
+                            merece.
+                        </p>
+
+                        <ul className='flex flex-col gap-3 mb-8'>
+                            {diferenciais.map((item, index) => (
+                                <li
+                                    key={index}
+                                    className='flex items-start gap-3'
+                                >
+                                    <CheckCircle2 className='w-5 h-5 text-roxo-principal shrink-0 mt-0.5' />
+                                    <span className='font-corpo text-gray-200 text-sm sm:text-base'>
+                                        {item}
+                                    </span>
+                                </li>
+                            ))}
+                        </ul>
+
+                        <div className='flex flex-wrap items-center gap-3'>
+                            <Botao
+                                href='/quem-somos'
+                                iconCTA={
+                                    <ArrowRight className='w-5 h-5 text-white' />
+                                }
+                            >
+                                CONHEÇA A WEB INEXUS
+                            </Botao>
+
+                            {pilares.map((pilar, index) => {
+                                const Icone = pilar.icone;
+                                return (
+                                    <span
+                                        key={index}
+                                        className='hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-white/5 border border-white/10 text-xs text-gray-300 font-titulo'
+                                    >
+                                        <Icone className='w-4 h-4 text-roxo-claro' />
+                                        {pilar.texto}
+                                    </span>
+                                );
+                            })}
+                        </div>
+                    </div>
+
+                    {/* Coluna Métricas */}
+                    <div className='grid grid-cols-2 gap-4 sm:gap-6'>
+                        {metricas.map((metrica, index) => (
+                            <div
+                                key={index}
+                                className='p-6 sm:p-8 rounded-3xl bg-preto-escuro border border-white/5 hover:border-roxo-principal/50 transition-all duration-300 flex flex-col gap-2'
+                            >
+                                <span className='font-titulo font-bold text-3xl sm:text-4xl lg:text-5xl text-transparent bg-clip-text bg-linear-to-r from-roxo-claro to-roxo-principal'>
+                                    {metrica.valor}
+                                </span>
+                                <span className='font-corpo text-xs sm:text-sm text-gray-400'>
+                                    {metrica.rotulo}
+                                </span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
         </section>
     );
 };
