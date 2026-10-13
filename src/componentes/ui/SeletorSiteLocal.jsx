@@ -3,6 +3,7 @@ import {
     Globe,
     User,
     LayoutDashboard,
+    Layers,
     Check,
     X,
     ChevronUp,
@@ -29,6 +30,13 @@ const SITES_DISPONIVEIS = [
         descricao: "Painel de Projetos & Imagens",
         icone: LayoutDashboard,
         corAtiva: "border-emerald-500/40 bg-emerald-500/10 text-emerald-300",
+    },
+    {
+        id: "design_system",
+        nome: "Design System",
+        descricao: "Padrões, Cores & Componentes",
+        icone: Layers,
+        corAtiva: "border-fuchsia-500/40 bg-fuchsia-500/10 text-fuchsia-300",
     },
 ];
 

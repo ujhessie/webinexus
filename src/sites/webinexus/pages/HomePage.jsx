@@ -1,6 +1,7 @@
 import { Badge } from "../../../componentes/ui/Badge/Badge";
 import { GaleriaProjetos } from "../../../componentes/layout/GaleriaProjetos/GaleriaProjetos";
 import { CheckCircle2, ArrowRight } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import { Botao } from "../../../componentes/ui/Botao/Botao";
 import { Marquee } from "../../../componentes/ui/Marquee/Marquee";
 
@@ -8,6 +9,8 @@ export const HomePage = () => {
     return (
         <>
             <HeroSection />
+            <MarqueeSection />
+            <PorQueEscolherSection />
             <MarqueeSection />
             <PortfolioSection />
         </>
@@ -48,7 +51,7 @@ export const HeroSection = () => {
                     <div className='div-text flex flex-col items-start'>
                         <Badge />
 
-                        <h1 className='text-[42px] sm:text-[48px] lg:text-5xl font-bold '>
+                        <h1 className='text-[42px] sm:text-[48px] lg:text-6xl font-bold '>
                             MOSTRE PARA O MUNDO O QUE{" "}
                             <span className='text-transparent bg-clip-text bg-linear-to-r from-purple-400 to-purple-600'>
                                 VOCÊ CONSTRUIU.
@@ -102,6 +105,132 @@ const MarqueeSection = ({ reverse = false }) => {
                 <li>Full-stack</li>
                 <li>Otimização de performance</li>
             </Marquee>
+        </section>
+    );
+};
+
+const CARDS_DIFERENCIAIS = [
+    {
+        id: "personalizado",
+        titulo: "Projeto totalmente personalizado",
+        conteudo: (
+            <>
+                Nada de soluções prontas. Criamos{" "}
+                <strong className='font-bold text-neutral-900'>
+                    cada projeto pensando no seu negócio
+                </strong>
+                , no seu público e no que você realmente precisa.
+            </>
+        ),
+    },
+    {
+        id: "compromisso",
+        titulo: "Compromisso com cada projeto",
+        conteudo: (
+            <>
+                <strong className='font-bold text-neutral-900'>
+                    A gente acompanha tudo de perto
+                </strong>
+                , do primeiro contato até a entrega, para transformar sua ideia
+                em um resultado que você realmente goste.
+            </>
+        ),
+    },
+    {
+        id: "estrategia",
+        titulo: "Estratégia antes de execução",
+        conteudo: (
+            <>
+                <strong className='font-bold text-neutral-900'>
+                    Antes de criar, entendemos o problema
+                </strong>
+                . Assim, cada escolha de design e tecnologia tem um propósito
+                claro.
+            </>
+        ),
+    },
+    {
+        id: "transparencia",
+        titulo: "Transparência em cada etapa",
+        conteudo: (
+            <>
+                <strong className='font-bold text-neutral-900'>
+                    Você acompanha cada etapa do projeto
+                </strong>{" "}
+                com clareza, sem ficar no escuro sobre decisões, prazos ou
+                próximos passos.
+            </>
+        ),
+    },
+    {
+        id: "parceria",
+        titulo: "Parceria além da entrega",
+        conteudo: (
+            <>
+                Nosso trabalho não termina quando o projeto vai ao ar.{" "}
+                <strong className='font-bold text-neutral-900'>
+                    Seguimos por perto para ajudar
+                </strong>
+                , ajustar e fazer a solução evoluir.
+            </>
+        ),
+    },
+];
+
+export const PorQueEscolherSection = () => {
+    return (
+        <section className='bg-linear-to-b from-[#7818e3] via-[#7d1de6] to-[#8722ea] text-white py-20 lg:py-28 relative'>
+            <div className='content-section'>
+                <div className='flex flex-col lg:flex-row gap-12 lg:gap-16 items-start relative'>
+                    {/* Coluna Esquerda: Fixo no scroll desktop */}
+                    <div className='w-full lg:w-5/12 lg:sticky lg:top-32 self-start flex flex-col items-start pr-0 lg:pr-6'>
+                        <Badge
+                            variante='branco'
+                            uppercase={false}
+                            textoBadge='Para quem quer ir além!'
+                        />
+
+                        <h2 className='font-bold text-white leading-[1.12] mb-8 uppercase'>
+                            Por que escolher a Web iNexus para o seu projeto?
+                        </h2>
+
+                        <Botao
+                            tipoBotao='branco'
+                            href='https://wa.me/5500000000000'
+                            target='_blank'
+                            rel='noopener noreferrer'
+                            className='w-full sm:w-auto text-[#7818e3] hover:text-[#6a12ce]'
+                            iconCTA={
+                                <ArrowRight className='w-4 h-4 text-white' />
+                            }
+                        >
+                            <FaWhatsapp className='w-5 h-5 text-[#7818e3] shrink-0' />
+                            <span>QUERO EVOLUIR MEU NEGÓCIO</span>
+                        </Botao>
+                    </div>
+
+                    {/* Coluna Direita: Cards Magnéticos Empilháveis */}
+                    <div className='w-full lg:w-7/12 flex flex-col gap-6 lg:gap-8 pb-12 lg:pb-24'>
+                        {CARDS_DIFERENCIAIS.map((card, index) => (
+                            <div
+                                key={card.id}
+                                className='sticky card-stack-item bg-white rounded-xl sm:rounded-2xl p-7 sm:p-9 lg:p-10 shadow-xl shadow-black/20  border border-white/80 transition-all duration-300'
+                                style={{
+                                    "--card-index": index,
+                                    zIndex: 10 + index,
+                                }}
+                            >
+                                <h3 className='font-titulo font-bold text-2xl sm:text-[26px] lg:text-[28px] text-roxo-escuro mb-3 sm:mb-4 leading-tight'>
+                                    {card.titulo}
+                                </h3>
+                                <p className='font-corpo text-neutral-600 text-sm sm:text-base leading-relaxed'>
+                                    {card.conteudo}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
         </section>
     );
 };

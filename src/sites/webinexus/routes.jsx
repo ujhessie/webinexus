@@ -3,6 +3,7 @@ import { WebInexusSite } from "./index";
 import { HomePage } from "./pages/HomePage";
 import { PortfolioPage } from "./pages/PortfolioPage/PortfolioPage";
 import { PaginaProjeto } from "../../componentes/layout/PaginaProjeto/PaginaProjeto";
+import { DesignSystemSite } from "../design_system/index";
 
 export const rotasWebInexus = createBrowserRouter([
     {
@@ -24,6 +25,10 @@ export const rotasWebInexus = createBrowserRouter([
             {
                 path: "/projetos/:id",
                 element: <PaginaProjeto basePath="/portfolio" />,
+            },
+            {
+                path: "/design-system",
+                element: <DesignSystemSite />,
             },
             {
                 path: "*",

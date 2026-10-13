@@ -14,7 +14,7 @@
 }
 
 @utility content-section {
-    @apply max-w-7xl mx-auto px-6 sm:px-10 lg:px-12;
+    @apply max-w-375 mx-auto px-6 sm:px-10 lg:px-12;
 }
 
 h1,
@@ -35,7 +35,7 @@ h1 {
 }
 
 h2 {
-    @apply text-4xl md:text-4xl lg:text-4xl;
+    @apply text-4xl md:text-4xl lg:text-5xl;
 }
 
 /* Animações leves do sistema */
@@ -81,6 +81,17 @@ h2 {
 
 .animate-fade-in-up {
     animation: fadeInUp 400ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Efeito magnético de empilhamento de cards (Sticky Stack) */
+.card-stack-item {
+    top: calc(4.5rem + var(--card-index, 0) * 12px);
+}
+
+@media (min-width: 1024px) {
+    .card-stack-item {
+        top: calc(7rem + var(--card-index, 0) * 24px);
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { UjhessieSite } from "./index";
 import { HomePage } from "./pages/HomePage/HomePage";
 import { PaginaProjeto } from "../../componentes/layout/PaginaProjeto/PaginaProjeto";
+import { DesignSystemSite } from "../design_system/index";
 
 export const rotasUjhessie = createBrowserRouter([
     {
@@ -15,6 +16,10 @@ export const rotasUjhessie = createBrowserRouter([
             {
                 path: "/projetos/:id",
                 element: <PaginaProjeto basePath="/" />,
+            },
+            {
+                path: "/design-system",
+                element: <DesignSystemSite />,
             },
             {
                 path: "*",

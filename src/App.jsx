@@ -4,6 +4,7 @@ import { ProjetosProvider } from "./contexts/ProjetosContext.jsx";
 import { rotasUjhessie } from "./sites/ujhessie/routes.jsx";
 import { rotasWebInexus } from "./sites/webinexus/routes.jsx";
 import { rotasAdmin_local } from "./sites/admin_local/routes.jsx";
+import { rotasDesignSystem } from "./sites/design_system/routes.jsx";
 import { SeletorSiteLocal } from "./componentes/ui/SeletorSiteLocal.jsx";
 
 const rotasProducao = {
@@ -15,6 +16,7 @@ const rotasDisponiveis = {
     webinexus: rotasWebInexus,
     ujhessie: rotasUjhessie,
     admin_local: rotasAdmin_local,
+    design_system: rotasDesignSystem,
 };
 
 export const App = () => {
