@@ -15,7 +15,7 @@ export const Header = ({
 
     return (
         <header className='relative w-full bg-preto-escuro z-50'>
-            <div className='max-w-7xl mx-auto px-6 sm:px-10 py-5 sm:py-6 flex items-center justify-between'>
+            <div className='content-section mx-auto px-6 sm:px-10 py-5 sm:py-6 flex items-center justify-between'>
                 <Logo logo={logo} />
 
                 <NavDesktop

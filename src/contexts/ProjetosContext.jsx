@@ -162,20 +162,24 @@ const filtros = [
 const ProjetosContext = createContext(null);
 
 export const ProjetosProvider = ({ children }) => {
+    // Projetos que podem aparecer publicamente (lixeira fica de fora)
+    const projetosVisiveis = projetos.filter((p) => p.status !== "lixeira");
+
     // helpers opcionais — economizam lógica nos componentes
-    const getProjetoPorId = (id) => projetos.find((p) => p.id === id);
+    const getProjetoPorId = (id) =>
+        projetosVisiveis.find((p) => p.id === id);
 
     const getCategoria = (chave) => categorias[chave];
 
     const getProjetosPorGrupo = (grupo) => {
-        if (grupo === "todos") return projetos;
-        return projetos.filter((p) =>
+        if (grupo === "todos") return projetosVisiveis;
+        return projetosVisiveis.filter((p) =>
             p.categorias.some((cat) => categorias[cat]?.grupo === grupo),
         );
     };
 
     const value = {
-        projetos,
+        projetos: projetosVisiveis,
         categorias,
         filtros,
         getProjetoPorId,
