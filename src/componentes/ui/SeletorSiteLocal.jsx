@@ -7,9 +7,7 @@ import {
     Check,
     X,
     ChevronUp,
-    Sliders,
 } from "lucide-react";
-import { SCROLL_CONFIG } from "../../config/scrollConfig";
 
 const SITES_DISPONIVEIS = [
     {
@@ -45,43 +43,6 @@ const SITES_DISPONIVEIS = [
 export const SeletorSiteLocal = ({ siteAtivo, aoTrocarSite }) => {
     const [aberto, setAberto] = useState(false);
     const containerRef = useRef(null);
-
-    const [scrollAtivo, setScrollAtivo] = useState(() => {
-        try {
-            const salvo = localStorage.getItem("scroll_ativo");
-            return salvo !== null ? salvo === "true" : SCROLL_CONFIG.ativo;
-        } catch {
-            return SCROLL_CONFIG.ativo;
-        }
-    });
-
-    const [scrollIntensidade, setScrollIntensidade] = useState(() => {
-        try {
-            const salvo = localStorage.getItem("scroll_intensidade");
-            return salvo !== null
-                ? parseFloat(salvo)
-                : SCROLL_CONFIG.intensidade;
-        } catch {
-            return SCROLL_CONFIG.intensidade;
-        }
-    });
-
-    const alternarScrollAtivo = () => {
-        const novo = !scrollAtivo;
-        setScrollAtivo(novo);
-        try {
-            localStorage.setItem("scroll_ativo", String(novo));
-        } catch {}
-        window.dispatchEvent(new Event("scrollConfigChanged"));
-    };
-
-    const alterarIntensidade = (novoValor) => {
-        setScrollIntensidade(novoValor);
-        try {
-            localStorage.setItem("scroll_intensidade", String(novoValor));
-        } catch {}
-        window.dispatchEvent(new Event("scrollConfigChanged"));
-    };
 
     // Fecha ao clicar fora
     useEffect(() => {
@@ -183,55 +144,6 @@ export const SeletorSiteLocal = ({ siteAtivo, aoTrocarSite }) => {
                                 </button>
                             );
                         })}
-                    </div>
-
-                    {/* Controle do Efeito de Atraso no Scroll */}
-                    <div className='mt-3 pt-3 border-t border-white/10 space-y-2'>
-                        <div className='flex items-center justify-between'>
-                            <span className='text-xs font-bold text-white flex items-center gap-1.5'>
-                                <Sliders className='w-3.5 h-3.5 text-purple-400' />
-                                Atraso no Scroll
-                            </span>
-                            <button
-                                type='button'
-                                onClick={alternarScrollAtivo}
-                                className={`text-[10px] font-bold px-2 py-0.5 rounded-full transition cursor-pointer ${
-                                    scrollAtivo
-                                        ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/40"
-                                        : "bg-red-500/20 text-red-300 border border-red-500/40"
-                                }`}
-                            >
-                                {scrollAtivo ? "ATIVADO" : "DESATIVADO"}
-                            </button>
-                        </div>
-
-                        {scrollAtivo && (
-                            <div className='space-y-1 bg-black/30 p-2.5 rounded-xl border border-white/5'>
-                                <div className='flex items-center justify-between text-[11px] text-slate-300'>
-                                    <span>Intensidade (LERP)</span>
-                                    <span className='font-mono text-purple-300 font-bold'>
-                                        {scrollIntensidade.toFixed(2)}
-                                    </span>
-                                </div>
-                                <input
-                                    type='range'
-                                    min='0.03'
-                                    max='0.16'
-                                    step='0.01'
-                                    value={scrollIntensidade}
-                                    onChange={(e) =>
-                                        alterarIntensidade(
-                                            parseFloat(e.target.value),
-                                        )
-                                    }
-                                    className='w-full accent-purple-500 cursor-pointer h-1.5 bg-white/20 rounded-lg appearance-none my-1'
-                                />
-                                <div className='flex justify-between text-[9px] text-slate-400'>
-                                    <span>+ Atraso (0.03)</span>
-                                    <span>Rápido (0.16)</span>
-                                </div>
-                            </div>
-                        )}
                     </div>
                 </div>
             )}

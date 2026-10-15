@@ -37,14 +37,16 @@ export const App = () => {
     // Define o roteador ativo: se estiver em produção pelo domínio, usa a rota correspondente.
     // Se for localhost, usa a escolha dinâmica do seletor.
     const router = ehAmbienteLocal
-        ? (rotasDisponiveis[siteLocalAtivo] || rotasWebInexus)
-        : (rotasProducao[window.location.hostname] || rotasWebInexus);
+        ? rotasDisponiveis[siteLocalAtivo] || rotasWebInexus
+        : rotasProducao[window.location.hostname] || rotasWebInexus;
 
     return (
         <ProjetosProvider>
             <RouterProvider
                 router={router}
-                key={ehAmbienteLocal ? siteLocalAtivo : window.location.hostname}
+                key={
+                    ehAmbienteLocal ? siteLocalAtivo : window.location.hostname
+                }
             />
             {ehAmbienteLocal && (
                 <SeletorSiteLocal
@@ -57,4 +59,3 @@ export const App = () => {
 };
 
 export default App;
-

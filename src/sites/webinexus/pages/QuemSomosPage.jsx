@@ -1,22 +1,20 @@
-import { Link } from "react-router-dom";
 import { Badge } from "../../../componentes/ui/Badge/Badge";
 import { Botao } from "../../../componentes/ui/Botao/Botao";
 import { Marquee } from "../../../componentes/ui/Marquee/Marquee";
 import {
-    Sparkles,
     Target,
     Zap,
     ShieldCheck,
     HeartHandshake,
     CheckCircle2,
     ArrowRight,
-    Code2,
-    Layers,
-    Rocket,
-    Clock,
-    Users,
 } from "lucide-react";
-import { FaWhatsapp, FaLinkedinIn, FaGithub, FaInstagram } from "react-icons/fa";
+import {
+    FaWhatsapp,
+    FaLinkedinIn,
+    FaGithub,
+    FaInstagram,
+} from "react-icons/fa";
 
 export const QuemSomosPage = () => {
     return (
@@ -37,72 +35,120 @@ export const QuemSomosPage = () => {
    ========================================================================= */
 const HeroQuemSomos = () => {
     const metricas = [
-        { valor: "+50", rotulo: "Projetos entregues com excelência" },
-        { valor: "100%", rotulo: "Projetos construídos sob medida" },
-        { valor: "99%", rotulo: "Índice de aprovação dos clientes" },
-        { valor: "5+", rotulo: "Anos de experiência em tecnologia" },
+        { valor: "+50", rotulo: "Projetos entregues" },
+        { valor: "100%", rotulo: "Sob medida" },
+        { valor: "99%", rotulo: "Aprovação dos clientes" },
+        { valor: "5+", rotulo: "Anos de experiência" },
+    ];
+
+    const compromissos = [
+        "Estratégia antes da execução",
+        "Design e código sob medida",
+        "Parceria além da entrega",
     ];
 
     return (
-        <section className="relative pt-24 pb-20 lg:pt-32 lg:pb-28 bg-[url('/bg.png')] bg-cover bg-center">
-            {/* Overlay gradiente escuro de fundo */}
+        <section className="relative overflow-hidden pt-28 pb-20 lg:pt-36 lg:pb-28 bg-[url('/bg.png')] bg-cover bg-center">
+            {/* Overlay escuro + brilhos de fundo */}
             <div className='absolute inset-0 bg-linear-to-b from-preto-escuro/90 via-preto-escuro/95 to-preto-escuro z-0' />
+            <div className='absolute -top-32 -left-24 w-96 h-96 bg-roxo-principal/20 rounded-full blur-3xl pointer-events-none z-0' />
+            <div className='absolute top-1/3 -right-24 w-80 h-80 bg-roxo-escuro/20 rounded-full blur-3xl pointer-events-none z-0' />
 
             <div className='content-section relative z-10'>
-                <div className='max-w-3xl mx-auto text-center flex flex-col items-center'>
-                    <Badge textoBadge='CONHEÇA A WEB INEXUS' />
+                <div className='grid lg:grid-cols-12 gap-12 lg:gap-16 items-center'>
+                    {/* Coluna Texto */}
+                    <div className='lg:col-span-7 flex flex-col items-start'>
+                        <Badge textoBadge='QUEM SOMOS' />
 
-                    <h1 className='text-3xl sm:text-5xl lg:text-6xl font-bold font-titulo leading-[1.1] tracking-tight text-white mt-2 mb-6'>
-                        Criamos soluções digitais para quem{" "}
-                        <span className='text-transparent bg-clip-text bg-linear-to-r from-purple-400 via-roxo-principal to-roxo-claro'>
-                            não aceita ficar para trás.
-                        </span>
-                    </h1>
-
-                    <p className='font-corpo text-base sm:text-lg text-gray-300 leading-relaxed max-w-2xl mb-10'>
-                        Somos um estúdio de engenharia e design digital focado em
-                        gerar autoridade e conversão. Combinamos estratégia de
-                        negócios, interfaces memoráveis e tecnologia de alta
-                        performance para fazer sua marca evoluir.
-                    </p>
-
-                    <div className='flex flex-wrap items-center justify-center gap-4 w-full sm:w-auto'>
-                        <Botao
-                            href='https://wa.me/5500000000000'
-                            target='_blank'
-                            rel='noopener noreferrer'
-                            iconCTA={
-                                <ArrowRight className='w-4 h-4 text-white' />
-                            }
-                        >
-                            <FaWhatsapp className='w-5 h-5 text-white shrink-0' />
-                            <span>FALAR COM UM ESPECIALISTA</span>
-                        </Botao>
-                        <Botao
-                            tipoBotao='outline'
-                            href='/portfolio'
-                            className='border-white/20 text-white hover:bg-white/10'
-                        >
-                            VER NOSSOS TRABALHOS
-                        </Botao>
-                    </div>
-                </div>
-
-                {/* Métricas e Estatísticas */}
-                <div className='mt-16 sm:mt-20 pt-12 border-t border-white/10 grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8'>
-                    {metricas.map((item, idx) => (
-                        <div
-                            key={idx}
-                            className='flex flex-col items-center text-center p-4 rounded-2xl bg-white/[0.02] border border-white/5 backdrop-blur-xs'
-                        >
-                            <span className='font-titulo font-bold text-3xl sm:text-4xl lg:text-5xl bg-clip-text text-transparent bg-linear-to-r from-white via-purple-200 to-roxo-claro mb-2'>
-                                {item.valor}
+                        <h1 className='text-3xl sm:text-5xl lg:text-6xl font-bold font-titulo leading-[1.1] tracking-tight text-white mt-2 mb-6'>
+                            Muito prazer, somos a{" "}
+                            <span className='text-transparent bg-clip-text bg-linear-to-r from-purple-400 via-roxo-principal to-roxo-claro'>
+                                Web iNexus.
                             </span>
-                            <span className='font-corpo text-xs sm:text-sm text-gray-400 max-w-[180px]'>
-                                {item.rotulo}
-                            </span>
+                        </h1>
+
+                        <p className='font-corpo text-base sm:text-lg text-gray-300 leading-relaxed max-w-2xl mb-8'>
+                            Um estúdio de engenharia e design digital que trata
+                            cada projeto como único. Unimos estratégia de
+                            negócio, identidade visual marcante e tecnologia de
+                            alta performance para construir soluções que geram
+                            autoridade, conversão e crescimento real.
+                        </p>
+
+                        <ul className='grid sm:grid-cols-3 gap-3 w-full mb-10'>
+                            {compromissos.map((item, index) => (
+                                <li
+                                    key={index}
+                                    className='flex items-center gap-3 px-4 py-3 rounded-2xl bg-white/[0.03] border border-white/5 backdrop-blur-xs'
+                                >
+                                    <CheckCircle2 className='w-4 h-4 text-roxo-claro shrink-0' />
+                                    <span className='font-corpo text-xs sm:text-sm text-gray-200'>
+                                        {item}
+                                    </span>
+                                </li>
+                            ))}
+                        </ul>
+
+                        <div className='flex flex-wrap items-center gap-4 w-full sm:w-auto'>
+                            <Botao
+                                href='https://wa.me/5500000000000'
+                                target='_blank'
+                                rel='noopener noreferrer'
+                                iconCTA={
+                                    <ArrowRight className='w-4 h-4 text-white' />
+                                }
+                            >
+                                <FaWhatsapp className='w-5 h-5 text-white shrink-0' />
+                                <span>FALAR COM UM ESPECIALISTA</span>
+                            </Botao>
+                            <Botao
+                                tipoBotao='outline'
+                                href='/portfolio'
+                                className='border-white/20 text-white hover:bg-white/10'
+                            >
+                                VER NOSSOS TRABALHOS
+                            </Botao>
                         </div>
-                    ))}
+                    </div>
+
+                    {/* Coluna Visual / Métricas */}
+                    <div className='lg:col-span-5 relative w-full'>
+                        <div className='relative rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-md p-6 sm:p-8 shadow-2xl'>
+                            <div className='flex items-center gap-3 mb-6'>
+                                <span className='w-2.5 h-2.5 rounded-full bg-roxo-principal animate-pulse' />
+                                <span className='font-titulo font-bold text-xs uppercase tracking-wider text-purple-300'>
+                                    Web iNexus em números
+                                </span>
+                            </div>
+
+                            <div className='grid grid-cols-2 gap-4 sm:gap-5'>
+                                {metricas.map((item, idx) => (
+                                    <div
+                                        key={idx}
+                                        className='p-4 sm:p-5 rounded-2xl bg-preto-fosco/70 border border-white/5'
+                                    >
+                                        <span className='block font-titulo font-bold text-3xl sm:text-4xl bg-clip-text text-transparent bg-linear-to-r from-white via-purple-200 to-roxo-claro mb-1'>
+                                            {item.valor}
+                                        </span>
+                                        <span className='font-corpo text-[11px] sm:text-xs text-gray-400 leading-snug'>
+                                            {item.rotulo}
+                                        </span>
+                                    </div>
+                                ))}
+                            </div>
+
+                            <div className='mt-6 pt-5 border-t border-white/10 flex items-center gap-3'>
+                                <HeartHandshake className='w-5 h-5 text-roxo-claro shrink-0' />
+                                <p className='font-corpo text-xs sm:text-sm text-gray-300'>
+                                    Parceria de longo prazo, do diagnóstico ao
+                                    pós-lançamento.
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Brilho decorativo atrás do painel */}
+                        <div className='absolute -bottom-10 -right-10 w-56 h-56 bg-roxo-principal/25 rounded-full blur-3xl pointer-events-none' />
+                    </div>
                 </div>
             </div>
         </section>
@@ -143,7 +189,7 @@ const HistoriaSecao = () => {
                             <img
                                 src='https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=80'
                                 alt='Equipe Web iNexus desenvolvendo soluções digitais'
-                                className='w-full h-[400px] sm:h-[480px] object-cover group-hover:scale-105 transition-transform duration-700'
+                                className='w-full h-100 sm:h-120 object-cover group-hover:scale-105 transition-transform duration-700'
                             />
                             {/* Overlay escuro com toque roxo */}
                             <div className='absolute inset-0 bg-linear-to-t from-preto-escuro via-preto-escuro/40 to-transparent' />
@@ -481,7 +527,7 @@ const EquipeSecao = () => {
 /* =========================================================================
    7. CTA FINAL DA PÁGINA
    ========================================================================= */
-const CTAQuemSomos = () => {
+export const CTAQuemSomos = () => {
     return (
         <section className='py-20 lg:py-28 bg-preto-escuro relative'>
             <div className='content-section'>
@@ -526,4 +572,3 @@ const CTAQuemSomos = () => {
         </section>
     );
 };
-

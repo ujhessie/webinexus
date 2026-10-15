@@ -4,6 +4,7 @@ import { CheckCircle2, ArrowRight, Users, Target, Rocket } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { Botao } from "../../../../componentes/ui/Botao/Botao";
 import { Marquee } from "../../../../componentes/ui/Marquee/Marquee";
+import { HeroSection } from "./HeroSection";
 
 export const HomePage = () => {
     return (
@@ -15,84 +16,6 @@ export const HomePage = () => {
             <MarqueeSection />
             <PortfolioSection />
         </>
-    );
-};
-
-export const HeroSection = () => {
-    const itensHero = [
-        "Sites que apresentam seu negócio",
-        "Sistemas que simplificam sua operação",
-        "Identidade que torna sua marca reconhecida",
-        "Design que valoriza cada detalhe",
-    ];
-
-    const Lista = ({ lista }) => {
-        return (
-            <ul className='my-6 grid grid-cols-2 items-start gap-2'>
-                {lista.map((item, index) => (
-                    <li
-                        key={index}
-                        className='flex items-start gap-3 text-gray-200'
-                    >
-                        <CheckCircle2 className='w-5 h-5 text-purple-500 shrink-0' />
-                        <span className='text-[12px] lg:text-[16px] font-titulo'>
-                            {item}
-                        </span>
-                    </li>
-                ))}
-            </ul>
-        );
-    };
-
-    return (
-        <section className="bg-[url('/bg.png')] bg-cover bg-center relative overflow-hidden  flex items-center">
-            {/* Gradiente de fundo */}
-            <div className='gradiente-bg bg-linear-to-r from-preto-escuro via-preto-escuro/90 to-preto-escuro/40 absolute w-full h-full inset-0 z-0'></div>
-
-            <div className='content-section relative py-20 pt-32 lg:py-24 z-10 container mx-auto '>
-                <div className='grid lg:w-1/2 gap-12 items-center  '>
-                    <div className='div-text flex flex-col items-start'>
-                        <Badge />
-
-                        <h1 className='text-[38px] sm:text-[48px] lg:text-6xl font-bold '>
-                            MOSTRE PARA O MUNDO O QUE{" "}
-                            <span className='text-transparent bg-clip-text bg-linear-to-r from-roxo-escuro to-roxo-principal '>
-                                VOCÊ CONSTRUIU.
-                            </span>
-                        </h1>
-
-                        <p className='text-gray-300 mt-4 text-[14px] lg:text-[20px] leading-snug font-regular'>
-                            Sua empresa merece ser vista, lembrada e escolhida.{" "}
-                            <strong className='text-roxo-claro'>
-                                Criamos experiências digitais, marcas e soluções
-                                que valorizam o que você construiu{" "}
-                            </strong>
-                            e ajudam seu negócio a ocupar o espaço que merece no
-                            mercado.
-                        </p>
-
-                        <Lista lista={itensHero} />
-
-                        <div className='w-full sm:w-auto mt-2'>
-                            <Botao
-                                iconCTA={
-                                    <ArrowRight className='w-5 h-5 text-white' />
-                                }
-                                className='w-full sm:w-auto justify-center'
-                            >
-                                QUERO UM SITE PROFISSIONAL
-                            </Botao>
-                        </div>
-
-                        <p className='text-xs sm:text-sm text-gray-400 mt-4 max-w-md font-medium'>
-                            Sites, sistemas, identidades visuais e peças
-                            digitais pensados para transformar sua presença e
-                            fortalecer seu negócio.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
     );
 };
 
@@ -326,7 +249,7 @@ export const PorQueEscolherSection = () => {
                         {CARDS_DIFERENCIAIS.map((card, index) => (
                             <div
                                 key={card.id}
-                                className='sticky card-stack-item bg-white rounded-xl sm:rounded-2xl p-7 sm:p-9 lg:p-10 shadow-xl shadow-black/20  border border-white/80 transition-all duration-300   '
+                                className='sticky card-stack-item bg-white rounded-xl sm:rounded-2xl p-7 sm:p-9 lg:p-10 shadow-xl shadow-black/20  border border-roxo-escuro/80 transition-all duration-300   '
                                 style={{
                                     "--card-index": index,
                                     zIndex: 10 + index,

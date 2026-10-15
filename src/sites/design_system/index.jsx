@@ -36,8 +36,6 @@ import { Marquee } from "../../componentes/ui/Marquee/Marquee.jsx";
 import { CardProjeto } from "../../componentes/layout/CardProjeto/CardProjeto.jsx";
 import { Header } from "../../componentes/layout/Header.jsx";
 import { Footer } from "../../componentes/layout/Footer.jsx";
-import { SmoothScroll } from "../../componentes/layout/SmoothScroll.jsx";
-import { SCROLL_CONFIG } from "../../config/scrollConfig.js";
 import { useProjetos } from "../../contexts/ProjetosContext.jsx";
 
 // ==========================================
@@ -850,40 +848,6 @@ import { FaWhatsapp } from "react-icons/fa";
                     >
                         <div className="rounded-xl overflow-hidden border border-white/10 bg-preto-escuro">
                             <Footer logo="/logo.png" />
-                        </div>
-                    </ComponentDocCard>
-
-                    {/* COMPONENTE: SMOOTH SCROLL */}
-                    <ComponentDocCard
-                        nome="SmoothScroll"
-                        arquivo="src/componentes/layout/SmoothScroll.jsx"
-                        descricao="Controlador de rolagem suave com atraso e inércia (LERP). Intercepta o scroll da roda do mouse com desaceleração fluida sem interferir no touch móvel nem quebrar elementos com position: sticky."
-                        copiado={copiado}
-                        aoCopiar={copiarTexto}
-                        codigoJSX={`import { SmoothScroll } from "../componentes/layout/SmoothScroll.jsx";
-import { SCROLL_CONFIG } from "../config/scrollConfig.js";
-
-// Uso padrão (consome configurações de SCROLL_CONFIG)
-<SmoothScroll />
-
-// Customizado por props
-<SmoothScroll ativo={true} intensidade={0.08} sensibilidade={1.0} />`}
-                        props={[
-                            { nome: "ativo", tipo: "boolean", padrao: "SCROLL_CONFIG.ativo (true)", desc: "Ativa ou desativa o efeito de atraso" },
-                            { nome: "intensidade", tipo: "number", padrao: "SCROLL_CONFIG.intensidade (0.08)", desc: "Fator LERP de inércia (0.04 a 0.15). Menor = mais atraso" },
-                            { nome: "sensibilidade", tipo: "number", padrao: "SCROLL_CONFIG.sensibilidade (1.0)", desc: "Multiplicador de distância a cada giro da roda" },
-                        ]}
-                    >
-                        <div className="p-4 rounded-xl bg-black/40 border border-white/5 space-y-2">
-                            <div className="flex items-center justify-between text-xs text-zinc-300">
-                                <span>Arquivo de Configuração: <code>src/config/scrollConfig.js</code></span>
-                                <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-bold text-[10px]">
-                                    ATIVO • LERP: 0.08
-                                </span>
-                            </div>
-                            <p className="text-xs text-zinc-400">
-                                Ajustável em tempo real no menu flutuante (canto inferior direito) no ambiente local.
-                            </p>
                         </div>
                     </ComponentDocCard>
 
