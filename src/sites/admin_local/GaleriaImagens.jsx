@@ -103,8 +103,8 @@ export const GaleriaImagens = ({
         <div className="space-y-6">
             {/* Bloco de Métricas do Armazenamento */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                <div className="p-4 rounded-2xl bg-[#141527] border border-white/10 flex items-center gap-3">
-                    <div className="p-2.5 rounded-xl bg-purple-500/10 text-purple-400">
+                <div className="p-4 rounded-2xl bg-preto-fosco flex items-center gap-3">
+                    <div className="p-2.5 rounded-xl bg-roxo-principal/10 text-[#d28bff]">
                         <HardDrive className="w-5 h-5" />
                     </div>
                     <div>
@@ -115,7 +115,7 @@ export const GaleriaImagens = ({
                     </div>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-[#141527] border border-white/10 flex items-center gap-3">
+                <div className="p-4 rounded-2xl bg-preto-fosco flex items-center gap-3">
                     <div className="p-2.5 rounded-xl bg-emerald-500/10 text-emerald-400">
                         <CheckCircle2 className="w-5 h-5" />
                     </div>
@@ -127,7 +127,7 @@ export const GaleriaImagens = ({
                     </div>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-[#141527] border border-white/10 flex items-center gap-3">
+                <div className="p-4 rounded-2xl bg-preto-fosco flex items-center gap-3">
                     <div className="p-2.5 rounded-xl bg-amber-500/10 text-amber-400">
                         <AlertTriangle className="w-5 h-5" />
                     </div>
@@ -139,7 +139,7 @@ export const GaleriaImagens = ({
                     </div>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-[#141527] border border-white/10 flex items-center gap-3">
+                <div className="p-4 rounded-2xl bg-preto-fosco flex items-center gap-3">
                     <div className="p-2.5 rounded-xl bg-blue-500/10 text-blue-400">
                         <Folder className="w-5 h-5" />
                     </div>
@@ -155,7 +155,7 @@ export const GaleriaImagens = ({
             </div>
 
             {/* Barra de Filtros */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 p-4 bg-[#141527] border border-white/10 rounded-2xl">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 p-4 bg-preto-fosco rounded-2xl">
                 {/* Campo de Busca */}
                 <div className="relative flex-1">
                     <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
@@ -164,18 +164,18 @@ export const GaleriaImagens = ({
                         value={busca}
                         onChange={(e) => setBusca(e.target.value)}
                         placeholder="Buscar por nome do arquivo ou pasta..."
-                        className="w-full pl-10 pr-4 py-2 bg-[#0c0d18] border border-white/10 rounded-xl text-xs text-white placeholder-slate-500 focus:outline-none focus:border-purple-500"
+                        className="w-full pl-10 pr-4 py-2 bg-preto-escuro rounded-xl text-xs text-white placeholder-slate-500 focus:outline-none focus:border-roxo-principal border border-transparent transition-colors"
                     />
                 </div>
 
                 <div className="flex flex-wrap items-center gap-2">
                     {/* Filtro por Status */}
-                    <div className="flex bg-[#0c0d18] p-1 border border-white/10 rounded-xl text-xs">
+                    <div className="flex bg-preto-escuro p-1 rounded-xl text-xs">
                         <button
                             onClick={() => setFiltroStatus("todos")}
-                            className={`px-3 py-1.5 rounded-lg font-medium transition ${
+                            className={`button-press px-3 py-1.5 rounded-lg font-medium transition-colors ${
                                 filtroStatus === "todos"
-                                    ? "bg-purple-600 text-white"
+                                    ? "grad-btn text-white"
                                     : "text-slate-400 hover:text-white"
                             }`}
                         >
@@ -183,7 +183,7 @@ export const GaleriaImagens = ({
                         </button>
                         <button
                             onClick={() => setFiltroStatus("utilizadas")}
-                            className={`px-3 py-1.5 rounded-lg font-medium transition ${
+                            className={`button-press px-3 py-1.5 rounded-lg font-medium transition-colors ${
                                 filtroStatus === "utilizadas"
                                     ? "bg-emerald-600 text-white"
                                     : "text-slate-400 hover:text-white"
@@ -193,7 +193,7 @@ export const GaleriaImagens = ({
                         </button>
                         <button
                             onClick={() => setFiltroStatus("orfas")}
-                            className={`px-3 py-1.5 rounded-lg font-medium transition ${
+                            className={`button-press px-3 py-1.5 rounded-lg font-medium transition-colors ${
                                 filtroStatus === "orfas"
                                     ? "bg-amber-600 text-white"
                                     : "text-slate-400 hover:text-white"
@@ -207,12 +207,12 @@ export const GaleriaImagens = ({
                     <select
                         value={filtroPasta}
                         onChange={(e) => setFiltroPasta(e.target.value)}
-                        className="px-3 py-2 bg-[#0c0d18] border border-white/10 rounded-xl text-xs text-white focus:outline-none focus:border-purple-500"
+                        className="px-3 py-2 bg-preto-escuro rounded-xl text-xs text-white focus:outline-none focus:border-roxo-principal border border-transparent transition-colors"
                     >
                         <option value="todas">Todas as Pastas</option>
                         {pastasDisponiveis.map((pasta) => (
                             <option key={pasta} value={pasta}>
-                                📁 {pasta}
+                                {pasta}
                             </option>
                         ))}
                     </select>
@@ -221,7 +221,7 @@ export const GaleriaImagens = ({
 
             {/* Grid de Imagens */}
             {imagensFiltradas.length === 0 ? (
-                <div className="text-center py-16 bg-[#141527] border border-white/10 rounded-2xl text-slate-400">
+                <div className="text-center py-16 bg-preto-fosco rounded-2xl text-slate-400">
                     <p className="text-sm">Nenhuma imagem encontrada com os filtros selecionados.</p>
                 </div>
             ) : (
@@ -232,7 +232,7 @@ export const GaleriaImagens = ({
                         return (
                             <div
                                 key={img.url}
-                                className="group bg-[#141527] border border-white/10 hover:border-purple-500/50 rounded-2xl overflow-hidden flex flex-col transition shadow-lg"
+                                className="group bg-preto-fosco border border-transparent hover:border-roxo-principal/50 rounded-2xl overflow-hidden flex flex-col transition-[border-color]"
                             >
                                 {/* Imagem com Preview */}
                                 <div
@@ -242,7 +242,7 @@ export const GaleriaImagens = ({
                                     <img
                                         src={img.url}
                                         alt={img.nome}
-                                        className="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                                         onError={(e) => {
                                             e.target.style.display = "none";
                                         }}
@@ -250,11 +250,11 @@ export const GaleriaImagens = ({
                                     {/* Badge de Uso */}
                                     <div className="absolute top-2.5 left-2.5">
                                         {img.estaEmUso ? (
-                                            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-500/90 text-white backdrop-blur-md shadow">
+                                            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-500/90 text-white ">
                                                 <CheckCircle2 className="w-3 h-3" /> Em Uso
                                             </span>
                                         ) : (
-                                            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold bg-amber-500/90 text-black backdrop-blur-md shadow">
+                                            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold bg-amber-500/90 text-black ">
                                                 <AlertTriangle className="w-3 h-3" /> Não Utilizada
                                             </span>
                                         )}
@@ -262,9 +262,7 @@ export const GaleriaImagens = ({
 
                                     {/* Tamanho da Imagem */}
                                     <div className="absolute bottom-2.5 right-2.5">
-                                        <span className="px-2 py-0.5 rounded-md text-[10px] font-mono bg-black/70 text-slate-300 backdrop-blur-md">
-                                            {formatarTamanho(img.tamanho)}
-                                        </span>
+                                        <code className="px-2 py-0.5 rounded-md text-[10px] font-mono bg-black/70 text-slate-300">{formatarTamanho(img.tamanho)}</code>
                                     </div>
                                 </div>
 
@@ -277,9 +275,9 @@ export const GaleriaImagens = ({
                                         >
                                             {img.nome}
                                         </h4>
-                                        <p className="text-[11px] text-slate-400 flex items-center gap-1 mt-0.5 font-mono truncate">
-                                            <Folder className="w-3 h-3 text-purple-400" />
-                                            {img.pasta !== "raiz" ? img.pasta : "raiz"}
+                                        <p className="text-[11px] text-slate-400 flex items-center gap-1 mt-0.5 truncate">
+                                            <Folder className="w-3 h-3 text-[#d28bff]" />
+                                            <code className="font-mono">{img.pasta !== "raiz" ? img.pasta : "raiz"}</code>
                                         </p>
                                     </div>
 
@@ -304,11 +302,11 @@ export const GaleriaImagens = ({
                                     )}
 
                                     {/* Ações */}
-                                    <div className="pt-2 border-t border-white/5 flex items-center gap-2">
+                                    <div className="pt-2 flex items-center gap-2">
                                         <button
                                             type="button"
                                             onClick={() => copiarUrl(img.url)}
-                                            className={`flex-1 flex items-center justify-center gap-1.5 py-1.5 px-2 rounded-lg text-[11px] font-medium border transition ${
+                                            className={`flex-1 flex items-center justify-center gap-1.5 py-1.5 px-2 rounded-lg text-[11px] font-medium border transition-[background-color,color,border-color] ${
                                                 ehCopiado
                                                     ? "bg-emerald-600 border-emerald-500 text-white"
                                                     : "bg-white/5 border-white/10 text-slate-300 hover:text-white hover:bg-white/10"
@@ -329,7 +327,7 @@ export const GaleriaImagens = ({
                                             <button
                                                 type="button"
                                                 onClick={() => aoDefinirImagemEmProjeto(img.url)}
-                                                className="p-1.5 bg-purple-600/20 hover:bg-purple-600 border border-purple-500/30 hover:border-purple-500 text-purple-300 hover:text-white rounded-lg transition text-[11px]"
+                                                className="button-press p-1.5 bg-roxo-escuro/30 hover:bg-roxo-principal border border-roxo-principal/30 hover:border-roxo-principal text-[#d28bff] hover:text-white rounded-lg transition-[background-color,color,border-color] text-[11px]"
                                                 title="Usar em um projeto existente"
                                             >
                                                 <ExternalLink className="w-3.5 h-3.5" />
@@ -346,18 +344,16 @@ export const GaleriaImagens = ({
             {/* Modal de Zoom da Imagem */}
             {imagemAmpliada && (
                 <div
-                    className="fixed inset-0 z-70 flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm cursor-zoom-out"
+                    className="fixed inset-0 z-70 flex items-center justify-center p-4 bg-black/90 cursor-zoom-out"
                     onClick={() => setImagemAmpliada(null)}
                 >
                     <div className="max-w-4xl max-h-[85vh] relative flex flex-col items-center">
                         <img
                             src={imagemAmpliada}
                             alt="Visualização ampliada"
-                            className="max-w-full max-h-[80vh] rounded-xl object-contain shadow-2xl border border-white/10"
+                            className="max-w-full max-h-[80vh] rounded-xl object-contain border border-white/10"
                         />
-                        <p className="mt-3 text-xs text-slate-300 font-mono bg-black/60 px-3 py-1 rounded-full">
-                            {imagemAmpliada} (Clique fora para fechar)
-                        </p>
+                        <code className="mt-3 block text-xs text-slate-300 font-mono bg-black/60 px-3 py-1 rounded-full">{imagemAmpliada} (Clique fora para fechar)</code>
                     </div>
                 </div>
             )}

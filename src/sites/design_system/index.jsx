@@ -34,8 +34,11 @@ import { Botao } from "../../componentes/ui/Botao/Botao.jsx";
 import { Badge } from "../../componentes/ui/Badge/Badge.jsx";
 import { Marquee } from "../../componentes/ui/Marquee/Marquee.jsx";
 import { CardProjeto } from "../../componentes/layout/CardProjeto/CardProjeto.jsx";
+import { GaleriaProjetos } from "../../componentes/layout/GaleriaProjetos/GaleriaProjetos.jsx";
 import { Header } from "../../componentes/layout/Header.jsx";
 import { Footer } from "../../componentes/layout/Footer.jsx";
+import { HeroInterno, CTAQuemSomos } from "../../componentes/Compartilhados.jsx";
+import { RevealObserver, ScrollTop } from "../../componentes/RevealObserver.jsx";
 import { useProjetos } from "../../contexts/ProjetosContext.jsx";
 
 // ==========================================
@@ -127,22 +130,22 @@ const TOKENS_CORES = [
 const GRADIENTES_OFICIAIS = [
     {
         nome: "Gradiente Marca (Horizontal)",
-        classe: "bg-linear-to-r from-roxo-escuro to-roxo-principal",
+        classe: "bg-linear-to-r from-roxo-escuro to-roxo-principal", /* taste-skill-ignore: classe oficial da marca é esta, a doc existe pra ensiná-la */
         uso: "Botões primários, badges de destaque, cards ativos e faixas decorativas.",
     },
     {
         nome: "Gradiente Texto (Clipping)",
-        classe: "bg-linear-to-r from-roxo-escuro to-roxo-principal bg-clip-text text-transparent",
+        classe: "bg-linear-to-r from-roxo-escuro to-roxo-principal bg-clip-text text-transparent", /* taste-skill-ignore: gradiente de texto é assinatura da marca */
         uso: "Palavras-chave em títulos (aplicado automaticamente pela tag <strong>).",
     },
     {
         nome: "Gradiente Fundo Seções",
-        classe: "bg-linear-to-r from-preto-escuro via-preto-escuro/90 to-preto-escuro/40",
+        classe: "bg-linear-to-r from-preto-escuro via-preto-escuro/90 to-preto-escuro/40", /* taste-skill-ignore: overlay de foto previsto pela regra */
         uso: "Overlays de fundo para banners e seções hero com imagens de background.",
     },
     {
         nome: "Gradiente Overlay Card",
-        classe: "bg-linear-to-t from-preto-escuro/90 via-preto-escuro/20 to-transparent",
+        classe: "bg-linear-to-t from-preto-escuro/90 via-preto-escuro/20 to-transparent", /* taste-skill-ignore: overlay de foto previsto pela regra */
         uso: "Camada sobreposta em cards de imagem para garantir legibilidade dos textos.",
     },
 ];
@@ -154,6 +157,8 @@ const SECOES_NAV = [
     { id: "layout", rotulo: "Layout & Grid", icone: Layout },
     { id: "componentes-ui", rotulo: "Componentes UI", icone: Component },
     { id: "componentes-layout", rotulo: "Layout & Estruturas", icone: Layers },
+    { id: "utilidades", rotulo: "Utilitários CSS", icone: Zap },
+    { id: "compartilhados", rotulo: "Compartilhados", icone: MoveRight },
     { id: "formularios", rotulo: "Formulários & Inputs", icone: Sliders },
     { id: "diretrizes", rotulo: "Checklist de Criação", icone: ShieldCheck },
 ];
@@ -182,12 +187,15 @@ export const DesignSystemSite = () => {
     }, [busca]);
 
     return (
-        <div className="min-h-screen bg-preto-escuro text-white font-corpo selection:bg-roxo-principal selection:text-white">
+        <div className="min-h-svh bg-preto-escuro text-white font-corpo selection:bg-roxo-principal selection:text-white">
+            <ScrollTop />
+            <RevealObserver />
+
             {/* Topbar / Banner de Identificação */}
-            <header className="sticky top-0 z-40 bg-preto-escuro/85 backdrop-blur-xl border-b border-white/10">
+            <header className="sticky top-0 z-40 bg-preto-escuro/85 backdrop-blur-xl">
                 <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-2xl bg-linear-to-tr from-roxo-escuro to-roxo-principal flex items-center justify-center text-white shadow-lg shadow-roxo-principal/30">
+                        <div className="grad-icon w-10 h-10 rounded-2xl flex items-center justify-center text-white">
                             <Layers className="w-5 h-5" />
                         </div>
                         <div>
@@ -214,19 +222,19 @@ export const DesignSystemSite = () => {
                                 placeholder="Buscar componente, cor ou token..."
                                 value={busca}
                                 onChange={(e) => setBusca(e.target.value)}
-                                className="w-full pl-9 pr-4 py-2 text-xs bg-preto-fosco border border-white/10 rounded-xl text-white placeholder-zinc-500 focus:outline-none focus:border-roxo-principal focus:ring-1 focus:ring-roxo-principal transition"
+                                className="w-full pl-9 pr-4 py-2 text-xs bg-preto-fosco rounded-xl text-white placeholder-zinc-500 focus:outline-none focus:border-roxo-principal focus:ring-1 focus:ring-roxo-principal transition"
                             />
                         </div>
 
                         <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs text-zinc-400">
-                            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                            <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
                             <span>Ambiente Ativo</span>
                         </div>
                     </div>
                 </div>
 
                 {/* Sub-menu horizontal com abas */}
-                <nav className="max-w-7xl mx-auto px-6 overflow-x-auto scrollbar-none flex gap-2 border-t border-white/5 py-2">
+                <nav className="max-w-7xl mx-auto px-6 overflow-x-auto scrollbar-none flex gap-2 py-2">
                     {SECOES_NAV.map((secao) => {
                         const Icone = secao.icone;
                         const ativo = secaoAtiva === secao.id;
@@ -240,7 +248,7 @@ export const DesignSystemSite = () => {
                                 }}
                                 className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-titulo font-semibold whitespace-nowrap transition ${
                                     ativo
-                                        ? "bg-linear-to-r from-roxo-escuro to-roxo-principal text-white shadow-md shadow-roxo-escuro/30"
+                                        ? "grad-btn text-white"
                                         : "text-zinc-400 hover:text-white hover:bg-white/5"
                                 }`}
                             >
@@ -256,7 +264,7 @@ export const DesignSystemSite = () => {
             <main className="max-w-7xl mx-auto px-6 py-10 space-y-20">
                 {/* 1. VISÃO GERAL */}
                 <section id="visao-geral" className="scroll-mt-32 space-y-6">
-                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-6 rounded-3xl bg-linear-to-r from-roxo-escuro/20 via-preto-fosco to-preto-fosco border border-roxo-principal/30 shadow-xl">
+                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-6 rounded-3xl bg-preto-fosco border border-roxo-principal/30">
                         <div className="space-y-2 max-w-2xl">
                             <Badge textoBadge="PADRÃO OFICIAL DO PROJETO" />
                             <h2 className="text-2xl sm:text-3xl font-titulo font-bold">
@@ -284,10 +292,10 @@ export const DesignSystemSite = () => {
                                 </div>
                             </div>
                             <div className="flex items-center gap-2 text-xs text-zinc-300 bg-white/5 p-3 rounded-2xl border border-white/10">
-                                <Layout className="w-4 h-4 text-purple-400" />
+                                <Layout className="w-4 h-4 text-roxo-claro" />
                                 <div>
                                     <p className="font-semibold text-white">Componentes Layout:</p>
-                                    <code className="text-purple-300 text-[11px]">
+                                    <code className="text-roxo-claro text-[11px]">
                                         src/componentes/layout/
                                     </code>
                                 </div>
@@ -297,8 +305,8 @@ export const DesignSystemSite = () => {
 
                     {/* Cards explicativos das regras */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <div className="p-5 rounded-2xl bg-preto-fosco border border-white/10 space-y-2">
-                            <div className="w-8 h-8 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center">
+                        <div className="p-5 rounded-2xl bg-preto-fosco space-y-2">
+                            <div className="w-8 h-8 rounded-xl bg-roxo-principal/15 text-roxo-claro flex items-center justify-center">
                                 <CheckCircle2 className="w-4 h-4" />
                             </div>
                             <h3 className="font-titulo font-bold text-sm text-white">
@@ -310,8 +318,8 @@ export const DesignSystemSite = () => {
                             </p>
                         </div>
 
-                        <div className="p-5 rounded-2xl bg-preto-fosco border border-white/10 space-y-2">
-                            <div className="w-8 h-8 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center">
+                        <div className="p-5 rounded-2xl bg-preto-fosco space-y-2">
+                            <div className="w-8 h-8 rounded-xl bg-roxo-principal/15 text-roxo-claro flex items-center justify-center">
                                 <FileCode className="w-4 h-4" />
                             </div>
                             <h3 className="font-titulo font-bold text-sm text-white">
@@ -323,8 +331,8 @@ export const DesignSystemSite = () => {
                             </p>
                         </div>
 
-                        <div className="p-5 rounded-2xl bg-preto-fosco border border-white/10 space-y-2">
-                            <div className="w-8 h-8 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center">
+                        <div className="p-5 rounded-2xl bg-preto-fosco space-y-2">
+                            <div className="w-8 h-8 rounded-xl bg-roxo-principal/15 text-roxo-claro flex items-center justify-center">
                                 <Component className="w-4 h-4" />
                             </div>
                             <h3 className="font-titulo font-bold text-sm text-white">
@@ -340,7 +348,7 @@ export const DesignSystemSite = () => {
 
                 {/* 2. TOKENS DE CORES & GRADIENTES */}
                 <section id="tokens" className="scroll-mt-32 space-y-6">
-                    <div className="border-b border-white/10 pb-4">
+                    <div className="pb-4">
                         <Badge textoBadge="DESIGN TOKENS" />
                         <h2 className="text-2xl sm:text-3xl font-titulo font-bold">
                             Paleta de Cores & <strong>Gradientes</strong>
@@ -358,20 +366,20 @@ export const DesignSystemSite = () => {
                             return (
                                 <div
                                     key={token.nome}
-                                    className="p-4 rounded-2xl bg-preto-fosco border border-white/10 hover:border-roxo-principal/50 transition group flex flex-col justify-between"
+                                    className="p-4 rounded-2xl bg-preto-fosco border border-transparent hover:border-roxo-principal/50 transition-colors group flex flex-col justify-between"
                                 >
                                     <div>
                                         <div
-                                            className={`w-full h-20 rounded-xl mb-3 shadow-inner ${token.classe} flex items-end p-2 border border-white/10`}
+                                            className={`w-full h-20 rounded-xl mb-3 ${token.classe} flex items-end p-2 border border-white/10`}
                                         >
-                                            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-black/60 backdrop-blur-sm text-white font-bold">
+                                            <code className="text-[10px] font-mono px-2 py-0.5 rounded bg-black/60 text-white font-bold">
                                                 {token.hex}
-                                            </span>
+                                            </code>
                                         </div>
 
                                         <h3 className="font-titulo font-bold text-sm text-white flex items-center justify-between">
                                             <span>{token.nome}</span>
-                                            <span className="text-[10px] uppercase font-mono px-1.5 py-0.5 rounded bg-white/5 text-zinc-400 border border-white/5">
+                                            <span className="text-[10px] uppercase px-1.5 py-0.5 rounded bg-white/5 text-zinc-400 border border-white/5">
                                                 {token.categoria}
                                             </span>
                                         </h3>
@@ -381,16 +389,16 @@ export const DesignSystemSite = () => {
                                         </p>
                                     </div>
 
-                                    <div className="mt-4 pt-3 border-t border-white/5 space-y-1.5">
+                                    <div className="mt-4 pt-3 space-y-1.5">
                                         <div className="flex items-center justify-between text-[11px]">
-                                            <span className="text-zinc-500 font-mono">Classe:</span>
+                                            <span className="text-zinc-500">Classe:</span>
                                             <button
                                                 type="button"
                                                 onClick={() => copiarTexto(token.classe, `${chaveCopiado}-classe`)}
-                                                className="flex items-center gap-1 font-mono text-roxo-claro hover:text-white transition"
+                                                className="flex items-center gap-1 text-roxo-claro hover:text-white transition-colors"
                                                 title="Copiar classe Tailwind"
                                             >
-                                                <span>{token.classe}</span>
+                                                <code className="font-mono">{token.classe}</code>
                                                 {copiado === `${chaveCopiado}-classe` ? (
                                                     <Check className="w-3 h-3 text-emerald-400" />
                                                 ) : (
@@ -400,7 +408,7 @@ export const DesignSystemSite = () => {
                                         </div>
 
                                         <div className="flex items-center justify-between text-[11px]">
-                                            <span className="text-zinc-500 font-mono">Variável:</span>
+                                            <span className="text-zinc-500">Variável:</span>
                                             <code className="text-zinc-400 font-mono text-[10px]">
                                                 {token.variavel}
                                             </code>
@@ -423,13 +431,13 @@ export const DesignSystemSite = () => {
                                 return (
                                     <div
                                         key={grad.nome}
-                                        className="p-5 rounded-2xl bg-preto-fosco border border-white/10 space-y-3"
+                                        className="p-5 rounded-2xl bg-preto-fosco space-y-3"
                                     >
                                         <div
-                                            className={`w-full h-14 rounded-xl ${grad.classe} border border-white/10 flex items-center justify-center text-xs font-bold text-white shadow-md`}
+                                            className={`w-full h-14 rounded-xl ${grad.classe} border border-white/10 flex items-center justify-center text-xs font-bold text-white`}
                                         >
                                             {grad.nome.includes("Texto") ? (
-                                                <span className="text-lg font-titulo font-black bg-linear-to-r from-roxo-escuro to-roxo-principal bg-clip-text text-transparent">
+                                                <span className={"text-lg font-titulo font-black bg-linear-to-r from-roxo-escuro to-roxo-principal bg-clip-text text-transparent" /* taste-skill-ignore: preview real do texto com gradiente da marca */}>
                                                     EXEMPLO DE TEXTO COM GRADIENTE
                                                 </span>
                                             ) : (
@@ -475,7 +483,7 @@ export const DesignSystemSite = () => {
 
                 {/* 3. TIPOGRAFIA */}
                 <section id="tipografia" className="scroll-mt-32 space-y-6">
-                    <div className="border-b border-white/10 pb-4">
+                    <div className="pb-4">
                         <Badge textoBadge="HIERARQUIA VISUAL" />
                         <h2 className="text-2xl sm:text-3xl font-titulo font-bold">
                             Tipografia & <strong>Fontes</strong>
@@ -488,9 +496,9 @@ export const DesignSystemSite = () => {
 
                     <div className="space-y-4">
                         {/* H1 */}
-                        <div className="p-6 rounded-2xl bg-preto-fosco border border-white/10 space-y-3">
+                        <div className="p-6 rounded-2xl bg-preto-fosco space-y-3">
                             <div className="flex items-center justify-between">
-                                <span className="text-xs font-mono px-2 py-0.5 rounded bg-purple-500/20 text-purple-300">
+                                <span className="text-xs font-titulo px-2 py-0.5 rounded bg-roxo-principal/15 text-roxo-claro">
                                     Título H1 (Hero & Destaque)
                                 </span>
                                 <code className="text-xs text-zinc-400 font-mono">
@@ -501,15 +509,15 @@ export const DesignSystemSite = () => {
                                 CONSTRUA O FUTURO <strong>DIGITAL</strong>
                             </h1>
                             <p className="text-xs text-zinc-400">
-                                💡 Dica: Toda tag <code>&lt;strong&gt;</code> dentro de títulos herda
+                                Dica: Toda tag <code>&lt;strong&gt;</code> dentro de títulos herda
                                 automaticamente o gradiente roxo oficial!
                             </p>
                         </div>
 
                         {/* H2 */}
-                        <div className="p-6 rounded-2xl bg-preto-fosco border border-white/10 space-y-3">
+                        <div className="p-6 rounded-2xl bg-preto-fosco space-y-3">
                             <div className="flex items-center justify-between">
-                                <span className="text-xs font-mono px-2 py-0.5 rounded bg-purple-500/20 text-purple-300">
+                                <span className="text-xs font-titulo px-2 py-0.5 rounded bg-roxo-principal/15 text-roxo-claro">
                                     Título H2 (Seções de Conteúdo)
                                 </span>
                                 <code className="text-xs text-zinc-400 font-mono">
@@ -522,9 +530,9 @@ export const DesignSystemSite = () => {
                         </div>
 
                         {/* H3 */}
-                        <div className="p-6 rounded-2xl bg-preto-fosco border border-white/10 space-y-3">
+                        <div className="p-6 rounded-2xl bg-preto-fosco space-y-3">
                             <div className="flex items-center justify-between">
-                                <span className="text-xs font-mono px-2 py-0.5 rounded bg-purple-500/20 text-purple-300">
+                                <span className="text-xs font-titulo px-2 py-0.5 rounded bg-roxo-principal/15 text-roxo-claro">
                                     Título H3 (Cards e Subtítulos)
                                 </span>
                                 <code className="text-xs text-zinc-400 font-mono">
@@ -537,9 +545,9 @@ export const DesignSystemSite = () => {
                         </div>
 
                         {/* Corpo / Parágrafo */}
-                        <div className="p-6 rounded-2xl bg-preto-fosco border border-white/10 space-y-3">
+                        <div className="p-6 rounded-2xl bg-preto-fosco space-y-3">
                             <div className="flex items-center justify-between">
-                                <span className="text-xs font-mono px-2 py-0.5 rounded bg-white/10 text-zinc-300">
+                                <span className="text-xs font-titulo px-2 py-0.5 rounded bg-white/10 text-zinc-300">
                                     Corpo de Texto (Parágrafos)
                                 </span>
                                 <code className="text-xs text-zinc-400 font-mono">
@@ -557,7 +565,7 @@ export const DesignSystemSite = () => {
 
                 {/* 4. LAYOUT & GRID */}
                 <section id="layout" className="scroll-mt-32 space-y-6">
-                    <div className="border-b border-white/10 pb-4">
+                    <div className="pb-4">
                         <Badge textoBadge="ESTRUTURAÇÃO" />
                         <h2 className="text-2xl sm:text-3xl font-titulo font-bold">
                             Layout, Grid & <strong>Containers</strong>
@@ -569,7 +577,7 @@ export const DesignSystemSite = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {/* Container Content-Section */}
-                        <div className="p-6 rounded-2xl bg-preto-fosco border border-white/10 space-y-4">
+                        <div className="p-6 rounded-2xl bg-preto-fosco space-y-4">
                             <div className="flex items-center justify-between">
                                 <h3 className="font-titulo font-bold text-base text-white">
                                     Container Universal: <code>.content-section</code>
@@ -591,31 +599,31 @@ export const DesignSystemSite = () => {
                                 define largura máxima de <code>max-w-7xl</code> e aplica padding lateral
                                 responsivo (<code>px-6 sm:px-10 lg:px-12</code>).
                             </p>
-                            <div className="p-4 rounded-xl border border-dashed border-roxo-principal/40 bg-roxo-principal/5 text-center text-xs text-roxo-claro font-mono">
-                                &lt;div className=&quot;content-section&quot;&gt; ...conteúdo... &lt;/div&gt;
+                            <div className="p-4 rounded-xl border border-dashed border-roxo-principal/40 bg-roxo-principal/5 text-center text-xs text-roxo-claro">
+                                <code className="font-mono">&lt;div className=&quot;content-section&quot;&gt; ...conteúdo... &lt;/div&gt;</code>
                             </div>
                         </div>
 
                         {/* Espaçamento Vertical de Seções */}
-                        <div className="p-6 rounded-2xl bg-preto-fosco border border-white/10 space-y-4">
+                        <div className="p-6 rounded-2xl bg-preto-fosco space-y-4">
                             <h3 className="font-titulo font-bold text-base text-white">
                                 Espaçamento Vertical de Seções
                             </h3>
                             <p className="text-xs text-zinc-400 leading-relaxed">
                                 Mantenha o respiro visual entre as seções usando os seguintes padrões:
                             </p>
-                            <ul className="space-y-2 text-xs text-zinc-300 font-mono">
+                            <ul className="space-y-2 text-xs text-zinc-300">
                                 <li className="flex items-center justify-between p-2 rounded-lg bg-white/5">
                                     <span>Seções Padrão:</span>
-                                    <code className="text-roxo-claro">py-16 sm:py-20 lg:py-24</code>
+                                    <code className="text-roxo-claro font-mono">py-16 sm:py-20 lg:py-24</code>
                                 </li>
                                 <li className="flex items-center justify-between p-2 rounded-lg bg-white/5">
                                     <span>Hero Sections:</span>
-                                    <code className="text-roxo-claro">min-h-140 lg:min-h-160</code>
+                                    <code className="text-roxo-claro font-mono">min-h-140 lg:min-h-160</code>
                                 </li>
                                 <li className="flex items-center justify-between p-2 rounded-lg bg-white/5">
                                     <span>Gaps de Grid:</span>
-                                    <code className="text-roxo-claro">gap-4 sm:gap-6 lg:gap-8</code>
+                                    <code className="text-roxo-claro font-mono">gap-4 sm:gap-6 lg:gap-8</code>
                                 </li>
                             </ul>
                         </div>
@@ -624,7 +632,7 @@ export const DesignSystemSite = () => {
 
                 {/* 5. COMPONENTES UI */}
                 <section id="componentes-ui" className="scroll-mt-32 space-y-8">
-                    <div className="border-b border-white/10 pb-4">
+                    <div className="pb-4">
                         <Badge textoBadge="BIBLIOTECA UI" />
                         <h2 className="text-2xl sm:text-3xl font-titulo font-bold">
                             Componentes UI Reutilizáveis (<code>src/componentes/ui/</code>)
@@ -638,7 +646,7 @@ export const DesignSystemSite = () => {
                     <ComponentDocCard
                         nome="Botao"
                         arquivo="src/componentes/ui/Botao/Botao.jsx"
-                        descricao="Botão universal com 4 variantes (primário com gradiente, secundário com efeito vidro, outline e branco para superfícies coloridas/destaque), suporte a ícone CTA estilizado e estados hover com elevação suave."
+                        descricao="Botão universal com 4 variantes (primário com .grad-btn + .sombra-btn, secundário em vidro, outline e branco para superfícies coloridas), feedback tátil .button-press, círculo para ícone CTA e SPA routing: um href iniciado em / renderiza <Link> do react-router."
                         copiado={copiado}
                         aoCopiar={copiarTexto}
                         codigoJSX={`import { Botao } from "../componentes/ui/Botao/Botao.jsx";
@@ -696,7 +704,7 @@ import { FaWhatsapp } from "react-icons/fa";
                     <ComponentDocCard
                         nome="Badge"
                         arquivo="src/componentes/ui/Badge/Badge.jsx"
-                        descricao="Pílula de destaque com ícone Sparkles, borda e fundo translúcidos com backdrop-blur. Suporta variante padrão (roxa) e branca (para fundos contrastantes/seções roxas), além de controle de uppercase."
+                        descricao="Pílula de destaque com ícone Sparkles, borda fina e fundo translúcido da marca (sem blur). Variantes padrão (roxo) e branco (para fundos contrastantes/seções roxas), controle de uppercase e className extra para posicionamento."
                         copiado={copiado}
                         aoCopiar={copiarTexto}
                         codigoJSX={`import { Badge } from "../componentes/ui/Badge/Badge.jsx";
@@ -728,19 +736,18 @@ import { FaWhatsapp } from "react-icons/fa";
                     <ComponentDocCard
                         nome="Marquee"
                         arquivo="src/componentes/ui/Marquee/Marquee.jsx"
-                        descricao="Faixa letreiro contínua com animação horizontal infinita em CSS puro. Suporta sentido padrão (esquerda) e reverse (direita)."
+                        descricao="Faixa letreiro contínua com animação horizontal infinita em CSS puro (marquee.css). Já renderiza a própria faixa com o gradiente .grad-btn por dentro — use sem wrapper de cor. Sentido padrão (esquerda) e reverse (direita)."
                         copiado={copiado}
                         aoCopiar={copiarTexto}
                         codigoJSX={`import { Marquee } from "../componentes/ui/Marquee/Marquee.jsx";
 
-<section className="bg-linear-to-r from-roxo-escuro to-roxo-principal">
-    <Marquee>
-        <li>Criação de sites</li>
-        <li>Sistemas Web</li>
-        <li>Automações</li>
-        <li>APIs & Integrações</li>
-    </Marquee>
-</section>
+// O próprio Marquee já renderiza a faixa com .grad-btn por dentro
+<Marquee>
+    <li>Criação de sites</li>
+    <li>Sistemas Web</li>
+    <li>Automações</li>
+    <li>APIs & Integrações</li>
+</Marquee>
 
 // Sentido invertido
 <Marquee reverse>
@@ -752,7 +759,7 @@ import { FaWhatsapp } from "react-icons/fa";
                             { nome: "reverse", tipo: "boolean", padrao: "false", desc: "Inverte a direção da rolagem contínua" },
                         ]}
                     >
-                        <div className="rounded-xl overflow-hidden bg-linear-to-r from-roxo-escuro to-roxo-principal">
+                        <div className="rounded-xl overflow-hidden">
                             <Marquee>
                                 <li>Desenvolvimento Web</li>
                                 <li>Design System</li>
@@ -766,7 +773,7 @@ import { FaWhatsapp } from "react-icons/fa";
 
                 {/* 6. COMPONENTES DE LAYOUT */}
                 <section id="componentes-layout" className="scroll-mt-32 space-y-8">
-                    <div className="border-b border-white/10 pb-4">
+                    <div className="pb-4">
                         <Badge textoBadge="ESTRUTURAS & LAYOUT" />
                         <h2 className="text-2xl sm:text-3xl font-titulo font-bold">
                             Componentes de Layout (<code>src/componentes/layout/</code>)
@@ -799,6 +806,7 @@ import { FaWhatsapp } from "react-icons/fa";
 />`}
                         props={[
                             { nome: "logo", tipo: "string", padrao: "'/ujhessie-logo.svg'", desc: "Caminho da imagem do logotipo" },
+                            { nome: "altLogo", tipo: "string", padrao: "'UJHESSIE'", desc: "Texto alternativo do logotipo (acessibilidade)" },
                             { nome: "links", tipo: "object { [rotulo]: url }", padrao: "{}", desc: "Mapa de rotas exibidas no menu" },
                             { nome: "configCTA", tipo: "object { textoCTA, urlCTA }", padrao: "{}", desc: "Configurações do botão de WhatsApp" },
                         ]}
@@ -855,7 +863,7 @@ import { FaWhatsapp } from "react-icons/fa";
                     <ComponentDocCard
                         nome="CardProjeto"
                         arquivo="src/componentes/layout/CardProjeto/CardProjeto.jsx"
-                        descricao="Card com proporção vertical 3/4, imagem de capa com fallback elegante, overlay escuro e efeito de hover com gradiente roxo revelando o título."
+                        descricao="Card de projeto 3/4 com capa, fallback .img-fallback quando a imagem falha, overlay .overlay-card para legibilidade do título e elevação roxa (.card-projeto) somente no hover. Os dados vêm do ProjetosContext pelo id."
                         copiado={copiado}
                         aoCopiar={copiarTexto}
                         codigoJSX={`import { CardProjeto } from "../componentes/layout/CardProjeto/CardProjeto.jsx";
@@ -871,11 +879,370 @@ import { FaWhatsapp } from "react-icons/fa";
                             <CardProjeto id="loja-virtual-multitech" basePath="/portfolio" />
                         </div>
                     </ComponentDocCard>
+
+                    {/* COMPONENTE: GALERIA PROJETOS */}
+                    <ComponentDocCard
+                        nome="GaleriaProjetos"
+                        arquivo="src/componentes/layout/GaleriaProjetos/GaleriaProjetos.jsx"
+                        descricao="Grade de projetos com barra de filtros em pílula branca (filtros vêm do ProjetosContext), grid responsivo de 2 para 3 colunas e entrada escalonada .card-entrada. Aceita limite opcional de itens."
+                        copiado={copiado}
+                        aoCopiar={copiarTexto}
+                        codigoJSX={`import { GaleriaProjetos } from "../componentes/layout/GaleriaProjetos/GaleriaProjetos.jsx";
+
+// Todos os projetos filtrados
+<GaleriaProjetos />
+
+// No máximo 6 itens (como na Home)
+<GaleriaProjetos limite={6} />`}
+                        props={[
+                            { nome: "limite", tipo: "number", padrao: "undefined", desc: "Quantidade máxima de projetos exibidos (sem limite quando omitido)" },
+                        ]}
+                    >
+                        <div className="p-4 rounded-xl bg-black/40">
+                            <GaleriaProjetos limite={3} />
+                        </div>
+                    </ComponentDocCard>
+                </section>
+
+                {/* 6.5 UTILITÁRIOS CSS GLOBAIS */}
+                <section id="utilidades" className="scroll-mt-32 space-y-6">
+                    <div className="pb-4">
+                        <Badge textoBadge="CAMADA GLOBAL" />
+                        <h2 className="text-2xl sm:text-3xl font-titulo font-bold">
+                            Utilitários de <strong>style.css</strong>
+                        </h2>
+                        <p className="text-xs sm:text-sm text-zinc-400 mt-1">
+                            Classes autorais do sistema: gradientes da marca, véus de foto, sombras de interação, movimento e números tabulares. Os previews abaixo são funcionais: passe o mouse, role a página e navegue com Tab.
+                        </p>
+                    </div>
+
+                    <UtilDoc
+                        nome=".grad-btn / .grad-icon"
+                        arquivo="style.css"
+                        descricao="Gradiente oficial da marca em horizontal (botões, faixas e itens ativos) e em diagonal (ladrilhos de ícone). Já trazem fundo, hover e contraste de texto: não empilhe outro gradiente por cima."
+                        codigo={`<button className="grad-btn px-6 py-3.5 rounded-2xl text-white">
+    Botão da marca
+</button>
+
+<span className="grad-icon w-11 h-11 rounded-xl flex items-center justify-center text-white">
+    <Icone />
+</span>`}
+                    >
+                        <div className="flex flex-wrap items-center gap-4">
+                            <span className="grad-btn button-press px-5 py-3 rounded-2xl text-white font-titulo font-bold text-sm uppercase tracking-wider">
+                                Faixa grad-btn
+                            </span>
+                            <span className="grad-icon w-11 h-11 rounded-xl flex items-center justify-center text-white">
+                                <Sparkles className="w-5 h-5" />
+                            </span>
+                        </div>
+                    </UtilDoc>
+
+                    <UtilDoc
+                        nome=".grad-cta / .grad-section"
+                        arquivo="style.css"
+                        descricao="Superfícies maiores: .grad-cta é o cartão do CTA final (combine com .sombra-cta) e .grad-section pinta seções inteiras, como a faixa de parceiros do Ujhessie."
+                        codigo={`<div className="grad-cta sombra-cta rounded-3xl p-14 text-center">
+    <h2>Precisa de um projeto personalizado?</h2>
+</div>
+
+<div className="grad-section py-16">
+    {/* seção inteira com a cor da marca */}
+</div>`}
+                    >
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div className="grad-cta sombra-cta rounded-3xl p-6 text-center text-white">
+                                <p className="font-titulo font-bold text-sm uppercase tracking-wider">
+                                    .grad-cta
+                                </p>
+                                <p className="text-xs text-white/80 mt-1">
+                                    Cartão do CTA final
+                                </p>
+                            </div>
+                            <div className="grad-section rounded-3xl p-6 text-center text-white">
+                                <p className="font-titulo font-bold text-sm uppercase tracking-wider">
+                                    .grad-section
+                                </p>
+                                <p className="text-xs text-white/80 mt-1">
+                                    Seção inteira da marca
+                                </p>
+                            </div>
+                        </div>
+                    </UtilDoc>
+
+                    <UtilDoc
+                        nome=".grad-texto-hero / .grad-texto-metrica"
+                        arquivo="style.css"
+                        descricao="Texto com gradiente recortado no próprio elemento. No projeto, todo strong de h1 a h5 já vira gradiente pela regra global; as classes cobrem os casos fora dela (destaques soltos e números de métrica)."
+                        codigo={`<h1>Título com <strong>destaque da marca</strong></h1>
+
+<span className="grad-texto-hero">Destaque solto</span>
+<span className="grad-texto-metrica tabular text-4xl font-black">200+</span>`}
+                    >
+                        <div className="space-y-3">
+                            <p className="text-3xl font-titulo font-black">
+                                <span className="grad-texto-hero">
+                                    TEXTO COM GRADIENTE
+                                </span>
+                            </p>
+                            <p className="text-sm text-zinc-400">
+                                Métrica isolada:{" "}
+                                <span className="grad-texto-metrica tabular text-4xl font-titulo font-black align-middle">
+                                    200+
+                                </span>
+                            </p>
+                        </div>
+                    </UtilDoc>
+
+                    <UtilDoc
+                        nome=".scrim / .overlay-card / .img-fallback"
+                        arquivo="style.css"
+                        descricao="Véus neutros sobre foto, a exceção de gradiente prevista pelo guia: .scrim garante legibilidade do texto sobre imagem, .overlay-card escurece a base do card de projeto e .img-fallback desenha o fundo quando a imagem falha."
+                        codigo={`<div className="relative rounded-xl overflow-hidden">
+    <img src="/bg.png" alt="Foto do projeto" />
+    <div className="scrim absolute inset-0" />
+    <div className="absolute inset-x-0 bottom-0 p-4">
+        <p className="text-white font-bold">Texto legível sobre a foto</p>
+    </div>
+</div>`}
+                    >
+                        <div className="relative h-36 rounded-xl overflow-hidden bg-[url(/bg.png)] bg-cover bg-center">
+                            <div className="scrim absolute inset-0" />
+                            <div className="absolute inset-x-4 bottom-3">
+                                <p className="text-sm font-titulo font-bold text-white">
+                                    Texto legível sobre a foto
+                                </p>
+                                <p className="text-[11px] text-zinc-300">
+                                    .scrim resolve o contraste sem caixa nem borda
+                                </p>
+                            </div>
+                        </div>
+                    </UtilDoc>
+
+                    <UtilDoc
+                        nome=".button-press"
+                        arquivo="style.css"
+                        descricao="Feedback tátil universal: comprime o elemento em 3% ao pressionar, com transição curta e respeito a prefers-reduced-motion. Todo controle clicável do sistema carrega a classe."
+                        codigo={`<button className="button-press grad-btn px-6 py-3.5 rounded-2xl text-white">
+    Clique e segure
+</button>`}
+                    >
+                        <div className="flex flex-wrap gap-3">
+                            <button
+                                type="button"
+                                className="button-press grad-btn px-5 py-3 rounded-xl text-white font-titulo font-bold text-sm uppercase tracking-wider"
+                            >
+                                Primário
+                            </button>
+                            <button
+                                type="button"
+                                className="button-press bg-white/10 hover:bg-white/15 px-5 py-3 rounded-xl text-white font-titulo font-bold text-sm uppercase tracking-wider"
+                            >
+                                Neutro
+                            </button>
+                        </div>
+                    </UtilDoc>
+
+                    <UtilDoc
+                        nome=".reveal (--reveal-i)"
+                        arquivo="style.css + RevealObserver"
+                        descricao="Entrada em cena ao rolar: o elemento sobe e aparece uma única vez quando entra na tela. --reveal-i (0, 1, 2...) escalona blocos irmãos com 90ms de diferença. Monte o RevealObserver uma vez no layout; a prévia abaixo é funcional, role a página."
+                        codigo={`// 1. monte o observer uma vez no layout do site
+<RevealObserver />
+
+// 2. marque os elementos que entram em cena
+<h2 className="reveal">Entra na tela</h2>
+<p className="reveal" style={{ "--reveal-i": 1 }}>Entra 90ms depois</p>`}
+                    >
+                        <div className="space-y-3">
+                            {[0, 1, 2].map((i) => (
+                                <div
+                                    key={i}
+                                    className="reveal p-4 rounded-xl bg-preto-escuro text-sm text-zinc-300"
+                                    style={{ "--reveal-i": i }}
+                                >
+                                    Item {i + 1} com{" "}
+                                    <code className="text-roxo-claro font-mono">
+                                        reveal
+                                    </code>{" "}
+                                    escalonado
+                                </div>
+                            ))}
+                        </div>
+                    </UtilDoc>
+
+                    <UtilDoc
+                        nome=".sombra-btn / .sombra-nav / .sombra-cta / .sombra-pilha"
+                        arquivo="style.css"
+                        descricao="Sombras declaradas da marca, com taste-skill-ignore no style.css: brilho roxo em botões primários e itens ativos de navegação, profundidade no cartão de CTA e na pilha de cards. Superfícies neutras ficam planas."
+                        codigo={`<button className="button-press sombra-btn grad-btn ...">Botão primário</button>
+
+<nav aria-current="page" className="sombra-nav">Item ativo</nav>
+
+<div className="sombra-pilha">Cards empilhados</div>`}
+                    >
+                        <div className="flex flex-wrap gap-3">
+                            <span className="sombra-btn px-5 py-3 rounded-xl bg-preto-escuro text-sm text-zinc-300">
+                                .sombra-btn
+                            </span>
+                            <span className="sombra-nav px-5 py-3 rounded-xl bg-preto-escuro text-sm text-zinc-300">
+                                .sombra-nav
+                            </span>
+                            <span className="sombra-pilha px-5 py-3 rounded-xl bg-preto-escuro text-sm text-zinc-300">
+                                .sombra-pilha
+                            </span>
+                        </div>
+                    </UtilDoc>
+
+                    <UtilDoc
+                        nome=".tabular + foco global"
+                        arquivo="style.css"
+                        descricao="Números tabulares para contadores e métricas, foco :focus-visible roxo em todos os controles e prefers-reduced-motion que desliga reveals e animações. Junto com .card-entrada e .animate-fade-in-up, fecha a camada de movimento do sistema."
+                        codigo={`<span className="tabular text-4xl font-titulo font-black">+200</span>
+
+/* foco do teclado, já global em style.css */
+:focus-visible {
+    outline: 2px solid var(--color-roxo-claro);
+    outline-offset: 3px;
+}`}
+                    >
+                        <div className="flex flex-wrap items-end gap-8">
+                            <div>
+                                <p className="tabular text-4xl font-titulo font-black text-white">
+                                    +200
+                                </p>
+                                <p className="text-[11px] text-zinc-400 mt-1">
+                                    projetos entregues
+                                </p>
+                            </div>
+                            <div>
+                                <p className="tabular text-4xl font-titulo font-black text-[#d28bff]">
+                                    98%
+                                </p>
+                                <p className="text-[11px] text-zinc-400 mt-1">
+                                    clientes satisfeitos
+                                </p>
+                            </div>
+                            <p className="text-xs text-zinc-400 max-w-xs">
+                                Dê Tab nesta página: o foco do teclado usa contorno
+                                roxo visível em todos os controles.
+                            </p>
+                        </div>
+                    </UtilDoc>
+                </section>
+
+                {/* 6.6 COMPONENTES COMPARTILHADOS */}
+                <section id="compartilhados" className="scroll-mt-32 space-y-8">
+                    <div className="pb-4">
+                        <Badge textoBadge="REUSO ENTRE SITES" />
+                        <h2 className="text-2xl sm:text-3xl font-titulo font-bold">
+                            Compartilhados (<code>src/componentes/</code>)
+                        </h2>
+                        <p className="text-xs sm:text-sm text-zinc-400 mt-1">
+                            Blocos prontos usados por todos os sites: hero de
+                            página interna, CTA final e o par de observer que
+                            comanda revelações e rolagem.
+                        </p>
+                    </div>
+
+                    {/* COMPONENTE: HERO INTERNO */}
+                    <ComponentDocCard
+                        nome="HeroInterno"
+                        arquivo="src/componentes/Compartilhados.jsx"
+                        descricao="Hero de página interna com fundo próprio, véu, brilhos opcionais, badge, título com destaque em gradiente (.grad-texto-hero), parágrafo, ações e slot de conteúdo extra. Títulos e blocos já nascem com .reveal."
+                        copiado={copiado}
+                        aoCopiar={copiarTexto}
+                        codigoJSX={`import { HeroInterno } from "../componentes/Compartilhados.jsx";
+import { Botao } from "../componentes/ui/Botao/Botao.jsx";
+
+<HeroInterno
+    badge="NOSSOS SERVIÇOS"
+    titulo="Soluções que"
+    destaque="geram resultado"
+    paragrafo="Cada projeto começa pelo seu problema real."
+    acoes={<Botao textoCTA="Ver serviços" />}
+    extras={<p className="text-sm text-zinc-400">Conteúdo opcional abaixo das ações</p>}
+/>`}
+                        props={[
+                            { nome: "badge", tipo: "string", padrao: "-", desc: "Texto do Badge acima do título" },
+                            { nome: "titulo", tipo: "string", padrao: "-", desc: "Primeira linha do título" },
+                            { nome: "destaque", tipo: "string", padrao: "-", desc: "Trecho final do título com gradiente" },
+                            { nome: "paragrafo", tipo: "string", padrao: "-", desc: "Texto de apoio abaixo do título" },
+                            { nome: "acoes", tipo: "ReactNode", padrao: "null", desc: "Botões do hero (empilham no mobile)" },
+                            { nome: "extras", tipo: "ReactNode", padrao: "null", desc: "Conteúdo opcional abaixo das ações" },
+                            { nome: "brilhos", tipo: "boolean", padrao: "true", desc: "Brilhos decorativos de fundo" },
+                        ]}
+                    >
+                        <HeroInterno
+                            badge="PRÉVIA"
+                            titulo="Página interna com"
+                            destaque="assinatura da marca"
+                            paragrafo="Prévia funcional do HeroInterno dentro da documentação."
+                            acoes={
+                                <>
+                                    <Botao textoCTA="Botão principal" />
+                                    <Botao tipoBotao="secundario" textoCTA="Secundário" />
+                                </>
+                            }
+                        />
+                    </ComponentDocCard>
+
+                    {/* COMPONENTE: CTA QUEM SOMOS */}
+                    <ComponentDocCard
+                        nome="CTAQuemSomos"
+                        arquivo="src/componentes/Compartilhados.jsx"
+                        descricao="Bloco final de CTA usado em Home, Serviços, Quem Somos e Portfólio: superfície .grad-cta com .sombra-cta, badge branco, título forte e botão de WhatsApp. Prévia funcional abaixo."
+                        copiado={copiado}
+                        aoCopiar={copiarTexto}
+                        codigoJSX={`import { CTAQuemSomos } from "../componentes/Compartilhados.jsx";
+
+// Bloco final de Home, Serviços, Quem Somos e Portfólio
+<CTAQuemSomos />`}
+                    >
+                        <CTAQuemSomos />
+                    </ComponentDocCard>
+
+                    {/* COMPONENTE: REVEAL OBSERVER */}
+                    <ComponentDocCard
+                        nome="RevealObserver / ScrollTop"
+                        arquivo="src/componentes/RevealObserver.jsx"
+                        descricao="Par de componentes nulos montados uma única vez no layout de cada site. ScrollTop zera a rolagem a cada navegação; RevealObserver ativa os elementos .reveal da página quando entram na tela, uma vez só e respeitando prefers-reduced-motion."
+                        copiado={copiado}
+                        aoCopiar={copiarTexto}
+                        codigoJSX={`import { RevealObserver, ScrollTop } from "../componentes/RevealObserver.jsx";
+
+export const MeuSite = () => (
+    <div>
+        <ScrollTop />
+        <RevealObserver />
+        {/* header, rotas e páginas com elementos .reveal */}
+    </div>
+);`}
+                        props={[
+                            { nome: "(sem props)", tipo: "-", padrao: "-", desc: "Componentes nulos: monte cada um uma vez, no layout raiz" },
+                        ]}
+                    >
+                        <div className="p-4 rounded-xl bg-black/40 text-xs text-zinc-300 space-y-2">
+                            <p>
+                                <code className="text-roxo-claro font-mono">
+                                    &lt;ScrollTop /&gt;
+                                </code>{" "}
+                                rola para o topo a cada navegação.
+                            </p>
+                            <p>
+                                <code className="text-roxo-claro font-mono">
+                                    &lt;RevealObserver /&gt;
+                                </code>{" "}
+                                ativa as entradas .reveal desta página,
+                                inclusive os previews de .reveal acima.
+                            </p>
+                        </div>
+                    </ComponentDocCard>
                 </section>
 
                 {/* 7. FORMULÁRIOS & CONTROLES */}
                 <section id="formularios" className="scroll-mt-32 space-y-6">
-                    <div className="border-b border-white/10 pb-4">
+                    <div className="pb-4">
                         <Badge textoBadge="PADRÃO DE INTERFACE" />
                         <h2 className="text-2xl sm:text-3xl font-titulo font-bold">
                             Padrão de Formulários & <strong>Inputs</strong>
@@ -885,7 +1252,7 @@ import { FaWhatsapp } from "react-icons/fa";
                         </p>
                     </div>
 
-                    <div className="p-6 rounded-2xl bg-preto-fosco border border-white/10 space-y-6">
+                    <div className="p-6 rounded-2xl bg-preto-fosco space-y-6">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             {/* Input de Texto */}
                             <div className="space-y-1.5">
@@ -919,12 +1286,12 @@ import { FaWhatsapp } from "react-icons/fa";
                         </div>
 
                         {/* Pills e Tags */}
-                        <div className="space-y-2 pt-2 border-t border-white/5">
+                        <div className="space-y-2 pt-2">
                             <label className="text-xs font-semibold text-zinc-300">
                                 Badges de Categoria & Tags Selecionáveis:
                             </label>
                             <div className="flex flex-wrap gap-2">
-                                <span className="px-3 py-1 rounded-full text-xs font-bold bg-linear-to-r from-roxo-escuro to-roxo-principal text-white shadow-sm">
+                                <span className="button-press px-3 py-1 rounded-full text-xs font-bold grad-btn text-white">
                                     Ativo / Selecionado
                                 </span>
                                 <span className="px-3 py-1 rounded-full text-xs font-medium bg-white/5 hover:bg-white/10 text-zinc-300 border border-white/10 transition cursor-pointer">
@@ -943,7 +1310,7 @@ import { FaWhatsapp } from "react-icons/fa";
 
                 {/* 8. CHECKLIST PARA DESENVOLVEDORES & AGENTES IA */}
                 <section id="diretrizes" className="scroll-mt-32 space-y-6">
-                    <div className="border-b border-white/10 pb-4">
+                    <div className="pb-4">
                         <Badge textoBadge="BOAS PRÁTICAS" />
                         <h2 className="text-2xl sm:text-3xl font-titulo font-bold">
                             Checklist: <strong>Criando Novas Telas ou Componentes</strong>
@@ -1025,7 +1392,7 @@ import { FaWhatsapp } from "react-icons/fa";
             </main>
 
             {/* Rodapé do Design System */}
-            <footer className="border-t border-white/10 py-8 bg-black/40 text-center text-xs text-zinc-500">
+            <footer className="py-8 bg-black/40 text-center text-xs text-zinc-500">
                 <p>Web Inexus & Ujhessie Design System • Versão 2.0</p>
                 <p className="text-[11px] text-zinc-600 mt-1">
                     Central de Componentes e Diretrizes Visuais Compartilhadas
@@ -1052,15 +1419,15 @@ const ComponentDocCard = ({
     const chaveCopia = `cod-${nome}`;
 
     return (
-        <div className="rounded-2xl bg-preto-fosco border border-white/10 overflow-hidden shadow-lg space-y-0">
+        <div className="rounded-2xl bg-preto-fosco overflow-hidden space-y-0">
             {/* Cabeçalho do Card */}
-            <div className="p-5 border-b border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-3 bg-white/2">
+            <div className="p-5 flex flex-col md:flex-row md:items-center justify-between gap-3 bg-white/2">
                 <div>
                     <div className="flex items-center gap-3">
                         <h3 className="text-lg font-titulo font-bold text-white tracking-wide">
                             &lt;{nome} /&gt;
                         </h3>
-                        <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-purple-500/10 border border-purple-500/20 text-purple-300">
+                        <span className="text-[11px] px-2 py-0.5 rounded bg-roxo-principal/10 border border-roxo-principal/30 text-roxo-claro">
                             Componente Global
                         </span>
                     </div>
@@ -1114,7 +1481,7 @@ const ComponentDocCard = ({
             </div>
 
             {/* Descrição */}
-            <div className="px-5 py-3 bg-white/2 border-b border-white/5 text-xs text-zinc-400">
+            <div className="px-5 py-3 bg-white/2 text-xs text-zinc-400">
                 {descricao}
             </div>
 
@@ -1151,24 +1518,24 @@ const ComponentDocCard = ({
                     <div className="overflow-x-auto">
                         <table className="w-full text-left text-xs border-collapse">
                             <thead>
-                                <tr className="border-b border-white/10 text-zinc-400">
+                                <tr className="bg-white/5 text-zinc-400">
                                     <th className="py-2 px-3 font-semibold">Prop</th>
                                     <th className="py-2 px-3 font-semibold">Tipo</th>
                                     <th className="py-2 px-3 font-semibold">Padrão</th>
                                     <th className="py-2 px-3 font-semibold">Descrição</th>
                                 </tr>
                             </thead>
-                            <tbody className="divide-y divide-white/5 text-zinc-300">
+                            <tbody className="text-zinc-300">
                                 {props.map((p) => (
-                                    <tr key={p.nome} className="hover:bg-white/2">
-                                        <td className="py-2 px-3 font-mono text-roxo-claro font-bold">
-                                            {p.nome}
+                                    <tr key={p.nome} className="hover:bg-white/5 odd:bg-white/[0.02]">
+                                        <td className="py-2 px-3 text-roxo-claro font-bold">
+                                            <code>{p.nome}</code>
                                         </td>
-                                        <td className="py-2 px-3 font-mono text-zinc-400">
-                                            {p.tipo}
+                                        <td className="py-2 px-3 text-zinc-400">
+                                            <code>{p.tipo}</code>
                                         </td>
-                                        <td className="py-2 px-3 font-mono text-amber-300/80">
-                                            {p.padrao}
+                                        <td className="py-2 px-3 text-amber-300/80">
+                                            <code>{p.padrao}</code>
                                         </td>
                                         <td className="py-2 px-3">{p.desc}</td>
                                     </tr>
@@ -1182,3 +1549,26 @@ const ComponentDocCard = ({
     );
 };
 
+/* Card simples para documentar utilitários CSS com preview funcional */
+const UtilDoc = ({ nome, arquivo, descricao, codigo, children }) => (
+    <div className="rounded-2xl bg-preto-fosco overflow-hidden">
+        <div className="p-5 bg-white/2">
+            <h3 className="text-lg font-titulo font-bold text-white tracking-wide">
+                {nome}
+            </h3>
+            <div className="flex items-center gap-1.5 text-xs text-zinc-400 mt-1">
+                <FileCode className="w-3.5 h-3.5 text-roxo-principal" />
+                <code className="text-zinc-300 text-[11px]">{arquivo}</code>
+            </div>
+        </div>
+        <div className="px-5 py-3 bg-white/2 text-xs text-zinc-400">
+            {descricao}
+        </div>
+        <div className="p-5 space-y-4">
+            <div className="p-4 rounded-xl bg-black/40">{children}</div>
+            <pre className="p-4 rounded-xl bg-black/60 text-xs font-mono text-zinc-300 overflow-x-auto leading-relaxed">
+                {codigo}
+            </pre>
+        </div>
+    </div>
+);

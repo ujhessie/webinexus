@@ -276,11 +276,10 @@ export const Admin_local = () => {
     }, [projetos, filtroStatus, filtroCategoria, busca]);
 
     return (
-        <div className='min-h-screen bg-[#0a0b14] text-slate-100 flex flex-col font-sans'>
+        <div className='min-h-svh bg-preto-escuro text-slate-100 flex flex-col'>
             {/* Notificação Toast Flutuante */}
             {notificacao && (
-                <div
-                    className={`fixed top-5 right-5 z-50 flex items-center gap-2.5 px-4 py-3 rounded-xl shadow-2xl border text-xs font-semibold backdrop-blur-md transition-all animate-bounce ${
+                <div data-ui className={`fixed top-5 right-5 z-50 flex items-center gap-2.5 px-4 py-3 rounded-xl border shadow-2xl text-xs font-semibold animate-fade-in-up transition-[transform,opacity] ${
                         notificacao.tipo === "erro"
                             ? "bg-red-500/90 border-red-400 text-white"
                             : "bg-emerald-500/90 border-emerald-400 text-white"
@@ -296,27 +295,25 @@ export const Admin_local = () => {
             )}
 
             {/* Cabeçalho Superior */}
-            <header className='border-b border-white/10 bg-[#101120] sticky top-0 z-30 shadow-md'>
+            <header className='bg-preto-fosco sticky top-0 z-30'>
                 <div className='max-w-7xl mx-auto px-4 sm:px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4'>
                     <div className='flex items-center gap-3'>
-                        <div className='w-10 h-10 rounded-xl bg-linear-to-tr from-purple-600 to-indigo-600 flex items-center justify-center shadow-lg shadow-purple-600/30'>
+                        <div className='grad-icon w-10 h-10 rounded-xl flex items-center justify-center'>
                             <FolderKanban className='w-5 h-5 text-white' />
                         </div>
                         <div>
                             <div className='flex items-center gap-2'>
-                                <h1 className='text-lg font-bold text-white tracking-tight'>
+                                <h1 className='text-lg font-bold text-white tracking-tight font-titulo'>
                                     Painel Inexus Local
                                 </h1>
-                                <span className='inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'>
-                                    <span className='w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse'></span>
+                                <span className='inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-500/10 text-emerald-400'>
+                                    <span className='w-1.5 h-1.5 rounded-full bg-emerald-400'></span>
                                     Vite Node Ativo
                                 </span>
                             </div>
                             <p className='text-xs text-slate-400'>
                                 Gerenciamento e persistência direta em{" "}
-                                <span className='text-purple-300 font-mono'>
-                                    src/data/projetos.js
-                                </span>
+                                <code className='text-[#d28bff] font-mono'>src/data/projetos.js</code>
                             </p>
                         </div>
                     </div>
@@ -324,7 +321,7 @@ export const Admin_local = () => {
                     {/* Ações do Topo */}
                     <div className='flex items-center gap-3 w-full sm:w-auto justify-end'>
                         {salvando && (
-                            <span className='text-xs text-purple-400 animate-pulse font-medium'>
+                            <span className='text-xs text-[#d28bff] font-medium'>
                                 Salvando no arquivo...
                             </span>
                         )}
@@ -332,7 +329,7 @@ export const Admin_local = () => {
                             type='button'
                             onClick={carregarDados}
                             disabled={carregando || salvando}
-                            className='p-2 text-slate-400 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl transition text-xs flex items-center gap-1.5'
+                            className='button-press p-2 text-slate-400 hover:text-white bg-white/5 hover:bg-white/10 rounded-xl transition-[colors] text-xs flex items-center gap-1.5'
                             title='Recarregar dados do arquivo'
                         >
                             <RefreshCw
@@ -347,7 +344,7 @@ export const Admin_local = () => {
                                 setProjetoEmEdicao(null);
                                 setModalProjetoAberto(true);
                             }}
-                            className='flex items-center gap-2 px-4 py-2 bg-linear-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white rounded-xl text-xs font-semibold shadow-lg shadow-purple-600/20 transition'
+                            className='button-press sombra-btn grad-btn flex items-center gap-2 px-4 py-2 text-white rounded-xl text-xs font-semibold hover:-translate-y-0.5 transition-[transform,box-shadow]'
                         >
                             <Plus className='w-4 h-4' />
                             Novo Projeto
@@ -356,19 +353,19 @@ export const Admin_local = () => {
                 </div>
 
                 {/* Abas de Navegação */}
-                <div className='max-w-7xl mx-auto px-4 sm:px-6 flex gap-6 border-t border-white/5 text-xs font-semibold'>
+                <div className='max-w-7xl mx-auto px-4 sm:px-6 flex gap-6 text-xs font-semibold'>
                     <button
                         type='button'
                         onClick={() => setAbaAtiva("projetos")}
-                        className={`py-3 flex items-center gap-2 border-b-2 transition ${
+                        className={`button-press py-3 flex items-center gap-2 border-b-2 transition-[border-color,color] ${
                             abaAtiva === "projetos"
-                                ? "border-purple-500 text-purple-400"
+                                ? "border-roxo-principal text-[#d28bff]"
                                 : "border-transparent text-slate-400 hover:text-slate-200"
                         }`}
                     >
                         <FolderKanban className='w-4 h-4' />
                         Projetos do Portfólio
-                        <span className='px-2 py-0.5 rounded-full bg-white/10 text-[10px]'>
+                        <span className='px-2 py-0.5 rounded-full bg-white/10 text-[11px]'>
                             {projetos.length}
                         </span>
                     </button>
@@ -376,9 +373,9 @@ export const Admin_local = () => {
                     <button
                         type='button'
                         onClick={() => setAbaAtiva("imagens")}
-                        className={`py-3 flex items-center gap-2 border-b-2 transition ${
+                        className={`button-press py-3 flex items-center gap-2 border-b-2 transition-[border-color,color] ${
                             abaAtiva === "imagens"
-                                ? "border-purple-500 text-purple-400"
+                                ? "border-roxo-principal text-[#d28bff]"
                                 : "border-transparent text-slate-400 hover:text-slate-200"
                         }`}
                     >
@@ -396,7 +393,7 @@ export const Admin_local = () => {
                 {abaAtiva === "projetos" ? (
                     <div className='space-y-6'>
                         {/* Barra de Filtros e Busca */}
-                        <div className='flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 p-4 bg-[#121324] border border-white/10 rounded-2xl shadow-sm'>
+                        <div className='flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 p-4 bg-preto-fosco rounded-2xl'>
                             {/* Input de Busca */}
                             <div className='relative flex-1'>
                                 <Search className='w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2' />
@@ -405,7 +402,7 @@ export const Admin_local = () => {
                                     value={busca}
                                     onChange={(e) => setBusca(e.target.value)}
                                     placeholder='Buscar por título, ID slug, tags ou descrição...'
-                                    className='w-full pl-10 pr-4 py-2 bg-[#0c0d18] border border-white/10 rounded-xl text-xs text-white placeholder-slate-500 focus:outline-none focus:border-purple-500'
+                                    className='w-full pl-10 pr-4 py-2 bg-preto-escuro rounded-xl text-xs text-white placeholder-slate-500 focus:outline-none focus:border-roxo-principal border border-transparent transition-colors'
                                 />
                             </div>
 
@@ -416,7 +413,7 @@ export const Admin_local = () => {
                                     onChange={(e) =>
                                         setFiltroCategoria(e.target.value)
                                     }
-                                    className='px-3 py-2 bg-[#0c0d18] border border-white/10 rounded-xl text-xs text-white focus:outline-none focus:border-purple-500'
+                                    className='px-3 py-2 bg-preto-escuro rounded-xl text-xs text-white focus:outline-none focus:border-roxo-principal border border-transparent transition-colors'
                                 >
                                     {CATEGORIAS_FILTRO.map((cat) => (
                                         <option key={cat.id} value={cat.id}>
@@ -426,15 +423,15 @@ export const Admin_local = () => {
                                 </select>
 
                                 {/* Filtro por Status */}
-                                <div className='flex bg-[#0c0d18] p-1 border border-white/10 rounded-xl text-xs'>
+                                <div className='flex bg-preto-escuro p-1 rounded-xl text-xs'>
                                     <button
                                         type='button'
                                         onClick={() =>
                                             setFiltroStatus("visivel")
                                         }
-                                        className={`px-3 py-1.5 rounded-lg font-medium transition ${
+                                        className={`button-press px-3 py-1.5 rounded-lg font-medium transition-colors ${
                                             filtroStatus === "visivel"
-                                                ? "bg-purple-600 text-white"
+                                                ? "grad-btn text-white"
                                                 : "text-slate-400 hover:text-white"
                                         }`}
                                     >
@@ -445,7 +442,7 @@ export const Admin_local = () => {
                                         onClick={() =>
                                             setFiltroStatus("lixeira")
                                         }
-                                        className={`px-3 py-1.5 rounded-lg font-medium transition ${
+                                        className={`button-press px-3 py-1.5 rounded-lg font-medium transition-colors ${
                                             filtroStatus === "lixeira"
                                                 ? "bg-red-600/80 text-white"
                                                 : "text-slate-400 hover:text-white"
@@ -456,7 +453,7 @@ export const Admin_local = () => {
                                     <button
                                         type='button'
                                         onClick={() => setFiltroStatus("todos")}
-                                        className={`px-3 py-1.5 rounded-lg font-medium transition ${
+                                        className={`button-press px-3 py-1.5 rounded-lg font-medium transition-colors ${
                                             filtroStatus === "todos"
                                                 ? "bg-white/10 text-white"
                                                 : "text-slate-400 hover:text-white"
@@ -470,7 +467,7 @@ export const Admin_local = () => {
 
                         {/* Listagem em Grid de Projetos */}
                         {projetosFiltrados.length === 0 ? (
-                            <div className='text-center py-20 bg-[#121324] border border-white/10 rounded-2xl text-slate-400 space-y-3'>
+                            <div className='text-center py-20 bg-preto-fosco rounded-2xl text-slate-400 space-y-3'>
                                 <FolderKanban className='w-12 h-12 text-slate-500 mx-auto' />
                                 <p className='text-sm font-medium'>
                                     Nenhum projeto encontrado.
@@ -489,10 +486,10 @@ export const Admin_local = () => {
                                     return (
                                         <div
                                             key={projeto.id}
-                                            className={`group bg-[#121324] border rounded-2xl overflow-hidden flex flex-col transition-all duration-200 shadow-xl  ${
+                                            className={`group bg-preto-fosco rounded-2xl overflow-hidden flex flex-col transition-[opacity,border-color] duration-200 ${
                                                 ehLixeira
-                                                    ? "border-red-500/20 opacity-75 hover:opacity-100"
-                                                    : "border-white/10 hover:border-purple-500/40"
+                                                    ? "border border-red-500/20 opacity-75 hover:opacity-100"
+                                                    : "border border-transparent hover:border-roxo-principal/40"
                                             }`}
                                         >
                                             {/* Imagem de Capa do Card */}
@@ -503,7 +500,7 @@ export const Admin_local = () => {
                                                             projeto.imagens.capa
                                                         }
                                                         alt={projeto.titulo}
-                                                        className='w-full h-full object-cover aspect-3/4 group-hover:scale-105 transition duration-300'
+                                                        className='w-full h-full object-cover aspect-3/4 group-hover:scale-105 transition-transform duration-300'
                                                         onError={(e) => {
                                                             e.target.style.display =
                                                                 "none";
@@ -521,17 +518,17 @@ export const Admin_local = () => {
                                                 {/* Badges Superior */}
                                                 <div className='absolute top-3 left-3 flex items-center gap-1.5 flex-wrap'>
                                                     {ehLixeira ? (
-                                                        <span className='px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-red-600/90 text-white backdrop-blur-md'>
+                                                        <span className='px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-red-600/90 text-white'>
                                                             Lixeira
                                                         </span>
                                                     ) : (
-                                                        <span className='px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-600/80 text-white backdrop-blur-md'>
+                                                        <span className='px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-600/80 text-white'>
                                                             Visível
                                                         </span>
                                                     )}
 
                                                     {projeto.destaque && (
-                                                        <span className='px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/90 text-black backdrop-blur-md flex items-center gap-1'>
+                                                        <span className='px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/90 text-black flex items-center gap-1'>
                                                             <Star className='w-3 h-3 fill-black' />{" "}
                                                             Destaque
                                                         </span>
@@ -546,7 +543,7 @@ export const Admin_local = () => {
                                                             projeto.id,
                                                         )
                                                     }
-                                                    className='absolute top-3 right-3 p-1.5 rounded-full bg-black/60 hover:bg-black/90 text-slate-300 hover:text-amber-400 transition backdrop-blur-md'
+                                                    className='absolute top-3 right-3 p-1.5 rounded-full bg-black/60 hover:bg-black/90 text-slate-300 hover:text-amber-400 transition-[background-color,color]'
                                                     title={
                                                         projeto.destaque
                                                             ? "Remover destaque"
@@ -568,12 +565,10 @@ export const Admin_local = () => {
                                                 <div className='space-y-2'>
                                                     <div className='flex items-start justify-between gap-2'>
                                                         <div>
-                                                            <h3 className='text-sm font-bold text-white group-hover:text-purple-300 transition'>
+                                                            <h3 className='text-sm font-bold text-white group-hover:text-[#d28bff] transition-colors'>
                                                                 {projeto.titulo}
                                                             </h3>
-                                                            <p className='text-[11px] font-mono text-purple-400/80'>
-                                                                #{projeto.id}
-                                                            </p>
+                                                            <p className='text-[11px] text-[#d28bff]/80'><code className='font-mono'>#{projeto.id}</code></p>
                                                         </div>
                                                     </div>
 
@@ -599,7 +594,7 @@ export const Admin_local = () => {
                                                                             key={
                                                                                 cat
                                                                             }
-                                                                            className='px-2 py-0.5 rounded-md text-[10px] font-medium bg-purple-500/10 text-purple-300 border border-purple-500/20'
+                                                                            className='px-2 py-0.5 rounded-md text-[10px] font-medium bg-roxo-principal/10 text-[#d28bff]'
                                                                         >
                                                                             {
                                                                                 cat
@@ -637,7 +632,7 @@ export const Admin_local = () => {
                                                 </div>
 
                                                 {/* Rodapé do Card com Ações */}
-                                                <div className='pt-3 border-t border-white/5 flex items-center justify-between gap-2'>
+                                                <div className='pt-3 flex items-center justify-between gap-2'>
                                                     <button
                                                         type='button'
                                                         onClick={() => {
@@ -648,7 +643,7 @@ export const Admin_local = () => {
                                                                 true,
                                                             );
                                                         }}
-                                                        className='flex-1 flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-xl text-xs font-semibold bg-white/5 hover:bg-purple-600 hover:text-white text-slate-300 border border-white/10 hover:border-purple-500 transition'
+                                                        className='button-press flex-1 flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-xl text-xs font-semibold bg-white/5 hover:grad-btn hover:text-white text-slate-300 transition-[background-color,color]'
                                                     >
                                                         <Edit3 className='w-3.5 h-3.5' />{" "}
                                                         Editar
@@ -663,7 +658,7 @@ export const Admin_local = () => {
                                                                         projeto.id,
                                                                     )
                                                                 }
-                                                                className='p-2 text-emerald-400 hover:text-white bg-emerald-500/10 hover:bg-emerald-600 border border-emerald-500/20 rounded-xl transition'
+                                                                className='button-press p-2 text-emerald-400 hover:text-white bg-emerald-500/10 hover:bg-emerald-600 rounded-xl transition-[background-color,color]'
                                                                 title='Restaurar projeto'
                                                             >
                                                                 <RotateCcw className='w-3.5 h-3.5' />
@@ -675,7 +670,7 @@ export const Admin_local = () => {
                                                                         projeto.id,
                                                                     )
                                                                 }
-                                                                className='p-2 text-red-400 hover:text-white bg-red-500/10 hover:bg-red-600 border border-red-500/20 rounded-xl transition'
+                                                                className='button-press p-2 text-red-400 hover:text-white bg-red-500/10 hover:bg-red-600 rounded-xl transition-[background-color,color]'
                                                                 title='Excluir definitivamente'
                                                             >
                                                                 <Trash2 className='w-3.5 h-3.5' />
@@ -689,7 +684,7 @@ export const Admin_local = () => {
                                                                     projeto.id,
                                                                 )
                                                             }
-                                                            className='p-2 text-slate-400 hover:text-red-400 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl transition'
+                                                            className='button-press p-2 text-slate-400 hover:text-red-400 bg-white/5 hover:bg-white/10 rounded-xl transition-[background-color,color]'
                                                             title='Mover para lixeira'
                                                         >
                                                             <Trash2 className='w-3.5 h-3.5' />
@@ -731,8 +726,8 @@ export const Admin_local = () => {
 
             {/* Modal de Confirmação de Exclusão Definitiva */}
             {projetoExclusaoId && (
-                <div className='fixed inset-0 z-60 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm'>
-                    <div className='bg-[#151628] border border-red-500/30 rounded-2xl max-w-md w-full p-6 shadow-2xl text-slate-200 space-y-4'>
+                <div className='fixed inset-0 z-60 flex items-center justify-center p-4 bg-black/80'>
+                    <div data-ui className='bg-preto-fosco border border-red-500/30 rounded-2xl max-w-md w-full p-6 shadow-2xl text-slate-200 space-y-4'>
                         <div className='flex items-center gap-3 text-red-400'>
                             <div className='p-2.5 rounded-xl bg-red-500/10 border border-red-500/20'>
                                 <Trash2 className='w-6 h-6' />
@@ -743,9 +738,7 @@ export const Admin_local = () => {
                         </div>
                         <p className='text-xs text-slate-400 leading-relaxed'>
                             Tem certeza que deseja apagar o projeto{" "}
-                            <span className='font-mono text-red-300 font-bold'>
-                                {projetoExclusaoId}
-                            </span>
+                            <code className='font-mono text-red-300 font-bold'>{projetoExclusaoId}</code>
                             ? Essa ação removerá o registro do arquivo{" "}
                             <code>src/data/projetos.js</code> e não poderá ser
                             desfeita.
@@ -754,7 +747,7 @@ export const Admin_local = () => {
                             <button
                                 type='button'
                                 onClick={() => setProjetoExclusaoId(null)}
-                                className='px-4 py-2 text-xs font-semibold text-slate-400 hover:text-white rounded-xl bg-white/5 hover:bg-white/10'
+                                className='button-press px-4 py-2 text-xs font-semibold text-slate-400 hover:text-white rounded-xl bg-white/5 hover:bg-white/10 transition-[background-color,color]'
                             >
                                 Cancelar
                             </button>
@@ -763,7 +756,7 @@ export const Admin_local = () => {
                                 onClick={() =>
                                     aoExcluirPermanente(projetoExclusaoId)
                                 }
-                                className='px-4 py-2 text-xs font-semibold text-white rounded-xl bg-red-600 hover:bg-red-700 shadow-lg shadow-red-600/30'
+                                className='button-press px-4 py-2 text-xs font-semibold text-white rounded-xl bg-red-600 hover:bg-red-700 transition-[background-color,color]'
                             >
                                 Sim, Excluir
                             </button>
@@ -774,32 +767,30 @@ export const Admin_local = () => {
 
             {/* Modal de Vinculação Rápida de Imagem a um Projeto */}
             {modalVincularImagem && (
-                <div className='fixed inset-0 z-60 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm'>
-                    <div className='bg-[#151628] border border-white/15 rounded-2xl max-w-lg w-full p-6 shadow-2xl text-slate-200 space-y-4'>
-                        <div className='flex items-center justify-between border-b border-white/10 pb-3'>
+                <div className='fixed inset-0 z-60 flex items-center justify-center p-4 bg-black/80'>
+                    <div data-ui className='bg-preto-fosco border border-white/15 rounded-2xl max-w-lg w-full p-6 shadow-2xl text-slate-200 space-y-4'>
+                        <div className='flex items-center justify-between pb-3'>
                             <h3 className='text-sm font-bold text-white flex items-center gap-2'>
-                                <ExternalLink className='w-4 h-4 text-purple-400' />
+                                <ExternalLink className='w-4 h-4 text-[#d28bff]' />
                                 Vincular Imagem a um Projeto
                             </h3>
                             <button
                                 type='button'
                                 onClick={() => setModalVincularImagem(null)}
-                                className='p-1 text-slate-400 hover:text-white'
+                                className='button-press p-1 text-slate-400 hover:text-white'
                             >
                                 <X className='w-4 h-4' />
                             </button>
                         </div>
 
-                        <div className='flex items-center gap-3 p-2 bg-[#0c0d18] rounded-xl border border-white/10'>
+                        <div className='flex items-center gap-3 p-2 bg-preto-escuro rounded-xl'>
                             <img
                                 src={modalVincularImagem}
                                 alt='Prévia'
-                                className='w-14 h-14 object-cover rounded-lg border border-white/10'
+                                className='w-14 h-14 object-cover rounded-lg'
                             />
                             <div className='flex-1 min-w-0'>
-                                <p className='text-xs font-mono text-purple-300 truncate'>
-                                    {modalVincularImagem}
-                                </p>
+                                <code className='block text-xs font-mono text-[#d28bff] truncate'>{modalVincularImagem}</code>
                             </div>
                         </div>
 
@@ -811,15 +802,13 @@ export const Admin_local = () => {
                                 {projetos.map((proj) => (
                                     <div
                                         key={proj.id}
-                                        className='p-2.5 rounded-xl bg-white/5 border border-white/5 flex items-center justify-between gap-2'
+                                        className='p-2.5 rounded-xl bg-white/5 flex items-center justify-between gap-2'
                                     >
                                         <div className='min-w-0 flex-1'>
                                             <p className='text-xs font-bold text-white truncate'>
                                                 {proj.titulo}
                                             </p>
-                                            <p className='text-[10px] font-mono text-slate-400 truncate'>
-                                                {proj.id}
-                                            </p>
+                                            <code className='block text-[10px] font-mono text-slate-400 truncate'>{proj.id}</code>
                                         </div>
                                         <div className='flex gap-1'>
                                             <button
@@ -830,7 +819,7 @@ export const Admin_local = () => {
                                                         "capa",
                                                     )
                                                 }
-                                                className='px-2 py-1 bg-purple-600/30 hover:bg-purple-600 border border-purple-500/40 text-purple-200 text-[10px] font-semibold rounded-lg transition'
+                                                className='button-press px-2 py-1 bg-roxo-escuro/60 hover:bg-roxo-principal border border-roxo-principal/40 text-white text-[11px] font-semibold rounded-lg transition-[background-color,color]'
                                             >
                                                 Definir Capa
                                             </button>
@@ -842,7 +831,7 @@ export const Admin_local = () => {
                                                         "banner",
                                                     )
                                                 }
-                                                className='px-2 py-1 bg-indigo-600/30 hover:bg-indigo-600 border border-indigo-500/40 text-indigo-200 text-[10px] font-semibold rounded-lg transition'
+                                                className='button-press px-2 py-1 bg-transparent hover:bg-white/10 border border-white/25 text-slate-200 text-[11px] font-semibold rounded-lg transition-[background-color,color]'
                                             >
                                                 Banner
                                             </button>
@@ -854,7 +843,7 @@ export const Admin_local = () => {
                                                         "galeria",
                                                     )
                                                 }
-                                                className='px-2 py-1 bg-white/10 hover:bg-white/20 text-slate-200 text-[10px] font-semibold rounded-lg transition'
+                                                className='button-press px-2 py-1 bg-white/10 hover:bg-white/20 text-slate-200 text-[11px] font-semibold rounded-lg transition-[background-color,color]'
                                             >
                                                 + Galeria
                                             </button>

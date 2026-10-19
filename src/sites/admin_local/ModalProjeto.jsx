@@ -315,21 +315,21 @@ export const ModalProjeto = ({
     };
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm overflow-y-auto">
-            <div className="bg-[#151628] border border-white/10 rounded-2xl w-full max-w-3xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden my-auto text-slate-200">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 overflow-y-auto">
+            <div data-ui className="bg-preto-fosco border border-white/10 rounded-2xl w-full max-w-3xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden my-auto text-slate-200">
                 {/* Cabeçalho do Modal */}
-                <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-[#191b30]">
+                <div className="flex items-center justify-between px-6 py-4 bg-[#191b30]">
                     <div>
                         <h2 className="text-xl font-bold text-white">
                             {ehNovo ? "Criar Novo Projeto" : `Editar: ${dados.titulo || dados.id}`}
                         </h2>
                         <p className="text-xs text-slate-400 mt-0.5">
-                            Preencha os dados que serão salvos em <code className="text-purple-400">src/data/projetos.js</code>
+                            Preencha os dados que serão salvos em <code className="text-[#d28bff]">src/data/projetos.js</code>
                         </p>
                     </div>
                     <button
                         onClick={aoFechar}
-                        className="p-2 text-slate-400 hover:text-white hover:bg-white/10 rounded-lg transition"
+                        className="p-2 text-slate-400 hover:text-white hover:bg-white/10 rounded-lg transition-colors"
                         title="Fechar modal"
                     >
                         <X className="w-5 h-5" />
@@ -355,7 +355,7 @@ export const ModalProjeto = ({
                                 value={dados.titulo}
                                 onChange={(e) => atualizarCampo("titulo", e.target.value)}
                                 placeholder="Ex: Loja Virtual Multitech"
-                                className="w-full px-3 py-2 bg-[#0d0e1a] border border-white/15 rounded-lg text-white focus:outline-none focus:border-purple-500"
+                                className="w-full px-3 py-2 bg-preto-escuro border border-white/15 rounded-lg text-white focus:outline-none focus:border-roxo-principal transition-colors"
                                 required
                             />
                         </div>
@@ -372,7 +372,7 @@ export const ModalProjeto = ({
                                     atualizarCampo("id", e.target.value);
                                 }}
                                 placeholder="Ex: loja-virtual-multitech"
-                                className="w-full px-3 py-2 bg-[#0d0e1a] border border-white/15 rounded-lg text-purple-300 font-mono text-xs focus:outline-none focus:border-purple-500"
+                                className="w-full px-3 py-2 bg-preto-escuro border border-white/15 rounded-lg text-[#e3c3ff] text-xs focus:outline-none focus:border-roxo-principal transition-colors"
                                 required
                             />
                         </div>
@@ -385,7 +385,7 @@ export const ModalProjeto = ({
                             <select
                                 value={dados.status}
                                 onChange={(e) => atualizarCampo("status", e.target.value)}
-                                className="px-3 py-1.5 bg-[#0d0e1a] border border-white/15 rounded-lg text-xs text-white focus:outline-none focus:border-purple-500"
+                                className="px-3 py-1.5 bg-preto-escuro border border-white/15 rounded-lg text-xs text-white focus:outline-none focus:border-roxo-principal transition-colors"
                             >
                                 <option value="visivel">Visível (Ativo no portfólio)</option>
                                 <option value="lixeira">Lixeira (Oculto)</option>
@@ -396,7 +396,7 @@ export const ModalProjeto = ({
                             <button
                                 type="button"
                                 onClick={() => atualizarCampo("destaque", !dados.destaque)}
-                                className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-medium border transition ${
+                                className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-medium border transition-[background-color,color,border-color] ${
                                     dados.destaque
                                         ? "bg-amber-500/20 border-amber-500 text-amber-300"
                                         : "bg-white/5 border-white/10 text-slate-400 hover:text-white"
@@ -418,7 +418,7 @@ export const ModalProjeto = ({
                             value={dados.breveDescricao}
                             onChange={(e) => atualizarCampo("breveDescricao", e.target.value)}
                             placeholder="Ex: E-commerce completo com painel administrativo e pagamentos."
-                            className="w-full px-3 py-2 bg-[#0d0e1a] border border-white/15 rounded-lg text-white focus:outline-none focus:border-purple-500"
+                            className="w-full px-3 py-2 bg-preto-escuro border border-white/15 rounded-lg text-white focus:outline-none focus:border-roxo-principal transition-colors"
                         />
                     </div>
 
@@ -432,7 +432,7 @@ export const ModalProjeto = ({
                             value={dados.descricao}
                             onChange={(e) => atualizarCampo("descricao", e.target.value)}
                             placeholder="Descreva as soluções desenvolvidas, tecnologias e diferenciais do projeto..."
-                            className="w-full px-3 py-2 bg-[#0d0e1a] border border-white/15 rounded-lg text-white focus:outline-none focus:border-purple-500 resize-none"
+                            className="w-full px-3 py-2 bg-preto-escuro border border-white/15 rounded-lg text-white focus:outline-none focus:border-roxo-principal transition-colors resize-none"
                         />
                     </div>
 
@@ -449,13 +449,13 @@ export const ModalProjeto = ({
                                         type="button"
                                         key={cat.id}
                                         onClick={() => alternarCategoria(cat.id)}
-                                        className={`px-3 py-1 rounded-full text-xs font-medium border transition flex items-center gap-1.5 ${
+                                        className={`px-3 py-1 rounded-full text-xs font-medium border transition-[background-color,color,border-color] flex items-center gap-1.5 ${
                                             selecionada
-                                                ? "bg-purple-600/30 border-purple-500 text-purple-200"
-                                                : "bg-[#0d0e1a] border-white/10 text-slate-400 hover:text-white hover:border-white/20"
+                                                ? "bg-roxo-principal/30 border-roxo-principal text-white"
+                                                : "bg-preto-escuro border-white/10 text-slate-400 hover:text-white hover:border-white/20"
                                         }`}
                                     >
-                                        {selecionada && <Check className="w-3 h-3 text-purple-400" />}
+                                        {selecionada && <Check className="w-3 h-3 text-[#d28bff]" />}
                                         {cat.rotulo}
                                     </button>
                                 );
@@ -480,12 +480,12 @@ export const ModalProjeto = ({
                                     }
                                 }}
                                 placeholder="Digite uma tag (ex: React, Tailwind) e pressione Enter"
-                                className="flex-1 px-3 py-1.5 bg-[#0d0e1a] border border-white/15 rounded-lg text-xs text-white focus:outline-none focus:border-purple-500"
+                                className="flex-1 px-3 py-1.5 bg-preto-escuro border border-white/15 rounded-lg text-xs text-white focus:outline-none focus:border-roxo-principal transition-colors"
                             />
                             <button
                                 type="button"
                                 onClick={adicionarTag}
-                                className="px-3 py-1.5 bg-purple-600 hover:bg-purple-700 text-white rounded-lg text-xs font-medium transition"
+                                className="button-press px-3 py-1.5 grad-btn sombra-btn text-white rounded-lg text-xs font-medium"
                             >
                                 Adicionar
                             </button>
@@ -510,13 +510,13 @@ export const ModalProjeto = ({
                     </div>
 
                     {/* Imagens */}
-                    <div className="space-y-4 pt-2 border-t border-white/10">
+                    <div className="space-y-4 pt-2">
                         <div className="flex items-center justify-between">
-                            <h3 className="text-xs font-bold uppercase tracking-wider text-purple-400 flex items-center gap-2">
+                            <h3 className="text-xs font-bold uppercase text-[#d28bff] flex items-center gap-2">
                                 <IconeImagem className="w-4 h-4" /> Imagens do Projeto
                             </h3>
                             {enviandoImagem && (
-                                <span className="flex items-center gap-1.5 text-[11px] text-purple-400 animate-pulse">
+                                <span className="flex items-center gap-1.5 text-[11px] text-[#d28bff]">
                                     <Loader2 className="w-3.5 h-3.5 animate-spin" /> Enviando...
                                 </span>
                             )}
@@ -573,7 +573,7 @@ export const ModalProjeto = ({
                                     <button
                                         type="button"
                                         onClick={() => setSeletorImagemAberto("capa")}
-                                        className="text-xs text-purple-400 hover:text-purple-300 underline"
+                                        className="text-xs text-[#d28bff] hover:text-white underline"
                                     >
                                         Escolher da pasta
                                     </button>
@@ -583,9 +583,9 @@ export const ModalProjeto = ({
                                 onDragOver={(e) => tratarDragOver(e, "capa")}
                                 onDragLeave={tratarDragLeave}
                                 onDrop={(e) => tratarDrop(e, "capa")}
-                                className={`flex gap-3 items-center p-2 rounded-xl border-2 border-dashed transition ${
+                                className={`flex gap-3 items-center p-2 rounded-xl border-2 border-dashed transition-[border-color,background-color] ${
                                     arrastandoSobre === "capa"
-                                        ? "border-purple-500 bg-purple-500/10"
+                                        ? "border-roxo-principal bg-roxo-principal/10"
                                         : "border-white/10 bg-transparent"
                                 }`}
                             >
@@ -594,7 +594,7 @@ export const ModalProjeto = ({
                                     value={dados.imagens.capa}
                                     onChange={(e) => atualizarImagem("capa", e.target.value)}
                                     placeholder="Arraste uma imagem aqui ou cole o caminho"
-                                    className="flex-1 px-3 py-2 bg-[#0d0e1a] border border-white/15 rounded-lg text-xs text-white focus:outline-none focus:border-purple-500"
+                                    className="flex-1 px-3 py-2 bg-preto-escuro border border-white/15 rounded-lg text-xs text-white focus:outline-none focus:border-roxo-principal transition-colors"
                                 />
                                 {dados.imagens.capa && (
                                     <div className="w-12 h-10 rounded border border-white/15 overflow-hidden bg-black/40 flex-shrink-0">
@@ -629,7 +629,7 @@ export const ModalProjeto = ({
                                     <button
                                         type="button"
                                         onClick={() => setSeletorImagemAberto("banner")}
-                                        className="text-xs text-purple-400 hover:text-purple-300 underline"
+                                        className="text-xs text-[#d28bff] hover:text-white underline"
                                     >
                                         Escolher da pasta
                                     </button>
@@ -639,9 +639,9 @@ export const ModalProjeto = ({
                                 onDragOver={(e) => tratarDragOver(e, "banner")}
                                 onDragLeave={tratarDragLeave}
                                 onDrop={(e) => tratarDrop(e, "banner")}
-                                className={`flex gap-3 items-center p-2 rounded-xl border-2 border-dashed transition ${
+                                className={`flex gap-3 items-center p-2 rounded-xl border-2 border-dashed transition-[border-color,background-color] ${
                                     arrastandoSobre === "banner"
-                                        ? "border-purple-500 bg-purple-500/10"
+                                        ? "border-roxo-principal bg-roxo-principal/10"
                                         : "border-white/10 bg-transparent"
                                 }`}
                             >
@@ -650,7 +650,7 @@ export const ModalProjeto = ({
                                     value={dados.imagens.banner}
                                     onChange={(e) => atualizarImagem("banner", e.target.value)}
                                     placeholder="Arraste uma imagem aqui ou cole o caminho"
-                                    className="flex-1 px-3 py-2 bg-[#0d0e1a] border border-white/15 rounded-lg text-xs text-white focus:outline-none focus:border-purple-500"
+                                    className="flex-1 px-3 py-2 bg-preto-escuro border border-white/15 rounded-lg text-xs text-white focus:outline-none focus:border-roxo-principal transition-colors"
                                 />
                                 {dados.imagens.banner && (
                                     <div className="w-12 h-10 rounded border border-white/15 overflow-hidden bg-black/40 flex-shrink-0">
@@ -685,7 +685,7 @@ export const ModalProjeto = ({
                                     <button
                                         type="button"
                                         onClick={() => setSeletorImagemAberto("galeria")}
-                                        className="text-xs text-purple-400 hover:text-purple-300 underline"
+                                        className="text-xs text-[#d28bff] hover:text-white underline"
                                     >
                                         Escolher da pasta
                                     </button>
@@ -704,9 +704,9 @@ export const ModalProjeto = ({
                                 onDragOver={(e) => tratarDragOver(e, "galeria")}
                                 onDragLeave={tratarDragLeave}
                                 onDrop={(e) => tratarDrop(e, "galeria")}
-                                className={`p-3 rounded-xl border-2 border-dashed transition space-y-2 ${
+                                className={`p-3 rounded-xl border-2 border-dashed transition-[border-color,background-color] space-y-2 ${
                                     arrastandoSobre === "galeria"
-                                        ? "border-purple-500 bg-purple-500/10"
+                                        ? "border-roxo-principal bg-roxo-principal/10"
                                         : "border-white/10 bg-transparent"
                                 }`}
                             >
@@ -722,7 +722,7 @@ export const ModalProjeto = ({
                                             value={urlGaleria}
                                             onChange={(e) => atualizarItemGaleria(idx, e.target.value)}
                                             placeholder="/imagens_projetos/... ou https://..."
-                                            className="flex-1 px-3 py-1.5 bg-[#0d0e1a] border border-white/15 rounded-lg text-xs text-white focus:outline-none focus:border-purple-500"
+                                            className="flex-1 px-3 py-1.5 bg-preto-escuro border border-white/15 rounded-lg text-xs text-white focus:outline-none focus:border-roxo-principal transition-colors"
                                         />
                                         {urlGaleria && (
                                             <div className="w-8 h-8 rounded border border-white/15 overflow-hidden bg-black/40 flex-shrink-0">
@@ -739,7 +739,7 @@ export const ModalProjeto = ({
                                         <button
                                             type="button"
                                             onClick={() => removerItemGaleria(idx)}
-                                            className="p-1.5 text-slate-400 hover:text-red-400 rounded transition"
+                                            className="p-1.5 text-slate-400 hover:text-red-400 rounded transition-colors"
                                             title="Remover foto"
                                         >
                                             <Trash2 className="w-4 h-4" />
@@ -751,15 +751,15 @@ export const ModalProjeto = ({
                     </div>
 
                     {/* Links */}
-                    <div className="space-y-3 pt-2 border-t border-white/10">
+                    <div className="space-y-3 pt-2">
                         <div className="flex items-center justify-between">
-                            <h3 className="text-xs font-bold uppercase tracking-wider text-purple-400 flex items-center gap-2">
+                            <h3 className="text-xs font-bold uppercase text-[#d28bff] flex items-center gap-2">
                                 <IconeLink className="w-4 h-4" /> Links do Projeto ({dados.links.length})
                             </h3>
                             <button
                                 type="button"
                                 onClick={adicionarLink}
-                                className="flex items-center gap-1 text-xs text-purple-400 hover:text-purple-300"
+                                className="flex items-center gap-1 text-xs text-[#d28bff] hover:text-white"
                             >
                                 <Plus className="w-3.5 h-3.5" /> Adicionar Link
                             </button>
@@ -776,7 +776,7 @@ export const ModalProjeto = ({
                                         value={link.texto}
                                         onChange={(e) => atualizarLink(idx, "texto", e.target.value)}
                                         placeholder="Texto (ex: Visitar site)"
-                                        className="w-full px-2.5 py-1.5 bg-[#0d0e1a] border border-white/15 rounded text-xs text-white"
+                                        className="w-full px-2.5 py-1.5 bg-preto-escuro border border-white/15 rounded text-xs text-white"
                                     />
                                 </div>
                                 <div className="md:col-span-6">
@@ -785,7 +785,7 @@ export const ModalProjeto = ({
                                         value={link.url}
                                         onChange={(e) => atualizarLink(idx, "url", e.target.value)}
                                         placeholder="https://..."
-                                        className="w-full px-2.5 py-1.5 bg-[#0d0e1a] border border-white/15 rounded text-xs text-white"
+                                        className="w-full px-2.5 py-1.5 bg-preto-escuro border border-white/15 rounded text-xs text-white"
                                     />
                                 </div>
                                 <div className="md:col-span-2 flex items-center justify-end gap-2">
@@ -794,7 +794,7 @@ export const ModalProjeto = ({
                                             type="checkbox"
                                             checked={Boolean(link.principal)}
                                             onChange={(e) => atualizarLink(idx, "principal", e.target.checked)}
-                                            className="rounded text-purple-600 focus:ring-0"
+                                            className="rounded text-roxo-principal focus:ring-0"
                                         />
                                         Principal
                                     </label>
@@ -813,18 +813,18 @@ export const ModalProjeto = ({
                 </form>
 
                 {/* Rodapé com botões de Ação */}
-                <div className="flex items-center justify-end gap-3 px-6 py-4 border-t border-white/10 bg-[#191b30]">
+                <div className="flex items-center justify-end gap-3 px-6 py-4 bg-[#191b30]">
                     <button
                         type="button"
                         onClick={aoFechar}
-                        className="px-4 py-2 rounded-xl text-slate-300 hover:bg-white/10 text-xs font-semibold transition"
+                        className="px-4 py-2 rounded-xl text-slate-300 hover:bg-white/10 text-xs font-semibold transition-colors"
                     >
                         Cancelar
                     </button>
                     <button
                         type="button"
                         onClick={tratarSalvar}
-                        className="px-5 py-2 rounded-xl bg-linear-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white text-xs font-semibold shadow-lg shadow-purple-600/20 transition flex items-center gap-2"
+                        className="button-press px-5 py-2 rounded-xl grad-btn sombra-btn text-white text-xs font-semibold flex items-center gap-2"
                     >
                         <Check className="w-4 h-4" />
                         {ehNovo ? "Cadastrar Projeto" : "Salvar Alterações"}
@@ -835,12 +835,12 @@ export const ModalProjeto = ({
             {/* Modal Seletor de Imagem da Pasta Local */}
             {seletorImagemAberto && (
                 <div className="fixed inset-0 z-60 flex items-center justify-center p-4 bg-black/80">
-                    <div className="bg-[#18192d] border border-white/15 rounded-2xl w-full max-w-2xl max-h-[80vh] flex flex-col shadow-2xl overflow-hidden">
-                        <div className="flex items-center justify-between px-5 py-3 border-b border-white/10 bg-[#1e2038]">
+                    <div data-ui className="bg-preto-fosco border border-white/15 rounded-2xl w-full max-w-2xl max-h-[80vh] flex flex-col shadow-2xl overflow-hidden">
+                        <div className="flex items-center justify-between px-5 py-3 bg-[#1e2038]">
                             <div>
                                 <h3 className="text-sm font-bold text-white">
                                     Selecione uma Imagem para{" "}
-                                    <span className="text-purple-400 uppercase">
+                                    <span className="text-[#d28bff] uppercase">
                                         {seletorImagemAberto}
                                     </span>
                                 </h3>
@@ -867,13 +867,13 @@ export const ModalProjeto = ({
                                         key={img.url}
                                         type="button"
                                         onClick={() => selecionarImagemDoDisco(img.url)}
-                                        className="group relative flex flex-col items-center bg-[#0d0e1a] border border-white/10 hover:border-purple-500 rounded-xl p-2 text-left transition overflow-hidden"
+                                        className="group relative flex flex-col items-center bg-preto-escuro border border-white/10 hover:border-roxo-principal rounded-xl p-2 text-left transition-[border-color] overflow-hidden"
                                     >
                                         <div className="w-full h-24 bg-black/50 rounded-lg overflow-hidden flex items-center justify-center mb-2">
                                             <img
                                                 src={img.url}
                                                 alt={img.nome}
-                                                className="w-full h-full object-cover group-hover:scale-105 transition"
+                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform"
                                                 onError={(e) => {
                                                     e.target.style.display = "none";
                                                 }}
@@ -884,7 +884,7 @@ export const ModalProjeto = ({
                                                 {img.nome}
                                             </p>
                                             <p className="text-[10px] text-slate-400 truncate">
-                                                {img.pasta !== "raiz" ? `📁 ${img.pasta}` : "📁 raiz"}
+                                                {img.pasta !== "raiz" ? `${img.pasta}` : "raiz"}
                                             </p>
                                         </div>
                                     </button>
@@ -892,7 +892,7 @@ export const ModalProjeto = ({
                             )}
                         </div>
 
-                        <div className="flex justify-end p-3 border-t border-white/10 bg-[#1e2038]">
+                        <div className="flex justify-end p-3 bg-[#1e2038]">
                             <button
                                 type="button"
                                 onClick={() => setSeletorImagemAberto(null)}

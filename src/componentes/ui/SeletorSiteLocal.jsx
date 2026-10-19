@@ -22,7 +22,7 @@ const SITES_DISPONIVEIS = [
         nome: "Ujhessie",
         descricao: "Portfólio Pessoal",
         icone: User,
-        corAtiva: "border-purple-500/40 bg-purple-500/10 text-purple-300",
+        corAtiva: "border-roxo-principal/40 bg-roxo-principal/10 text-[#d28bff]",
     },
     {
         id: "admin_local",
@@ -36,7 +36,7 @@ const SITES_DISPONIVEIS = [
         nome: "Design System",
         descricao: "Padrões, Cores & Componentes",
         icone: Layers,
-        corAtiva: "border-fuchsia-500/40 bg-fuchsia-500/10 text-fuchsia-300",
+        corAtiva: "border-amber-500/40 bg-amber-500/10 text-amber-300",
     },
 ];
 
@@ -76,10 +76,10 @@ export const SeletorSiteLocal = ({ siteAtivo, aoTrocarSite }) => {
         >
             {/* Menu Flutuante Aberto */}
             {aberto && (
-                <div className='mb-3 w-72 rounded-2xl bg-[#121324]/95 border border-white/15 backdrop-blur-xl p-3 shadow-2xl text-slate-200 animate-in fade-in slide-in-from-bottom-2 duration-150'>
-                    <div className='flex items-center justify-between px-2 py-1.5 mb-2 border-b border-white/10'>
+                <div className='mb-3 w-72 rounded-2xl bg-preto-fosco p-3 text-slate-200 animate-in fade-in slide-in-from-bottom-2 duration-150'>
+                    <div className='flex items-center justify-between px-2 py-1.5 mb-2'>
                         <div className='flex items-center gap-2'>
-                            <span className='w-2 h-2 rounded-full bg-emerald-400 animate-pulse'></span>
+                            <span className='w-2 h-2 rounded-full bg-emerald-400'></span>
                             <span className='text-xs font-bold text-white tracking-wide'>
                                 Alternar Site Local
                             </span>
@@ -87,7 +87,7 @@ export const SeletorSiteLocal = ({ siteAtivo, aoTrocarSite }) => {
                         <button
                             type='button'
                             onClick={() => setAberto(false)}
-                            className='p-1 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 transition'
+                            className='button-press p-1 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 transition-colors'
                             title='Fechar menu'
                         >
                             <X className='w-4 h-4' />
@@ -112,9 +112,9 @@ export const SeletorSiteLocal = ({ siteAtivo, aoTrocarSite }) => {
                                         aoTrocarSite(site.id);
                                         setAberto(false);
                                     }}
-                                    className={`w-full flex items-center justify-between p-2.5 rounded-xl border text-left transition ${
+                                    className={`button-press w-full flex items-center justify-between p-2.5 rounded-xl border text-left transition-[background-color,color,border-color] ${
                                         ehAtivo
-                                            ? `${site.corAtiva} shadow-md`
+                                            ? site.corAtiva
                                             : "border-white/5 bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white"
                                     }`}
                                 >
@@ -152,15 +152,15 @@ export const SeletorSiteLocal = ({ siteAtivo, aoTrocarSite }) => {
             <button
                 type='button'
                 onClick={() => setAberto((prev) => !prev)}
-                className='group flex items-center gap-2.5 px-3.5 py-2.5 rounded-full bg-[#121324]/90 hover:bg-[#1a1b32] border border-purple-500/40 hover:border-purple-500 text-white shadow-xl shadow-purple-900/20 backdrop-blur-md transition-all duration-200 hover:scale-105 active:scale-95'
+                className='button-press group flex items-center gap-2.5 px-3.5 py-2.5 rounded-full bg-preto-fosco hover:bg-preto-fosco/90 border border-roxo-principal/40 hover:border-roxo-principal text-white transition-[background-color,border-color] duration-200'
                 title='Clique para alternar o site no localhost'
             >
-                <div className='w-6 h-6 rounded-full bg-linear-to-tr from-purple-600 to-indigo-600 flex items-center justify-center text-white shadow-md'>
+                <div className='grad-icon w-6 h-6 rounded-full flex items-center justify-center text-white'>
                     <IconeAtual className='w-3.5 h-3.5' />
                 </div>
 
                 <div className='text-left hidden sm:block'>
-                    <p className='text-[10px] uppercase font-bold text-purple-400 tracking-wider leading-none'>
+                    <p className='text-[10px] uppercase font-bold text-[#d28bff] tracking-wider leading-none'>
                         Site Local
                     </p>
                     <p className='text-xs font-semibold text-white leading-tight'>
@@ -168,7 +168,7 @@ export const SeletorSiteLocal = ({ siteAtivo, aoTrocarSite }) => {
                     </p>
                 </div>
 
-                <div className='p-1 rounded-full text-slate-400 group-hover:text-white transition'>
+                <div className='p-1 rounded-full text-slate-400 group-hover:text-white transition-colors'>
                     {aberto ? (
                         <X className='w-3.5 h-3.5' />
                     ) : (
