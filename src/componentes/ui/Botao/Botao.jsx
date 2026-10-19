@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const Botao = ({
     tipoBotao = "primario",
     children,
@@ -9,32 +11,25 @@ export const Botao = ({
     ...props
 }) => {
     const classeGlobal =
-        "flex-1 sm:flex-initial inline-flex items-center justify-center gap-3 px-6 py-3.5 font-titulo font-bold text-xs sm:text-sm tracking-wider uppercase transition-all rounded-2xl hover:-translate-y-0.5 ";
+        "button-press flex-1 sm:flex-initial inline-flex items-center justify-center gap-3 px-6 py-3.5 font-titulo font-bold text-sm tracking-wider uppercase rounded-2xl hover:-translate-y-0.5 "; // taste-skill-ignore: botão uppercase com tracking é o padrão da marca
 
     const tiposBotao = {
-        primario:
-            "bg-roxo-principal hover:bg-roxo-claro bg-linear-to-r from-roxo-escuro to-roxo-claro text-white shadow-roxo-principal  ",
+        primario: "grad-btn sombra-btn text-white",
 
         secundario:
             "bg-white/10 hover:bg-white/15 text-white border border-white/10",
 
         outline:
-            "bg-transparent hover:bg-[#8722ee]/10 text-[#8722ee] border border-[#8722ee] hover:border-[#9732fa]",
+            "border border-[#8722ee] text-[#8722ee] hover:bg-[#8722ee]/10 hover:text-[#9732fa]",
 
-        branco:
-            "bg-white hover:bg-neutral-100 text-roxo-escuro shadow-lg shadow-black/10",
+        branco: "bg-white text-roxo-escuro hover:bg-neutral-100",
     };
 
     const classeTipoBotao = tiposBotao[tipoBotao] ?? tiposBotao.primario;
     const ehBranco = tipoBotao === "branco";
 
-    return (
-        <a
-            href={href}
-            id={id}
-            className={`${classeGlobal} ${classeTipoBotao} ${className}`}
-            {...props}
-        >
+    const conteudo = (
+        <>
             {children}
             {textoCTA}
             {iconCTA ? (
@@ -48,6 +43,23 @@ export const Botao = ({
                     {iconCTA}
                 </span>
             ) : null}
+        </>
+    );
+
+    const classeFinal = `${classeGlobal} ${classeTipoBotao} ${className}`;
+
+    // Rota interna → <Link> do router (navegação SPA sem recarregar a página)
+    if (typeof href === "string" && href.startsWith("/")) {
+        return (
+            <Link to={href} id={id} className={classeFinal} {...props}>
+                {conteudo}
+            </Link>
+        );
+    }
+
+    return (
+        <a href={href} id={id} className={classeFinal} {...props}>
+            {conteudo}
         </a>
     );
 };

@@ -1,24 +1,29 @@
 import { Header } from "../../componentes/layout/Header";
 import { Footer } from "../../componentes/layout/Footer";
-import { Outlet, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import {
+    RevealObserver,
+    ScrollTop,
+} from "../../componentes/RevealObserver.jsx";
+import { Outlet } from "react-router-dom";
 
 export const WebInexusSite = () => {
-    const { pathname } = useLocation();
-
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, [pathname]);
-
     return (
-        <div className='min-h-screen flex flex-col justify-between bg-preto-escuro text-white'>
+        <div className='min-h-svh flex flex-col justify-between bg-preto-escuro text-white'>
+            <ScrollTop />
+            <RevealObserver />
             <Header
                 logo='/logo.png'
-                configCTA={{ textoCTA: "Fale conosco", urlCTA: "#" }}
+                altLogo='Web iNexus'
+                configCTA={{
+                    textoCTA: "Fale conosco",
+                    urlCTA: "https://wa.me/5598988740103",
+                }}
                 links={{
                     "Página Inicial": "/",
+                    "Serviços": "/servicos",
                     "Quem Somos": "/quem-somos",
                     "Nossos Trabalhos": "/portfolio",
+                    "Contato": "/contato",
                 }}
             />
             <main className='flex-1'>

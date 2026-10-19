@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { useProjetos } from "../../../contexts/ProjetosContext.jsx";
 import { FolderGit2 } from "lucide-react";
-import "./cardProjeto.css";
 
 export const CardProjeto = ({ id, basePath = "/projetos" }) => {
     const { getProjetoPorId } = useProjetos();
@@ -10,58 +9,39 @@ export const CardProjeto = ({ id, basePath = "/projetos" }) => {
     if (!projeto) return null;
 
     const { titulo, imagens = {} } = projeto;
-    const temCapaValida = Boolean(imagens.capa && imagens.capa.trim().length > 18);
+    const temCapaValida = Boolean(
+        imagens.capa && imagens.capa.trim().length > 18
+    );
 
     return (
-        <Link to={`${basePath}/${id}`} className="block group">
-            <article
-                className='
-                    card-projeto
-                    relative overflow-hidden
-                    bg-preto-fosco
-                    border border-white/10
-                    flex flex-col justify-end
-                    p-4
-                    rounded-xl
-                    aspect-3/4
-                    bg-cover bg-center
-                    transition-all duration-300 ease-out
-                    hover:scale-[1.02]
-                    hover:-translate-y-1
-                    hover:border-roxo-principal/50
-                    hover:shadow-[0_12px_30px_-8px_rgba(183,47,254,0.35)]
-                    cursor-pointer
-                '
-                style={{
-                    backgroundImage: temCapaValida ? `url(${imagens.capa})` : undefined,
-                }}
-            >
-                {/* Fallback elegante caso não haja imagem de capa */}
-                {!temCapaValida && (
-                    <div className="absolute inset-0 bg-linear-to-br from-roxo-escuro/20 via-preto-fosco to-preto-escuro flex items-center justify-center pointer-events-none">
-                        <FolderGit2 className="w-10 h-10 text-white/15" />
+        <Link
+            to={`${basePath}/${id}`}
+            className='block group'
+            aria-label={`Ver projeto ${titulo}`}
+        >
+            <article className='card-projeto relative aspect-[3/4] rounded-xl overflow-hidden bg-preto-fosco group-hover:scale-[1.02] group-hover:-translate-y-1'>
+                {temCapaValida ? (
+                    <img
+                        src={imagens.capa}
+                        alt={titulo}
+                        loading='lazy'
+                        className='absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105'
+                    />
+                ) : (
+                    <div className='img-fallback absolute inset-0 flex items-center justify-center'>
+                        <FolderGit2 className='w-10 h-10 text-white/15' />
                     </div>
                 )}
 
-                {/* Overlay gradiente escuro na base do card para contraste */}
-                <div className="absolute inset-0 bg-linear-to-t from-preto-escuro/90 via-preto-escuro/20 to-transparent pointer-events-none" />
+                {/* Overlay de contraste na base do card */}
+                <div className='overlay-card absolute inset-0' />
 
-                <div
-                    className='
-                        relative z-10
-                        transition-all duration-300 ease-out
-                        content-card-projeto
-                        p-3.5
-                        rounded-lg
-                        bg-linear-to-r from-roxo-escuro to-roxo-principal
-                        lg:opacity-0 opacity-100
-                        translate-y-2 lg:translate-y-3 group-hover:translate-y-0 group-hover:opacity-100
-                        shadow-md
-                    '
-                >
-                    <p className='font-titulo text-white text-[13px] font-semibold leading-[120%] line-clamp-2'>
-                        {titulo}
-                    </p>
+                <div className='absolute inset-x-0 bottom-0 p-4'>
+                    <span className='inline-block content-card-projeto grad-btn rounded-lg px-3 py-1.5 transition-[opacity,transform] duration-300 lg:opacity-0 lg:translate-y-3 group-hover:opacity-100 group-hover:translate-y-0'>
+                        <span className='block font-titulo text-white text-[13px] font-semibold leading-[120%] line-clamp-2'>
+                            {titulo}
+                        </span>
+                    </span>
                 </div>
             </article>
         </Link>

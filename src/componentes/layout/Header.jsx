@@ -1,28 +1,28 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 import { Menu, X } from "lucide-react";
 
+const estaAtivo = (pathname, url) => {
+    if (url === "/") return pathname === "/";
+    return pathname === url || pathname.startsWith(`${url}/`);
+};
+
 export const Header = ({
     logo = "/ujhessie-logo.svg",
+    altLogo = "UJHESSIE",
     links = {},
     configCTA = {},
 }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [activeLink, setActiveLink] = useState(
-        Object.keys(links)[0] || "Início",
-    );
+    const { pathname } = useLocation();
 
     return (
         <header className='relative w-full bg-preto-escuro z-50'>
-            <div className='content-section mx-auto px-6 sm:px-10 py-5 sm:py-6 flex items-center justify-between'>
-                <Logo logo={logo} />
+            <div className='content-section py-5 sm:py-6 flex items-center justify-between'>
+                <Logo logo={logo} alt={altLogo} />
 
-                <NavDesktop
-                    links={links}
-                    activeLink={activeLink}
-                    setActiveLink={setActiveLink}
-                />
+                <NavDesktop links={links} pathname={pathname} />
 
                 <BotaoCTA configCTA={configCTA} />
 
@@ -35,8 +35,7 @@ export const Header = ({
             <MenuMobile
                 isOpen={isMenuOpen}
                 links={links}
-                activeLink={activeLink}
-                setActiveLink={setActiveLink}
+                pathname={pathname}
                 configCTA={configCTA}
                 onClose={() => setIsMenuOpen(false)}
             />
@@ -44,35 +43,34 @@ export const Header = ({
     );
 };
 
-const Logo = ({ logo, href = "/" }) => {
+const Logo = ({ logo, alt, href = "/" }) => {
     return (
-        <Link
-            to={href}
-            className='flex items-center hover:opacity-90 transition-opacity'
-        >
+        <Link to={href} aria-label='Voltar para a página inicial'>
             <img
                 src={logo}
-                alt='UJHESSIE'
+                alt={alt}
                 className='h-6 sm:h-7 w-auto object-contain'
             />
         </Link>
     );
 };
 
-const NavDesktop = ({ links = {}, activeLink, setActiveLink }) => {
+const NavDesktop = ({ links = {}, pathname }) => {
     return (
-        <nav className='hidden md:flex items-center bg-white/6 border border-white/10 rounded-full p-1.5 backdrop-blur-md shadow-lg shadow-black/20'>
+        <nav
+            className='hidden lg:flex items-center bg-white/6 border border-white/10 rounded-full p-1.5' /* taste-skill-ignore: contêiner da navegação pede borda fina */
+            aria-label='Navegação principal'
+        >
             <ul className='flex items-center gap-1 list-none m-0 p-0'>
                 {Object.entries(links).map(([texto, url]) => {
-                    const isActive = activeLink === texto;
+                    const isActive = estaAtivo(pathname, url);
                     return (
                         <li key={texto}>
                             <Link
                                 to={url}
-                                onClick={() => setActiveLink(texto)}
-                                className={`font-titulo text-sm px-5 py-2 rounded-full transition-all duration-200 whitespace-nowrap block ${
+                                className={`button-press font-titulo text-sm px-5 py-2 rounded-full whitespace-nowrap block transition-colors ${
                                     isActive
-                                        ? "bg-linear-to-r from-[#7B1FE1] to-[#B62DFE] text-white font-semibold shadow-[0_4px_18px_rgba(123,31,225,0.5)]"
+                                        ? "grad-btn sombra-nav text-white font-semibold"
                                         : "text-white/75 hover:text-white hover:bg-white/5 font-medium"
                                 }`}
                             >
@@ -92,12 +90,12 @@ const BotaoCTA = ({ configCTA = {} }) => {
     if (!textoCTA) return null;
 
     return (
-        <div className='hidden md:flex items-center'>
+        <div className='hidden lg:flex items-center'>
             <a
                 href={urlCTA || "#"}
                 target='_blank'
                 rel='noopener noreferrer'
-                className='inline-flex items-center gap-2.5 px-5 py-2.5 bg-linear-to-r from-roxo-escuro to-roxo-principal hover:from-roxo-principal hover:to-roxo-claro text-white font-titulo font-bold text-xs tracking-wider uppercase rounded-xl shadow-[0_8px_25px_-4px_rgba(123,31,225,0.65)] hover:-translate-y-0.5 transition-all'
+                className='button-press sombra-btn grad-btn inline-flex items-center gap-3 px-6 py-3.5 text-white font-titulo font-bold text-sm tracking-wider uppercase rounded-xl hover:-translate-y-0.5'
             >
                 <FaWhatsapp />
                 <span>{textoCTA}</span>
@@ -106,66 +104,64 @@ const BotaoCTA = ({ configCTA = {} }) => {
     );
 };
 
-const BotaoHamburguer = ({ isOpen, onToggle }) => {
-    return (
-        <button
-            type='button'
-            onClick={onToggle}
-            className='md:hidden text-white p-2 rounded-lg hover:bg-white/10 transition-colors focus:outline-none'
-            aria-label='Alternar menu'
-        >
-            {isOpen ? <X className='w-6 h-6' /> : <Menu className='w-6 h-6' />}
-        </button>
-    );
-};
+const BotaoHamburguer = ({ isOpen, onToggle }) => (
+    <button
+        type='button'
+        onClick={onToggle}
+        className='lg:hidden p-2 -mr-2 text-white rounded-lg hover:bg-white/10 transition-colors'
+        aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
+        aria-expanded={isOpen}
+    >
+        {isOpen ? <X className='w-7 h-7' /> : <Menu className='w-7 h-7' />}
+    </button>
+);
 
 const MenuMobile = ({
     isOpen,
     links = {},
-    activeLink,
-    setActiveLink,
+    pathname,
     configCTA = {},
     onClose,
-}) => {
-    if (!isOpen) return null;
+}) => (
+    <div
+        className={`lg:hidden absolute top-full left-0 w-full bg-[#0a0a0c]/98 px-6 py-6 flex flex-col gap-4 z-50 transition-[opacity,transform] duration-300 ${
+            isOpen
+                ? "opacity-100 translate-y-0"
+                : "pointer-events-none -translate-y-2 opacity-0"
+        }`}
+    >
+        <nav className='flex flex-col gap-1.5' aria-label='Navegação móvel'>
+            {Object.entries(links).map(([texto, url], i) => {
+                const isActive = estaAtivo(pathname, url);
+                return (
+                    <Link
+                        key={texto}
+                        to={url}
+                        onClick={onClose}
+                        style={{ animationDelay: `${i * 45}ms` }}
+                        className={`px-4 py-3 rounded-xl font-titulo text-sm font-medium animate-fade-in-up transition-colors ${
+                            isActive
+                                ? "grad-btn sombra-nav text-white font-semibold"
+                                : "text-white/80 hover:text-white hover:bg-white/5"
+                        }`}
+                    >
+                        {texto}
+                    </Link>
+                );
+            })}
+        </nav>
 
-    return (
-        <div className='md:hidden absolute top-full left-0 w-full bg-[#0a0a0c]/98 border-b border-white/10 px-6 py-6 flex flex-col gap-4 shadow-2xl backdrop-blur-xl z-50'>
-            <nav className='flex flex-col gap-1.5'>
-                {Object.entries(links).map(([texto, url]) => {
-                    const isActive = activeLink === texto;
-                    return (
-                        <Link
-                            key={texto}
-                            to={url}
-                            onClick={() => {
-                                setActiveLink(texto);
-                                onClose();
-                            }}
-                            className={`px-4 py-3 rounded-xl font-titulo text-sm transition-all ${
-                                isActive
-                                    ? "bg-linear-to-r from-roxo-escuro to-roxo-principal text-white font-semibold shadow-md"
-                                    : "text-white/80 hover:text-white hover:bg-white/5 font-medium"
-                            }`}
-                        >
-                            {texto}
-                        </Link>
-                    );
-                })}
-            </nav>
-
-            {configCTA?.textoCTA && (
-                <a
-                    href={configCTA.urlCTA || "#"}
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    onClick={onClose}
-                    className='flex items-center justify-center gap-2.5 px-5 py-3.5 bg-linear-to-r from-roxo-escuro to-roxo-principal text-white font-titulo font-bold text-xs tracking-wider uppercase rounded-xl shadow-lg mt-2'
-                >
-                    <FaWhatsapp />
-                    <span>{configCTA.textoCTA}</span>
-                </a>
-            )}
-        </div>
-    );
-};
+        {configCTA?.textoCTA && (
+            <a
+                href={configCTA.urlCTA || "#"}
+                target='_blank'
+                rel='noopener noreferrer'
+                onClick={onClose}
+                className='button-press sombra-btn grad-btn flex items-center justify-center gap-3 px-5 py-3.5 text-white font-titulo font-bold text-sm tracking-wider uppercase rounded-xl mt-5 w-full'
+            >
+                <FaWhatsapp />
+                <span>{configCTA.textoCTA}</span>
+            </a>
+        )}
+    </div>
+);

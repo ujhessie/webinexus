@@ -5,6 +5,22 @@
 .marquee__track--reverse {
     animation: marquee 30s linear infinite reverse;
 }
+
+/* Bolinha separadora entre os itens do marquee */
+.marquee__track li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.marquee__track li:not(:last-child)::after {
+    content: "";
+    width: 0.375rem;
+    height: 0.375rem;
+    border-radius: 9999px;
+    background: rgb(255 255 255 / 0.6);
+}
+
 @keyframes marquee {
     from {
         transform: translateX(0);

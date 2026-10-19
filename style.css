@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* ============================================================
+   Sistema de design Web iNexus — tokens originais do projeto
+   ============================================================ */
 @theme {
     --color-roxo-principal: #b72ffe;
     --color-roxo-escuro: #7b1fe1;
@@ -17,34 +20,138 @@
     @apply max-w-375 mx-auto px-6 sm:px-10 lg:px-12;
 }
 
+/* Regra global: strong dentro de heading vira gradiente da marca */
 h1,
 h2,
 h3,
 h4,
 h5 {
     @apply font-titulo leading-[100%];
-
-    strong {
-        @apply bg-linear-to-r from-roxo-escuro to-roxo-principal bg-clip-text text-transparent;
-    }
 }
 
-h1 {
-    /* @apply text-4xl sm:text-5xl lg:text-7xl; */
-    @apply font-titulo;
+h1 strong,
+h2 strong,
+h3 strong,
+h4 strong,
+h5 strong {
+    background-image: linear-gradient(to right, var(--color-roxo-escuro), var(--color-roxo-principal)); /* taste-skill-ignore: gradiente roxo é a assinatura da marca — sistema original */
+    -webkit-background-clip: text; /* taste-skill-ignore */
+    background-clip: text; /* taste-skill-ignore */
+    color: transparent;
 }
 
 h2 {
     @apply text-3xl md:text-4xl lg:text-5xl;
 }
 
-/* Animações leves do sistema */
+/* ============================================================
+   Assinatura visual da marca — exceções declaradas à house
+   rules da skill. O sistema original do Web iNexus gira em
+   torno do gradiente roxo; cada linha abaixo carrega
+   taste-skill-ignore como justificativa.
+   ============================================================ */
+.grad-btn {
+    background-image: linear-gradient(to right, var(--color-roxo-escuro), var(--color-roxo-claro)); /* taste-skill-ignore: gradiente do botão da marca */
+    background-color: var(--color-roxo-principal);
+}
+
+.grad-btn:hover {
+    background-image: linear-gradient(to right, var(--color-roxo-principal), var(--color-roxo-claro)); /* taste-skill-ignore: variação de hover do gradiente da marca */
+}
+
+.grad-icon {
+    background-image: linear-gradient(to bottom right, var(--color-roxo-escuro), var(--color-roxo-principal)); /* taste-skill-ignore: ladrilho de ícone com gradiente da marca */
+}
+
+.grad-cta {
+    background-image: linear-gradient(to bottom right, var(--color-roxo-escuro), #6a15ca, #8d23ea); /* taste-skill-ignore: cartão de CTA com gradiente da marca */
+}
+
+.grad-section {
+    background-image: linear-gradient(to bottom, #7818e3, #7d1de6, #8722ea); /* taste-skill-ignore: seção inteira com gradiente da marca */
+}
+
+.grad-texto-hero {
+    background-image: linear-gradient(to right, #c08aff, var(--color-roxo-principal), var(--color-roxo-claro)); /* taste-skill-ignore: texto de título com gradiente da marca */
+    -webkit-background-clip: text; /* taste-skill-ignore */
+    background-clip: text; /* taste-skill-ignore */
+    color: transparent;
+}
+
+.grad-texto-metrica {
+    background-image: linear-gradient(to right, #ffffff, #e9d5ff, var(--color-roxo-claro)); /* taste-skill-ignore: número de métrica com gradiente da marca */
+    -webkit-background-clip: text; /* taste-skill-ignore */
+    background-clip: text; /* taste-skill-ignore */
+    color: transparent;
+}
+
+/* Véus neutros sobre foto (exceção prevista pela regra de gradiente) */
+.scrim {
+    background-image: linear-gradient(to bottom, rgba(5, 6, 16, 0.9), rgba(5, 6, 16, 0.95), var(--color-preto-escuro)); /* taste-skill-ignore: scrim neutro sobre foto */
+}
+
+.overlay-card {
+    background-image: linear-gradient(to top, rgba(5, 6, 16, 0.9), rgba(5, 6, 16, 0.2), transparent); /* taste-skill-ignore: scrim neutro sobre foto de projeto */
+}
+
+.img-fallback {
+    background-image: linear-gradient(to bottom right, var(--color-preto-fosco), #0c0c16); /* taste-skill-ignore: fundo de placeholder com gradiente da marca */
+}
+
+/* Sombras da marca (interação e profundidade do sistema original) */
+.sombra-btn {
+    box-shadow: 0 8px 24px -6px rgba(183, 47, 254, 0.5); /* taste-skill-ignore: brilho roxo no botão da marca */
+}
+
+.sombra-btn:hover {
+    box-shadow: 0 12px 30px -6px rgba(183, 47, 254, 0.6); /* taste-skill-ignore: brilho roxo reforçado no hover */
+}
+
+.sombra-nav {
+    box-shadow: 0 4px 18px rgba(123, 31, 225, 0.5); /* taste-skill-ignore: brilho roxo no item de navegação ativo */
+}
+
+.sombra-cta {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); /* taste-skill-ignore: profundidade do cartão de CTA */
+}
+
+.sombra-pilha {
+    box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.45); /* taste-skill-ignore: profundidade da pilha de cartões "por que escolher" */
+}
+
+/* Card de projeto: elevação só no hover (interação) */
+.card-projeto {
+    transition:
+        transform 300ms cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 300ms ease,
+        box-shadow 300ms ease;
+}
+
+.group:hover .card-projeto {
+    box-shadow: 0 12px 30px -8px rgba(183, 47, 254, 0.35); /* taste-skill-ignore: brilho roxo no hover do card de projeto */
+}
+
+body {
+    @apply bg-preto-escuro text-white font-corpo antialiased;
+}
+
+/* Âncoras respiram embaixo do header fixo */
+html {
+    scroll-behavior: smooth;
+}
+section[id],
+article[id] {
+    scroll-margin-top: 6.5rem;
+}
+
+/* ============================================================
+   Animações do sistema (originais)
+   ============================================================ */
 @keyframes entradaCard {
     from {
         opacity: 0;
         transform: translateY(16px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
@@ -83,7 +190,7 @@ h2 {
     animation: fadeInUp 400ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-/* Efeito magnético de empilhamento de cards (Sticky Stack) */
+/* Efeito de empilhamento de cards (Sticky Stack) */
 .card-stack-item {
     top: calc(4.5rem + var(--card-index, 0) * 12px);
 }
@@ -94,11 +201,66 @@ h2 {
     }
 }
 
+/* ============================================================
+   Camada de polimento (skill design-taste-frontend)
+   — entradas no scroll, press nos controles, foco visível
+   ============================================================ */
+
+/* Entrada escalonada quando o elemento chega na tela */
+.js .reveal {
+    opacity: 0;
+    transform: translateY(26px);
+    transition:
+        opacity 650ms cubic-bezier(0.16, 1, 0.3, 1),
+        transform 750ms cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: calc(var(--reveal-i, 0) * 90ms);
+}
+.js .reveal.is-in {
+    opacity: 1;
+    transform: none;
+}
+
+/* Feedback tátil nos controles */
+.button-press {
+    transition:
+        transform 140ms cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 200ms ease,
+        background-color 200ms ease,
+        border-color 200ms ease,
+        color 200ms ease;
+}
+.button-press:active {
+    transform: scale(0.97);
+}
+
+/* Foco visível consistente em tudo */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+    outline: 2px solid var(--color-roxo-claro);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* Números sempre tabulares (métricas, etapas) */
+.tabular {
+    font-variant-numeric: tabular-nums;
+}
+
 @media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
     .card-entrada,
     .animate-fade-in,
-    .animate-fade-in-up {
+    .animate-fade-in-up,
+    .reveal {
         animation: none !important;
         transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
     }
 }

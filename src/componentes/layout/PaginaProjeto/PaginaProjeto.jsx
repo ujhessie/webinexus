@@ -55,7 +55,7 @@ export const PaginaProjeto = () => {
                     <button
                         type='button'
                         onClick={voltarPaginaAnterior}
-                        className='inline-flex items-center gap-2 px-6 py-3 rounded-full bg-linear-to-r from-roxo-escuro to-roxo-principal text-white font-titulo font-semibold text-sm hover:opacity-90 transition-all cursor-pointer shadow-lg shadow-roxo-principal/25'
+                        className='button-press sombra-btn grad-btn inline-flex items-center gap-2 px-6 py-3 rounded-full text-white font-titulo font-semibold text-sm hover:-translate-y-0.5 transition-[transform,box-shadow] cursor-pointer'
                     >
                         <ArrowLeft className='w-4 h-4' />
                         Voltar para a página anterior
@@ -145,7 +145,7 @@ const BannerProjeto = ({
     const [erroImagem, setErroImagem] = useState(false);
 
     return (
-        <section className='relative w-full min-h-[380px] sm:min-h-[440px] lg:min-h-[480px] aspect-[4/1] bg-preto-escuro flex flex-col justify-between overflow-hidden border-b border-white/10'>
+        <section className='relative w-full min-h-[380px] sm:min-h-[440px] lg:min-h-[480px] aspect-[4/1] bg-preto-escuro flex flex-col justify-between overflow-hidden'>
             {/* Imagem de fundo ou Placeholder com efeito gradiente escuro de ponta a ponta */}
             {banner && !erroImagem ? (
                 <>
@@ -155,14 +155,12 @@ const BannerProjeto = ({
                         onError={() => setErroImagem(true)}
                         className='absolute inset-0 w-full h-full object-cover object-center'
                     />
-                    {/* Gradiente escuro para contraste do texto e navegação */}
-                    <div className='absolute inset-0 bg-linear-to-b from-preto-escuro/90 via-preto-escuro/70 to-preto-escuro' />
+                    {/* Véu neutro para contraste do texto e navegação */}
+                    <div className='scrim absolute inset-0' />
                 </>
             ) : (
-                <div className='absolute inset-0 bg-linear-to-br from-roxo-escuro/30 via-preto-fosco to-preto-escuro overflow-hidden'>
-                    <div className='absolute inset-0 bg-[radial-gradient(#b72ffe_1px,transparent_1px)] [background-size:24px_24px] opacity-15' />
+                <div className='img-fallback absolute inset-0 overflow-hidden'>
                     <div className='absolute -top-24 -right-24 w-96 h-96 bg-roxo-principal/20 rounded-full blur-3xl pointer-events-none' />
-                    <div className='absolute inset-0 bg-linear-to-t from-preto-escuro via-transparent to-preto-escuro/80' />
                 </div>
             )}
 
@@ -172,14 +170,14 @@ const BannerProjeto = ({
                     <button
                         type='button'
                         onClick={onVoltar}
-                        className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-preto-escuro/60 hover:bg-preto-escuro/90 border border-white/15 text-white/90 hover:text-white backdrop-blur-md transition-all text-xs sm:text-sm font-medium cursor-pointer group hover:-translate-x-0.5 shadow-lg'
+                        className='inline-flex items-center gap-2 px-4 py-2 rounded-full bg-preto-escuro/80 hover:bg-preto-escuro text-white/90 hover:text-white transition-colors text-sm font-medium cursor-pointer group hover:-translate-x-0.5'
                     >
                         <ArrowLeft className='w-4 h-4 transition-transform group-hover:-translate-x-1 text-roxo-claro' />
                         <span>Voltar</span>
                     </button>
 
                     {categorias.length > 0 && (
-                        <span className='hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-titulo text-white/80 bg-white/5 border border-white/10 backdrop-blur-md uppercase tracking-wider'>
+                        <span className='hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full font-titulo text-sm text-[#d28bff] bg-roxo-principal/15'>
                             <Sparkles className='w-3.5 h-3.5 text-roxo-principal' />
                             {getCategoria(categorias[0])?.label ||
                                 categorias[0]}
@@ -299,7 +297,7 @@ const ItemImagemGaleria = ({ src, alt, numero, aoClicar }) => {
     return (
         <figure
             onClick={aoClicar}
-            className='rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10 bg-preto-fosco shadow-lg group relative transition-all duration-300 hover:border-roxo-principal/50 hover:shadow-[0_10px_30px_-10px_rgba(183,47,254,0.25)] cursor-zoom-in'
+            className='rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10 bg-preto-fosco group relative transition-colors duration-300 hover:border-roxo-principal/50 cursor-zoom-in'
         >
             <img
                 src={src}
@@ -311,12 +309,12 @@ const ItemImagemGaleria = ({ src, alt, numero, aoClicar }) => {
 
             {/* Indicador sutil de clique / ampliação no hover */}
             <div className='absolute inset-0 bg-preto-escuro/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none'>
-                <span className='p-3 rounded-full bg-preto-escuro/70 border border-white/20 text-white backdrop-blur-md shadow-xl transform scale-90 group-hover:scale-100 transition-transform'>
+                <span className='p-3 rounded-full bg-preto-escuro/80 border border-white/20 text-white transform scale-90 group-hover:scale-100 transition-transform'>
                     <ZoomIn className='w-5 h-5 text-roxo-claro' />
                 </span>
             </div>
 
-            <div className='absolute bottom-3 right-3 px-2.5 py-1 rounded-md bg-preto-escuro/80 backdrop-blur-md text-[10px] font-mono text-white/70 border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity'>
+            <div className='absolute bottom-3 right-3 px-2.5 py-1 rounded-md bg-preto-escuro/85 font-titulo text-[11px] text-white/70 border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity'>
                 #{numero}
             </div>
         </figure>
@@ -339,12 +337,14 @@ const ModalGaleria = ({
 
     return createPortal(
         <div
-            className='fixed inset-0 z-[99999] bg-black/95 backdrop-blur-md flex items-center justify-center animate-fade-in select-none w-screen h-screen overflow-hidden'
+            className='fixed inset-0 z-[99999] bg-black/95 backdrop-blur-md flex items-center justify-center animate-fade-in select-none w-full h-dvh overflow-hidden'
             onClick={aoFechar}
         >
             {/* Barra de Ações Superior Flutuante */}
             <div className='absolute top-4 sm:top-6 left-4 sm:left-8 right-4 sm:right-8 flex items-center justify-between z-30 pointer-events-none'>
-                <span className='text-white/80 text-xs sm:text-sm font-titulo tracking-wider pointer-events-auto bg-black/60 px-3.5 py-1.5 rounded-full border border-white/10 backdrop-blur-md shadow-lg'>
+                <span
+                    className='text-white/80 text-xs sm:text-sm font-titulo tracking-wider pointer-events-auto bg-black/60 px-3.5 py-1.5 rounded-full border border-white/10 backdrop-blur-md shadow-lg' /* taste-skill-ignore: flutuante sobre o lightbox pede sombra */
+                >
                     {titulo}{" "}
                     {imagens.length > 1 &&
                         `(${indice + 1} de ${imagens.length})`}
@@ -356,7 +356,7 @@ const ModalGaleria = ({
                         e.stopPropagation();
                         aoFechar();
                     }}
-                    className='pointer-events-auto p-2.5 sm:p-3 rounded-full bg-black/60 hover:bg-black/90 text-white border border-white/20 backdrop-blur-md transition-all cursor-pointer hover:rotate-90 shadow-xl'
+                    className='pointer-events-auto p-2.5 sm:p-3 rounded-full bg-black/60 hover:bg-black/90 text-white border border-white/20 backdrop-blur-md transition-[transform] cursor-pointer hover:rotate-90 shadow-xl' /* taste-skill-ignore: controle flutuante sobre o lightbox pede sombra */
                     aria-label='Fechar galeria'
                 >
                     <X className='w-5 h-5 sm:w-6 sm:h-6' />
@@ -384,7 +384,7 @@ const ModalGaleria = ({
                             e.stopPropagation();
                             aoAnterior();
                         }}
-                        className='absolute left-3 sm:left-6 p-3 sm:p-4 rounded-full bg-black/60 hover:bg-black/90 text-white border border-white/20 transition-all cursor-pointer backdrop-blur-md z-30 hover:-translate-x-1 shadow-xl'
+                        className='absolute left-3 sm:left-6 p-3 sm:p-4 rounded-full bg-black/60 hover:bg-black/90 text-white border border-white/20 transition-[transform] cursor-pointer backdrop-blur-md z-30 hover:-translate-x-1 shadow-xl' /* taste-skill-ignore: controle flutuante sobre o lightbox pede sombra */
                         aria-label='Imagem anterior'
                     >
                         <ChevronLeft className='w-6 h-6 sm:w-7 sm:h-7' />
@@ -396,7 +396,7 @@ const ModalGaleria = ({
                             e.stopPropagation();
                             aoProximo();
                         }}
-                        className='absolute right-3 sm:right-6 p-3 sm:p-4 rounded-full bg-black/60 hover:bg-black/90 text-white border border-white/20 transition-all cursor-pointer backdrop-blur-md z-30 hover:translate-x-1 shadow-xl'
+                        className='absolute right-3 sm:right-6 p-3 sm:p-4 rounded-full bg-black/60 hover:bg-black/90 text-white border border-white/20 transition-[transform] cursor-pointer backdrop-blur-md z-30 hover:translate-x-1 shadow-xl' /* taste-skill-ignore: controle flutuante sobre o lightbox pede sombra */
                         aria-label='Próxima imagem'
                     >
                         <ChevronRight className='w-6 h-6 sm:w-7 sm:h-7' />
@@ -422,10 +422,10 @@ const InfoProjeto = ({
     getCategoria,
 }) => {
     return (
-        <aside className='bg-white/[0.03] backdrop-blur-md border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col gap-6 lg:sticky lg:top-24 shadow-xl animate-fade-in-up'>
+        <aside className='bg-preto-fosco rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col gap-6 lg:sticky lg:top-24 animate-fade-in-up'>
             {/* Cabeçalho do Card */}
-            <div className='border-b border-white/10 pb-5'>
-                <span className='text-xs font-titulo uppercase tracking-wider text-roxo-claro font-semibold'>
+            <div className='pb-1'>
+                <span className='text-sm font-titulo text-[#d28bff] font-semibold'>
                     Visão Geral
                 </span>
                 <h2 className='text-xl sm:text-2xl font-bold text-white mt-1'>
@@ -440,7 +440,7 @@ const InfoProjeto = ({
 
             {/* Descrição Detalhada */}
             <div className='flex flex-col gap-2'>
-                <h3 className='text-xs font-titulo font-semibold text-white/50 uppercase tracking-wider'>
+                <h3 className='text-sm font-titulo font-semibold text-white/60'>
                     Sobre o Projeto
                 </h3>
                 {descricao ? (
@@ -459,7 +459,7 @@ const InfoProjeto = ({
             {/* Categorias */}
             {categorias.length > 0 && (
                 <div className='flex flex-col gap-2'>
-                    <h3 className='text-xs font-titulo font-semibold text-white/50 uppercase tracking-wider'>
+                    <h3 className='text-sm font-titulo font-semibold text-white/60'>
                         Segmentos
                     </h3>
                     <div className='flex flex-wrap gap-2'>
@@ -478,7 +478,7 @@ const InfoProjeto = ({
 
             {/* Tags / Tecnologias */}
             <div className='flex flex-col gap-2'>
-                <h3 className='text-xs font-titulo font-semibold text-white/50 uppercase tracking-wider'>
+                <h3 className='text-sm font-titulo font-semibold text-white/60'>
                     Tecnologias & Ferramentas
                 </h3>
                 {tags.length > 0 ? (
@@ -511,7 +511,7 @@ const InfoProjeto = ({
             </div>
 
             {/* Links ou CTA de Contato */}
-            <div className='flex flex-col gap-3 pt-2 border-t border-white/10'>
+            <div className='flex flex-col gap-3 pt-4'>
                 {links.length > 0 ? (
                     links.map((link, index) => (
                         <a
@@ -519,10 +519,10 @@ const InfoProjeto = ({
                             href={link.url}
                             target='_blank'
                             rel='noopener noreferrer'
-                            className={`inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-titulo font-bold text-xs tracking-wider uppercase transition-all duration-200 cursor-pointer ${
+                            className={`button-press inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-titulo font-bold text-sm tracking-wider uppercase transition-[transform,background-color,border-color] duration-200 cursor-pointer hover:-translate-y-0.5 ${ /* taste-skill-ignore: botões CTA seguem o padrão uppercase da marca */
                                 link.principal
-                                    ? "bg-linear-to-r from-roxo-escuro to-roxo-principal hover:from-roxo-principal hover:to-roxo-claro text-white shadow-[0_8px_25px_-4px_rgba(123,31,225,0.65)] hover:-translate-y-0.5"
-                                    : "border border-white/15 text-white/80 hover:text-white hover:bg-white/5 hover:-translate-y-0.5"
+                                    ? "grad-btn sombra-btn text-white"
+                                    : "border border-white/15 text-white/80 hover:text-white hover:bg-white/5"
                             }`}
                         >
                             <ExternalLink className='w-4 h-4' />
@@ -531,10 +531,10 @@ const InfoProjeto = ({
                     ))
                 ) : (
                     <a
-                        href='https://wa.me/5500000000000'
+                        href='https://wa.me/5598988740103'
                         target='_blank'
                         rel='noopener noreferrer'
-                        className='inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-titulo font-bold text-xs tracking-wider uppercase bg-linear-to-r from-roxo-escuro to-roxo-principal hover:from-roxo-principal hover:to-roxo-claro text-white shadow-[0_8px_25px_-4px_rgba(123,31,225,0.65)] hover:-translate-y-0.5 transition-all duration-200'
+                        className='button-press sombra-btn grad-btn inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-titulo font-bold text-sm tracking-wider uppercase text-white hover:-translate-y-0.5 transition-[transform,box-shadow] duration-200' /* taste-skill-ignore: botão CTA segue o padrão uppercase da marca */
                     >
                         <Sparkles className='w-4 h-4' />
                         Quero um projeto parecido

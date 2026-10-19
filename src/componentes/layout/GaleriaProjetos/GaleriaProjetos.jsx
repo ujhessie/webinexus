@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { SlidersHorizontal } from "lucide-react";
 import { useProjetos } from "../../../contexts/ProjetosContext.jsx";
 import { CardProjeto } from "../../layout/CardProjeto/CardProjeto.jsx";
 
@@ -12,46 +13,34 @@ export const GaleriaProjetos = ({ limite }) => {
         : projetosFiltrados;
 
     return (
-        <div className='galeria-projetos'>
-            <ul
-                className='
-                filtro
-                flex gap-1 lg:inline-flex
-                overflow-x-auto whitespace-nowrap
-                sm:flex-wrap sm:justify-center sm:overflow-visible
-                bg-white py-2 px-3 sm:px-4
-                rounded-full
-                w-full sm:w-auto
-                text-preto-escuro font-titulo
-                text-sm sm:text-base lg:text-lg
-                mb-6
-                scrollbar-none [&::-webkit-scrollbar]:hidden
-            '
-            >
+        <div>
+            {/* Filtros */}
+            <div className='flex flex-wrap lg:inline-flex gap-1 bg-white rounded-full py-2 px-2 sm:px-3 mb-6 max-w-full'>
+                <span className='hidden lg:flex items-center gap-2 px-3 text-preto-escuro/70 font-titulo text-sm shrink-0'>
+                    <SlidersHorizontal className='w-4 h-4 text-roxo-escuro' />
+                    Filtrar
+                </span>
                 {filtros.map((filtro) => {
                     const isAtivo = filtroAtivo === filtro.id;
                     return (
-                        <li key={filtro.id}>
-                            <button
-                                type='button'
-                                onClick={() => setFiltroAtivo(filtro.id)}
-                                aria-pressed={isAtivo}
-                                className={[
-                                    "p-2 rounded-full",
-                                    "transition-all duration-200",
-                                    "cursor-pointer shrink-0",
-                                    isAtivo
-                                        ? "bg-linear-to-r from-roxo-escuro to-roxo-principal text-white"
-                                        : " hover:-translate-y-px",
-                                ].join(" ")}
-                            >
-                                {filtro.label}
-                            </button>
-                        </li>
+                        <button
+                            key={filtro.id}
+                            type='button'
+                            onClick={() => setFiltroAtivo(filtro.id)}
+                            aria-pressed={isAtivo}
+                            className={`button-press font-titulo text-sm whitespace-nowrap rounded-full px-4 py-2 transition-[background-color,color,box-shadow] ${
+                                isAtivo
+                                    ? "grad-btn sombra-btn text-white font-semibold"
+                                    : "text-preto-escuro/80 hover:bg-black/5"
+                            }`}
+                        >
+                            {filtro.label}
+                        </button>
                     );
                 })}
-            </ul>
+            </div>
 
+            {/* Grid de projetos */}
             <div
                 key={filtroAtivo}
                 className='grid grid-cols-2 lg:grid-cols-3 gap-4'
@@ -60,14 +49,19 @@ export const GaleriaProjetos = ({ limite }) => {
                     <div
                         key={projeto.id}
                         className='card-entrada'
-                        style={{
-                            animationDelay: `${index * 70}ms`,
-                        }}
+                        style={{ animationDelay: `${index * 70}ms` }}
                     >
                         <CardProjeto id={projeto.id} />
                     </div>
                 ))}
             </div>
+
+            {projetosExibidos.length === 0 && (
+                <p className='text-gray-400 text-sm py-10 text-center'>
+                    Nenhum projeto nessa categoria por enquanto — chama no
+                    WhatsApp que a gente conta o que está saindo do forno.
+                </p>
+            )}
         </div>
     );
 };
