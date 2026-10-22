@@ -1,0 +1,1584 @@
+{
+ "url": "http://localhost:5177/",
+ "at": "2026-10-21T22:04:19.575Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 6,
+   "filled": [
+    0.9,
+    1,
+    1,
+    0.96,
+    1,
+    0.74
+   ],
+   "motion": {
+    "elements": 18,
+    "css": 1,
+    "transitions": 17,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 4768,
+     "screens": 5.3,
+     "words": 272,
+     "img": 4,
+     "video": 0,
+     "canvas": 0,
+     "svg": 9,
+     "sections": 4,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 3,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "jesse.png",
+      "Frame_1.jpg",
+      "Frame_2.jpg"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": []
+    },
+    "hero": {
+     "text": "JESSE RODRIGUES",
+     "words": 2,
+     "chars": 15,
+     "lines": 2,
+     "size": 120,
+     "vw": 8.3,
+     "font": "Space Grotesk",
+     "weight": 900,
+     "tracking": -0.035,
+     "leading": 1,
+     "upper": true,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.54,
+     "top": 270,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "JESSE RODRIGUES",
+     "words": 2,
+     "lines": 2,
+     "size": 120,
+     "font": "Space Grotesk"
+    },
+    "headings": [
+     {
+      "text": "JESSE RODRIGUES",
+      "words": 2,
+      "chars": 15,
+      "lines": 2,
+      "size": 120,
+      "vw": 8.3,
+      "font": "Space Grotesk",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.54,
+      "top": 270,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "TRABALHOS",
+      "words": 1,
+      "chars": 9,
+      "lines": 1,
+      "size": 48,
+      "vw": 3.3,
+      "font": "Space Grotesk",
+      "weight": 900,
+      "tracking": -0.02,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.3,
+      "top": 1028,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "LOJA VIRTUAL MULTITECH - ELETRÔNICOS",
+      "words": 5,
+      "chars": 36,
+      "lines": 1,
+      "size": 40,
+      "vw": 2.8,
+      "font": "Space Grotesk",
+      "weight": 900,
+      "tracking": -0.02,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.59,
+      "top": 1674,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "LANDINGPAGE BARBEARIA",
+      "words": 2,
+      "chars": 21,
+      "lines": 1,
+      "size": 40,
+      "vw": 2.8,
+      "font": "Space Grotesk",
+      "weight": 900,
+      "tracking": -0.02,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.64,
+      "top": 2574,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "QUEM ENTENDE O SEU NEGÓCIO.",
+      "words": 5,
+      "chars": 27,
+      "lines": 2,
+      "size": 48,
+      "vw": 3.3,
+      "font": "Space Grotesk",
+      "weight": 900,
+      "tracking": -0.02,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.3,
+      "top": 3204,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "O que eu faço",
+      "words": 4,
+      "chars": 13,
+      "lines": 1,
+      "size": 48,
+      "vw": 3.3,
+      "font": "Space Grotesk",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.37,
+      "top": 3204,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "+55 98 98874-0103",
+      "words": 3,
+      "chars": 17,
+      "lines": 1,
+      "size": 104,
+      "vw": 7.2,
+      "font": "Space Grotesk",
+      "weight": 900,
+      "tracking": -0.03,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.93,
+      "top": 4094,
+      "tag": "a",
+      "kind": "heading"
+     },
+     {
+      "text": "UJHESSIE",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 120,
+      "vw": 8.3,
+      "font": "Space Grotesk",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.85,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.93,
+      "top": 4566,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 8,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 1,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Poppins",
+       "share": 0.68,
+       "mono": false
+      },
+      {
+       "family": "Space Grotesk",
+       "share": 0.31,
+       "mono": false
+      },
+      {
+       "family": "-apple-system",
+       "share": 0.01,
+       "mono": false
+      }
+     ],
+     "familyCount": 3,
+     "sizes": [
+      10,
+      12,
+      14,
+      18,
+      20,
+      40,
+      48,
+      104,
+      120
+     ],
+     "sizeCount": 9,
+     "notLoaded": [],
+     "body": {
+      "font": "Poppins",
+      "size": 18,
+      "leading": 1.63,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 7.9
+     },
+     "measureChars": 65,
+     "max": {
+      "size": 120,
+      "vw": 8.3,
+      "font": "Space Grotesk",
+      "text": "JesseRodrigues"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.09,
+     "centerShare": 0,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#050610",
+     "bodyBgHsl": {
+      "h": 235,
+      "s": 0.52,
+      "l": 0.04
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#06010d",
+       "top": 0,
+       "hsl": {
+        "h": 265,
+        "s": 0.86,
+        "l": 0.03
+       }
+      },
+      {
+       "color": "#161724",
+       "top": 1244,
+       "hsl": {
+        "h": 236,
+        "s": 0.24,
+        "l": 0.11
+       }
+      },
+      {
+       "color": "#7b1fe1",
+       "top": 3766,
+       "hsl": {
+        "h": 268,
+        "s": 0.76,
+        "l": 0.5
+       }
+      },
+      {
+       "color": "#050610",
+       "top": 4486,
+       "hsl": {
+        "h": 235,
+        "s": 0.52,
+        "l": 0.04
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#ffffff",
+       "share": 0.42
+      },
+      {
+       "color": "#d4d4d8",
+       "share": 0.32
+      },
+      {
+       "color": "#9f9fa9",
+       "share": 0.25
+      },
+      {
+       "color": "#d28bff",
+       "share": 0.01
+      }
+     ],
+     "button": {
+      "bg": "#b72ffe",
+      "hsl": {
+       "h": 279,
+       "s": 0.99,
+       "l": 0.59
+      },
+      "fg": "#ffffff"
+     },
+     "lowContrast": [
+      {
+       "text": "Fale comigo",
+       "ratio": 4.3,
+       "need": 4.5,
+       "size": 14,
+       "fg": "#ffffff",
+       "bg": "#b72ffe"
+      },
+      {
+       "text": "Desenvolvimento de sites",
+       "ratio": 4.3,
+       "need": 4.5,
+       "size": 20,
+       "fg": "#ffffff",
+       "bg": "#b72ffe"
+      },
+      {
+       "text": "Lojas virtuais",
+       "ratio": 4.3,
+       "need": 4.5,
+       "size": 20,
+       "fg": "#ffffff",
+       "bg": "#b72ffe"
+      },
+      {
+       "text": "Sistemas",
+       "ratio": 4.3,
+       "need": 4.5,
+       "size": 20,
+       "fg": "#ffffff",
+       "bg": "#b72ffe"
+      },
+      {
+       "text": "Design de interface",
+       "ratio": 4.3,
+       "need": 4.5,
+       "size": 20,
+       "fg": "#ffffff",
+       "bg": "#b72ffe"
+      },
+      {
+       "text": "WordPress",
+       "ratio": 4.3,
+       "need": 4.5,
+       "size": 20,
+       "fg": "#ffffff",
+       "bg": "#b72ffe"
+      }
+     ]
+    },
+    "buttons": {
+     "count": 3,
+     "inHero": 3,
+     "radius": "pill",
+     "height": 48,
+     "withShadow": 1,
+     "withGradient": 1,
+     "mono": 0,
+     "upper": 2,
+     "heroLabels": [
+      "FALE COMIGO",
+      "FALE COMIGO",
+      "SITE LOCAL Ujhessie"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 1,
+     "shadowOverlay": 0,
+     "shadowSamples": [
+      "a.button-press.sombra-btn → rgba(183, 47, 254, 0.5) 0px 8px 24px -6px"
+     ],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 3,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.18
+     }
+    ],
+    "nav": {
+     "links": 6,
+     "fixed": false,
+     "height": 98,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "poppins",
+     "space grotesk"
+    ]
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 5,
+   "filled": [
+    0.95,
+    1,
+    1,
+    0.96,
+    0.8
+   ],
+   "motion": {
+    "elements": 22,
+    "css": 5,
+    "transitions": 17,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 5008,
+     "screens": 4.9,
+     "words": 272,
+     "img": 4,
+     "video": 0,
+     "canvas": 0,
+     "svg": 9,
+     "sections": 4,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 3,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "jesse.png",
+      "Frame_1.jpg",
+      "Frame_2.jpg"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": []
+    },
+    "hero": {
+     "text": "JESSE RODRIGUES",
+     "words": 2,
+     "chars": 15,
+     "lines": 2,
+     "size": 69.1,
+     "vw": 9,
+     "font": "Space Grotesk",
+     "weight": 900,
+     "tracking": -0.035,
+     "leading": 1,
+     "upper": true,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.9,
+     "top": 132,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "JESSE RODRIGUES",
+     "words": 2,
+     "lines": 2,
+     "size": 69.1,
+     "font": "Space Grotesk"
+    },
+    "headings": [
+     {
+      "text": "JESSE RODRIGUES",
+      "words": 2,
+      "chars": 15,
+      "lines": 2,
+      "size": 69.1,
+      "vw": 9,
+      "font": "Space Grotesk",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 132,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "TRABALHOS",
+      "words": 1,
+      "chars": 9,
+      "lines": 1,
+      "size": 36,
+      "vw": 4.7,
+      "font": "Space Grotesk",
+      "weight": 900,
+      "tracking": -0.02,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.43,
+      "top": 1117,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "QUEM ENTENDE O SEU NEGÓCIO.",
+      "words": 5,
+      "chars": 27,
+      "lines": 2,
+      "size": 36,
+      "vw": 4.7,
+      "font": "Space Grotesk",
+      "weight": 900,
+      "tracking": -0.02,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.43,
+      "top": 3080,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "O que eu faço",
+      "words": 4,
+      "chars": 13,
+      "lines": 1,
+      "size": 36,
+      "vw": 4.7,
+      "font": "Space Grotesk",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 3514,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "+55 98 98874-0103",
+      "words": 3,
+      "chars": 17,
+      "lines": 1,
+      "size": 56.8,
+      "vw": 7.4,
+      "font": "Space Grotesk",
+      "weight": 900,
+      "tracking": -0.03,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 4350,
+      "tag": "a",
+      "kind": "heading"
+     },
+     {
+      "text": "UJHESSIE",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 69.1,
+      "vw": 9,
+      "font": "Space Grotesk",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.85,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 4849,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 6,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 1,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Poppins",
+       "share": 0.68,
+       "mono": false
+      },
+      {
+       "family": "Space Grotesk",
+       "share": 0.31,
+       "mono": false
+      },
+      {
+       "family": "-apple-system",
+       "share": 0.01,
+       "mono": false
+      }
+     ],
+     "familyCount": 3,
+     "sizes": [
+      10,
+      12,
+      14,
+      18,
+      20,
+      24,
+      36,
+      57,
+      69
+     ],
+     "sizeCount": 9,
+     "notLoaded": [],
+     "body": {
+      "font": "Poppins",
+      "size": 18,
+      "leading": 1.63,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 7.9
+     },
+     "measureChars": 65,
+     "max": {
+      "size": 69.1,
+      "vw": 9,
+      "font": "Space Grotesk",
+      "text": "JesseRodrigues"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.09,
+     "centerShare": 0,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#050610",
+     "bodyBgHsl": {
+      "h": 235,
+      "s": 0.52,
+      "l": 0.04
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#06010d",
+       "top": 0,
+       "hsl": {
+        "h": 265,
+        "s": 0.86,
+        "l": 0.03
+       }
+      },
+      {
+       "color": "#0a0a0c",
+       "top": 84,
+       "hsl": {
+        "h": 240,
+        "s": 0.09,
+        "l": 0.04
+       }
+      },
+      {
+       "color": "#161724",
+       "top": 1305,
+       "hsl": {
+        "h": 236,
+        "s": 0.24,
+        "l": 0.11
+       }
+      },
+      {
+       "color": "#7b1fe1",
+       "top": 3950,
+       "hsl": {
+        "h": 268,
+        "s": 0.76,
+        "l": 0.5
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#ffffff",
+       "share": 0.42
+      },
+      {
+       "color": "#d4d4d8",
+       "share": 0.32
+      },
+      {
+       "color": "#9f9fa9",
+       "share": 0.25
+      },
+      {
+       "color": "#d28bff",
+       "share": 0.01
+      }
+     ],
+     "button": {
+      "bg": "#b72ffe",
+      "hsl": {
+       "h": 279,
+       "s": 0.99,
+       "l": 0.59
+      },
+      "fg": "#ffffff"
+     },
+     "lowContrast": [
+      {
+       "text": "Fale comigo",
+       "ratio": 4.3,
+       "need": 4.5,
+       "size": 14,
+       "fg": "#ffffff",
+       "bg": "#b72ffe"
+      },
+      {
+       "text": "Desenvolvimento de sites",
+       "ratio": 4.3,
+       "need": 4.5,
+       "size": 20,
+       "fg": "#ffffff",
+       "bg": "#b72ffe"
+      },
+      {
+       "text": "Lojas virtuais",
+       "ratio": 4.3,
+       "need": 4.5,
+       "size": 20,
+       "fg": "#ffffff",
+       "bg": "#b72ffe"
+      },
+      {
+       "text": "Sistemas",
+       "ratio": 4.3,
+       "need": 4.5,
+       "size": 20,
+       "fg": "#ffffff",
+       "bg": "#b72ffe"
+      },
+      {
+       "text": "Design de interface",
+       "ratio": 4.3,
+       "need": 4.5,
+       "size": 20,
+       "fg": "#ffffff",
+       "bg": "#b72ffe"
+      },
+      {
+       "text": "WordPress",
+       "ratio": 4.3,
+       "need": 4.5,
+       "size": 20,
+       "fg": "#ffffff",
+       "bg": "#b72ffe"
+      }
+     ]
+    },
+    "buttons": {
+     "count": 3,
+     "inHero": 3,
+     "radius": "pill",
+     "height": 48,
+     "withShadow": 1,
+     "withGradient": 1,
+     "mono": 0,
+     "upper": 2,
+     "heroLabels": [
+      "FALE COMIGO",
+      "FALE COMIGO",
+      "SITE LOCAL Ujhessie"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 1,
+     "shadowOverlay": 0,
+     "shadowSamples": [
+      "a.button-press.sombra-btn → rgba(183, 47, 254, 0.5) 0px 8px 24px -6px"
+     ],
+     "gradients": 1,
+     "scrims": 0,
+     "gradientSamples": [
+      "a.button-press.sombra-btn → linear-gradient(to right, rgb(123, 31, 225), rgb(182, 45, 254))"
+     ],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 3,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.27
+     }
+    ],
+    "nav": {
+     "links": 2,
+     "fixed": false,
+     "height": 92,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "poppins",
+     "space grotesk"
+    ]
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 6,
+   "filled": [
+    0.93,
+    0.99,
+    0.99,
+    0.91,
+    0.99,
+    0.77
+   ],
+   "motion": {
+    "elements": 22,
+    "css": 5,
+    "transitions": 17,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 4478,
+     "screens": 5.3,
+     "words": 269,
+     "img": 4,
+     "video": 0,
+     "canvas": 0,
+     "svg": 9,
+     "sections": 4,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 3,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "jesse.png",
+      "Frame_1.jpg",
+      "Frame_2.jpg"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": []
+    },
+    "hero": {
+     "text": "JESSE RODRIGUES",
+     "words": 2,
+     "chars": 15,
+     "lines": 2,
+     "size": 51.2,
+     "vw": 13.1,
+     "font": "Space Grotesk",
+     "weight": 900,
+     "tracking": -0.035,
+     "leading": 1,
+     "upper": true,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.88,
+     "top": 124,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "JESSE RODRIGUES",
+     "words": 2,
+     "lines": 2,
+     "size": 51.2,
+     "font": "Space Grotesk"
+    },
+    "headings": [
+     {
+      "text": "JESSE RODRIGUES",
+      "words": 2,
+      "chars": 15,
+      "lines": 2,
+      "size": 51.2,
+      "vw": 13.1,
+      "font": "Space Grotesk",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.88,
+      "top": 124,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "TRABALHOS",
+      "words": 1,
+      "chars": 9,
+      "lines": 1,
+      "size": 30,
+      "vw": 7.7,
+      "font": "Space Grotesk",
+      "weight": 900,
+      "tracking": -0.02,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.7,
+      "top": 945,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "LOJA VIRTUAL MULTITECH - ELETRÔNICOS",
+      "words": 5,
+      "chars": 36,
+      "lines": 2,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Space Grotesk",
+      "weight": 900,
+      "tracking": -0.02,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.88,
+      "top": 1713,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "LANDINGPAGE BARBEARIA",
+      "words": 2,
+      "chars": 21,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Space Grotesk",
+      "weight": 900,
+      "tracking": -0.02,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.88,
+      "top": 2429,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "QUEM ENTENDE O SEU NEGÓCIO.",
+      "words": 5,
+      "chars": 27,
+      "lines": 2,
+      "size": 30,
+      "vw": 7.7,
+      "font": "Space Grotesk",
+      "weight": 900,
+      "tracking": -0.02,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.7,
+      "top": 2597,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "O que eu faço",
+      "words": 4,
+      "chars": 13,
+      "lines": 1,
+      "size": 30,
+      "vw": 7.7,
+      "font": "Space Grotesk",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.88,
+      "top": 3097,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "+55 98 98874-0103",
+      "words": 3,
+      "chars": 17,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.2,
+      "font": "Space Grotesk",
+      "weight": 900,
+      "tracking": -0.03,
+      "leading": 0.95,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.88,
+      "top": 3868,
+      "tag": "a",
+      "kind": "heading"
+     },
+     {
+      "text": "UJHESSIE",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 51.2,
+      "vw": 13.1,
+      "font": "Space Grotesk",
+      "weight": 900,
+      "tracking": -0.035,
+      "leading": 0.85,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.88,
+      "top": 4302,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 8,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 1,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Poppins",
+       "share": 0.69,
+       "mono": false
+      },
+      {
+       "family": "Space Grotesk",
+       "share": 0.31,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      14,
+      16,
+      18,
+      20,
+      24,
+      30,
+      32,
+      51
+     ],
+     "sizeCount": 8,
+     "notLoaded": [],
+     "body": {
+      "font": "Poppins",
+      "size": 16,
+      "leading": 1.63,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 7.9
+     },
+     "measureChars": 43,
+     "max": {
+      "size": 51.2,
+      "vw": 13.1,
+      "font": "Space Grotesk",
+      "text": "JesseRodrigues"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.09,
+     "centerShare": 0,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#050610",
+     "bodyBgHsl": {
+      "h": 235,
+      "s": 0.52,
+      "l": 0.04
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#06010d",
+       "top": 0,
+       "hsl": {
+        "h": 265,
+        "s": 0.86,
+        "l": 0.03
+       }
+      },
+      {
+       "color": "#0a0a0c",
+       "top": 76,
+       "hsl": {
+        "h": 240,
+        "s": 0.09,
+        "l": 0.04
+       }
+      },
+      {
+       "color": "#161724",
+       "top": 1117,
+       "hsl": {
+        "h": 236,
+        "s": 0.24,
+        "l": 0.11
+       }
+      },
+      {
+       "color": "#7b1fe1",
+       "top": 3547,
+       "hsl": {
+        "h": 268,
+        "s": 0.76,
+        "l": 0.5
+       }
+      },
+      {
+       "color": "#050610",
+       "top": 4222,
+       "hsl": {
+        "h": 235,
+        "s": 0.52,
+        "l": 0.04
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#ffffff",
+       "share": 0.42
+      },
+      {
+       "color": "#d4d4d8",
+       "share": 0.32
+      },
+      {
+       "color": "#9f9fa9",
+       "share": 0.25
+      }
+     ],
+     "button": {
+      "bg": "#b72ffe",
+      "hsl": {
+       "h": 279,
+       "s": 0.99,
+       "l": 0.59
+      },
+      "fg": "#ffffff"
+     },
+     "lowContrast": [
+      {
+       "text": "Desenvolvimento de sites",
+       "ratio": 4.3,
+       "need": 4.5,
+       "size": 20,
+       "fg": "#ffffff",
+       "bg": "#b72ffe"
+      },
+      {
+       "text": "Lojas virtuais",
+       "ratio": 4.3,
+       "need": 4.5,
+       "size": 20,
+       "fg": "#ffffff",
+       "bg": "#b72ffe"
+      },
+      {
+       "text": "Sistemas",
+       "ratio": 4.3,
+       "need": 4.5,
+       "size": 20,
+       "fg": "#ffffff",
+       "bg": "#b72ffe"
+      },
+      {
+       "text": "Design de interface",
+       "ratio": 4.3,
+       "need": 4.5,
+       "size": 20,
+       "fg": "#ffffff",
+       "bg": "#b72ffe"
+      },
+      {
+       "text": "WordPress",
+       "ratio": 4.3,
+       "need": 4.5,
+       "size": 20,
+       "fg": "#ffffff",
+       "bg": "#b72ffe"
+      },
+      {
+       "text": "React",
+       "ratio": 4.3,
+       "need": 4.5,
+       "size": 20,
+       "fg": "#ffffff",
+       "bg": "#b72ffe"
+      }
+     ]
+    },
+    "buttons": {
+     "count": 3,
+     "inHero": 3,
+     "radius": "pill",
+     "height": 48,
+     "withShadow": 1,
+     "withGradient": 1,
+     "mono": 0,
+     "upper": 2,
+     "heroLabels": [
+      "FALE COMIGO",
+      "FALE COMIGO"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 1,
+     "shadowOverlay": 0,
+     "shadowSamples": [
+      "a.button-press.sombra-btn → rgba(183, 47, 254, 0.5) 0px 8px 24px -6px"
+     ],
+     "gradients": 1,
+     "scrims": 0,
+     "gradientSamples": [
+      "a.button-press.sombra-btn → linear-gradient(to right, rgb(123, 31, 225), rgb(182, 45, 254))"
+     ],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 3,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.28
+     }
+    ],
+    "nav": {
+     "links": 2,
+     "fixed": false,
+     "height": 84,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "poppins",
+     "space grotesk"
+    ]
+   },
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "FAIL",
+   "id": "shadow",
+   "width": 1440,
+   "message": "1 box-shadow(s) on elements at rest: a.button-press.sombra-btn → rgba(183, 47, 254, 0.5) 0px 8px 24px -6px",
+   "fix": "Remove. Separate surfaces with a tone step or space. Shadows are for things that really float (menus, dialogs, sticky bars).",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "button-fx",
+   "width": 1440,
+   "message": "Buttons with gradient fill and shadow/glow.",
+   "fix": "Flat fill, one colour.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "palette-purple",
+   "width": 1440,
+   "message": "Indigo / violet (section #7b1fe1, button #b72ffe, text #d28bff).",
+   "fix": "Use the accent from the drawn palette.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "contrast",
+   "width": 1440,
+   "message": "Low-contrast text: \"Fale comigo\" 4.3:1 needs 4.5:1; \"Desenvolvimento de sites\" 4.3:1 needs 4.5:1; \"Lojas virtuais\" 4.3:1 needs 4.5:1; \"Sistemas\" 4.3:1 needs 4.5:1",
+   "fix": "Darken or lighten the text colour.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "few-pictures",
+   "width": 1440,
+   "message": "Only 3 picture(s) on the page (3 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.",
+   "fix": "Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve."
+  },
+  {
+   "level": "WARN",
+   "id": "no-footage",
+   "width": 1440,
+   "message": "No video anywhere on the page.",
+   "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+  },
+  {
+   "level": "FAIL",
+   "id": "covered-text",
+   "width": 1440,
+   "message": "Large text lies under another element at some scroll position: \"LOJA VIRTUAL MULTITECH - ELETRÔNICOS\" (screen 3, 100% hidden)",
+   "fix": "Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "pinned-over-picture",
+   "width": 1440,
+   "message": "Pinned large text slides across pictures while the page scrolls: \"LOJA VIRTUAL MULTITECH - ELETRÔNICOS\" (screen 3, 100% over a picture); \"LANDINGPAGE BARBEARIA\" (screen 3, 100% over a picture)",
+   "fix": "Jurors read a pinned title crossing drawings or photographs as a collision. Keep the pictures in the column the title does not occupy, or unpin it."
+  },
+  {
+   "level": "FAIL",
+   "id": "gradient",
+   "width": 768,
+   "message": "1 gradient fill(s): a.button-press.sombra-btn → linear-gradient(to right, rgb(123, 31, 225), rgb(182, 45, 254))",
+   "fix": "Use a flat colour or a real image. The only gradient allowed by default is a neutral scrim over a photo for legibility.",
+   "alsoAt": [
+    390
+   ]
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "D:\\Projetos Dev\\web-inexus-2.0\\.taste-skill\\ujhessie-v1\\desktop-fold.jpg",
+   "pages": [
+    "D:\\Projetos Dev\\web-inexus-2.0\\.taste-skill\\ujhessie-v1\\desktop-page-01.jpg",
+    "D:\\Projetos Dev\\web-inexus-2.0\\.taste-skill\\ujhessie-v1\\desktop-page-02.jpg"
+   ]
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "D:\\Projetos Dev\\web-inexus-2.0\\.taste-skill\\ujhessie-v1\\tablet-fold.jpg",
+   "pages": [
+    "D:\\Projetos Dev\\web-inexus-2.0\\.taste-skill\\ujhessie-v1\\tablet-page-01.jpg"
+   ]
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "D:\\Projetos Dev\\web-inexus-2.0\\.taste-skill\\ujhessie-v1\\mobile-fold.jpg",
+   "pages": [
+    "D:\\Projetos Dev\\web-inexus-2.0\\.taste-skill\\ujhessie-v1\\mobile-page-01.jpg"
+   ]
+  }
+ ]
+}

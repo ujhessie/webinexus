@@ -2,6 +2,7 @@ import { ArrowRight } from "lucide-react";
 import { Botao } from "../../../../componentes/ui/Botao/Botao";
 import { Badge } from "../../../../componentes/ui/Badge/Badge";
 import { Marquee } from "../../../../componentes/ui/Marquee/Marquee";
+import { GaleriaProjetos } from "../../../../componentes/layout/GaleriaProjetos/GaleriaProjetos";
 
 export const HomePage = () => {
     return (
@@ -10,6 +11,7 @@ export const HomePage = () => {
             <MarqueeSection />
             <SobreMimSection />
             <MarqueeSection reverse />
+            <PortfolioSection />
         </>
     );
 };
@@ -70,6 +72,7 @@ const HeroSection = () => {
                         <Botao
                             textoCTA={"Ver meus trabalhos"}
                             tipoBotao='secundario'
+                            href='#trabalhos'
                             iconCTA={
                                 <ArrowRight className='w-4 h-4 text-white' />
                             }
@@ -170,6 +173,27 @@ const SobreMimSection = () => {
                     </div>
                 </div>
             </div>
+        </section>
+    );
+};
+
+// Portfólio — mesma seção da Web iNexus (Badge + h2 + GaleriaProjetos)
+const PortfolioSection = () => {
+    return (
+        <section
+            id='trabalhos'
+            className='content-section py-20 lg:py-28 text-center'
+        >
+            <div className='max-w-2xl mx-auto reveal'>
+                <Badge textoBadge='Portfólio' className='justify-center' />
+                <h2 className='mb-4'>Alguns dos trabalhos</h2>
+                <p className='text-gray-400 mb-8'>
+                    Uma amostra do que já construí. Cada projeto, um negócio
+                    real com um problema real resolvido.
+                </p>
+            </div>
+
+            <GaleriaProjetos />
         </section>
     );
 };

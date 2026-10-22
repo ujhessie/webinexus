@@ -4,7 +4,7 @@ Este projeto é uma aplicação React com vários sites.
 
 O objetivo é manter o código simples, organizado, reutilizável e fácil de entender.
 
-Não precisa rodar sempre o npm run build, ainda estamos em desenvolvimento.
+**NUNCA rode `npm run build`** neste projeto — ainda estamos em desenvolvimento e o build não é necessário. Para validar o código, use apenas `npm run lint` e o dev server (`npm run dev`).
 
 ---
 
@@ -72,4 +72,15 @@ src/
   - `--color-preto-escuro` (`#050610` / `bg-preto-escuro`)
   - Gradiente oficial: `bg-linear-to-r from-roxo-escuro to-roxo-principal`
   - Fontes: `font-titulo` (Space Grotesk) para títulos/botões e `font-corpo` (Poppins) para textos.
-- **Atualização Obrigatória**: Se for necessário criar um novo padrão, componente global ou variante, **atualize imediatamente o arquivo do Design System** (`src/sites/design_system/index.jsx`), deixando bem descritivo onde está o componente, suas props e um preview funcional.
+- **Atualização Obrigatória**: Se for necessário criar um novo padrão, componente global ou variante, **atualize imediatamente o arquivo do Design System** (`src/sites/design_system/index.jsx`), deixando bem descritivo onde está o componente, suas props e um preview funcional.
+
+---
+
+## 4. Contexto do Projeto (Web iNexus)
+
+- **O que é**: este é o site da própria agência de sites e designs **Web iNexus** — e também uma vitrine/portfólio com vários sites (ver pastas em `src/sites/`).
+- **Público-alvo**: pequenos negócios locais (restaurantes, barbearias, salões, academias etc.). A proposta é oferecer **melhorias e pequenas soluções** — não projetos complexos.
+- **Quem é o dono**: Jesse, 23 anos, fundador da agência e iniciante em desenvolvimento.
+- **Como explicar as coisas**: termos técnicos diretos (como o mercado usa), explicando conceitos novos com uma linha rápida *"(isso é X, pergunta se quiser)"* e detalhando mais só quando ele pedir.
+- **Regra de ouro**: antes de planejar algo neste projeto (página nova, feature, mudança de layout), faça perguntas uma por vez até o Jesse falar "pode executar". Para tarefas pequenas, avise que é pequeno e pergunte se ele quer que seja feito direto.
+- **Mais detalhes** de cada projeto de vida do Jesse (CLT, estudos) estão no arquivo global de instruções (`~/.config/opencode/AGENTS.md`), na seção "Projetos de Vida".

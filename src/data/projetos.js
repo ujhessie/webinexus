@@ -83,5 +83,396 @@ export const projetos = [
             ]
         },
         "links": []
+    },
+    {
+        "id": "monthanha-facilities",
+        "titulo": "Monthanha Facilities",
+        "breveDescricao": "",
+        "descricao": "",
+        "categorias": [
+            "sites"
+        ],
+        "tags": [],
+        "destaque": false,
+        "status": "visivel",
+        "imagens": {
+            "capa": "/imagens_projetos/monthanha-facilities/capa.png",
+            "banner": "",
+            "galeria": []
+        },
+        "links": []
+    },
+    {
+        "id": "acp-alarmes-site-para-empresa-de-equipamentos-de-seguranca",
+        "titulo": "ACP Alarmes - Site para empresa de equipamentos de segurança",
+        "breveDescricao": "",
+        "descricao": "",
+        "categorias": [
+            "sites"
+        ],
+        "tags": [
+            "Wordpress",
+            "Figma"
+        ],
+        "destaque": false,
+        "status": "visivel",
+        "imagens": {
+            "capa": "/imagens_projetos/acp-alarmes-site-para-empresa-de-equipamentos-de-seguranca/capa.jpg",
+            "banner": "",
+            "galeria": []
+        },
+        "links": []
+    },
+    {
+        "id": "loja-maquinas-agricolas-em-desenvolvimento",
+        "titulo": "Loja máquinas agrícolas - Em desenvolvimento",
+        "breveDescricao": "",
+        "descricao": "",
+        "categorias": [
+            "sites"
+        ],
+        "tags": [],
+        "destaque": false,
+        "status": "visivel",
+        "imagens": {
+            "capa": "/imagens_projetos/loja-maquinas-agricolas-em-desenvolvimento/capa.jpg",
+            "banner": "",
+            "galeria": []
+        },
+        "links": []
+    },
+    {
+        "id": "loja-virtual-venda-de-tratores-em-desenvolvimento",
+        "titulo": "Loja virtual - Venda de tratores - Em desenvolvimento",
+        "breveDescricao": "",
+        "descricao": "",
+        "categorias": [
+            "sites"
+        ],
+        "tags": [],
+        "destaque": false,
+        "status": "visivel",
+        "imagens": {
+            "capa": "/imagens_projetos/loja-virtual-venda-de-tratores-em-desenvolvimento/capa.jpg",
+            "banner": "",
+            "galeria": []
+        },
+        "links": []
+    },
+    {
+        "id": "sistema-de-imobiliaria-em-desenvolvimento",
+        "titulo": "Sistema de imobiliária - Em desenvolvimento",
+        "breveDescricao": "",
+        "descricao": "",
+        "categorias": [
+            "sites"
+        ],
+        "tags": [],
+        "destaque": false,
+        "status": "visivel",
+        "imagens": {
+            "capa": "/imagens_projetos/sistema-de-imobiliaria-em-desenvolvimento/capa.jpg",
+            "banner": "",
+            "galeria": []
+        },
+        "links": []
+    },
+    {
+        "id": "identidade-visual-loja-de-roupas-masculinas",
+        "titulo": "Identidade visual - Loja de roupas masculinas",
+        "breveDescricao": "",
+        "descricao": "",
+        "categorias": [
+            "identidade"
+        ],
+        "tags": [
+            "Photoshop",
+            "Illustrator"
+        ],
+        "destaque": false,
+        "status": "visivel",
+        "imagens": {
+            "capa": "/imagens_projetos/identidade-visual-loja-de-roupas-masculinas/capa.jpg",
+            "banner": "",
+            "galeria": [
+                "/imagens_projetos/identidade-visual-loja-de-roupas-masculinas/imagem-01.jpg",
+                "/imagens_projetos/identidade-visual-loja-de-roupas-masculinas/imagem-02.jpg",
+                "/imagens_projetos/identidade-visual-loja-de-roupas-masculinas/imagem-03.jpg",
+                "/imagens_projetos/identidade-visual-loja-de-roupas-masculinas/imagem-04.jpg"
+            ]
+        },
+        "links": []
+    },
+    {
+        "id": "identidade-visual-loja-de-artesanatos-em-desenvolvimento",
+        "titulo": "Identidade Visual - Loja de artesanatos - Em desenvolvimento",
+        "breveDescricao": "",
+        "descricao": "",
+        "categorias": [
+            "identidade"
+        ],
+        "tags": [
+            "Illustrator",
+            "Photoshop"
+        ],
+        "destaque": false,
+        "status": "visivel",
+        "imagens": {
+            "capa": "/imagens_projetos/identidade-visual-loja-de-artesanatos-em-desenvolvimento/capa.jpg",
+            "banner": "",
+            "galeria": [
+                "/imagens_projetos/identidade-visual-loja-de-artesanatos-em-desenvolvimento/imagem-01.jpg",
+                "/imagens_projetos/identidade-visual-loja-de-artesanatos-em-desenvolvimento/imagem-02.jpg",
+                "/imagens_projetos/identidade-visual-loja-de-artesanatos-em-desenvolvimento/imagem-03.jpg"
+            ]
+        },
+        "links": []
+    },
+    {
+        "id": "social-media-lava-jato-em-desenvolvimento",
+        "titulo": "Social Media - Lava jato - Em desenvolvimento",
+        "breveDescricao": "",
+        "descricao": "",
+        "categorias": [
+            "social"
+        ],
+        "tags": [
+            "Photoshop"
+        ],
+        "destaque": false,
+        "status": "visivel",
+        "imagens": {
+            "capa": "/imagens_projetos/social-media-lava-jato-em-desenvolvimento/capa.jpg",
+            "banner": "",
+            "galeria": [
+                "/imagens_projetos/social-media-lava-jato-em-desenvolvimento/imagem-01.jpg",
+                "/imagens_projetos/social-media-lava-jato-em-desenvolvimento/imagem-02.jpg",
+                "/imagens_projetos/social-media-lava-jato-em-desenvolvimento/imagem-03.jpg",
+                "/imagens_projetos/social-media-lava-jato-em-desenvolvimento/imagem-04.jpg",
+                "/imagens_projetos/social-media-lava-jato-em-desenvolvimento/imagem-05.jpg",
+                "/imagens_projetos/social-media-lava-jato-em-desenvolvimento/imagem-06.jpg"
+            ]
+        },
+        "links": []
+    },
+    {
+        "id": "estacao-da-moda-loja-virtual-de-roupas-femeninas",
+        "titulo": "Estação da moda - Loja virtual de roupas femeninas",
+        "breveDescricao": "",
+        "descricao": "",
+        "categorias": [
+            "sites"
+        ],
+        "tags": [
+            "Wordpress"
+        ],
+        "destaque": false,
+        "status": "visivel",
+        "imagens": {
+            "capa": "/imagens_projetos/estacao-da-moda-loja-virtual-de-roupas-femeninas/capa.jpg",
+            "banner": "",
+            "galeria": [
+                "/imagens_projetos/estacao-da-moda-loja-virtual-de-roupas-femeninas/imagem-01.jpg"
+            ]
+        },
+        "links": []
+    },
+    {
+        "id": "sistema-de-loja-multitenance-em-desenvolvimento",
+        "titulo": "Sistema de loja multitenance - Em desenvolvimento",
+        "breveDescricao": "",
+        "descricao": "",
+        "categorias": [
+            "sistemas",
+            "apis"
+        ],
+        "tags": [
+            "Node JS",
+            "React JS"
+        ],
+        "destaque": false,
+        "status": "visivel",
+        "imagens": {
+            "capa": "/imagens_projetos/sistema-de-loja-multitenance-em-desenvolvimento/capa.png",
+            "banner": "",
+            "galeria": []
+        },
+        "links": []
+    },
+    {
+        "id": "social-media-churrascaria",
+        "titulo": "Social Media - Churrascaria",
+        "breveDescricao": "",
+        "descricao": "",
+        "categorias": [
+            "social"
+        ],
+        "tags": [
+            "Photoshop",
+            "Illustrator"
+        ],
+        "destaque": false,
+        "status": "visivel",
+        "imagens": {
+            "capa": "/imagens_projetos/social-media-churrascaria/capa.jpg",
+            "banner": "",
+            "galeria": [
+                "/imagens_projetos/social-media-churrascaria/imagem-01.jpg",
+                "/imagens_projetos/social-media-churrascaria/imagem-02.jpg",
+                "/imagens_projetos/social-media-churrascaria/imagem-03.jpg",
+                "/imagens_projetos/social-media-churrascaria/imagem-04.jpg",
+                "/imagens_projetos/social-media-churrascaria/imagem-05.jpg"
+            ]
+        },
+        "links": []
+    },
+    {
+        "id": "lablingue-landingpage-curso-de-ingles",
+        "titulo": "Lablingue - Landingpage curso de inglês",
+        "breveDescricao": "Landing page para venda de curso de inglês.",
+        "descricao": "Landing page para venda de curso de inglês. Simples, moderno, otimizado e escalável para outros projetos.",
+        "categorias": [
+            "sites",
+            "uiux"
+        ],
+        "tags": [
+            "Wordpress",
+            "Elementor"
+        ],
+        "destaque": false,
+        "status": "visivel",
+        "imagens": {
+            "capa": "/imagens_projetos/lablingue-landingpage-curso-de-ingles/capa.jpg",
+            "banner": "",
+            "galeria": [
+                "/imagens_projetos/lablingue-landingpage-curso-de-ingles/imagem-01.jpg"
+            ]
+        },
+        "links": []
+    },
+    {
+        "id": "gooddelivery-cardapio-digital",
+        "titulo": "GoodDelivery - Cardápio digital",
+        "breveDescricao": "",
+        "descricao": "",
+        "categorias": [
+            "sites",
+            "sistemas"
+        ],
+        "tags": [
+            "Wordpress"
+        ],
+        "destaque": false,
+        "status": "visivel",
+        "imagens": {
+            "capa": "/imagens_projetos/gooddelivery-cardapio-digital/capa.jpg",
+            "banner": "",
+            "galeria": [
+                "/imagens_projetos/gooddelivery-cardapio-digital/imagem-01.jpg",
+                "/imagens_projetos/gooddelivery-cardapio-digital/imagem-02.jpg"
+            ]
+        },
+        "links": [
+            {
+                "texto": "Visitar projeto",
+                "url": "https://good-delivery.vercel.app/",
+                "principal": true
+            }
+        ]
+    },
+    {
+        "id": "devshop-loja-virtual",
+        "titulo": "Devshop - Loja virtual",
+        "breveDescricao": "Sua vitrine digital disponível 24h, em qualquer tela.",
+        "descricao": "Sua vitrine digital disponível 24h, em qualquer tela. Uma loja elegante feita em WordPress, focada na experiência do usuário (UX) e na velocidade de carregamento. Estrutura flexível para qualquer segmento, garantindo uma presença online profissional, segura e totalmente otimizada.",
+        "categorias": [
+            "sites",
+            "sistemas"
+        ],
+        "tags": [
+            "Wordpress",
+            "Elementor",
+            "Figma"
+        ],
+        "destaque": false,
+        "status": "visivel",
+        "imagens": {
+            "capa": "/imagens_projetos/devshop-loja-virtual/capa.jpg",
+            "banner": "",
+            "galeria": [
+                "/imagens_projetos/devshop-loja-virtual/imagem-01.jpg",
+                "/imagens_projetos/devshop-loja-virtual/imagem-02.jpg"
+            ]
+        },
+        "links": []
+    },
+    {
+        "id": "social-media-camisas-de-times",
+        "titulo": "Social Media - Camisas de times",
+        "breveDescricao": "Social Media nicho de roupas esportivas",
+        "descricao": "Social Media nicho de roupas esportivas",
+        "categorias": [
+            "social"
+        ],
+        "tags": [
+            "Figma",
+            "Photoshop"
+        ],
+        "destaque": false,
+        "status": "visivel",
+        "imagens": {
+            "capa": "/imagens_projetos/social-media-camisas-de-times/capa.jpg",
+            "banner": "",
+            "galeria": []
+        },
+        "links": []
+    },
+    {
+        "id": "loja-virtual-google-planilhas-em-desenvolvimento",
+        "titulo": "Loja virtual + Google Planilhas - Em desenvolvimento",
+        "breveDescricao": "Uma loja virtual alimentada por uma plailha google para a gestçao de produtos e informações.",
+        "descricao": "Uma loja virtual alimentada por uma plailha google para a gestçao de produtos e informações.",
+        "categorias": [
+            "sites",
+            "sistemas",
+            "apis"
+        ],
+        "tags": [
+            "Google Planilhas",
+            "React JS",
+            "Google API"
+        ],
+        "destaque": false,
+        "status": "visivel",
+        "imagens": {
+            "capa": "/imagens_projetos/loja-virtual-google-planilhas-em-desenvolvimento/capa.jpg",
+            "banner": "",
+            "galeria": []
+        },
+        "links": []
+    },
+    {
+        "id": "landingpage-barbearia-em-desenvolvimento",
+        "titulo": "Landingpage barbearia - Em desenvolvimento",
+        "breveDescricao": "",
+        "descricao": "",
+        "categorias": [
+            "sites",
+            "sistemas",
+            "uiux"
+        ],
+        "tags": [
+            "Figma",
+            "React JS",
+            "Photoshop"
+        ],
+        "destaque": false,
+        "status": "visivel",
+        "imagens": {
+            "capa": "/imagens_projetos/landingpage-barbearia-em-desenvolvimento/capa.jpg",
+            "banner": "",
+            "galeria": []
+        },
+        "links": []
     }
 ];

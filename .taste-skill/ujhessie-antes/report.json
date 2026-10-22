@@ -1,0 +1,1167 @@
+{
+ "url": "http://localhost:5177/",
+ "at": "2026-10-21T21:42:28.724Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 2,
+   "filled": [
+    0.9,
+    1
+   ],
+   "motion": {
+    "elements": 12,
+    "css": 2,
+    "transitions": 10,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 1758,
+     "screens": 2,
+     "words": 244,
+     "img": 3,
+     "video": 0,
+     "canvas": 0,
+     "svg": 9,
+     "sections": 2,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 2,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "jesse.png",
+      "jesse.png"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": []
+    },
+    "hero": {
+     "text": "DEV, DESIGNER & UM POUCO MAIS",
+     "words": 6,
+     "chars": 29,
+     "lines": 1,
+     "size": 38,
+     "vw": 2.6,
+     "font": "Space Grotesk",
+     "weight": 900,
+     "tracking": -0.025,
+     "leading": 1.25,
+     "upper": true,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.39,
+     "top": 339,
+     "tag": "div",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "JESSE RODRIGUES",
+     "words": 2,
+     "lines": 1,
+     "size": 16,
+     "font": "Space Grotesk"
+    },
+    "headings": [
+     {
+      "text": "DEV, DESIGNER & UM POUCO MAIS",
+      "words": 6,
+      "chars": 29,
+      "lines": 1,
+      "size": 38,
+      "vw": 2.6,
+      "font": "Space Grotesk",
+      "weight": 900,
+      "tracking": -0.025,
+      "leading": 1.25,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.39,
+      "top": 339,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "Desenvolvimento, automação e tecnologia aplicados a problemas reais.",
+      "words": 8,
+      "chars": 68,
+      "lines": 4,
+      "size": 48,
+      "vw": 3.3,
+      "font": "Space Grotesk",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.45,
+      "top": 968,
+      "gradientText": true,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 2,
+     "maxLines": 4,
+     "over2Lines": 1,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 8,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Space Grotesk",
+       "share": 0.51,
+       "mono": false
+      },
+      {
+       "family": "Poppins",
+       "share": 0.48,
+       "mono": false
+      },
+      {
+       "family": "-apple-system",
+       "share": 0.01,
+       "mono": false
+      }
+     ],
+     "familyCount": 3,
+     "sizes": [
+      10,
+      12,
+      14,
+      16,
+      17,
+      18,
+      20,
+      38,
+      48
+     ],
+     "sizeCount": 9,
+     "notLoaded": [],
+     "body": {
+      "font": "Poppins",
+      "size": 18,
+      "leading": 1.38,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 16.3
+     },
+     "measureChars": 72,
+     "max": {
+      "size": 48,
+      "vw": 3.3,
+      "font": "Space Grotesk",
+      "text": "Desenvolvimento, automação e tecnologia "
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 2,
+     "microLabelShare": 0.012,
+     "microSamples": [
+      "BEM VINDOS!",
+      "Sobre mim"
+     ],
+     "upperShare": 0.08,
+     "centerShare": 0,
+     "smallText": 0
+    },
+    "eyebrows": [
+     {
+      "text": "JESSE RODRIGUES",
+      "above": "DEV, DESIGNER & UM POUCO MAIS",
+      "upper": true,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 16,
+      "top": 311
+     },
+     {
+      "text": "Sobre mim",
+      "above": "Desenvolvimento, automação e tecnologia ",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": true,
+      "size": 14,
+      "top": 918
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#050610",
+     "bodyBgHsl": {
+      "h": 235,
+      "s": 0.52,
+      "l": 0.04
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#06010d",
+       "top": 0,
+       "hsl": {
+        "h": 265,
+        "s": 0.86,
+        "l": 0.03
+       }
+      },
+      {
+       "color": "#100813",
+       "top": 918,
+       "hsl": {
+        "h": 284,
+        "s": 0.41,
+        "l": 0.05
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#ffffff",
+       "share": 0.5
+      },
+      {
+       "color": "#e4e4e7",
+       "share": 0.47
+      },
+      {
+       "color": "#d28bff",
+       "share": 0.02
+      },
+      {
+       "color": "#b72ffe",
+       "share": 0.01
+      }
+     ],
+     "button": {
+      "bg": "#b72ffe",
+      "hsl": {
+       "h": 279,
+       "s": 0.99,
+       "l": 0.59
+      },
+      "fg": "#ffffff"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 6,
+     "inHero": 4,
+     "radius": 16,
+     "height": 48,
+     "withShadow": 3,
+     "withGradient": 3,
+     "mono": 0,
+     "upper": 5,
+     "heroLabels": [
+      "FALE COMIGO",
+      "FALE COMIGO",
+      "VER MEUS TRABALHOS",
+      "SITE LOCAL Ujhessie"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 3,
+     "shadowOverlay": 0,
+     "shadowSamples": [
+      "a.button-press.sombra-btn → rgba(183, 47, 254, 0.5) 0px 8px 24px -6px",
+      "a.button-press.flex-1 → rgba(183, 47, 254, 0.5) 0px 8px 24px -6px",
+      "a.button-press.flex-1 → rgba(183, 47, 254, 0.5) 0px 8px 24px -6px"
+     ],
+     "gradients": 2,
+     "scrims": 0,
+     "gradientSamples": [
+      "div.w-full.grad-btn → linear-gradient(to right, rgb(123, 31, 225), rgb(182, 45, 254))",
+      "div.w-full.grad-btn → linear-gradient(to right, rgb(123, 31, 225), rgb(182, 45, 254))"
+     ],
+     "gradientText": 1,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 1,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 1,
+     "boxRadius": 16,
+     "squareMedia": 1,
+     "roundedMedia": 1,
+     "mediaRadius": 16,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.39
+     }
+    ],
+    "nav": {
+     "links": 6,
+     "fixed": false,
+     "height": 98,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "poppins",
+     "space grotesk"
+    ]
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 3,
+   "filled": [
+    0.95,
+    1,
+    1
+   ],
+   "motion": {
+    "elements": 16,
+    "css": 6,
+    "transitions": 10,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 2366,
+     "screens": 2.3,
+     "words": 244,
+     "img": 3,
+     "video": 0,
+     "canvas": 0,
+     "svg": 9,
+     "sections": 2,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 2,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "jesse.png",
+      "jesse.png"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": []
+    },
+    "hero": {
+     "text": "DEV, DESIGNER & UM POUCO MAIS",
+     "words": 6,
+     "chars": 29,
+     "lines": 1,
+     "size": 30,
+     "vw": 3.9,
+     "font": "Space Grotesk",
+     "weight": 900,
+     "tracking": -0.025,
+     "leading": 1.25,
+     "upper": true,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.58,
+     "top": 595,
+     "tag": "div",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "JESSE RODRIGUES",
+     "words": 2,
+     "lines": 1,
+     "size": 16,
+     "font": "Space Grotesk"
+    },
+    "headings": [
+     {
+      "text": "DEV, DESIGNER & UM POUCO MAIS",
+      "words": 6,
+      "chars": 29,
+      "lines": 1,
+      "size": 30,
+      "vw": 3.9,
+      "font": "Space Grotesk",
+      "weight": 900,
+      "tracking": -0.025,
+      "leading": 1.25,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.58,
+      "top": 595,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "Desenvolvimento, automação e tecnologia aplicados a problemas reais.",
+      "words": 8,
+      "chars": 68,
+      "lines": 3,
+      "size": 36,
+      "vw": 4.7,
+      "font": "Space Grotesk",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 1685,
+      "gradientText": true,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 2,
+     "maxLines": 3,
+     "over2Lines": 1,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 8,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Space Grotesk",
+       "share": 0.51,
+       "mono": false
+      },
+      {
+       "family": "Poppins",
+       "share": 0.48,
+       "mono": false
+      },
+      {
+       "family": "-apple-system",
+       "share": 0.01,
+       "mono": false
+      }
+     ],
+     "familyCount": 3,
+     "sizes": [
+      10,
+      12,
+      14,
+      16,
+      18,
+      20,
+      30,
+      36
+     ],
+     "sizeCount": 8,
+     "notLoaded": [],
+     "body": {
+      "font": "Poppins",
+      "size": 18,
+      "leading": 1.38,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 16.3
+     },
+     "measureChars": 76,
+     "max": {
+      "size": 36,
+      "vw": 4.7,
+      "font": "Space Grotesk",
+      "text": "Desenvolvimento, automação e tecnologia "
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 2,
+     "microLabelShare": 0.012,
+     "microSamples": [
+      "BEM VINDOS!",
+      "Sobre mim"
+     ],
+     "upperShare": 0.08,
+     "centerShare": 0,
+     "smallText": 0
+    },
+    "eyebrows": [
+     {
+      "text": "BEM VINDOS!",
+      "above": "DEV, DESIGNER & UM POUCO MAIS",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": true,
+      "size": 14,
+      "top": 517
+     },
+     {
+      "text": "Sobre mim",
+      "above": "Desenvolvimento, automação e tecnologia ",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": true,
+      "size": 14,
+      "top": 1635
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#050610",
+     "bodyBgHsl": {
+      "h": 235,
+      "s": 0.52,
+      "l": 0.04
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#06010d",
+       "top": 0,
+       "hsl": {
+        "h": 265,
+        "s": 0.86,
+        "l": 0.03
+       }
+      },
+      {
+       "color": "#0a0a0c",
+       "top": 84,
+       "hsl": {
+        "h": 240,
+        "s": 0.09,
+        "l": 0.04
+       }
+      },
+      {
+       "color": "#100813",
+       "top": 1061,
+       "hsl": {
+        "h": 284,
+        "s": 0.41,
+        "l": 0.05
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#ffffff",
+       "share": 0.5
+      },
+      {
+       "color": "#e4e4e7",
+       "share": 0.47
+      },
+      {
+       "color": "#d28bff",
+       "share": 0.02
+      },
+      {
+       "color": "#b72ffe",
+       "share": 0.01
+      }
+     ],
+     "button": {
+      "bg": "#b72ffe",
+      "hsl": {
+       "h": 279,
+       "s": 0.99,
+       "l": 0.59
+      },
+      "fg": "#ffffff"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 6,
+     "inHero": 4,
+     "radius": 16,
+     "height": 48,
+     "withShadow": 3,
+     "withGradient": 3,
+     "mono": 0,
+     "upper": 5,
+     "heroLabels": [
+      "FALE COMIGO",
+      "FALE COMIGO",
+      "VER MEUS TRABALHOS",
+      "SITE LOCAL Ujhessie"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 3,
+     "shadowOverlay": 0,
+     "shadowSamples": [
+      "a.button-press.sombra-btn → rgba(183, 47, 254, 0.5) 0px 8px 24px -6px",
+      "a.button-press.flex-1 → rgba(183, 47, 254, 0.5) 0px 8px 24px -6px",
+      "a.button-press.flex-1 → rgba(183, 47, 254, 0.5) 0px 8px 24px -6px"
+     ],
+     "gradients": 3,
+     "scrims": 0,
+     "gradientSamples": [
+      "a.button-press.sombra-btn → linear-gradient(to right, rgb(123, 31, 225), rgb(182, 45, 254))",
+      "div.w-full.grad-btn → linear-gradient(to right, rgb(123, 31, 225), rgb(182, 45, 254))",
+      "div.w-full.grad-btn → linear-gradient(to right, rgb(123, 31, 225), rgb(182, 45, 254))"
+     ],
+     "gradientText": 1,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 1,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 1,
+     "boxRadius": 16,
+     "squareMedia": 1,
+     "roundedMedia": 1,
+     "mediaRadius": 16,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.21
+     }
+    ],
+    "nav": {
+     "links": 2,
+     "fixed": false,
+     "height": 92,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "poppins",
+     "space grotesk"
+    ]
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 3,
+   "filled": [
+    0.93,
+    1,
+    1
+   ],
+   "motion": {
+    "elements": 16,
+    "css": 6,
+    "transitions": 10,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 2222,
+     "screens": 2.6,
+     "words": 241,
+     "img": 3,
+     "video": 0,
+     "canvas": 0,
+     "svg": 9,
+     "sections": 2,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 2,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "jesse.png",
+      "jesse.png"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": []
+    },
+    "hero": {
+     "text": "DEV, DESIGNER & UM POUCO MAIS",
+     "words": 6,
+     "chars": 29,
+     "lines": 2,
+     "size": 24,
+     "vw": 6.2,
+     "font": "Space Grotesk",
+     "weight": 900,
+     "tracking": -0.025,
+     "leading": 1.25,
+     "upper": true,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.88,
+     "top": 489,
+     "tag": "div",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "JESSE RODRIGUES",
+     "words": 2,
+     "lines": 1,
+     "size": 16,
+     "font": "Space Grotesk"
+    },
+    "headings": [
+     {
+      "text": "DEV, DESIGNER & UM POUCO MAIS",
+      "words": 6,
+      "chars": 29,
+      "lines": 2,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Space Grotesk",
+      "weight": 900,
+      "tracking": -0.025,
+      "leading": 1.25,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.88,
+      "top": 489,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "Desenvolvimento, automação e tecnologia aplicados a problemas reais.",
+      "words": 8,
+      "chars": 68,
+      "lines": 4,
+      "size": 30,
+      "vw": 7.7,
+      "font": "Space Grotesk",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.88,
+      "top": 1338,
+      "gradientText": true,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 2,
+     "maxLines": 4,
+     "over2Lines": 1,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 8,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Space Grotesk",
+       "share": 0.51,
+       "mono": false
+      },
+      {
+       "family": "Poppins",
+       "share": 0.49,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      14,
+      16,
+      20,
+      24,
+      30
+     ],
+     "sizeCount": 5,
+     "notLoaded": [],
+     "body": {
+      "font": "Poppins",
+      "size": 16,
+      "leading": 1.38,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 16.3
+     },
+     "measureChars": 43,
+     "max": {
+      "size": 30,
+      "vw": 7.7,
+      "font": "Space Grotesk",
+      "text": "Desenvolvimento, automação e tecnologia "
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 2,
+     "microLabelShare": 0.012,
+     "microSamples": [
+      "BEM VINDOS!",
+      "Sobre mim"
+     ],
+     "upperShare": 0.08,
+     "centerShare": 0,
+     "smallText": 0
+    },
+    "eyebrows": [
+     {
+      "text": "Sobre mim",
+      "above": "Desenvolvimento, automação e tecnologia ",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": true,
+      "size": 14,
+      "top": 1288
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#050610",
+     "bodyBgHsl": {
+      "h": 235,
+      "s": 0.52,
+      "l": 0.04
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#06010d",
+       "top": 0,
+       "hsl": {
+        "h": 265,
+        "s": 0.86,
+        "l": 0.03
+       }
+      },
+      {
+       "color": "#0a0a0c",
+       "top": 76,
+       "hsl": {
+        "h": 240,
+        "s": 0.09,
+        "l": 0.04
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#ffffff",
+       "share": 0.5
+      },
+      {
+       "color": "#e4e4e7",
+       "share": 0.47
+      },
+      {
+       "color": "#d28bff",
+       "share": 0.01
+      },
+      {
+       "color": "#b72ffe",
+       "share": 0.01
+      }
+     ],
+     "button": {
+      "bg": "#b72ffe",
+      "hsl": {
+       "h": 279,
+       "s": 0.99,
+       "l": 0.59
+      },
+      "fg": "#ffffff"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 6,
+     "inHero": 4,
+     "radius": 16,
+     "height": 68,
+     "withShadow": 3,
+     "withGradient": 3,
+     "mono": 0,
+     "upper": 5,
+     "heroLabels": [
+      "FALE COMIGO",
+      "FALE COMIGO",
+      "VER MEUS TRABALHOS"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 3,
+     "shadowOverlay": 0,
+     "shadowSamples": [
+      "a.button-press.sombra-btn → rgba(183, 47, 254, 0.5) 0px 8px 24px -6px",
+      "a.button-press.flex-1 → rgba(183, 47, 254, 0.5) 0px 8px 24px -6px",
+      "a.button-press.flex-1 → rgba(183, 47, 254, 0.5) 0px 8px 24px -6px"
+     ],
+     "gradients": 5,
+     "scrims": 0,
+     "gradientSamples": [
+      "a.button-press.sombra-btn → linear-gradient(to right, rgb(123, 31, 225), rgb(182, 45, 254))",
+      "a.button-press.flex-1 → linear-gradient(to right, rgb(123, 31, 225), rgb(182, 45, 254))",
+      "div.w-full.grad-btn → linear-gradient(to right, rgb(123, 31, 225), rgb(182, 45, 254))",
+      "a.button-press.flex-1 → linear-gradient(to right, rgb(123, 31, 225), rgb(182, 45, 254))"
+     ],
+     "gradientText": 1,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 1,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 1,
+     "boxRadius": 16,
+     "squareMedia": 1,
+     "roundedMedia": 1,
+     "mediaRadius": 16,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.31
+     }
+    ],
+    "nav": {
+     "links": 2,
+     "fixed": false,
+     "height": 84,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "poppins",
+     "space grotesk"
+    ]
+   },
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "FAIL",
+   "id": "headline-lines",
+   "width": 1440,
+   "message": "1 headline(s) wrap past two lines at 1440px: \"Desenvolvimento, automação e tecnologia aplicado\" → 4 lines (8 words, 48px)",
+   "fix": "Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 36px or less."
+  },
+  {
+   "level": "FAIL",
+   "id": "eyebrow",
+   "width": 1440,
+   "message": "2 eyebrow/kicker label(s) above headings: \"JESSE RODRIGUES\" above \"DEV, DESIGNER & UM POUCO MAIS\"; \"Sobre mim\" (pill) above \"Desenvolvimento, automação e tecnologia \"",
+   "fix": "Delete them. If the label carried real information, fold it into the headline or the supporting sentence.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "micro-label",
+   "width": 1440,
+   "message": "2 tiny uppercase letter-spaced label(s): \"BEM VINDOS!\", \"Sobre mim\"",
+   "fix": "Prefer sentence case at body size.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "gradient",
+   "width": 1440,
+   "message": "2 gradient fill(s): div.w-full.grad-btn → linear-gradient(to right, rgb(123, 31, 225), rgb(182, 45, 254)) | div.w-full.grad-btn → linear-gradient(to right, rgb(123, 31, 225), rgb(182, 45, 254))",
+   "fix": "Use a flat colour or a real image. The only gradient allowed by default is a neutral scrim over a photo for legibility.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "gradient-text",
+   "width": 1440,
+   "message": "1 gradient-filled text element(s).",
+   "fix": "Solid colour text.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "shadow",
+   "width": 1440,
+   "message": "3 box-shadow(s) on elements at rest: a.button-press.sombra-btn → rgba(183, 47, 254, 0.5) 0px 8px 24px -6px | a.button-press.flex-1 → rgba(183, 47, 254, 0.5) 0px 8px 24px -6px | a.button-press.flex-1 → rgba(183, 47, 254, 0.5) 0px 8px 24px -6px",
+   "fix": "Remove. Separate surfaces with a tone step or space. Shadows are for things that really float (menus, dialogs, sticky bars).",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "button-fx",
+   "width": 1440,
+   "message": "Buttons with gradient fill and shadow/glow.",
+   "fix": "Flat fill, one colour.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "outlined-box",
+   "width": 1440,
+   "message": "1 box(es) drawn with a 1px outline.",
+   "fix": "Prefer a filled surface or no box.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "palette-purple",
+   "width": 1440,
+   "message": "Indigo / violet (button #b72ffe, text #d28bff, text #b72ffe).",
+   "fix": "Use the accent from the drawn palette.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "few-pictures",
+   "width": 1440,
+   "message": "Only 2 picture(s) on the page (2 photographs, footage or raster images, 0 interface fragments). Drawings in SVG do not count.",
+   "fix": "Find real pictures of the subject's world with scripts/assets.mjs (photographs, archival images, maps, engravings, footage), download them to assets/ and give them room: a hero picture, one per section that has a subject, a full-width band. At least four, usually six to twelve."
+  },
+  {
+   "level": "WARN",
+   "id": "no-footage",
+   "width": 1440,
+   "message": "No video anywhere on the page.",
+   "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+  },
+  {
+   "level": "WARN",
+   "id": "still-page",
+   "width": 1440,
+   "message": "Little motion: 12 element(s) moved while the page loaded and scrolled.",
+   "fix": "Give every section an entrance for its parts (not one fade of the whole block) and add one moving picture: a looping clip or a slow move on a photograph."
+  },
+  {
+   "level": "FAIL",
+   "id": "headline-lines",
+   "width": 768,
+   "message": "1 headline(s) wrap past two lines at 768px: \"Desenvolvimento, automação e tecnologia aplicado\" → 3 lines (8 words, 36px)",
+   "fix": "Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 32px or less."
+  },
+  {
+   "level": "FAIL",
+   "id": "focal-point",
+   "width": 768,
+   "message": "The first screen has no dominant element: the largest type is 30px (3.9vw) and no single picture holds a third of the viewport.",
+   "fix": "Make one thing lead: the headline at display size, or one large picture. A grid of many small pictures is not one thing; in blind tests jurors marked a first screen without a headline down every time. On the strongest studied sites the largest type has a median of 8.4vw."
+  },
+  {
+   "level": "FAIL",
+   "id": "headline-lines",
+   "width": 390,
+   "message": "1 headline(s) wrap past two lines at 390px: \"Desenvolvimento, automação e tecnologia aplicado\" → 4 lines (8 words, 30px)",
+   "fix": "Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 24px or less."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "D:\\Projetos Dev\\web-inexus-2.0\\.taste-skill\\ujhessie-antes\\desktop-fold.jpg",
+   "pages": [
+    "D:\\Projetos Dev\\web-inexus-2.0\\.taste-skill\\ujhessie-antes\\desktop-page-01.jpg"
+   ]
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "D:\\Projetos Dev\\web-inexus-2.0\\.taste-skill\\ujhessie-antes\\tablet-fold.jpg",
+   "pages": [
+    "D:\\Projetos Dev\\web-inexus-2.0\\.taste-skill\\ujhessie-antes\\tablet-page-01.jpg"
+   ]
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "D:\\Projetos Dev\\web-inexus-2.0\\.taste-skill\\ujhessie-antes\\mobile-fold.jpg",
+   "pages": [
+    "D:\\Projetos Dev\\web-inexus-2.0\\.taste-skill\\ujhessie-antes\\mobile-page-01.jpg"
+   ]
+  }
+ ]
+}

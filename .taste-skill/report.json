@@ -1,0 +1,2335 @@
+{
+ "url": "http://localhost:4174/",
+ "at": "2026-10-19T10:57:12.266Z",
+ "allow": [
+  "gradient",
+  "gradient-text",
+  "purple",
+  "shadow",
+  "numbering",
+  "micro-label",
+  "default-font",
+  "eyebrow",
+  "button-fx",
+  "palette-purple",
+  "icon-cards",
+  "few-pictures",
+  "covered-text",
+  "headline-lines",
+  "no-footage"
+ ],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 8,
+   "filled": [
+    0.9,
+    0.73,
+    0.67,
+    0.82,
+    0.71,
+    0.42,
+    0.41,
+    0.45
+   ],
+   "motion": {
+    "elements": 43,
+    "css": 4,
+    "transitions": 39,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 7086,
+     "screens": 7.9,
+     "words": 947,
+     "img": 6,
+     "video": 0,
+     "canvas": 0,
+     "svg": 45,
+     "sections": 8,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 3,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "Frame_1.jpg",
+      "Frame_2.jpg"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": []
+    },
+    "hero": {
+     "text": "SOLUÇÕES DIGITAIS QUE TRABALHAM PELO SEU NEGÓCIO. NÃO O CONTRÁRIO.",
+     "words": 10,
+     "chars": 66,
+     "lines": 2,
+     "size": 60,
+     "vw": 4.2,
+     "font": "Space Grotesk",
+     "weight": 700,
+     "tracking": -0.025,
+     "leading": 1,
+     "upper": true,
+     "italic": false,
+     "mono": false,
+     "align": "center",
+     "position": "center",
+     "widthRatio": 0.8,
+     "top": 284,
+     "gradientText": true,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "SOLUÇÕES DIGITAIS QUE TRABALHAM PELO SEU NEGÓCIO. NÃO O CONTRÁRIO.",
+     "words": 10,
+     "lines": 2,
+     "size": 60,
+     "font": "Space Grotesk"
+    },
+    "headings": [
+     {
+      "text": "SOLUÇÕES DIGITAIS QUE TRABALHAM PELO SEU NEGÓCIO. NÃO O CONTRÁRIO.",
+      "words": 10,
+      "chars": 66,
+      "lines": 2,
+      "size": 60,
+      "vw": 4.2,
+      "font": "Space Grotesk",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.8,
+      "top": 284,
+      "gradientText": true,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "+5 anos",
+      "words": 2,
+      "chars": 7,
+      "lines": 1,
+      "size": 48,
+      "vw": 3.3,
+      "font": "Space Grotesk",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "left",
+      "widthRatio": 0.13,
+      "top": 785,
+      "gradientText": true,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "100%",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 48,
+      "vw": 3.3,
+      "font": "Space Grotesk",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "left",
+      "widthRatio": 0.09,
+      "top": 785,
+      "gradientText": true,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "24h",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 48,
+      "vw": 3.3,
+      "font": "Space Grotesk",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "right",
+      "widthRatio": 0.06,
+      "top": 785,
+      "gradientText": true,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "No prazo",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 48,
+      "vw": 3.3,
+      "font": "Space Grotesk",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "right",
+      "widthRatio": 0.14,
+      "top": 785,
+      "gradientText": true,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Um parceiro que resolve — e fala a sua língua.",
+      "words": 10,
+      "chars": 46,
+      "lines": 2,
+      "size": 48,
+      "vw": 3.3,
+      "font": "Space Grotesk",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.44,
+      "top": 1231,
+      "gradientText": true,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Soluções que resolvem o seu dia a dia",
+      "words": 8,
+      "chars": 37,
+      "lines": 2,
+      "size": 48,
+      "vw": 3.3,
+      "font": "Space Grotesk",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.53,
+      "top": 1813,
+      "gradientText": true,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Simples do começo ao fim",
+      "words": 5,
+      "chars": 24,
+      "lines": 1,
+      "size": 48,
+      "vw": 3.3,
+      "font": "Space Grotesk",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.53,
+      "top": 2573,
+      "gradientText": true,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "01",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 36,
+      "vw": 2.5,
+      "font": "Poppins",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.19,
+      "top": 2685,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "02",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 36,
+      "vw": 2.5,
+      "font": "Poppins",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.19,
+      "top": 2685,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "03",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 36,
+      "vw": 2.5,
+      "font": "Poppins",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.19,
+      "top": 2685,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "04",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 36,
+      "vw": 2.5,
+      "font": "Poppins",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.19,
+      "top": 2685,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "POR QUE ESCOLHER A WEB INEXUS?",
+      "words": 6,
+      "chars": 30,
+      "lines": 2,
+      "size": 48,
+      "vw": 3.3,
+      "font": "Space Grotesk",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.37,
+      "top": 3197,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Alguns dos trabalhos",
+      "words": 3,
+      "chars": 20,
+      "lines": 1,
+      "size": 48,
+      "vw": 3.3,
+      "font": "Space Grotesk",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.47,
+      "top": 4373,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "O que perguntam antes de contratar.",
+      "words": 6,
+      "chars": 35,
+      "lines": 2,
+      "size": 48,
+      "vw": 3.3,
+      "font": "Space Grotesk",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.37,
+      "top": 5532,
+      "gradientText": true,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Precisa de um projeto personalizado?",
+      "words": 5,
+      "chars": 36,
+      "lines": 1,
+      "size": 48,
+      "vw": 3.3,
+      "font": "Space Grotesk",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.84,
+      "top": 6344,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 16,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 8,
+     "medianWords": 2,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Poppins",
+       "share": 0.64,
+       "mono": false
+      },
+      {
+       "family": "Space Grotesk",
+       "share": 0.36,
+       "mono": false
+      },
+      {
+       "family": "-apple-system",
+       "share": 0,
+       "mono": false
+      }
+     ],
+     "familyCount": 3,
+     "sizes": [
+      10,
+      12,
+      13,
+      14,
+      16,
+      18,
+      20,
+      24,
+      36,
+      48,
+      60
+     ],
+     "sizeCount": 11,
+     "notLoaded": [],
+     "body": {
+      "font": "Poppins",
+      "size": 16,
+      "leading": 1.63,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 12.1
+     },
+     "measureChars": 80,
+     "max": {
+      "size": 60,
+      "vw": 4.2,
+      "font": "Space Grotesk",
+      "text": "Soluções digitais que Não o contrário."
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 6,
+     "microLabelShare": 0.018,
+     "microSamples": [
+      "SOLUÇÕES DIGITAIS PARA O SEU NEGÓCIO",
+      "QUEM SOMOS",
+      "O QUE OFERECEMOS",
+      "COMO FUNCIONA",
+      "Portfólio",
+      "DÚVIDAS FREQUENTES"
+     ],
+     "upperShare": 0.1,
+     "centerShare": 0.18,
+     "smallText": 0
+    },
+    "eyebrows": [
+     {
+      "text": "SOLUÇÕES DIGITAIS PARA O SEU NEGÓCIO",
+      "above": "SOLUÇÕES DIGITAIS QUE TRABALHAM PELO SEU",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": true,
+      "size": 14,
+      "top": 226
+     },
+     {
+      "text": "QUEM SOMOS",
+      "above": "Um parceiro que resolve — e fala a sua l",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": true,
+      "size": 14,
+      "top": 1181
+     },
+     {
+      "text": "O QUE OFERECEMOS",
+      "above": "Soluções que resolvem o seu dia a dia",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": true,
+      "size": 14,
+      "top": 1763
+     },
+     {
+      "text": "COMO FUNCIONA",
+      "above": "Simples do começo ao fim",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": true,
+      "size": 14,
+      "top": 2523
+     },
+     {
+      "text": "Portfólio",
+      "above": "Alguns dos trabalhos",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": true,
+      "size": 14,
+      "top": 4323
+     },
+     {
+      "text": "DÚVIDAS FREQUENTES",
+      "above": "O que perguntam antes de contratar.",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": true,
+      "size": 14,
+      "top": 5482
+     },
+     {
+      "text": "Vamos construir juntos",
+      "above": "Precisa de um projeto personalizado?",
+      "upper": false,
+      "tracked": true,
+      "mono": false,
+      "pill": true,
+      "size": 14,
+      "top": 6294
+     }
+    ],
+    "numbered": [
+     {
+      "text": "01",
+      "size": 36,
+      "top": 2685
+     },
+     {
+      "text": "02",
+      "size": 36,
+      "top": 2685
+     },
+     {
+      "text": "03",
+      "size": 36,
+      "top": 2685
+     },
+     {
+      "text": "04",
+      "size": 36,
+      "top": 2685
+     }
+    ],
+    "color": {
+     "bodyBg": "#050610",
+     "bodyBgHsl": {
+      "h": 235,
+      "s": 0.52,
+      "l": 0.04
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#050610",
+       "top": 0,
+       "hsl": {
+        "h": 235,
+        "s": 0.52,
+        "l": 0.04
+       }
+      },
+      {
+       "color": "#161724",
+       "top": 1069,
+       "hsl": {
+        "h": 236,
+        "s": 0.24,
+        "l": 0.11
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#d1d5dc",
+       "share": 0.41
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.32
+      },
+      {
+       "color": "#525252",
+       "share": 0.08
+      },
+      {
+       "color": "#99a1af",
+       "share": 0.04
+      },
+      {
+       "color": "#a1a1a1",
+       "share": 0.04
+      }
+     ],
+     "button": {
+      "bg": "#b72ffe",
+      "hsl": {
+       "h": 279,
+       "s": 0.99,
+       "l": 0.59
+      },
+      "fg": "#ffffff"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 10,
+     "inHero": 5,
+     "radius": 16,
+     "height": 56,
+     "withShadow": 5,
+     "withGradient": 5,
+     "mono": 0,
+     "upper": 7,
+     "heroLabels": [
+      "Página Inicial",
+      "FALE CONOSCO",
+      "QUERO UMA SOLUÇÃO PRO MEU NEGÓCIO",
+      "VER NOSSOS TRABALHOS",
+      "SITE LOCAL Web Inexus"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 6,
+     "shadowOverlay": 6,
+     "shadowSamples": [
+      "a.button-press.font-titulo → rgba(123, 31, 225, 0.5) 0px 4px 18px 0px",
+      "a.button-press.sombra-btn → rgba(183, 47, 254, 0.5) 0px 8px 24px -6px",
+      "a.button-press.flex-1 → rgba(183, 47, 254, 0.5) 0px 8px 24px -6px",
+      "a.button-press.flex-1 → rgba(183, 47, 254, 0.5) 0px 8px 24px -6px"
+     ],
+     "gradients": 5,
+     "scrims": 3,
+     "gradientSamples": [
+      "div.w-full.grad-btn → linear-gradient(to right, rgb(123, 31, 225), rgb(182, 45, 254))",
+      "a.reveal.group → linear-gradient(to right, rgb(123, 31, 225), rgb(182, 45, 254))",
+      "section.grad-section.text-white → linear-gradient(rgb(120, 24, 227), rgb(125, 29, 230), rgb(135, 34, 234))",
+      "div.w-full.grad-btn → linear-gradient(to right, rgb(123, 31, 225), rgb(182, 45, 254))"
+     ],
+     "gradientText": 9,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 1,
+     "roundedBoxes": 22,
+     "boxRadius": 16,
+     "squareMedia": 1,
+     "roundedMedia": 2,
+     "mediaRadius": 12,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 4,
+       "iconTopped": true,
+       "rounded": true,
+       "top": 1949
+      },
+      {
+       "count": 4,
+       "iconTopped": true,
+       "rounded": true,
+       "top": 2661
+      },
+      {
+       "count": 5,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 3147
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "bg-image",
+      "ratio": 0.89
+     }
+    ],
+    "nav": {
+     "links": 7,
+     "fixed": false,
+     "height": 98,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "poppins",
+     "space grotesk"
+    ]
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 8,
+   "filled": [
+    0.95,
+    0.76,
+    0.83,
+    0.7,
+    0.89,
+    0.54,
+    0.67,
+    0.42
+   ],
+   "motion": {
+    "elements": 48,
+    "css": 9,
+    "transitions": 39,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 7997,
+     "screens": 7.8,
+     "words": 946,
+     "img": 6,
+     "video": 0,
+     "canvas": 0,
+     "svg": 45,
+     "sections": 8,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 3,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "Frame_1.jpg",
+      "Frame_2.jpg"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": []
+    },
+    "hero": {
+     "text": "SOLUÇÕES DIGITAIS QUE TRABALHAM PELO SEU NEGÓCIO. NÃO O CONTRÁRIO.",
+     "words": 10,
+     "chars": 66,
+     "lines": 3,
+     "size": 48,
+     "vw": 6.3,
+     "font": "Space Grotesk",
+     "weight": 700,
+     "tracking": -0.025,
+     "leading": 1,
+     "upper": true,
+     "italic": false,
+     "mono": false,
+     "align": "center",
+     "position": "center",
+     "widthRatio": 0.9,
+     "top": 246,
+     "gradientText": true,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "SOLUÇÕES DIGITAIS QUE TRABALHAM PELO SEU NEGÓCIO. NÃO O CONTRÁRIO.",
+     "words": 10,
+     "lines": 3,
+     "size": 48,
+     "font": "Space Grotesk"
+    },
+    "headings": [
+     {
+      "text": "SOLUÇÕES DIGITAIS QUE TRABALHAM PELO SEU NEGÓCIO. NÃO O CONTRÁRIO.",
+      "words": 10,
+      "chars": 66,
+      "lines": 3,
+      "size": 48,
+      "vw": 6.3,
+      "font": "Space Grotesk",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 246,
+      "gradientText": true,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "+5 anos",
+      "words": 2,
+      "chars": 7,
+      "lines": 1,
+      "size": 36,
+      "vw": 4.7,
+      "font": "Space Grotesk",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "left",
+      "widthRatio": 0.18,
+      "top": 771,
+      "gradientText": true,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "100%",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 36,
+      "vw": 4.7,
+      "font": "Space Grotesk",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "right",
+      "widthRatio": 0.12,
+      "top": 771,
+      "gradientText": true,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "24h",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 36,
+      "vw": 4.7,
+      "font": "Space Grotesk",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "left",
+      "widthRatio": 0.09,
+      "top": 923,
+      "gradientText": true,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "No prazo",
+      "words": 2,
+      "chars": 8,
+      "lines": 1,
+      "size": 36,
+      "vw": 4.7,
+      "font": "Space Grotesk",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "right",
+      "widthRatio": 0.2,
+      "top": 923,
+      "gradientText": true,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Um parceiro que resolve — e fala a sua língua.",
+      "words": 10,
+      "chars": 46,
+      "lines": 2,
+      "size": 36,
+      "vw": 4.7,
+      "font": "Space Grotesk",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 1297,
+      "gradientText": true,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Soluções que resolvem o seu dia a dia",
+      "words": 8,
+      "chars": 37,
+      "lines": 1,
+      "size": 36,
+      "vw": 4.7,
+      "font": "Space Grotesk",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 2123,
+      "gradientText": true,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Simples do começo ao fim",
+      "words": 5,
+      "chars": 24,
+      "lines": 1,
+      "size": 36,
+      "vw": 4.7,
+      "font": "Space Grotesk",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 2989,
+      "gradientText": true,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "01",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 36,
+      "vw": 4.7,
+      "font": "Poppins",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.37,
+      "top": 3089,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "02",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 36,
+      "vw": 4.7,
+      "font": "Poppins",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.37,
+      "top": 3089,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "03",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 36,
+      "vw": 4.7,
+      "font": "Poppins",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.37,
+      "top": 3371,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "04",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 36,
+      "vw": 4.7,
+      "font": "Poppins",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.37,
+      "top": 3371,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "POR QUE ESCOLHER A WEB INEXUS?",
+      "words": 6,
+      "chars": 30,
+      "lines": 1,
+      "size": 36,
+      "vw": 4.7,
+      "font": "Space Grotesk",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.78,
+      "top": 3795,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Alguns dos trabalhos",
+      "words": 3,
+      "chars": 20,
+      "lines": 1,
+      "size": 36,
+      "vw": 4.7,
+      "font": "Space Grotesk",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.88,
+      "top": 5097,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "O que perguntam antes de contratar.",
+      "words": 6,
+      "chars": 35,
+      "lines": 1,
+      "size": 36,
+      "vw": 4.7,
+      "font": "Space Grotesk",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.9,
+      "top": 6045,
+      "gradientText": true,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Precisa de um projeto personalizado?",
+      "words": 5,
+      "chars": 36,
+      "lines": 2,
+      "size": 36,
+      "vw": 4.7,
+      "font": "Space Grotesk",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.75,
+      "top": 7047,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 16,
+     "maxLines": 3,
+     "over2Lines": 1,
+     "statements": 0,
+     "centered": 8,
+     "medianWords": 2,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Poppins",
+       "share": 0.64,
+       "mono": false
+      },
+      {
+       "family": "Space Grotesk",
+       "share": 0.36,
+       "mono": false
+      },
+      {
+       "family": "-apple-system",
+       "share": 0,
+       "mono": false
+      }
+     ],
+     "familyCount": 3,
+     "sizes": [
+      10,
+      12,
+      13,
+      14,
+      16,
+      18,
+      20,
+      24,
+      36,
+      48
+     ],
+     "sizeCount": 10,
+     "notLoaded": [],
+     "body": {
+      "font": "Poppins",
+      "size": 16,
+      "leading": 1.63,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 12.1
+     },
+     "measureChars": 86,
+     "max": {
+      "size": 48,
+      "vw": 6.3,
+      "font": "Space Grotesk",
+      "text": "Soluções digitais que Não o contrário."
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 6,
+     "microLabelShare": 0.018,
+     "microSamples": [
+      "SOLUÇÕES DIGITAIS PARA O SEU NEGÓCIO",
+      "QUEM SOMOS",
+      "O QUE OFERECEMOS",
+      "COMO FUNCIONA",
+      "Portfólio",
+      "DÚVIDAS FREQUENTES"
+     ],
+     "upperShare": 0.1,
+     "centerShare": 0.18,
+     "smallText": 0
+    },
+    "eyebrows": [
+     {
+      "text": "SOLUÇÕES DIGITAIS PARA O SEU NEGÓCIO",
+      "above": "SOLUÇÕES DIGITAIS QUE TRABALHAM PELO SEU",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": true,
+      "size": 14,
+      "top": 188
+     },
+     {
+      "text": "QUEM SOMOS",
+      "above": "Um parceiro que resolve — e fala a sua l",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": true,
+      "size": 14,
+      "top": 1247
+     },
+     {
+      "text": "O QUE OFERECEMOS",
+      "above": "Soluções que resolvem o seu dia a dia",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": true,
+      "size": 14,
+      "top": 2073
+     },
+     {
+      "text": "COMO FUNCIONA",
+      "above": "Simples do começo ao fim",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": true,
+      "size": 14,
+      "top": 2939
+     },
+     {
+      "text": "Para quem quer ir além!",
+      "above": "POR QUE ESCOLHER A WEB INEXUS?",
+      "upper": false,
+      "tracked": true,
+      "mono": false,
+      "pill": true,
+      "size": 14,
+      "top": 3745
+     },
+     {
+      "text": "Portfólio",
+      "above": "Alguns dos trabalhos",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": true,
+      "size": 14,
+      "top": 5047
+     },
+     {
+      "text": "DÚVIDAS FREQUENTES",
+      "above": "O que perguntam antes de contratar.",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": true,
+      "size": 14,
+      "top": 5995
+     },
+     {
+      "text": "Vamos construir juntos",
+      "above": "Precisa de um projeto personalizado?",
+      "upper": false,
+      "tracked": true,
+      "mono": false,
+      "pill": true,
+      "size": 14,
+      "top": 6997
+     }
+    ],
+    "numbered": [
+     {
+      "text": "01",
+      "size": 36,
+      "top": 3089
+     },
+     {
+      "text": "02",
+      "size": 36,
+      "top": 3089
+     },
+     {
+      "text": "03",
+      "size": 36,
+      "top": 3371
+     },
+     {
+      "text": "04",
+      "size": 36,
+      "top": 3371
+     }
+    ],
+    "color": {
+     "bodyBg": "#050610",
+     "bodyBgHsl": {
+      "h": 235,
+      "s": 0.52,
+      "l": 0.04
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#050610",
+       "top": 0,
+       "hsl": {
+        "h": 235,
+        "s": 0.52,
+        "l": 0.04
+       }
+      },
+      {
+       "color": "#0a0a0c",
+       "top": 84,
+       "hsl": {
+        "h": 240,
+        "s": 0.09,
+        "l": 0.04
+       }
+      },
+      {
+       "color": "#161724",
+       "top": 1167,
+       "hsl": {
+        "h": 236,
+        "s": 0.24,
+        "l": 0.11
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#d1d5dc",
+       "share": 0.41
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.32
+      },
+      {
+       "color": "#525252",
+       "share": 0.08
+      },
+      {
+       "color": "#99a1af",
+       "share": 0.04
+      },
+      {
+       "color": "#a1a1a1",
+       "share": 0.04
+      }
+     ],
+     "button": {
+      "bg": "#b72ffe",
+      "hsl": {
+       "h": 279,
+       "s": 0.99,
+       "l": 0.59
+      },
+      "fg": "#ffffff"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 10,
+     "inHero": 5,
+     "radius": 16,
+     "height": 56,
+     "withShadow": 5,
+     "withGradient": 5,
+     "mono": 0,
+     "upper": 7,
+     "heroLabels": [
+      "Página Inicial",
+      "FALE CONOSCO",
+      "QUERO UMA SOLUÇÃO PRO MEU NEGÓCIO",
+      "VER NOSSOS TRABALHOS",
+      "SITE LOCAL Web Inexus"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 6,
+     "shadowOverlay": 6,
+     "shadowSamples": [
+      "a.px-4.py-3 → rgba(123, 31, 225, 0.5) 0px 4px 18px 0px",
+      "a.button-press.sombra-btn → rgba(183, 47, 254, 0.5) 0px 8px 24px -6px",
+      "a.button-press.flex-1 → rgba(183, 47, 254, 0.5) 0px 8px 24px -6px",
+      "a.button-press.flex-1 → rgba(183, 47, 254, 0.5) 0px 8px 24px -6px"
+     ],
+     "gradients": 8,
+     "scrims": 3,
+     "gradientSamples": [
+      "a.px-4.py-3 → linear-gradient(to right, rgb(123, 31, 225), rgb(182, 45, 254))",
+      "a.button-press.sombra-btn → linear-gradient(to right, rgb(123, 31, 225), rgb(182, 45, 254))",
+      "a.button-press.flex-1 → linear-gradient(to right, rgb(123, 31, 225), rgb(182, 45, 254))",
+      "div.w-full.grad-btn → linear-gradient(to right, rgb(123, 31, 225), rgb(182, 45, 254))"
+     ],
+     "gradientText": 9,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 1,
+     "roundedBoxes": 22,
+     "boxRadius": 16,
+     "squareMedia": 1,
+     "roundedMedia": 2,
+     "mediaRadius": 12,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 4,
+       "iconTopped": true,
+       "rounded": true,
+       "top": 2199
+      },
+      {
+       "count": 4,
+       "iconTopped": true,
+       "rounded": true,
+       "top": 3065
+      },
+      {
+       "count": 5,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 3951
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "bg-image",
+      "ratio": 0.91
+     }
+    ],
+    "nav": {
+     "links": 2,
+     "fixed": false,
+     "height": 92,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "poppins",
+     "space grotesk"
+    ]
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 12,
+   "filled": [
+    0.93,
+    1,
+    0.73,
+    0.84,
+    0.6,
+    0.53,
+    0.99,
+    0.73,
+    0.52,
+    0.69,
+    0.57,
+    0.22
+   ],
+   "motion": {
+    "elements": 48,
+    "css": 9,
+    "transitions": 39,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 10011,
+     "screens": 11.9,
+     "words": 942,
+     "img": 6,
+     "video": 0,
+     "canvas": 0,
+     "svg": 45,
+     "sections": 8,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 3,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "Frame_1.jpg",
+      "Frame_2.jpg"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": []
+    },
+    "hero": {
+     "text": "SOLUÇÕES DIGITAIS QUE TRABALHAM PELO SEU NEGÓCIO. NÃO O CONTRÁRIO.",
+     "words": 10,
+     "chars": 66,
+     "lines": 4,
+     "size": 30,
+     "vw": 7.7,
+     "font": "Space Grotesk",
+     "weight": 700,
+     "tracking": -0.025,
+     "leading": 1,
+     "upper": true,
+     "italic": false,
+     "mono": false,
+     "align": "center",
+     "position": "center",
+     "widthRatio": 0.88,
+     "top": 258,
+     "gradientText": true,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "SOLUÇÕES DIGITAIS QUE TRABALHAM PELO SEU NEGÓCIO. NÃO O CONTRÁRIO.",
+     "words": 10,
+     "lines": 4,
+     "size": 30,
+     "font": "Space Grotesk"
+    },
+    "headings": [
+     {
+      "text": "SOLUÇÕES DIGITAIS QUE TRABALHAM PELO SEU NEGÓCIO. NÃO O CONTRÁRIO.",
+      "words": 10,
+      "chars": 66,
+      "lines": 4,
+      "size": 30,
+      "vw": 7.7,
+      "font": "Space Grotesk",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.88,
+      "top": 258,
+      "gradientText": true,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "+5 anos",
+      "words": 2,
+      "chars": 7,
+      "lines": 1,
+      "size": 30,
+      "vw": 7.7,
+      "font": "Space Grotesk",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "left",
+      "widthRatio": 0.29,
+      "top": 854,
+      "gradientText": true,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "100%",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 30,
+      "vw": 7.7,
+      "font": "Space Grotesk",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "right",
+      "widthRatio": 0.2,
+      "top": 854,
+      "gradientText": true,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "24h",
+      "words": 1,
+      "chars": 3,
+      "lines": 1,
+      "size": 30,
+      "vw": 7.7,
+      "font": "Space Grotesk",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "left",
+      "widthRatio": 0.14,
+      "top": 994,
+      "gradientText": true,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "No prazo",
+      "words": 2,
+      "chars": 8,
+      "lines": 2,
+      "size": 30,
+      "vw": 7.7,
+      "font": "Space Grotesk",
+      "weight": 700,
+      "tracking": 0,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "right",
+      "widthRatio": 0.33,
+      "top": 994,
+      "gradientText": true,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Um parceiro que resolve — e fala a sua língua.",
+      "words": 10,
+      "chars": 46,
+      "lines": 3,
+      "size": 30,
+      "vw": 7.7,
+      "font": "Space Grotesk",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.88,
+      "top": 1400,
+      "gradientText": true,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Soluções que resolvem o seu dia a dia",
+      "words": 8,
+      "chars": 37,
+      "lines": 2,
+      "size": 30,
+      "vw": 7.7,
+      "font": "Space Grotesk",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.88,
+      "top": 2360,
+      "gradientText": true,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Simples do começo ao fim",
+      "words": 5,
+      "chars": 24,
+      "lines": 2,
+      "size": 30,
+      "vw": 7.7,
+      "font": "Space Grotesk",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.88,
+      "top": 3734,
+      "gradientText": true,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "01",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 36,
+      "vw": 9.2,
+      "font": "Poppins",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.75,
+      "top": 3858,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "02",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 36,
+      "vw": 9.2,
+      "font": "Poppins",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.75,
+      "top": 4140,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "03",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 36,
+      "vw": 9.2,
+      "font": "Poppins",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.75,
+      "top": 4398,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "04",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 36,
+      "vw": 9.2,
+      "font": "Poppins",
+      "weight": 900,
+      "tracking": 0,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.75,
+      "top": 4656,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "POR QUE ESCOLHER A WEB INEXUS?",
+      "words": 6,
+      "chars": 30,
+      "lines": 2,
+      "size": 30,
+      "vw": 7.7,
+      "font": "Space Grotesk",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.88,
+      "top": 5080,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Alguns dos trabalhos",
+      "words": 3,
+      "chars": 20,
+      "lines": 1,
+      "size": 30,
+      "vw": 7.7,
+      "font": "Space Grotesk",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.88,
+      "top": 6574,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "O que perguntam antes de contratar.",
+      "words": 6,
+      "chars": 35,
+      "lines": 2,
+      "size": 30,
+      "vw": 7.7,
+      "font": "Space Grotesk",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.88,
+      "top": 7349,
+      "gradientText": true,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Precisa de um projeto personalizado?",
+      "words": 5,
+      "chars": 36,
+      "lines": 3,
+      "size": 30,
+      "vw": 7.7,
+      "font": "Space Grotesk",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.71,
+      "top": 8543,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 16,
+     "maxLines": 4,
+     "over2Lines": 3,
+     "statements": 0,
+     "centered": 8,
+     "medianWords": 2,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Poppins",
+       "share": 0.64,
+       "mono": false
+      },
+      {
+       "family": "Space Grotesk",
+       "share": 0.36,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      13,
+      14,
+      16,
+      18,
+      20,
+      30,
+      36
+     ],
+     "sizeCount": 7,
+     "notLoaded": [],
+     "body": {
+      "font": "Poppins",
+      "size": 16,
+      "leading": 1.63,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": null
+     },
+     "measureChars": 43,
+     "max": {
+      "size": 36,
+      "vw": 9.2,
+      "font": "Poppins",
+      "text": "01"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 6,
+     "microLabelShare": 0.018,
+     "microSamples": [
+      "SOLUÇÕES DIGITAIS PARA O SEU NEGÓCIO",
+      "QUEM SOMOS",
+      "O QUE OFERECEMOS",
+      "COMO FUNCIONA",
+      "Portfólio",
+      "DÚVIDAS FREQUENTES"
+     ],
+     "upperShare": 0.09,
+     "centerShare": 0.18,
+     "smallText": 0
+    },
+    "eyebrows": [
+     {
+      "text": "SOLUÇÕES DIGITAIS PARA O SEU NEGÓCIO",
+      "above": "SOLUÇÕES DIGITAIS QUE TRABALHAM PELO SEU",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": true,
+      "size": 14,
+      "top": 180
+     },
+     {
+      "text": "QUEM SOMOS",
+      "above": "Um parceiro que resolve — e fala a sua l",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": true,
+      "size": 14,
+      "top": 1350
+     },
+     {
+      "text": "O QUE OFERECEMOS",
+      "above": "Soluções que resolvem o seu dia a dia",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": true,
+      "size": 14,
+      "top": 2310
+     },
+     {
+      "text": "COMO FUNCIONA",
+      "above": "Simples do começo ao fim",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": true,
+      "size": 14,
+      "top": 3684
+     },
+     {
+      "text": "Para quem quer ir além!",
+      "above": "POR QUE ESCOLHER A WEB INEXUS?",
+      "upper": false,
+      "tracked": true,
+      "mono": false,
+      "pill": true,
+      "size": 14,
+      "top": 5030
+     },
+     {
+      "text": "Portfólio",
+      "above": "Alguns dos trabalhos",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": true,
+      "size": 14,
+      "top": 6524
+     },
+     {
+      "text": "DÚVIDAS FREQUENTES",
+      "above": "O que perguntam antes de contratar.",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": true,
+      "size": 14,
+      "top": 7299
+     },
+     {
+      "text": "Vamos construir juntos",
+      "above": "Precisa de um projeto personalizado?",
+      "upper": false,
+      "tracked": true,
+      "mono": false,
+      "pill": true,
+      "size": 14,
+      "top": 8493
+     }
+    ],
+    "numbered": [
+     {
+      "text": "01",
+      "size": 36,
+      "top": 3858
+     },
+     {
+      "text": "02",
+      "size": 36,
+      "top": 4140
+     },
+     {
+      "text": "03",
+      "size": 36,
+      "top": 4398
+     },
+     {
+      "text": "04",
+      "size": 36,
+      "top": 4656
+     }
+    ],
+    "color": {
+     "bodyBg": "#050610",
+     "bodyBgHsl": {
+      "h": 235,
+      "s": 0.52,
+      "l": 0.04
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#050610",
+       "top": 0,
+       "hsl": {
+        "h": 235,
+        "s": 0.52,
+        "l": 0.04
+       }
+      },
+      {
+       "color": "#0a0a0c",
+       "top": 76,
+       "hsl": {
+        "h": 240,
+        "s": 0.09,
+        "l": 0.04
+       }
+      },
+      {
+       "color": "#161724",
+       "top": 1270,
+       "hsl": {
+        "h": 236,
+        "s": 0.24,
+        "l": 0.11
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#d1d5dc",
+       "share": 0.41
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.32
+      },
+      {
+       "color": "#525252",
+       "share": 0.09
+      },
+      {
+       "color": "#99a1af",
+       "share": 0.04
+      },
+      {
+       "color": "#a1a1a1",
+       "share": 0.04
+      }
+     ],
+     "button": {
+      "bg": "#b72ffe",
+      "hsl": {
+       "h": 279,
+       "s": 0.99,
+       "l": 0.59
+      },
+      "fg": "#ffffff"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 9,
+     "inHero": 4,
+     "radius": 16,
+     "height": 56,
+     "withShadow": 4,
+     "withGradient": 4,
+     "mono": 0,
+     "upper": 6,
+     "heroLabels": [
+      "Página Inicial",
+      "FALE CONOSCO",
+      "VER NOSSOS TRABALHOS"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 6,
+     "shadowOverlay": 6,
+     "shadowSamples": [
+      "a.px-4.py-3 → rgba(123, 31, 225, 0.5) 0px 4px 18px 0px",
+      "a.button-press.sombra-btn → rgba(183, 47, 254, 0.5) 0px 8px 24px -6px",
+      "a.button-press.flex-1 → rgba(183, 47, 254, 0.5) 0px 8px 24px -6px",
+      "a.button-press.flex-1 → rgba(183, 47, 254, 0.5) 0px 8px 24px -6px"
+     ],
+     "gradients": 10,
+     "scrims": 3,
+     "gradientSamples": [
+      "a.px-4.py-3 → linear-gradient(to right, rgb(123, 31, 225), rgb(182, 45, 254))",
+      "a.button-press.sombra-btn → linear-gradient(to right, rgb(123, 31, 225), rgb(182, 45, 254))",
+      "a.button-press.flex-1 → linear-gradient(to right, rgb(123, 31, 225), rgb(182, 45, 254))",
+      "div.w-full.grad-btn → linear-gradient(to right, rgb(123, 31, 225), rgb(182, 45, 254))"
+     ],
+     "gradientText": 9,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 1,
+     "roundedBoxes": 24,
+     "boxRadius": 16,
+     "squareMedia": 1,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 4,
+       "iconTopped": true,
+       "rounded": true,
+       "top": 2460
+      },
+      {
+       "count": 4,
+       "iconTopped": true,
+       "rounded": true,
+       "top": 3834
+      },
+      {
+       "count": 5,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 5260
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "bg-image",
+      "ratio": 0.9
+     }
+    ],
+    "nav": {
+     "links": 2,
+     "fixed": false,
+     "height": 84,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "poppins",
+     "space grotesk"
+    ]
+   },
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "WARN",
+   "id": "size-count",
+   "width": 1440,
+   "message": "11 different font sizes (10, 12, 13, 14, 16, 18, 20, 24, 36, 48, 60).",
+   "fix": "A page needs about five: display, heading, lead, body, small.",
+   "alsoAt": [
+    768
+   ]
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "D:\\Projetos Dev\\web-inexus-2.0\\.taste-skill\\desktop-fold.jpg",
+   "pages": [
+    "D:\\Projetos Dev\\web-inexus-2.0\\.taste-skill\\desktop-page-01.jpg",
+    "D:\\Projetos Dev\\web-inexus-2.0\\.taste-skill\\desktop-page-02.jpg"
+   ]
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "D:\\Projetos Dev\\web-inexus-2.0\\.taste-skill\\tablet-fold.jpg",
+   "pages": [
+    "D:\\Projetos Dev\\web-inexus-2.0\\.taste-skill\\tablet-page-01.jpg",
+    "D:\\Projetos Dev\\web-inexus-2.0\\.taste-skill\\tablet-page-02.jpg"
+   ]
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "D:\\Projetos Dev\\web-inexus-2.0\\.taste-skill\\mobile-fold.jpg",
+   "pages": [
+    "D:\\Projetos Dev\\web-inexus-2.0\\.taste-skill\\mobile-page-01.jpg",
+    "D:\\Projetos Dev\\web-inexus-2.0\\.taste-skill\\mobile-page-02.jpg"
+   ]
+  }
+ ]
+}

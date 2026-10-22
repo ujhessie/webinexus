@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Rascunhos internos de copy/textos
+copy/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
