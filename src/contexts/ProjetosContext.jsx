@@ -1,11 +1,10 @@
 import { createContext, useContext } from "react";
-import { projetos } from "../data/projetos";
 
 /* ------------------------------------------------------------------ */
 /* Mocks                                                               */
 /* ------------------------------------------------------------------ */
 
-const categorias = {
+export const categorias = {
     sites: { label: "Sites", grupo: "sites-sistemas" },
     sistemas: { label: "Sistemas", grupo: "sites-sistemas" },
 
@@ -18,7 +17,7 @@ const categorias = {
     social: { label: "Social Media", grupo: "design" },
 };
 
-const filtros = [
+export const filtros = [
     { id: "todos", label: "Todos" },
     { id: "sites-sistemas", label: "Sites & Sistemas" },
     { id: "automacoes", label: "Automações" },
@@ -159,40 +158,7 @@ const filtros = [
 /* Context                                                             */
 /* ------------------------------------------------------------------ */
 
-const ProjetosContext = createContext(null);
-
-export const ProjetosProvider = ({ children }) => {
-    // Projetos que podem aparecer publicamente (lixeira fica de fora)
-    const projetosVisiveis = projetos.filter((p) => p.status !== "lixeira");
-
-    // helpers opcionais — economizam lógica nos componentes
-    const getProjetoPorId = (id) =>
-        projetosVisiveis.find((p) => p.id === id);
-
-    const getCategoria = (chave) => categorias[chave];
-
-    const getProjetosPorGrupo = (grupo) => {
-        if (grupo === "todos") return projetosVisiveis;
-        return projetosVisiveis.filter((p) =>
-            p.categorias.some((cat) => categorias[cat]?.grupo === grupo),
-        );
-    };
-
-    const value = {
-        projetos: projetosVisiveis,
-        categorias,
-        filtros,
-        getProjetoPorId,
-        getCategoria,
-        getProjetosPorGrupo,
-    };
-
-    return (
-        <ProjetosContext.Provider value={value}>
-            {children}
-        </ProjetosContext.Provider>
-    );
-};
+export const ProjetosContext = createContext(null);
 
 export const useProjetos = () => {
     const ctx = useContext(ProjetosContext);

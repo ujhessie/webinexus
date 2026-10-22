@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { RouterProvider } from "react-router-dom";
-import { ProjetosProvider } from "./contexts/ProjetosContext.jsx";
+import { ProjetosProvider } from "./contexts/ProjetosProvider.jsx";
 import { rotasUjhessie } from "./sites/ujhessie/routes.jsx";
 import { rotasWebInexus } from "./sites/webinexus/routes.jsx";
 import { rotasAdmin_local } from "./sites/admin_local/routes.jsx";
@@ -26,7 +26,7 @@ export const App = () => {
 
     // Recupera o último site ativo salvo no localStorage (padrão: admin_local)
     const [siteLocalAtivo, setSiteLocalAtivo] = useState(() => {
-        return localStorage.getItem("site_local_ativo") || "ujhessie";
+        return localStorage.getItem("site_local_ativo") || "admin_local";
     });
 
     const trocarSiteLocal = (novoSite) => {

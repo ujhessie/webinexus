@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { createPortal } from "react-dom";
 import { useProjetos } from "../../../contexts/ProjetosContext.jsx";
 import {
@@ -94,7 +94,6 @@ export const PaginaProjeto = () => {
             <BannerProjeto
                 titulo={titulo}
                 banner={bannerFinal}
-                breveDescricao={breveDescricao}
                 categorias={categorias}
                 getCategoria={getCategoria}
                 onVoltar={voltarPaginaAnterior}
@@ -137,7 +136,6 @@ export const PaginaProjeto = () => {
 const BannerProjeto = ({
     titulo,
     banner,
-    breveDescricao,
     categorias,
     getCategoria,
     onVoltar,
@@ -198,19 +196,23 @@ const GaleriaProjeto = ({ galeria = [], capa, titulo }) => {
     const [indiceModal, setIndiceModal] = useState(null);
 
     const abrirModal = (index) => setIndiceModal(index);
-    const fecharModal = () => setIndiceModal(null);
+    const fecharModal = useCallback(() => setIndiceModal(null), []);
 
-    const imagemAnterior = () => {
-        setIndiceModal((prev) =>
-            prev > 0 ? prev - 1 : imagensExibidas.length - 1,
-        );
-    };
+    const imagemAnterior = useCallback(
+        () =>
+            setIndiceModal((prev) =>
+                prev > 0 ? prev - 1 : imagensExibidas.length - 1,
+            ),
+        [imagensExibidas.length],
+    );
 
-    const proximaImagem = () => {
-        setIndiceModal((prev) =>
-            prev < imagensExibidas.length - 1 ? prev + 1 : 0,
-        );
-    };
+    const proximaImagem = useCallback(
+        () =>
+            setIndiceModal((prev) =>
+                prev < imagensExibidas.length - 1 ? prev + 1 : 0,
+            ),
+        [imagensExibidas.length],
+    );
 
     // Navegação via teclado: ESC para fechar, setas esquerda e direita para navegar
     useEffect(() => {
@@ -230,7 +232,7 @@ const GaleriaProjeto = ({ galeria = [], capa, titulo }) => {
             document.body.style.overflow = overflowOriginal;
             window.removeEventListener("keydown", handleKeyDown);
         };
-    }, [indiceModal, imagensExibidas.length]);
+    }, [indiceModal, imagensExibidas.length, fecharModal, imagemAnterior, proximaImagem]);
 
     if (imagensExibidas.length === 0) {
         return (

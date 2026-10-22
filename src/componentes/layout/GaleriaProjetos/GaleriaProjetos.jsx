@@ -14,8 +14,8 @@ export const GaleriaProjetos = ({ limite }) => {
 
     return (
         <div>
-            {/* Filtros */}
-            <div className='flex flex-wrap lg:inline-flex gap-1 bg-white rounded-full py-2 px-2 sm:px-3 mb-6 max-w-full'>
+            {/* Filtros — no mobile é uma linha só que desliza com o dedo */}
+            <div className='flex flex-nowrap lg:inline-flex lg:flex-wrap overflow-x-auto lg:overflow-visible gap-1.5 bg-white rounded-full py-2 px-2 sm:px-3 mb-6 max-w-full [scrollbar-width:none] [&::-webkit-scrollbar]:hidden'>
                 <span className='hidden lg:flex items-center gap-2 px-3 text-preto-escuro/70 font-titulo text-sm shrink-0'>
                     <SlidersHorizontal className='w-4 h-4 text-roxo-escuro' />
                     Filtrar
@@ -28,7 +28,7 @@ export const GaleriaProjetos = ({ limite }) => {
                             type='button'
                             onClick={() => setFiltroAtivo(filtro.id)}
                             aria-pressed={isAtivo}
-                            className={`button-press font-titulo text-sm whitespace-nowrap rounded-full px-4 py-2 transition-[background-color,color,box-shadow] ${
+                            className={`button-press shrink-0 font-titulo text-sm whitespace-nowrap rounded-full px-4 py-2 transition-[background-color,color,box-shadow] ${
                                 isAtivo
                                     ? "grad-btn sombra-btn text-white font-semibold"
                                     : "text-preto-escuro/80 hover:bg-black/5"
@@ -43,7 +43,7 @@ export const GaleriaProjetos = ({ limite }) => {
             {/* Grid de projetos */}
             <div
                 key={filtroAtivo}
-                className='grid grid-cols-2 lg:grid-cols-3 gap-4'
+                className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5'
             >
                 {projetosExibidos.map((projeto, index) => (
                     <div

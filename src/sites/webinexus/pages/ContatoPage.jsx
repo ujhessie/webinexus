@@ -259,8 +259,8 @@ const FormContato = () => {
                         </h3>
                         <p className='font-corpo text-sm text-gray-400 leading-relaxed'>
                             Conta em uma frase o que você faz e o que te
-                            atrapalha hoje. Exemplo: <em>"Tenho barbearia e
-                            perco agendamento no WhatsApp."</em> Com isso já dá
+                            atrapalha hoje. Exemplo: <em>&ldquo;Tenho barbearia e
+                            perco agendamento no WhatsApp.&rdquo;</em> Com isso já dá
                             pra te mostrar o caminho.
                         </p>
                     </div>

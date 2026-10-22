@@ -11,7 +11,6 @@ import {
     Component,
     Search,
     ArrowRight,
-    ExternalLink,
     CheckCircle2,
     Zap,
     BookOpen,
@@ -19,14 +18,8 @@ import {
     Eye,
     ShieldCheck,
     FolderTree,
-    Terminal,
-    Info,
     MoveRight,
-    Maximize2,
     Sliders,
-    Globe,
-    User,
-    LayoutDashboard,
 } from "lucide-react";
 
 // Componentes Reutilizáveis Oficiais do Projeto
@@ -39,7 +32,6 @@ import { Header } from "../../componentes/layout/Header.jsx";
 import { Footer } from "../../componentes/layout/Footer.jsx";
 import { HeroInterno, CTAQuemSomos } from "../../componentes/Compartilhados.jsx";
 import { RevealObserver, ScrollTop } from "../../componentes/RevealObserver.jsx";
-import { useProjetos } from "../../contexts/ProjetosContext.jsx";
 
 // ==========================================
 // DADOS DOS DESIGN TOKENS
@@ -863,7 +855,7 @@ import { FaWhatsapp } from "react-icons/fa";
                     <ComponentDocCard
                         nome="CardProjeto"
                         arquivo="src/componentes/layout/CardProjeto/CardProjeto.jsx"
-                        descricao="Card de projeto 4/3 com capa, fallback .img-fallback quando a imagem falha, overlay .overlay-card para legibilidade do título e elevação roxa (.card-projeto) somente no hover. Os dados vêm do ProjetosContext pelo id."
+                        descricao="Card vertical: capa 4/3 em cima (sem texto sobre a imagem) e bloco de texto embaixo em fundo sólido com título, descrição curta (oculta quando vazia) e tags em pílulas. Fallback .img-fallback quando a imagem falha, zoom da capa e elevação roxa (.card-projeto) somente no hover. Os dados vêm do ProjetosContext pelo id."
                         copiado={copiado}
                         aoCopiar={copiarTexto}
                         codigoJSX={`import { CardProjeto } from "../componentes/layout/CardProjeto/CardProjeto.jsx";
@@ -884,7 +876,7 @@ import { FaWhatsapp } from "react-icons/fa";
                     <ComponentDocCard
                         nome="GaleriaProjetos"
                         arquivo="src/componentes/layout/GaleriaProjetos/GaleriaProjetos.jsx"
-                        descricao="Grade de projetos com barra de filtros em pílula branca (filtros vêm do ProjetosContext), grid responsivo de 2 para 3 colunas e entrada escalonada .card-entrada. Aceita limite opcional de itens."
+                        descricao="Grade de projetos com barra de filtros em pílula branca (filtros vêm do ProjetosContext): no celular/tablet a barra é uma linha só com rolagem horizontal e no desktop ela quebra em várias linhas. Grid responsivo de 1 → 2 → 3 colunas e entrada escalonada .card-entrada. Aceita limite opcional de itens."
                         copiado={copiado}
                         aoCopiar={copiarTexto}
                         codigoJSX={`import { GaleriaProjetos } from "../componentes/layout/GaleriaProjetos/GaleriaProjetos.jsx";
@@ -997,7 +989,7 @@ import { FaWhatsapp } from "react-icons/fa";
                     <UtilDoc
                         nome=".scrim / .overlay-card / .img-fallback"
                         arquivo="style.css"
-                        descricao="Véus neutros sobre foto, a exceção de gradiente prevista pelo guia: .scrim garante legibilidade do texto sobre imagem, .overlay-card escurece a base do card de projeto e .img-fallback desenha o fundo quando a imagem falha."
+                        descricao="Véus neutros sobre foto, a exceção de gradiente prevista pelo guia: .scrim garante legibilidade do texto sobre imagem, .overlay-card escurece a base de qualquer bloco sobre foto e .img-fallback desenha o fundo quando a imagem falha."
                         codigo={`<div className="relative rounded-xl overflow-hidden">
     <img src="/bg.png" alt="Foto do projeto" />
     <div className="scrim absolute inset-0" />
