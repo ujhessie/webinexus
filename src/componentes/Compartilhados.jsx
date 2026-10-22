@@ -5,8 +5,14 @@ import { FaWhatsapp } from "react-icons/fa";
 
 const WHATSAPP = "https://wa.me/5598988740103";
 
-/* CTA final compartilhado: Home, Serviços, Quem Somos e Portfólio */
-export const CTAQuemSomos = () => (
+/* CTA final compartilhado: Home, Serviços, Quem Somos e Portfólio.
+   As props são opcionais — o padrão é o texto da Web iNexus. */
+export const CTAQuemSomos = ({
+    badge = "Vamos construir juntos",
+    titulo = "Precisa de um projeto personalizado?",
+    texto = "Conte o que você tem em mente. A gente entende o seu negócio e mostra o caminho — sem enrolação e sem compromisso.",
+    textoBotao = "FALAR NO WHATSAPP",
+}) => (
     <section className='py-20 lg:py-28 bg-preto-escuro'>
         <div className='content-section'>
             <div className='relative overflow-hidden grad-cta sombra-cta rounded-3xl sm:rounded-[36px] p-8 sm:p-14 lg:p-16 text-center reveal'>
@@ -18,15 +24,11 @@ export const CTAQuemSomos = () => (
                         variante='branco'
                         uppercase={false}
                         className='justify-center'
-                        textoBadge='Vamos construir juntos'
+                        textoBadge={badge}
                     />
-                    <h2 className='text-white mb-4'>
-                        Precisa de um projeto personalizado?
-                    </h2>
+                    <h2 className='text-white mb-4'>{titulo}</h2>
                     <p className='text-white/85 max-w-2xl mx-auto mb-8'>
-                        Conte o que você tem em mente. A gente entende o seu
-                        negócio e mostra o caminho — sem enrolação e sem
-                        compromisso.
+                        {texto}
                     </p>
                     <div className='flex justify-center'>
                         <Botao
@@ -37,7 +39,7 @@ export const CTAQuemSomos = () => (
                             iconCTA={<FaWhatsapp className='w-4 h-4' />}
                             className='w-full sm:w-auto !text-[#7b1fe1] hover:!text-[#6510c4]'
                         >
-                            FALAR NO WHATSAPP
+                            {textoBotao}
                         </Botao>
                     </div>
                 </div>

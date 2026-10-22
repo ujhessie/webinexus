@@ -193,7 +193,16 @@ const PortfolioSection = () => {
                 </p>
             </div>
 
-            <GaleriaProjetos />
+            <GaleriaProjetos limite={6} />
+
+            <div className='mt-10 flex justify-center reveal'>
+                <Botao
+                    href='/portfolio'
+                    iconCTA={<ArrowRight className='w-4 h-4' />}
+                >
+                    VER TODOS OS TRABALHOS
+                </Botao>
+            </div>
         </section>
     );
 };

@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import { UjhessieSite } from "./index";
 import { HomePage } from "./pages/HomePage/HomePage";
+import { PortfolioPage } from "./pages/PortfolioPage";
 import { PaginaProjeto } from "../../componentes/layout/PaginaProjeto/PaginaProjeto";
 import { DesignSystemSite } from "../design_system/index";
 
@@ -12,6 +13,10 @@ export const rotasUjhessie = createBrowserRouter([
             {
                 index: true,
                 element: <HomePage />,
+            },
+            {
+                path: "/portfolio",
+                element: <PortfolioPage />,
             },
             {
                 path: "/projetos/:id",

@@ -1183,13 +1183,27 @@ import { Botao } from "../componentes/ui/Botao/Botao.jsx";
                     <ComponentDocCard
                         nome="CTAQuemSomos"
                         arquivo="src/componentes/Compartilhados.jsx"
-                        descricao="Bloco final de CTA usado em Home, Serviços, Quem Somos e Portfólio: superfície .grad-cta com .sombra-cta, badge branco, título forte e botão de WhatsApp. Prévia funcional abaixo."
+                        descricao="Bloco final de CTA usado em Home, Serviços, Quem Somos e Portfólio (e no portfólio do Ujhessie, com copy em 1ª pessoa): superfície .grad-cta com .sombra-cta, badge branco, título forte e botão de WhatsApp. Todas as props são opcionais e o padrão é o texto da Web iNexus. Prévia funcional abaixo."
                         copiado={copiado}
                         aoCopiar={copiarTexto}
                         codigoJSX={`import { CTAQuemSomos } from "../componentes/Compartilhados.jsx";
 
-// Bloco final de Home, Serviços, Quem Somos e Portfólio
-<CTAQuemSomos />`}
+// Padrão — texto da Web iNexus
+<CTAQuemSomos />
+
+// Copy própria (ex.: site do Ujhessie)
+<CTAQuemSomos
+    badge="Bora conversar?"
+    titulo="Tem um projeto em mente? Me chama."
+    texto="Me conta o que você precisa em uma frase."
+    textoBotao="FALAR COMIGO NO WHATSAPP"
+/>`}
+                        props={[
+                            { nome: "badge", tipo: "string", padrao: "'Vamos construir juntos'", desc: "Texto da pílula no topo do bloco" },
+                            { nome: "titulo", tipo: "string", padrao: "'Precisa de um projeto personalizado?'", desc: "Título do CTA" },
+                            { nome: "texto", tipo: "string", padrao: "'Conte o que você tem em mente…'", desc: "Parágrafo de apoio abaixo do título" },
+                            { nome: "textoBotao", tipo: "string", padrao: "'FALAR NO WHATSAPP'", desc: "Rótulo do botão (link fixo do WhatsApp)" },
+                        ]}
                     >
                         <CTAQuemSomos />
                     </ComponentDocCard>
