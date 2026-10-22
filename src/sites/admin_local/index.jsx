@@ -493,14 +493,14 @@ export const Admin_local = () => {
                                             }`}
                                         >
                                             {/* Imagem de Capa do Card */}
-                                            <div className='relative w-full aspect-3/4 bg-[#0a0b14] overflow-hidden flex items-center justify-center'>
+                                            <div className='relative w-full aspect-4/3 bg-[#0a0b14] overflow-hidden flex items-center justify-center'>
                                                 {projeto.imagens?.capa ? (
                                                     <img
                                                         src={
                                                             projeto.imagens.capa
                                                         }
                                                         alt={projeto.titulo}
-                                                        className='w-full h-full object-cover aspect-3/4 group-hover:scale-105 transition-transform duration-300'
+                                                        className='w-full h-full object-cover aspect-4/3 group-hover:scale-105 transition-transform duration-300'
                                                         onError={(e) => {
                                                             e.target.style.display =
                                                                 "none";

@@ -26,7 +26,7 @@ export const App = () => {
 
     // Recupera o último site ativo salvo no localStorage (padrão: admin_local)
     const [siteLocalAtivo, setSiteLocalAtivo] = useState(() => {
-        return localStorage.getItem("site_local_ativo") || "admin_local";
+        return localStorage.getItem("site_local_ativo") || "ujhessie";
     });
 
     const trocarSiteLocal = (novoSite) => {

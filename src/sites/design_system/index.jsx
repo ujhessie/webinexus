@@ -863,7 +863,7 @@ import { FaWhatsapp } from "react-icons/fa";
                     <ComponentDocCard
                         nome="CardProjeto"
                         arquivo="src/componentes/layout/CardProjeto/CardProjeto.jsx"
-                        descricao="Card de projeto 3/4 com capa, fallback .img-fallback quando a imagem falha, overlay .overlay-card para legibilidade do título e elevação roxa (.card-projeto) somente no hover. Os dados vêm do ProjetosContext pelo id."
+                        descricao="Card de projeto 4/3 com capa, fallback .img-fallback quando a imagem falha, overlay .overlay-card para legibilidade do título e elevação roxa (.card-projeto) somente no hover. Os dados vêm do ProjetosContext pelo id."
                         copiado={copiado}
                         aoCopiar={copiarTexto}
                         codigoJSX={`import { CardProjeto } from "../componentes/layout/CardProjeto/CardProjeto.jsx";

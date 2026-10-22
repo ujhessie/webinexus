@@ -1,0 +1,479 @@
+{
+ "url": "http://localhost:5177/",
+ "at": "2026-10-22T02:26:33.713Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 6,
+   "filled": [
+    0.9,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "motion": {
+    "elements": 32,
+    "css": 21,
+    "transitions": 11,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 4644,
+     "screens": 5.2,
+     "words": 391,
+     "img": 22,
+     "video": 0,
+     "canvas": 0,
+     "svg": 11,
+     "sections": 3,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 21,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "jesse.png",
+      "jesse.png",
+      "Frame_1.jpg",
+      "Frame_2.jpg",
+      "capa.png",
+      "capa.jpg",
+      "capa.jpg",
+      "capa.jpg"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": []
+    },
+    "hero": {
+     "text": "DEV, DESIGNER & UM POUCO MAIS",
+     "words": 6,
+     "chars": 29,
+     "lines": 1,
+     "size": 38,
+     "vw": 2.6,
+     "font": "Space Grotesk",
+     "weight": 900,
+     "tracking": -0.025,
+     "leading": 1.25,
+     "upper": true,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.39,
+     "top": 339,
+     "tag": "div",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "JESSE RODRIGUES",
+     "words": 2,
+     "lines": 1,
+     "size": 16,
+     "font": "Space Grotesk"
+    },
+    "headings": [
+     {
+      "text": "DEV, DESIGNER & UM POUCO MAIS",
+      "words": 6,
+      "chars": 29,
+      "lines": 1,
+      "size": 38,
+      "vw": 2.6,
+      "font": "Space Grotesk",
+      "weight": 900,
+      "tracking": -0.025,
+      "leading": 1.25,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.39,
+      "top": 339,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "Desenvolvimento, automação e tecnologia aplicados a problemas reais.",
+      "words": 8,
+      "chars": 68,
+      "lines": 4,
+      "size": 48,
+      "vw": 3.3,
+      "font": "Space Grotesk",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.45,
+      "top": 968,
+      "gradientText": true,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Alguns dos trabalhos",
+      "words": 3,
+      "chars": 20,
+      "lines": 1,
+      "size": 48,
+      "vw": 3.3,
+      "font": "Space Grotesk",
+      "weight": 400,
+      "tracking": 0,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.47,
+      "top": 1920,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 3,
+     "maxLines": 4,
+     "over2Lines": 1,
+     "statements": 0,
+     "centered": 1,
+     "medianWords": 8,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Space Grotesk",
+       "share": 0.64,
+       "mono": false
+      },
+      {
+       "family": "Poppins",
+       "share": 0.35,
+       "mono": false
+      },
+      {
+       "family": "-apple-system",
+       "share": 0.01,
+       "mono": false
+      }
+     ],
+     "familyCount": 3,
+     "sizes": [
+      10,
+      12,
+      13,
+      14,
+      16,
+      17,
+      18,
+      20,
+      38,
+      48
+     ],
+     "sizeCount": 10,
+     "notLoaded": [],
+     "body": {
+      "font": "Poppins",
+      "size": 18,
+      "leading": 1.38,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 16.3
+     },
+     "measureChars": 72,
+     "max": {
+      "size": 48,
+      "vw": 3.3,
+      "font": "Space Grotesk",
+      "text": "Desenvolvimento, automação e tecnologia "
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 3,
+     "microLabelShare": 0.011,
+     "microSamples": [
+      "BEM VINDOS!",
+      "Sobre mim",
+      "Portfólio"
+     ],
+     "upperShare": 0.06,
+     "centerShare": 0.36,
+     "smallText": 0
+    },
+    "eyebrows": [
+     {
+      "text": "JESSE RODRIGUES",
+      "above": "DEV, DESIGNER & UM POUCO MAIS",
+      "upper": true,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 16,
+      "top": 311
+     },
+     {
+      "text": "Sobre mim",
+      "above": "Desenvolvimento, automação e tecnologia ",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": true,
+      "size": 14,
+      "top": 918
+     },
+     {
+      "text": "Portfólio",
+      "above": "Alguns dos trabalhos",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": true,
+      "size": 14,
+      "top": 1870
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#050610",
+     "bodyBgHsl": {
+      "h": 235,
+      "s": 0.52,
+      "l": 0.04
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#06010d",
+       "top": 0,
+       "hsl": {
+        "h": 265,
+        "s": 0.86,
+        "l": 0.03
+       }
+      },
+      {
+       "color": "#100813",
+       "top": 918,
+       "hsl": {
+        "h": 284,
+        "s": 0.41,
+        "l": 0.05
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#ffffff",
+       "share": 0.62
+      },
+      {
+       "color": "#e4e4e7",
+       "share": 0.3
+      },
+      {
+       "color": "#99a1af",
+       "share": 0.04
+      },
+      {
+       "color": "#050610",
+       "share": 0.02
+      },
+      {
+       "color": "#d28bff",
+       "share": 0.01
+      }
+     ],
+     "button": {
+      "bg": "#b72ffe",
+      "hsl": {
+       "h": 279,
+       "s": 0.99,
+       "l": 0.59
+      },
+      "fg": "#ffffff"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 7,
+     "inHero": 4,
+     "radius": 16,
+     "height": 48,
+     "withShadow": 4,
+     "withGradient": 4,
+     "mono": 0,
+     "upper": 5,
+     "heroLabels": [
+      "FALE COMIGO",
+      "FALE COMIGO",
+      "VER MEUS TRABALHOS",
+      "SITE LOCAL Ujhessie"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 4,
+     "shadowOverlay": 0,
+     "shadowSamples": [
+      "a.button-press.sombra-btn → rgba(183, 47, 254, 0.5) 0px 8px 24px -6px",
+      "a.button-press.flex-1 → rgba(183, 47, 254, 0.5) 0px 8px 24px -6px",
+      "a.button-press.flex-1 → rgba(183, 47, 254, 0.5) 0px 8px 24px -6px",
+      "button.button-press.font-titulo → rgba(183, 47, 254, 0.5) 0px 8px 24px -6px"
+     ],
+     "gradients": 2,
+     "scrims": 19,
+     "gradientSamples": [
+      "div.w-full.grad-btn → linear-gradient(to right, rgb(123, 31, 225), rgb(182, 45, 254))",
+      "div.w-full.grad-btn → linear-gradient(to right, rgb(123, 31, 225), rgb(182, 45, 254))"
+     ],
+     "gradientText": 1,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 1,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 20,
+     "boxRadius": 12,
+     "squareMedia": 1,
+     "roundedMedia": 20,
+     "mediaRadius": 12,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.39
+     }
+    ],
+    "nav": {
+     "links": 6,
+     "fixed": false,
+     "height": 98,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "poppins",
+     "space grotesk"
+    ]
+   },
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "FAIL",
+   "id": "headline-lines",
+   "width": 1440,
+   "message": "1 headline(s) wrap past two lines at 1440px: \"Desenvolvimento, automação e tecnologia aplicado\" → 4 lines (8 words, 48px)",
+   "fix": "Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 36px or less."
+  },
+  {
+   "level": "FAIL",
+   "id": "eyebrow",
+   "width": 1440,
+   "message": "3 eyebrow/kicker label(s) above headings: \"JESSE RODRIGUES\" above \"DEV, DESIGNER & UM POUCO MAIS\"; \"Sobre mim\" (pill) above \"Desenvolvimento, automação e tecnologia \"; \"Portfólio\" (pill) above \"Alguns dos trabalhos\"",
+   "fix": "Delete them. If the label carried real information, fold it into the headline or the supporting sentence."
+  },
+  {
+   "level": "FAIL",
+   "id": "micro-label",
+   "width": 1440,
+   "message": "3 tiny uppercase letter-spaced labels (e.g. \"BEM VINDOS!\", \"Sobre mim\", \"Portfólio\").",
+   "fix": "Use sentence-case text at a readable size, or delete the label."
+  },
+  {
+   "level": "FAIL",
+   "id": "gradient",
+   "width": 1440,
+   "message": "2 gradient fill(s): div.w-full.grad-btn → linear-gradient(to right, rgb(123, 31, 225), rgb(182, 45, 254)) | div.w-full.grad-btn → linear-gradient(to right, rgb(123, 31, 225), rgb(182, 45, 254))",
+   "fix": "Use a flat colour or a real image. The only gradient allowed by default is a neutral scrim over a photo for legibility."
+  },
+  {
+   "level": "FAIL",
+   "id": "gradient-text",
+   "width": 1440,
+   "message": "1 gradient-filled text element(s).",
+   "fix": "Solid colour text."
+  },
+  {
+   "level": "FAIL",
+   "id": "shadow",
+   "width": 1440,
+   "message": "4 box-shadow(s) on elements at rest: a.button-press.sombra-btn → rgba(183, 47, 254, 0.5) 0px 8px 24px -6px | a.button-press.flex-1 → rgba(183, 47, 254, 0.5) 0px 8px 24px -6px | a.button-press.flex-1 → rgba(183, 47, 254, 0.5) 0px 8px 24px -6px",
+   "fix": "Remove. Separate surfaces with a tone step or space. Shadows are for things that really float (menus, dialogs, sticky bars)."
+  },
+  {
+   "level": "FAIL",
+   "id": "button-fx",
+   "width": 1440,
+   "message": "Buttons with gradient fill and shadow/glow.",
+   "fix": "Flat fill, one colour."
+  },
+  {
+   "level": "WARN",
+   "id": "outlined-box",
+   "width": 1440,
+   "message": "1 box(es) drawn with a 1px outline.",
+   "fix": "Prefer a filled surface or no box."
+  },
+  {
+   "level": "FAIL",
+   "id": "palette-purple",
+   "width": 1440,
+   "message": "Indigo / violet (button #b72ffe, text #d28bff).",
+   "fix": "Use the accent from the drawn palette."
+  },
+  {
+   "level": "WARN",
+   "id": "size-count",
+   "width": 1440,
+   "message": "10 different font sizes (10, 12, 13, 14, 16, 17, 18, 20, 38, 48).",
+   "fix": "A page needs about five: display, heading, lead, body, small."
+  },
+  {
+   "level": "WARN",
+   "id": "no-footage",
+   "width": 1440,
+   "message": "No video anywhere on the page.",
+   "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "D:\\Projetos Dev\\web-inexus-2.0\\.taste-skill\\cards-4x3\\desktop-fold.jpg",
+   "pages": [
+    "D:\\Projetos Dev\\web-inexus-2.0\\.taste-skill\\cards-4x3\\desktop-page-01.jpg",
+    "D:\\Projetos Dev\\web-inexus-2.0\\.taste-skill\\cards-4x3\\desktop-page-02.jpg"
+   ]
+  }
+ ]
+}

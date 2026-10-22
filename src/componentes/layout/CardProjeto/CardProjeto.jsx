@@ -19,7 +19,7 @@ export const CardProjeto = ({ id, basePath = "/projetos" }) => {
             className='block group'
             aria-label={`Ver projeto ${titulo}`}
         >
-            <article className='card-projeto relative aspect-[3/4] rounded-xl overflow-hidden bg-preto-fosco group-hover:scale-[1.02] group-hover:-translate-y-1'>
+            <article className='card-projeto relative aspect-[4/3] rounded-xl overflow-hidden bg-preto-fosco group-hover:scale-[1.02] group-hover:-translate-y-1'>
                 {temCapaValida ? (
                     <img
                         src={imagens.capa}
