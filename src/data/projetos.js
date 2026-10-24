@@ -160,22 +160,40 @@ export const projetos = [
         "links": []
     },
     {
-        "id": "sistema-de-imobiliaria-em-desenvolvimento",
-        "titulo": "Sistema de imobiliária - Em desenvolvimento",
-        "breveDescricao": "",
-        "descricao": "",
+        "id": "realize-imobiliaria",
+        "titulo": "Realize Imobiliária - Site institucional",
+        "breveDescricao": "Site para imobiliária de São Luís com busca de imóveis, filtros e contato direto pelo WhatsApp.",
+        "descricao": "Site institucional desenvolvido para a Realize Imobiliária, de São Luís. O projeto reúne o catálogo de imóveis para compra e aluguel, com busca por cidade, bairro, tipo e número de quartos, páginas individuais para cada imóvel e contato direto pelo WhatsApp.\n\nO visual foi construído para traduzir a identidade local da marca: tipografia editorial, paleta em areia, marrom e dourado, fotos de São Luís e uma navegação simples tanto no desktop quanto no celular.",
         "categorias": [
-            "sites"
+            "sites",
+            "uiux"
         ],
-        "tags": [],
-        "destaque": false,
+        "tags": [
+            "React JS",
+            "Vite",
+            "Tailwind CSS",
+            "React Router"
+        ],
+        "destaque": true,
         "status": "visivel",
         "imagens": {
-            "capa": "/imagens_projetos/sistema-de-imobiliaria-em-desenvolvimento/capa.jpg",
-            "banner": "",
-            "galeria": []
+            "capa": "/imagens_projetos/realize-imobiliaria/capa.jpg",
+            "banner": "/imagens_projetos/realize-imobiliaria/banner.webp",
+            "galeria": [
+                "/imagens_projetos/realize-imobiliaria/destaques.webp",
+                "/imagens_projetos/realize-imobiliaria/imoveis.webp",
+                "/imagens_projetos/realize-imobiliaria/imovel.webp",
+                "/imagens_projetos/realize-imobiliaria/contato.webp",
+                "/imagens_projetos/realize-imobiliaria/capa.jpg"
+            ]
         },
-        "links": []
+        "links": [
+            {
+                "texto": "Visite o projeto",
+                "url": "https://imobiliariarealize.vercel.app/",
+                "principal": true
+            }
+        ]
     },
     {
         "id": "identidade-visual-loja-de-roupas-masculinas",

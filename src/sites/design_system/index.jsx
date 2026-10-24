@@ -855,20 +855,20 @@ import { FaWhatsapp } from "react-icons/fa";
                     <ComponentDocCard
                         nome="CardProjeto"
                         arquivo="src/componentes/layout/CardProjeto/CardProjeto.jsx"
-                        descricao="Card vertical: capa 4/3 em cima (sem texto sobre a imagem) e bloco de texto embaixo em fundo sólido com título, descrição curta (oculta quando vazia) e tags em pílulas. Fallback .img-fallback quando a imagem falha, zoom da capa e elevação roxa (.card-projeto) somente no hover. Os dados vêm do ProjetosContext pelo id."
+                        descricao="Card vertical: capa 4/3 em cima (sem texto sobre a imagem) e bloco de texto embaixo em fundo sólido com título, descrição curta (oculta quando vazia) e tags em pílulas. Fallback .img-fallback quando a imagem falha, zoom da capa e elevação roxa (.card-projeto) somente no hover. Quando o projeto tem um link principal de deploy, exibe o selo “Ver ao vivo” com ponto verde sobre a capa — o selo abre o site em nova aba e o restante do card continua levando para a página interna. Os dados vêm do ProjetosContext pelo id."
                         copiado={copiado}
                         aoCopiar={copiarTexto}
                         codigoJSX={`import { CardProjeto } from "../componentes/layout/CardProjeto/CardProjeto.jsx";
 
 // Renderização pelo ID cadastrado no contexto de projetos
-<CardProjeto id="loja-virtual-multitech" basePath="/projetos" />`}
+<CardProjeto id="gooddelivery-cardapio-digital" basePath="/projetos" />`}
                         props={[
                             { nome: "id", tipo: "string", padrao: "-", desc: "ID/Slug do projeto cadastrado no ProjetosContext" },
                             { nome: "basePath", tipo: "string", padrao: "'/projetos'", desc: "Prefixo da rota para onde o link redireciona ao clicar" },
                         ]}
                     >
                         <div className="max-w-xs mx-auto p-4 rounded-xl bg-black/40 border border-white/5">
-                            <CardProjeto id="loja-virtual-multitech" basePath="/portfolio" />
+                            <CardProjeto id="gooddelivery-cardapio-digital" basePath="/portfolio" />
                         </div>
                     </ComponentDocCard>
 
