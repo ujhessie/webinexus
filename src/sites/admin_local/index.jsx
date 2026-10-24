@@ -13,6 +13,7 @@ import {
     ExternalLink,
     RefreshCw,
     X,
+    ArrowUpDown,
 } from "lucide-react";
 import { projetos as projetosIniciais } from "../../data/projetos.js";
 import { ModalProjeto } from "./ModalProjeto.jsx";
@@ -30,6 +31,109 @@ const CATEGORIAS_FILTRO = [
     { id: "social", rotulo: "Social Media" },
 ];
 
+const OPCOES_ORDENACAO = [
+    { id: "destaque", rotulo: "Destaques primeiro" },
+    { id: "az", rotulo: "Título (A-Z)" },
+    { id: "arquivo", rotulo: "Ordem do arquivo" },
+];
+
+const TONS_RESUMO = {
+    neutro: {
+        icone: "bg-white/5 text-slate-300",
+        valor: "text-white",
+    },
+    roxo: {
+        icone: "bg-roxo-principal/10 text-roxo-claro",
+        valor: "text-white",
+    },
+    esmeralda: {
+        icone: "bg-emerald-500/10 text-emerald-400",
+        valor: "text-emerald-300",
+    },
+    ambar: {
+        icone: "bg-amber-500/10 text-amber-400",
+        valor: "text-amber-300",
+    },
+    vermelho: {
+        icone: "bg-red-500/10 text-red-400",
+        valor: "text-red-300",
+    },
+};
+
+const ehUrlDeSite = (url) =>
+    typeof url === "string" && /^https?:\/\/.+\..+/i.test(url);
+
+// Link principal com URL real = projeto publicado no ar
+function obterLinkAoVivo(projeto) {
+    return (projeto.links || []).find(
+        (link) => link.principal && ehUrlDeSite(link.url),
+    );
+}
+
+// Ordenação da listagem (não mexe no array original)
+function ordenarProjetos(lista, modo) {
+    const copia = [...lista];
+
+    if (modo === "az") {
+        return copia.sort((a, b) =>
+            (a.titulo || "").localeCompare(b.titulo || "", "pt-BR", {
+                sensitivity: "base",
+            }),
+        );
+    }
+
+    if (modo === "destaque") {
+        return copia.sort(
+            (a, b) =>
+                Number(Boolean(b.destaque)) - Number(Boolean(a.destaque)),
+        );
+    }
+
+    return copia;
+}
+
+const CartaoResumo = ({
+    rotulo,
+    valor,
+    Icone,
+    tom = "neutro",
+    ativo = false,
+    aoClicar,
+    descricao,
+}) => {
+    const estilo = TONS_RESUMO[tom] ?? TONS_RESUMO.neutro;
+
+    return (
+        <button
+            type='button'
+            onClick={aoClicar}
+            aria-pressed={ativo}
+            title={descricao}
+            className={`button-press flex items-center gap-3 rounded-xl border p-3 text-left transition-colors ${
+                ativo
+                    ? "border-roxo-principal/60 bg-white/[0.06]"
+                    : "border-white/[0.06] bg-preto-fosco hover:border-white/15"
+            }`}
+        >
+            <span
+                className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg ${estilo.icone}`}
+            >
+                <Icone className='h-4 w-4' />
+            </span>
+            <span className='min-w-0'>
+                <span className='block truncate text-[10px] font-semibold uppercase tracking-wider text-slate-500'>
+                    {rotulo}
+                </span>
+                <span
+                    className={`block text-lg font-bold leading-tight tabular ${estilo.valor}`}
+                >
+                    {valor}
+                </span>
+            </span>
+        </button>
+    );
+};
+
 export const Admin_local = () => {
     // Estados principais
     const [projetos, setProjetos] = useState(projetosIniciais || []);
@@ -42,6 +146,8 @@ export const Admin_local = () => {
     const [busca, setBusca] = useState("");
     const [filtroCategoria, setFiltroCategoria] = useState("todas");
     const [filtroStatus, setFiltroStatus] = useState("visivel"); // 'visivel' | 'lixeira' | 'todos'
+    const [filtroDestaque, setFiltroDestaque] = useState(false);
+    const [ordenacao, setOrdenacao] = useState("destaque");
 
     // Modais e Feedback
     const [modalProjetoAberto, setModalProjetoAberto] = useState(false);
@@ -186,10 +292,18 @@ export const Admin_local = () => {
     };
 
     const aoAlternarDestaque = async (id) => {
+        const projeto = projetos.find((p) => p.id === id);
         const listaAtualizada = projetos.map((p) =>
             p.id === id ? { ...p, destaque: !p.destaque } : p,
         );
-        salvarNoArquivo(listaAtualizada);
+        const sucesso = await salvarNoArquivo(listaAtualizada);
+        if (sucesso && projeto) {
+            exibirNotificacao(
+                projeto.destaque
+                    ? "Destaque removido do projeto."
+                    : "Projeto marcado como destaque!",
+            );
+        }
     };
 
     // Vincular imagem rápida da galeria a um projeto existente
@@ -235,13 +349,24 @@ export const Admin_local = () => {
         () => projetos.filter((p) => p.status === "lixeira").length,
         [projetos],
     );
+    const totalDestaques = useMemo(
+        () =>
+            projetos.filter((p) => p.destaque && p.status !== "lixeira")
+                .length,
+        [projetos],
+    );
 
     const projetosFiltrados = useMemo(() => {
-        return projetos.filter((p) => {
+        const termo = busca.toLowerCase().trim();
+
+        const filtrados = projetos.filter((p) => {
             // Filtro de status
             const ehLixeira = p.status === "lixeira";
             if (filtroStatus === "visivel" && ehLixeira) return false;
             if (filtroStatus === "lixeira" && !ehLixeira) return false;
+
+            // Filtro de destaque
+            if (filtroDestaque && !p.destaque) return false;
 
             // Filtro de categoria
             if (
@@ -253,7 +378,6 @@ export const Admin_local = () => {
             }
 
             // Busca por texto
-            const termo = busca.toLowerCase().trim();
             if (termo) {
                 const titulo = (p.titulo || "").toLowerCase();
                 const slug = (p.id || "").toLowerCase();
@@ -273,13 +397,44 @@ export const Admin_local = () => {
 
             return true;
         });
-    }, [projetos, filtroStatus, filtroCategoria, busca]);
+
+        return ordenarProjetos(filtrados, ordenacao);
+    }, [
+        projetos,
+        filtroStatus,
+        filtroDestaque,
+        filtroCategoria,
+        busca,
+        ordenacao,
+    ]);
+
+    const temFiltroAtivo =
+        Boolean(busca.trim()) ||
+        filtroCategoria !== "todas" ||
+        filtroStatus !== "visivel" ||
+        filtroDestaque ||
+        ordenacao !== "destaque";
+
+    const limparFiltros = () => {
+        setBusca("");
+        setFiltroCategoria("todas");
+        setFiltroStatus("visivel");
+        setFiltroDestaque(false);
+        setOrdenacao("destaque");
+    };
+
+    const abrirEdicao = (projeto) => {
+        setProjetoEmEdicao(projeto);
+        setModalProjetoAberto(true);
+    };
 
     return (
         <div className='min-h-svh bg-preto-escuro text-slate-100 flex flex-col'>
             {/* Notificação Toast Flutuante */}
             {notificacao && (
-                <div data-ui className={`fixed top-5 right-5 z-50 flex items-center gap-2.5 px-4 py-3 rounded-xl border shadow-2xl text-xs font-semibold animate-fade-in-up transition-[transform,opacity] ${
+                <div
+                    data-ui
+                    className={`fixed top-5 right-5 z-50 flex items-center gap-2.5 px-4 py-3 rounded-xl border shadow-2xl text-xs font-semibold animate-fade-in-up transition-[transform,opacity] ${
                         notificacao.tipo === "erro"
                             ? "bg-red-500/90 border-red-400 text-white"
                             : "bg-emerald-500/90 border-emerald-400 text-white"
@@ -295,41 +450,43 @@ export const Admin_local = () => {
             )}
 
             {/* Cabeçalho Superior */}
-            <header className='bg-preto-fosco sticky top-0 z-30'>
-                <div className='max-w-7xl mx-auto px-4 sm:px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4'>
+            <header className='bg-preto-fosco sticky top-0 z-30 border-b border-white/5'>
+                <div className='max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3'>
                     <div className='flex items-center gap-3'>
-                        <div className='grad-icon w-10 h-10 rounded-xl flex items-center justify-center'>
-                            <FolderKanban className='w-5 h-5 text-white' />
+                        <div className='grad-icon w-9 h-9 rounded-xl flex items-center justify-center shrink-0'>
+                            <FolderKanban className='w-4.5 h-4.5 text-white' />
                         </div>
-                        <div>
-                            <div className='flex items-center gap-2'>
-                                <h1 className='text-lg font-bold text-white tracking-tight font-titulo'>
+                        <div className='min-w-0'>
+                            <div className='flex items-center gap-2 flex-wrap'>
+                                <h1 className='text-base font-bold text-white tracking-tight font-titulo'>
                                     Painel Inexus Local
                                 </h1>
-                                <span className='inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-500/10 text-emerald-400'>
+                                <span className='inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/10 text-emerald-400'>
                                     <span className='w-1.5 h-1.5 rounded-full bg-emerald-400'></span>
                                     Vite Node Ativo
                                 </span>
                             </div>
-                            <p className='text-xs text-slate-400'>
-                                Gerenciamento e persistência direta em{" "}
-                                <code className='text-[#d28bff] font-mono'>src/data/projetos.js</code>
+                            <p className='text-[11px] text-slate-400 truncate'>
+                                Edição direta em{" "}
+                                <code className='text-[#d28bff] font-mono'>
+                                    src/data/projetos.js
+                                </code>
                             </p>
                         </div>
                     </div>
 
                     {/* Ações do Topo */}
-                    <div className='flex items-center gap-3 w-full sm:w-auto justify-end'>
+                    <div className='flex items-center gap-2 w-full sm:w-auto justify-end'>
                         {salvando && (
-                            <span className='text-xs text-[#d28bff] font-medium'>
-                                Salvando no arquivo...
+                            <span className='text-[11px] text-[#d28bff] font-medium'>
+                                Salvando...
                             </span>
                         )}
                         <button
                             type='button'
                             onClick={carregarDados}
                             disabled={carregando || salvando}
-                            className='button-press p-2 text-slate-400 hover:text-white bg-white/5 hover:bg-white/10 rounded-xl transition-[colors] text-xs flex items-center gap-1.5'
+                            className='button-press flex items-center gap-1.5 px-3 py-2 text-xs text-slate-300 hover:text-white bg-white/5 hover:bg-white/10 rounded-lg transition-colors disabled:opacity-50'
                             title='Recarregar dados do arquivo'
                         >
                             <RefreshCw
@@ -344,7 +501,7 @@ export const Admin_local = () => {
                                 setProjetoEmEdicao(null);
                                 setModalProjetoAberto(true);
                             }}
-                            className='button-press sombra-btn grad-btn flex items-center gap-2 px-4 py-2 text-white rounded-xl text-xs font-semibold hover:-translate-y-0.5 transition-[transform,box-shadow]'
+                            className='button-press sombra-btn grad-btn flex items-center gap-1.5 px-3.5 py-2 text-white rounded-lg text-xs font-semibold hover:-translate-y-0.5 transition-[transform,box-shadow]'
                         >
                             <Plus className='w-4 h-4' />
                             Novo Projeto
@@ -353,19 +510,19 @@ export const Admin_local = () => {
                 </div>
 
                 {/* Abas de Navegação */}
-                <div className='max-w-7xl mx-auto px-4 sm:px-6 flex gap-6 text-xs font-semibold'>
+                <div className='max-w-7xl mx-auto px-4 sm:px-6 flex gap-5 text-xs font-semibold'>
                     <button
                         type='button'
                         onClick={() => setAbaAtiva("projetos")}
-                        className={`button-press py-3 flex items-center gap-2 border-b-2 transition-[border-color,color] ${
+                        className={`button-press py-2.5 flex items-center gap-2 border-b-2 transition-[border-color,color] ${
                             abaAtiva === "projetos"
                                 ? "border-roxo-principal text-[#d28bff]"
                                 : "border-transparent text-slate-400 hover:text-slate-200"
                         }`}
                     >
                         <FolderKanban className='w-4 h-4' />
-                        Projetos do Portfólio
-                        <span className='px-2 py-0.5 rounded-full bg-white/10 text-[11px]'>
+                        Projetos
+                        <span className='px-1.5 py-0.5 rounded-md bg-white/10 text-[10px] tabular'>
                             {projetos.length}
                         </span>
                     </button>
@@ -373,7 +530,7 @@ export const Admin_local = () => {
                     <button
                         type='button'
                         onClick={() => setAbaAtiva("imagens")}
-                        className={`button-press py-3 flex items-center gap-2 border-b-2 transition-[border-color,color] ${
+                        className={`button-press py-2.5 flex items-center gap-2 border-b-2 transition-[border-color,color] ${
                             abaAtiva === "imagens"
                                 ? "border-roxo-principal text-[#d28bff]"
                                 : "border-transparent text-slate-400 hover:text-slate-200"
@@ -381,7 +538,7 @@ export const Admin_local = () => {
                     >
                         <IconeImagem className='w-4 h-4' />
                         Monitor de Imagens
-                        <span className='px-2 py-0.5 rounded-full bg-white/10 text-[10px]'>
+                        <span className='px-1.5 py-0.5 rounded-md bg-white/10 text-[10px] tabular'>
                             {imagens.length}
                         </span>
                     </button>
@@ -389,71 +546,155 @@ export const Admin_local = () => {
             </header>
 
             {/* Conteúdo Principal */}
-            <main className='max-w-7xl mx-auto px-4 sm:px-6 py-6 flex-1 w-full'>
+            <main className='max-w-7xl mx-auto px-4 sm:px-6 py-5 flex-1 w-full'>
                 {abaAtiva === "projetos" ? (
-                    <div className='space-y-6'>
+                    <div className='space-y-4'>
+                        {/* Resumo clicável */}
+                        <div className='grid grid-cols-2 lg:grid-cols-4 gap-2.5'>
+                            <CartaoResumo
+                                rotulo='Total'
+                                valor={projetos.length}
+                                Icone={FolderKanban}
+                                tom='neutro'
+                                ativo={
+                                    filtroStatus === "todos" && !filtroDestaque
+                                }
+                                descricao='Ver todos os projetos, inclusive os da lixeira'
+                                aoClicar={() => {
+                                    setFiltroStatus("todos");
+                                    setFiltroDestaque(false);
+                                }}
+                            />
+                            <CartaoResumo
+                                rotulo='Visíveis'
+                                valor={totalVisiveis}
+                                Icone={CheckCircle2}
+                                tom='esmeralda'
+                                ativo={
+                                    filtroStatus === "visivel" &&
+                                    !filtroDestaque
+                                }
+                                descricao='Projetos publicados no portfólio'
+                                aoClicar={() => {
+                                    setFiltroStatus("visivel");
+                                    setFiltroDestaque(false);
+                                }}
+                            />
+                            <CartaoResumo
+                                rotulo='Destaques'
+                                valor={totalDestaques}
+                                Icone={Star}
+                                tom='ambar'
+                                ativo={filtroDestaque}
+                                descricao='Aparecem primeiro na galeria dos sites'
+                                aoClicar={() => {
+                                    setFiltroStatus("visivel");
+                                    setFiltroDestaque(true);
+                                }}
+                            />
+                            <CartaoResumo
+                                rotulo='Lixeira'
+                                valor={totalLixeira}
+                                Icone={Trash2}
+                                tom='vermelho'
+                                ativo={filtroStatus === "lixeira"}
+                                descricao='Projetos ocultos do portfólio'
+                                aoClicar={() => {
+                                    setFiltroStatus("lixeira");
+                                    setFiltroDestaque(false);
+                                }}
+                            />
+                        </div>
+
+                        <p className='flex items-center gap-1.5 px-1 text-[11px] text-slate-500'>
+                            <Star className='w-3 h-3 text-amber-400' />
+                            Projetos em destaque aparecem primeiro na galeria
+                            da Web iNexus e do Ujhessie.
+                        </p>
+
                         {/* Barra de Filtros e Busca */}
-                        <div className='flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 p-4 bg-preto-fosco rounded-2xl'>
-                            {/* Input de Busca */}
-                            <div className='relative flex-1'>
-                                <Search className='w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2' />
-                                <input
-                                    type='text'
-                                    value={busca}
-                                    onChange={(e) => setBusca(e.target.value)}
-                                    placeholder='Buscar por título, ID slug, tags ou descrição...'
-                                    className='w-full pl-10 pr-4 py-2 bg-preto-escuro rounded-xl text-xs text-white placeholder-slate-500 focus:outline-none focus:border-roxo-principal border border-transparent transition-colors'
-                                />
+                        <div className='bg-preto-fosco rounded-xl border border-white/[0.06] p-3 sm:p-4 space-y-2.5'>
+                            <div className='flex flex-col md:flex-row gap-2.5'>
+                                {/* Input de Busca */}
+                                <div className='relative flex-1'>
+                                    <Search className='w-4 h-4 text-slate-500 absolute left-3 top-1/2 -translate-y-1/2' />
+                                    <input
+                                        type='text'
+                                        value={busca}
+                                        onChange={(e) =>
+                                            setBusca(e.target.value)
+                                        }
+                                        placeholder='Buscar por título, slug, tags ou descrição...'
+                                        className='w-full pl-9 pr-9 py-2.5 bg-preto-escuro rounded-lg text-xs text-white placeholder-slate-500 focus:outline-none focus:border-roxo-principal border border-white/5 transition-colors'
+                                    />
+                                    {busca && (
+                                        <button
+                                            type='button'
+                                            onClick={() => setBusca("")}
+                                            className='absolute right-2.5 top-1/2 -translate-y-1/2 p-0.5 text-slate-500 hover:text-white rounded'
+                                            title='Limpar busca'
+                                        >
+                                            <X className='w-3.5 h-3.5' />
+                                        </button>
+                                    )}
+                                </div>
+
+                                {/* Ordenação */}
+                                <div className='relative'>
+                                    <ArrowUpDown className='w-3.5 h-3.5 text-slate-500 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none' />
+                                    <select
+                                        value={ordenacao}
+                                        onChange={(e) =>
+                                            setOrdenacao(e.target.value)
+                                        }
+                                        aria-label='Ordenar projetos'
+                                        className='w-full md:w-48 appearance-none pl-9 pr-8 py-2.5 bg-preto-escuro rounded-lg text-xs text-white focus:outline-none focus:border-roxo-principal border border-white/5 transition-colors'
+                                    >
+                                        {OPCOES_ORDENACAO.map((opcao) => (
+                                            <option
+                                                key={opcao.id}
+                                                value={opcao.id}
+                                            >
+                                                {opcao.rotulo}
+                                            </option>
+                                        ))}
+                                    </select>
+                                </div>
                             </div>
 
-                            {/* Filtro por Categoria */}
                             <div className='flex flex-wrap items-center gap-2'>
-                                <select
-                                    value={filtroCategoria}
-                                    onChange={(e) =>
-                                        setFiltroCategoria(e.target.value)
-                                    }
-                                    className='px-3 py-2 bg-preto-escuro rounded-xl text-xs text-white focus:outline-none focus:border-roxo-principal border border-transparent transition-colors'
-                                >
-                                    {CATEGORIAS_FILTRO.map((cat) => (
-                                        <option key={cat.id} value={cat.id}>
-                                            {cat.rotulo}
-                                        </option>
-                                    ))}
-                                </select>
-
                                 {/* Filtro por Status */}
-                                <div className='flex bg-preto-escuro p-1 rounded-xl text-xs'>
+                                <div className='flex bg-preto-escuro p-1 rounded-lg text-xs'>
                                     <button
                                         type='button'
                                         onClick={() =>
                                             setFiltroStatus("visivel")
                                         }
-                                        className={`button-press px-3 py-1.5 rounded-lg font-medium transition-colors ${
+                                        className={`button-press px-2.5 py-1.5 rounded-md font-medium transition-colors ${
                                             filtroStatus === "visivel"
-                                                ? "grad-btn text-white"
+                                                ? "bg-white/10 text-white"
                                                 : "text-slate-400 hover:text-white"
                                         }`}
                                     >
-                                        Visíveis ({totalVisiveis})
+                                        Visíveis
                                     </button>
                                     <button
                                         type='button'
                                         onClick={() =>
                                             setFiltroStatus("lixeira")
                                         }
-                                        className={`button-press px-3 py-1.5 rounded-lg font-medium transition-colors ${
+                                        className={`button-press px-2.5 py-1.5 rounded-md font-medium transition-colors ${
                                             filtroStatus === "lixeira"
-                                                ? "bg-red-600/80 text-white"
+                                                ? "bg-red-500/20 text-red-200"
                                                 : "text-slate-400 hover:text-white"
                                         }`}
                                     >
-                                        Lixeira ({totalLixeira})
+                                        Lixeira
                                     </button>
                                     <button
                                         type='button'
                                         onClick={() => setFiltroStatus("todos")}
-                                        className={`button-press px-3 py-1.5 rounded-lg font-medium transition-colors ${
+                                        className={`button-press px-2.5 py-1.5 rounded-md font-medium transition-colors ${
                                             filtroStatus === "todos"
                                                 ? "bg-white/10 text-white"
                                                 : "text-slate-400 hover:text-white"
@@ -462,88 +703,188 @@ export const Admin_local = () => {
                                         Todos
                                     </button>
                                 </div>
+
+                                {/* Filtro por Categoria */}
+                                <select
+                                    value={filtroCategoria}
+                                    onChange={(e) =>
+                                        setFiltroCategoria(e.target.value)
+                                    }
+                                    aria-label='Filtrar por categoria'
+                                    className='px-3 py-2 bg-preto-escuro rounded-lg text-xs text-white focus:outline-none focus:border-roxo-principal border border-white/5 transition-colors'
+                                >
+                                    {CATEGORIAS_FILTRO.map((cat) => (
+                                        <option key={cat.id} value={cat.id}>
+                                            {cat.rotulo}
+                                        </option>
+                                    ))}
+                                </select>
+
+                                {/* Filtro de Destaques */}
+                                <button
+                                    type='button'
+                                    onClick={() =>
+                                        setFiltroDestaque((v) => !v)
+                                    }
+                                    aria-pressed={filtroDestaque}
+                                    title='Mostrar apenas projetos em destaque'
+                                    className={`button-press flex items-center gap-1.5 px-3 py-2 rounded-lg border text-xs font-medium transition-colors ${
+                                        filtroDestaque
+                                            ? "bg-amber-500/15 border-amber-400/60 text-amber-200"
+                                            : "bg-preto-escuro border-white/5 text-slate-400 hover:text-white hover:border-white/20"
+                                    }`}
+                                >
+                                    <Star
+                                        className={`w-3.5 h-3.5 ${
+                                            filtroDestaque
+                                                ? "fill-amber-400 text-amber-400"
+                                                : ""
+                                        }`}
+                                    />
+                                    Só destaques
+                                    <span
+                                        className={`px-1.5 rounded text-[10px] tabular ${
+                                            filtroDestaque
+                                                ? "bg-amber-400/20 text-amber-100"
+                                                : "bg-white/5 text-slate-400"
+                                        }`}
+                                    >
+                                        {totalDestaques}
+                                    </span>
+                                </button>
                             </div>
                         </div>
 
-                        {/* Listagem em Grid de Projetos */}
+                        {/* Contagem + Limpar filtros */}
+                        <div className='flex flex-wrap items-center justify-between gap-2 px-1'>
+                            <p className='text-[11px] text-slate-500'>
+                                <strong className='text-slate-200 tabular'>
+                                    {projetosFiltrados.length}
+                                </strong>{" "}
+                                de {projetos.length} projeto
+                                {projetos.length === 1 ? "" : "s"}
+                                {filtroDestaque && " · só destaques"}
+                            </p>
+
+                            {temFiltroAtivo && (
+                                <button
+                                    type='button'
+                                    onClick={limparFiltros}
+                                    className='button-press flex items-center gap-1 text-[11px] font-medium text-slate-400 hover:text-white'
+                                >
+                                    <X className='w-3 h-3' />
+                                    Limpar filtros
+                                </button>
+                            )}
+                        </div>
+
+                        {/* Listagem em Grade */}
                         {projetosFiltrados.length === 0 ? (
-                            <div className='text-center py-20 bg-preto-fosco rounded-2xl text-slate-400 space-y-3'>
-                                <FolderKanban className='w-12 h-12 text-slate-500 mx-auto' />
-                                <p className='text-sm font-medium'>
-                                    Nenhum projeto encontrado.
-                                </p>
-                                <p className='text-xs text-slate-500'>
-                                    Tente ajustar os filtros ou clique em
-                                    &quot;+ Novo Projeto&quot; para adicionar.
-                                </p>
+                            <div className='text-center py-16 bg-preto-fosco rounded-xl border border-white/[0.06] text-slate-400 space-y-3'>
+                                <FolderKanban className='w-10 h-10 text-slate-600 mx-auto' />
+                                <div className='space-y-1'>
+                                    <p className='text-sm font-medium text-slate-200'>
+                                        Nenhum projeto com esses filtros.
+                                    </p>
+                                    <p className='text-xs text-slate-500'>
+                                        Ajuste a busca ou limpe os filtros para
+                                        ver a lista completa.
+                                    </p>
+                                </div>
+                                <button
+                                    type='button'
+                                    onClick={limparFiltros}
+                                    className='button-press px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-xs font-semibold text-slate-200 transition-colors'
+                                >
+                                    Limpar filtros
+                                </button>
                             </div>
                         ) : (
-                            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
+                            <div className='grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3.5'>
                                 {projetosFiltrados.map((projeto) => {
                                     const ehLixeira =
                                         projeto.status === "lixeira";
+                                    const linkAoVivo =
+                                        obterLinkAoVivo(projeto);
+                                    const categorias = Array.isArray(
+                                        projeto.categorias,
+                                    )
+                                        ? projeto.categorias
+                                        : [];
 
                                     return (
-                                        <div
+                                        <article
                                             key={projeto.id}
-                                            className={`group bg-preto-fosco rounded-2xl overflow-hidden flex flex-col transition-[opacity,border-color] duration-200 ${
+                                            className={`group flex flex-col overflow-hidden rounded-xl border bg-preto-fosco transition-colors ${
                                                 ehLixeira
-                                                    ? "border border-red-500/20 opacity-75 hover:opacity-100"
-                                                    : "border border-transparent hover:border-roxo-principal/40"
+                                                    ? "border-red-500/20 opacity-80 hover:opacity-100"
+                                                    : projeto.destaque
+                                                      ? "border-amber-400/25 hover:border-amber-400/50"
+                                                      : "border-white/[0.06] hover:border-roxo-principal/40"
                                             }`}
                                         >
-                                            {/* Imagem de Capa do Card */}
-                                            <div className='relative w-full aspect-4/3 bg-[#0a0b14] overflow-hidden flex items-center justify-center'>
+                                            {/* Capa */}
+                                            <div
+                                                className='relative aspect-[16/10] overflow-hidden bg-preto-escuro cursor-pointer'
+                                                onClick={() =>
+                                                    abrirEdicao(projeto)
+                                                }
+                                                title={`Editar ${projeto.titulo}`}
+                                            >
                                                 {projeto.imagens?.capa ? (
                                                     <img
                                                         src={
                                                             projeto.imagens.capa
                                                         }
                                                         alt={projeto.titulo}
-                                                        className='w-full h-full object-cover aspect-4/3 group-hover:scale-105 transition-transform duration-300'
+                                                        className='w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]'
                                                         onError={(e) => {
                                                             e.target.style.display =
                                                                 "none";
                                                         }}
                                                     />
                                                 ) : (
-                                                    <div className='flex flex-col items-center text-slate-600 gap-1'>
-                                                        <IconeImagem className='w-8 h-8' />
+                                                    <div className='flex h-full flex-col items-center justify-center gap-1 text-slate-600'>
+                                                        <IconeImagem className='w-7 h-7' />
                                                         <span className='text-[10px]'>
                                                             Sem capa
                                                         </span>
                                                     </div>
                                                 )}
 
-                                                {/* Badges Superior */}
-                                                <div className='absolute top-3 left-3 flex items-center gap-1.5 flex-wrap'>
+                                                {/* Status + destaque */}
+                                                <div className='absolute top-2.5 left-2.5 flex flex-wrap items-center gap-1.5'>
                                                     {ehLixeira ? (
-                                                        <span className='px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-red-600/90 text-white'>
+                                                        <span className='px-2 py-0.5 rounded-md text-[10px] font-bold bg-red-600/90 text-white'>
                                                             Lixeira
                                                         </span>
                                                     ) : (
-                                                        <span className='px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-600/80 text-white'>
+                                                        <span className='px-2 py-0.5 rounded-md text-[10px] font-semibold bg-preto-escuro/85 text-slate-300'>
                                                             Visível
                                                         </span>
                                                     )}
-
                                                     {projeto.destaque && (
-                                                        <span className='px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/90 text-black flex items-center gap-1'>
-                                                            <Star className='w-3 h-3 fill-black' />{" "}
+                                                        <span className='px-2 py-0.5 rounded-md text-[10px] font-bold bg-amber-400 text-black flex items-center gap-1'>
+                                                            <Star className='w-2.5 h-2.5 fill-black' />
                                                             Destaque
                                                         </span>
                                                     )}
                                                 </div>
 
-                                                {/* Botão de alternar destaque rápido */}
+                                                {/* Alternar destaque */}
                                                 <button
                                                     type='button'
-                                                    onClick={() =>
+                                                    onClick={(e) => {
+                                                        e.stopPropagation();
                                                         aoAlternarDestaque(
                                                             projeto.id,
-                                                        )
-                                                    }
-                                                    className='absolute top-3 right-3 p-1.5 rounded-full bg-black/60 hover:bg-black/90 text-slate-300 hover:text-amber-400 transition-[background-color,color]'
+                                                        );
+                                                    }}
+                                                    className={`absolute top-2.5 right-2.5 button-press flex h-7 w-7 items-center justify-center rounded-full border transition-colors ${
+                                                        projeto.destaque
+                                                            ? "bg-amber-500/20 border-amber-400/50 text-amber-300"
+                                                            : "bg-preto-escuro/85 border-white/10 text-slate-400 hover:text-amber-300 hover:border-amber-400/40"
+                                                    }`}
                                                     title={
                                                         projeto.destaque
                                                             ? "Remover destaque"
@@ -551,148 +892,119 @@ export const Admin_local = () => {
                                                     }
                                                 >
                                                     <Star
-                                                        className={`w-4 h-4 ${
+                                                        className={`w-3.5 h-3.5 ${
                                                             projeto.destaque
-                                                                ? "fill-amber-400 text-amber-400"
+                                                                ? "fill-amber-400"
                                                                 : ""
                                                         }`}
                                                     />
                                                 </button>
                                             </div>
 
-                                            {/* Conteúdo do Card */}
-                                            <div className='p-4 flex-1 flex flex-col justify-between space-y-4'>
-                                                <div className='space-y-2'>
-                                                    <div className='flex items-start justify-between gap-2'>
-                                                        <div>
-                                                            <h3 className='text-sm font-bold text-white group-hover:text-[#d28bff] transition-colors'>
-                                                                {projeto.titulo}
-                                                            </h3>
-                                                            <p className='text-[11px] text-[#d28bff]/80'><code className='font-mono'>#{projeto.id}</code></p>
-                                                        </div>
-                                                    </div>
+                                            {/* Conteúdo */}
+                                            <div className='flex flex-1 flex-col gap-2 p-3.5'>
+                                                <h3 className='text-[13px] font-bold leading-snug text-white group-hover:text-[#d28bff] transition-colors line-clamp-1'>
+                                                    {projeto.titulo}
+                                                </h3>
 
-                                                    {/* Breve Descrição */}
-                                                    {projeto.breveDescricao && (
-                                                        <p className='text-xs text-slate-400 line-clamp-2'>
-                                                            {
-                                                                projeto.breveDescricao
-                                                            }
-                                                        </p>
+                                                <div className='flex flex-wrap items-center gap-x-2 gap-y-1 text-[10px] text-slate-500'>
+                                                    <code className='font-mono truncate max-w-full'>
+                                                        #{projeto.id}
+                                                    </code>
+                                                    {linkAoVivo && (
+                                                        <span className='inline-flex items-center gap-1 text-emerald-400'>
+                                                            <span className='w-1.5 h-1.5 rounded-full bg-emerald-400' />
+                                                            No ar
+                                                        </span>
                                                     )}
-
-                                                    {/* Categorias */}
-                                                    {Array.isArray(
-                                                        projeto.categorias,
-                                                    ) &&
-                                                        projeto.categorias
-                                                            .length > 0 && (
-                                                            <div className='flex flex-wrap gap-1 pt-1'>
-                                                                {projeto.categorias.map(
-                                                                    (cat) => (
-                                                                        <span
-                                                                            key={
-                                                                                cat
-                                                                            }
-                                                                            className='px-2 py-0.5 rounded-md text-[10px] font-medium bg-roxo-principal/10 text-[#d28bff]'
-                                                                        >
-                                                                            {
-                                                                                cat
-                                                                            }
-                                                                        </span>
-                                                                    ),
-                                                                )}
-                                                            </div>
-                                                        )}
-
-                                                    {/* Tags */}
-                                                    {Array.isArray(
-                                                        projeto.tags,
-                                                    ) &&
-                                                        projeto.tags.length >
-                                                            0 && (
-                                                            <div className='flex flex-wrap gap-1'>
-                                                                {projeto.tags.map(
-                                                                    (tag) => (
-                                                                        <span
-                                                                            key={
-                                                                                tag
-                                                                            }
-                                                                            className='px-1.5 py-0.5 rounded text-[10px] text-slate-400 bg-white/5'
-                                                                        >
-                                                                            #
-                                                                            {
-                                                                                tag
-                                                                            }
-                                                                        </span>
-                                                                    ),
-                                                                )}
-                                                            </div>
-                                                        )}
                                                 </div>
 
-                                                {/* Rodapé do Card com Ações */}
-                                                <div className='pt-3 flex items-center justify-between gap-2'>
-                                                    <button
-                                                        type='button'
-                                                        onClick={() => {
-                                                            setProjetoEmEdicao(
-                                                                projeto,
-                                                            );
-                                                            setModalProjetoAberto(
-                                                                true,
-                                                            );
-                                                        }}
-                                                        className='button-press flex-1 flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-xl text-xs font-semibold bg-white/5 hover:grad-btn hover:text-white text-slate-300 transition-[background-color,color]'
-                                                    >
-                                                        <Edit3 className='w-3.5 h-3.5' />{" "}
-                                                        Editar
-                                                    </button>
+                                                {projeto.breveDescricao && (
+                                                    <p className='text-[11px] leading-relaxed text-slate-400 line-clamp-2'>
+                                                        {projeto.breveDescricao}
+                                                    </p>
+                                                )}
 
-                                                    {ehLixeira ? (
-                                                        <>
-                                                            <button
-                                                                type='button'
-                                                                onClick={() =>
-                                                                    aoRestaurarProjeto(
-                                                                        projeto.id,
-                                                                    )
-                                                                }
-                                                                className='button-press p-2 text-emerald-400 hover:text-white bg-emerald-500/10 hover:bg-emerald-600 rounded-xl transition-[background-color,color]'
-                                                                title='Restaurar projeto'
-                                                            >
-                                                                <RotateCcw className='w-3.5 h-3.5' />
-                                                            </button>
-                                                            <button
-                                                                type='button'
-                                                                onClick={() =>
-                                                                    setProjetoExclusaoId(
-                                                                        projeto.id,
-                                                                    )
-                                                                }
-                                                                className='button-press p-2 text-red-400 hover:text-white bg-red-500/10 hover:bg-red-600 rounded-xl transition-[background-color,color]'
-                                                                title='Excluir definitivamente'
-                                                            >
-                                                                <Trash2 className='w-3.5 h-3.5' />
-                                                            </button>
-                                                        </>
-                                                    ) : (
+                                                {categorias.length > 0 && (
+                                                    <div className='flex flex-wrap items-center gap-1 pt-0.5'>
+                                                        {categorias
+                                                            .slice(0, 3)
+                                                            .map((cat) => (
+                                                                <span
+                                                                    key={cat}
+                                                                    className='px-1.5 py-0.5 rounded text-[10px] font-medium bg-roxo-principal/10 text-[#d28bff]'
+                                                                >
+                                                                    {cat}
+                                                                </span>
+                                                            ))}
+                                                        {categorias.length >
+                                                            3 && (
+                                                            <span className='text-[10px] text-slate-500'>
+                                                                +
+                                                                {categorias.length -
+                                                                    3}
+                                                            </span>
+                                                        )}
+                                                    </div>
+                                                )}
+                                            </div>
+
+                                            {/* Ações */}
+                                            <div className='flex items-center gap-1.5 border-t border-white/[0.06] px-3 py-2.5'>
+                                                <button
+                                                    type='button'
+                                                    onClick={() =>
+                                                        abrirEdicao(projeto)
+                                                    }
+                                                    className='button-press flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-white/5 py-1.5 px-3 text-xs font-semibold text-slate-300 hover:bg-white/10 hover:text-white transition-colors'
+                                                >
+                                                    <Edit3 className='w-3.5 h-3.5' />
+                                                    Editar
+                                                </button>
+
+                                                {ehLixeira ? (
+                                                    <>
                                                         <button
                                                             type='button'
                                                             onClick={() =>
-                                                                aoMoverParaLixeira(
+                                                                aoRestaurarProjeto(
                                                                     projeto.id,
                                                                 )
                                                             }
-                                                            className='button-press p-2 text-slate-400 hover:text-red-400 bg-white/5 hover:bg-white/10 rounded-xl transition-[background-color,color]'
-                                                            title='Mover para lixeira'
+                                                            className='button-press p-2 rounded-lg bg-emerald-500/10 text-emerald-400 hover:bg-emerald-600 hover:text-white transition-colors'
+                                                            title='Restaurar projeto'
+                                                        >
+                                                            <RotateCcw className='w-3.5 h-3.5' />
+                                                        </button>
+                                                        <button
+                                                            type='button'
+                                                            onClick={() =>
+                                                                setProjetoExclusaoId(
+                                                                    projeto.id,
+                                                                )
+                                                            }
+                                                            className='button-press p-2 rounded-lg bg-red-500/10 text-red-400 hover:bg-red-600 hover:text-white transition-colors'
+                                                            title='Excluir definitivamente'
                                                         >
                                                             <Trash2 className='w-3.5 h-3.5' />
                                                         </button>
-                                                    )}
-                                                </div>
+                                                    </>
+                                                ) : (
+                                                    <button
+                                                        type='button'
+                                                        onClick={() =>
+                                                            aoMoverParaLixeira(
+                                                                projeto.id,
+                                                            )
+                                                        }
+                                                        className='button-press p-2 rounded-lg bg-white/5 text-slate-400 hover:bg-red-500/20 hover:text-red-300 transition-colors'
+                                                        title='Mover para lixeira'
+                                                    >
+                                                        <Trash2 className='w-3.5 h-3.5' />
+                                                    </button>
+                                                )}
                                             </div>
-                                        </div>
+                                        </article>
                                     );
                                 })}
                             </div>
@@ -727,7 +1039,10 @@ export const Admin_local = () => {
             {/* Modal de Confirmação de Exclusão Definitiva */}
             {projetoExclusaoId && (
                 <div className='fixed inset-0 z-60 flex items-center justify-center p-4 bg-black/80'>
-                    <div data-ui className='bg-preto-fosco border border-red-500/30 rounded-2xl max-w-md w-full p-6 shadow-2xl text-slate-200 space-y-4'>
+                    <div
+                        data-ui
+                        className='bg-preto-fosco border border-red-500/30 rounded-2xl max-w-md w-full p-6 shadow-2xl text-slate-200 space-y-4'
+                    >
                         <div className='flex items-center gap-3 text-red-400'>
                             <div className='p-2.5 rounded-xl bg-red-500/10 border border-red-500/20'>
                                 <Trash2 className='w-6 h-6' />
@@ -738,7 +1053,9 @@ export const Admin_local = () => {
                         </div>
                         <p className='text-xs text-slate-400 leading-relaxed'>
                             Tem certeza que deseja apagar o projeto{" "}
-                            <code className='font-mono text-red-300 font-bold'>{projetoExclusaoId}</code>
+                            <code className='font-mono text-red-300 font-bold'>
+                                {projetoExclusaoId}
+                            </code>
                             ? Essa ação removerá o registro do arquivo{" "}
                             <code>src/data/projetos.js</code> e não poderá ser
                             desfeita.
@@ -768,7 +1085,10 @@ export const Admin_local = () => {
             {/* Modal de Vinculação Rápida de Imagem a um Projeto */}
             {modalVincularImagem && (
                 <div className='fixed inset-0 z-60 flex items-center justify-center p-4 bg-black/80'>
-                    <div data-ui className='bg-preto-fosco border border-white/15 rounded-2xl max-w-lg w-full p-6 shadow-2xl text-slate-200 space-y-4'>
+                    <div
+                        data-ui
+                        className='bg-preto-fosco border border-white/15 rounded-2xl max-w-lg w-full p-6 shadow-2xl text-slate-200 space-y-4'
+                    >
                         <div className='flex items-center justify-between pb-3'>
                             <h3 className='text-sm font-bold text-white flex items-center gap-2'>
                                 <ExternalLink className='w-4 h-4 text-[#d28bff]' />
@@ -790,7 +1110,9 @@ export const Admin_local = () => {
                                 className='w-14 h-14 object-cover rounded-lg'
                             />
                             <div className='flex-1 min-w-0'>
-                                <code className='block text-xs font-mono text-[#d28bff] truncate'>{modalVincularImagem}</code>
+                                <code className='block text-xs font-mono text-[#d28bff] truncate'>
+                                    {modalVincularImagem}
+                                </code>
                             </div>
                         </div>
 
@@ -808,7 +1130,9 @@ export const Admin_local = () => {
                                             <p className='text-xs font-bold text-white truncate'>
                                                 {proj.titulo}
                                             </p>
-                                            <code className='block text-[10px] font-mono text-slate-400 truncate'>{proj.id}</code>
+                                            <code className='block text-[10px] font-mono text-slate-400 truncate'>
+                                                {proj.id}
+                                            </code>
                                         </div>
                                         <div className='flex gap-1'>
                                             <button

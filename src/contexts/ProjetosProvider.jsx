@@ -6,9 +6,16 @@ import { projetos } from "../data/projetos";
 /* funcionar (arquivo só com componente).                              */
 /* ------------------------------------------------------------------ */
 
+// Destaques primeiro, sem bagunçar a ordem dos demais (sort estável)
+const ordenarDestaquesPrimeiro = (a, b) =>
+    Number(Boolean(b.destaque)) - Number(Boolean(a.destaque));
+
 export const ProjetosProvider = ({ children }) => {
-    // Projetos que podem aparecer publicamente (lixeira fica de fora)
-    const projetosVisiveis = projetos.filter((p) => p.status !== "lixeira");
+    // Projetos que podem aparecer publicamente (lixeira fica de fora),
+    // com os destaques sempre na frente da galeria dos sites
+    const projetosVisiveis = projetos
+        .filter((p) => p.status !== "lixeira")
+        .sort(ordenarDestaquesPrimeiro);
 
     // helpers opcionais — economizam lógica nos componentes
     const getProjetoPorId = (id) =>

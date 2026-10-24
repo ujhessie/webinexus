@@ -100,54 +100,54 @@ export const GaleriaImagens = ({
     };
 
     return (
-        <div className="space-y-6">
+        <div className="space-y-4">
             {/* Bloco de Métricas do Armazenamento */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                <div className="p-4 rounded-2xl bg-preto-fosco flex items-center gap-3">
-                    <div className="p-2.5 rounded-xl bg-roxo-principal/10 text-[#d28bff]">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                <div className="p-3.5 rounded-xl bg-preto-fosco border border-white/[0.06] flex items-center gap-3">
+                    <div className="p-2 rounded-lg bg-roxo-principal/10 text-[#d28bff]">
                         <HardDrive className="w-5 h-5" />
                     </div>
                     <div>
-                        <p className="text-[11px] font-medium text-slate-400 uppercase tracking-wider">
+                        <p className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider">
                             Total de Arquivos
                         </p>
-                        <p className="text-xl font-bold text-white">{totalImagens}</p>
+                        <p className="text-lg font-bold text-white tabular">{totalImagens}</p>
                     </div>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-preto-fosco flex items-center gap-3">
-                    <div className="p-2.5 rounded-xl bg-emerald-500/10 text-emerald-400">
+                <div className="p-3.5 rounded-xl bg-preto-fosco border border-white/[0.06] flex items-center gap-3">
+                    <div className="p-2 rounded-lg bg-emerald-500/10 text-emerald-400">
                         <CheckCircle2 className="w-5 h-5" />
                     </div>
                     <div>
-                        <p className="text-[11px] font-medium text-slate-400 uppercase tracking-wider">
+                        <p className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider">
                             Em Uso
                         </p>
-                        <p className="text-xl font-bold text-emerald-400">{totalEmUso}</p>
+                        <p className="text-lg font-bold text-emerald-400 tabular">{totalEmUso}</p>
                     </div>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-preto-fosco flex items-center gap-3">
-                    <div className="p-2.5 rounded-xl bg-amber-500/10 text-amber-400">
+                <div className="p-3.5 rounded-xl bg-preto-fosco border border-white/[0.06] flex items-center gap-3">
+                    <div className="p-2 rounded-lg bg-amber-500/10 text-amber-400">
                         <AlertTriangle className="w-5 h-5" />
                     </div>
                     <div>
-                        <p className="text-[11px] font-medium text-slate-400 uppercase tracking-wider">
+                        <p className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider">
                             Não Utilizadas (Órfãs)
                         </p>
-                        <p className="text-xl font-bold text-amber-400">{totalOrfas}</p>
+                        <p className="text-lg font-bold text-amber-400 tabular">{totalOrfas}</p>
                     </div>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-preto-fosco flex items-center gap-3">
-                    <div className="p-2.5 rounded-xl bg-blue-500/10 text-blue-400">
+                <div className="p-3.5 rounded-xl bg-preto-fosco border border-white/[0.06] flex items-center gap-3">
+                    <div className="p-2 rounded-lg bg-blue-500/10 text-blue-400">
                         <Folder className="w-5 h-5" />
                     </div>
                     <div>
-                        <p className="text-[11px] font-medium text-slate-400 uppercase tracking-wider">
+                        <p className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider">
                             Tamanho em Disco
                         </p>
-                        <p className="text-xl font-bold text-white">
+                        <p className="text-lg font-bold text-white tabular">
                             {formatarTamanho(tamanhoTotalBytes)}
                         </p>
                     </div>
@@ -155,27 +155,27 @@ export const GaleriaImagens = ({
             </div>
 
             {/* Barra de Filtros */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 p-4 bg-preto-fosco rounded-2xl">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 p-3 sm:p-4 bg-preto-fosco rounded-xl border border-white/[0.06]">
                 {/* Campo de Busca */}
                 <div className="relative flex-1">
-                    <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                    <Search className="w-4 h-4 text-slate-500 absolute left-3 top-1/2 -translate-y-1/2" />
                     <input
                         type="text"
                         value={busca}
                         onChange={(e) => setBusca(e.target.value)}
                         placeholder="Buscar por nome do arquivo ou pasta..."
-                        className="w-full pl-10 pr-4 py-2 bg-preto-escuro rounded-xl text-xs text-white placeholder-slate-500 focus:outline-none focus:border-roxo-principal border border-transparent transition-colors"
+                        className="w-full pl-9 pr-4 py-2.5 bg-preto-escuro rounded-lg text-xs text-white placeholder-slate-500 focus:outline-none focus:border-roxo-principal border border-white/5 transition-colors"
                     />
                 </div>
 
                 <div className="flex flex-wrap items-center gap-2">
                     {/* Filtro por Status */}
-                    <div className="flex bg-preto-escuro p-1 rounded-xl text-xs">
+                    <div className="flex bg-preto-escuro p-1 rounded-lg text-xs">
                         <button
                             onClick={() => setFiltroStatus("todos")}
-                            className={`button-press px-3 py-1.5 rounded-lg font-medium transition-colors ${
+                            className={`button-press px-2.5 py-1.5 rounded-md font-medium transition-colors ${
                                 filtroStatus === "todos"
-                                    ? "grad-btn text-white"
+                                    ? "bg-white/10 text-white"
                                     : "text-slate-400 hover:text-white"
                             }`}
                         >
@@ -183,9 +183,9 @@ export const GaleriaImagens = ({
                         </button>
                         <button
                             onClick={() => setFiltroStatus("utilizadas")}
-                            className={`button-press px-3 py-1.5 rounded-lg font-medium transition-colors ${
+                            className={`button-press px-2.5 py-1.5 rounded-md font-medium transition-colors ${
                                 filtroStatus === "utilizadas"
-                                    ? "bg-emerald-600 text-white"
+                                    ? "bg-emerald-500/20 text-emerald-200"
                                     : "text-slate-400 hover:text-white"
                             }`}
                         >
@@ -193,9 +193,9 @@ export const GaleriaImagens = ({
                         </button>
                         <button
                             onClick={() => setFiltroStatus("orfas")}
-                            className={`button-press px-3 py-1.5 rounded-lg font-medium transition-colors ${
+                            className={`button-press px-2.5 py-1.5 rounded-md font-medium transition-colors ${
                                 filtroStatus === "orfas"
-                                    ? "bg-amber-600 text-white"
+                                    ? "bg-amber-500/20 text-amber-200"
                                     : "text-slate-400 hover:text-white"
                             }`}
                         >
@@ -207,7 +207,7 @@ export const GaleriaImagens = ({
                     <select
                         value={filtroPasta}
                         onChange={(e) => setFiltroPasta(e.target.value)}
-                        className="px-3 py-2 bg-preto-escuro rounded-xl text-xs text-white focus:outline-none focus:border-roxo-principal border border-transparent transition-colors"
+                        className="px-2.5 py-2 bg-preto-escuro rounded-lg text-xs text-white focus:outline-none focus:border-roxo-principal border border-white/5 transition-colors"
                     >
                         <option value="todas">Todas as Pastas</option>
                         {pastasDisponiveis.map((pasta) => (
@@ -221,22 +221,22 @@ export const GaleriaImagens = ({
 
             {/* Grid de Imagens */}
             {imagensFiltradas.length === 0 ? (
-                <div className="text-center py-16 bg-preto-fosco rounded-2xl text-slate-400">
+                <div className="text-center py-14 bg-preto-fosco rounded-xl border border-white/[0.06] text-slate-400">
                     <p className="text-sm">Nenhuma imagem encontrada com os filtros selecionados.</p>
                 </div>
             ) : (
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
                     {imagensFiltradas.map((img) => {
                         const ehCopiado = copiadoUrl === img.url;
 
                         return (
                             <div
                                 key={img.url}
-                                className="group bg-preto-fosco border border-transparent hover:border-roxo-principal/50 rounded-2xl overflow-hidden flex flex-col transition-[border-color]"
+                                className="group bg-preto-fosco border border-white/[0.06] hover:border-roxo-principal/50 rounded-xl overflow-hidden flex flex-col transition-[border-color]"
                             >
                                 {/* Imagem com Preview */}
                                 <div
-                                    className="relative w-full h-44 bg-black/40 overflow-hidden cursor-pointer"
+                                    className="relative w-full h-40 bg-black/40 overflow-hidden cursor-pointer"
                                     onClick={() => setImagemAmpliada(img.url)}
                                 >
                                     <img
@@ -267,7 +267,7 @@ export const GaleriaImagens = ({
                                 </div>
 
                                 {/* Informações do Arquivo */}
-                                <div className="p-3.5 flex-1 flex flex-col justify-between space-y-3">
+                                <div className="p-3 flex-1 flex flex-col justify-between space-y-2.5">
                                     <div>
                                         <h4
                                             className="text-xs font-bold text-white truncate"
@@ -283,7 +283,7 @@ export const GaleriaImagens = ({
 
                                     {/* Se estiver em uso, lista onde está */}
                                     {img.estaEmUso && (
-                                        <div className="p-2 bg-emerald-500/5 border border-emerald-500/20 rounded-xl space-y-1">
+                                        <div className="p-2 bg-emerald-500/5 border border-emerald-500/20 rounded-lg space-y-1">
                                             <p className="text-[10px] font-semibold text-emerald-400 uppercase tracking-wider">
                                                 Vinculada em:
                                             </p>
