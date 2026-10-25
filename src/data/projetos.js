@@ -180,11 +180,11 @@ export const projetos = [
             "capa": "/imagens_projetos/realize-imobiliaria/capa.jpg",
             "banner": "/imagens_projetos/realize-imobiliaria/banner.webp",
             "galeria": [
+                "/imagens_projetos/realize-imobiliaria/capa.jpg",
                 "/imagens_projetos/realize-imobiliaria/destaques.webp",
                 "/imagens_projetos/realize-imobiliaria/imoveis.webp",
                 "/imagens_projetos/realize-imobiliaria/imovel.webp",
-                "/imagens_projetos/realize-imobiliaria/contato.webp",
-                "/imagens_projetos/realize-imobiliaria/capa.jpg"
+                "/imagens_projetos/realize-imobiliaria/contato.webp"
             ]
         },
         "links": [
@@ -233,7 +233,7 @@ export const projetos = [
             "Illustrator",
             "Photoshop"
         ],
-        "destaque": false,
+        "destaque": true,
         "status": "visivel",
         "imagens": {
             "capa": "/imagens_projetos/identidade-visual-loja-de-artesanatos-em-desenvolvimento/capa.jpg",
@@ -484,7 +484,7 @@ export const projetos = [
             "React JS",
             "Photoshop"
         ],
-        "destaque": false,
+        "destaque": true,
         "status": "visivel",
         "imagens": {
             "capa": "/imagens_projetos/landingpage-barbearia-em-desenvolvimento/capa.jpg",
