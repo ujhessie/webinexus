@@ -60,29 +60,36 @@ export const projetos = [
         "links": []
     },
     {
-        "id": "landingpage-barbearia",
-        "titulo": "Landingpage Barbearia",
-        "breveDescricao": "",
-        "descricao": "",
+        "id": "d-dom-navalha",
+        "titulo": "D'Dom Navalha - Site para barbearia",
+        "breveDescricao": "Site de barbearia com hora marcada, preço fechado e agendamento sem ligação.",
+        "descricao": "Site de uma página para uma barbearia de bairro no Centro de São Luís. O objetivo é um só: vender horário na cadeira. Preço e tempo fechados, serviços na carta e um agendamento em quatro passos que o cliente resolve sozinho, sem ligar.\n\nA identidade veio do manual da marca: preto e dourado, títulos em Cinzel, corpo em Montserrat. Sem framework e sem JavaScript, em HTML e CSS puros, com o wizard de agendamento feito só de CSS.\n\nAs cinco fotos somam 1,3 MB e a página se comporta em 1440, 768 e 390 px.",
         "categorias": [
             "sites",
             "uiux",
             "identidade"
         ],
         "tags": [
-            "Figma",
-            "Photoshop"
+            "HTML",
+            "CSS",
+            "Vercel"
         ],
-        "destaque": false,
+        "destaque": true,
         "status": "visivel",
         "imagens": {
-            "capa": "/imagens_projetos/landingpage-barbearia/Frame_2.jpg",
-            "banner": "/imagens_projetos/landingpage-barbearia/Frame_1__1_.jpg",
+            "capa": "/imagens_projetos/d-dom-navalha/capa.jpg",
+            "banner": "/imagens_projetos/d-dom-navalha/banner.jpg",
             "galeria": [
-                "/imagens_projetos/landingpage-barbearia/P__gina_Inicial_Desktop.jpg"
+                "/imagens_projetos/d-dom-navalha/pagina-desktop.jpg"
             ]
         },
-        "links": []
+        "links": [
+            {
+                "texto": "Visitar o site",
+                "url": "https://d-dom-navalha.vercel.app/",
+                "principal": true
+            }
+        ]
     },
     {
         "id": "monthanha-facilities",
@@ -329,7 +336,7 @@ export const projetos = [
             "Photoshop",
             "Illustrator"
         ],
-        "destaque": false,
+        "destaque": true,
         "status": "visivel",
         "imagens": {
             "capa": "/imagens_projetos/social-media-churrascaria/capa.jpg",
@@ -464,30 +471,6 @@ export const projetos = [
         "status": "visivel",
         "imagens": {
             "capa": "/imagens_projetos/loja-virtual-google-planilhas-em-desenvolvimento/capa.jpg",
-            "banner": "",
-            "galeria": []
-        },
-        "links": []
-    },
-    {
-        "id": "landingpage-barbearia-em-desenvolvimento",
-        "titulo": "Landingpage barbearia - Em desenvolvimento",
-        "breveDescricao": "",
-        "descricao": "",
-        "categorias": [
-            "sites",
-            "sistemas",
-            "uiux"
-        ],
-        "tags": [
-            "Figma",
-            "React JS",
-            "Photoshop"
-        ],
-        "destaque": true,
-        "status": "visivel",
-        "imagens": {
-            "capa": "/imagens_projetos/landingpage-barbearia-em-desenvolvimento/capa.jpg",
             "banner": "",
             "galeria": []
         },
